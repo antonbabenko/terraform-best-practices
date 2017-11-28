@@ -2,8 +2,9 @@
 
 This document is an attempt to systematically describe key points in writing good reusable Terraform modules. 
 
-Author: Anton Babenko
-Date: 27.11.2017
+> Author: Anton Babenko
+> Date: 27.11.2017
+
 
 ### STATUS: Requires proof-reading, corrections, additions, not ready for public yet :)
 
@@ -165,3 +166,7 @@ count = "${1 - var.create_public_subnets}"
 1. 
 
 ## Styling
+
+WIP
+
+## Contributions
