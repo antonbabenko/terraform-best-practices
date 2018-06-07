@@ -12,30 +12,44 @@ Date: 1.6.2018
 
 ## Terms of content
 
-1. Concepts
-1. Code structure
-  1. Relations (glue, datasources)
-  1. Examples of directory structure
-1. Naming
-1. Styling
-1. Working as a team
-1. Tools
-1. References
+- Key Concepts
+  - Resource
+  - Resource module
+  - Infrastructure module
+  - Composition
+  - Data sources
+  - Remote state
+  - Provider, provisioner, etc
 
-## Concepts
+- How to structure code?
+  - Relations (glue, datasources)
+  - Examples of directory structure
 
-There are these key concepts:
-* Resource
-* Resource module
-* Infrastructure module
-* Composition
-* Data sources
-* Remote state
-* Provider, provisioner, etc
+- How to collaborate on Terraform code
+
+- Naming
+
+- Formatting
+
+- Tools
+
+- Troubleshooting
+  - General
+  - By command:
+    - terraform init
+    - terraform plan
+    - terraform apply
+    - terraform destroy
+
+- References
+
+- How to contribute?
+
+## Key concepts
 
 ### Resource
 
-Resource is `aws_vpc`, `aws_db_instance`, etc. Resource belongs to provider, accepts arguments, outputs attributes.
+Resource is `aws_vpc`, `aws_db_instance`, etc. Resource belongs to provider, accepts arguments, outputs attributes, has lifecycles. Resource can be created, retrieved, updated, and deleted.
 
 ### Resource module
 
@@ -43,7 +57,7 @@ Resource module is a collection of connected resources which together perform th
 
 ### Infrastructure module
 
-Infrastructure module is a collection of resource modules, which can be logically not connected, but in current situation/project/setup are serving the same purpose. It defines configuration for providers, which is passed to the downstream resource modules and to resources. It is normally limited to work in one entity per logical separator (eg, AWS Region, Google Project). An example is [terraform-aws-atlantis](terraform-aws-atlantis) which uses resource modules like [terraform-aws-vpc](terraform-aws-vpc) and [terraform-aws-security-group](terraform-aws-security-group) to create infrastructure required for running [Atlantis] on AWS Fargate.
+Infrastructure module is a collection of resource modules, which can be logically not connected, but in the current situation/project/setup are serving the same purpose. It defines configuration for providers, which is passed to the downstream resource modules and to resources. It is normally limited to work in one entity per logical separator (eg, AWS Region, Google Project). An example is [terraform-aws-atlantis](terraform-aws-atlantis) which uses resource modules like [terraform-aws-vpc](terraform-aws-vpc) and [terraform-aws-security-group](terraform-aws-security-group) to create infrastructure required for running [Atlantis] on AWS Fargate.
 
 ### Composition
 
@@ -53,7 +67,7 @@ Composition consists of infrastructure modules, which consist of resources modul
 
 ### Data source
 
-Since data source performs read-only operation and is dependant on provider configuration, it is used in a resource module or an infrastructure module.
+Data source performs read-only operation and is dependant on provider configuration, it is used in a resource module and an infrastructure module.
 
 Data source `terraform_remote_state` acts as a glue for higher level modules and compositions. 
 
@@ -65,55 +79,134 @@ Infrastructure modules and compositions should persist their state in a remote l
 
 Providers, provisioners and few other terms are described very well on the official documentation and there is no point to repeat it here. To my opinion they have little to do with writing good Terraform modules.
 
-## Summary (aka "Why so difficult?")
+## Why so difficult?
 
 While individual resources are like atoms in the infrastructure, resource modules are molecules. Module is a smallest versioned and shareable unit. It has exact list of arguments, implement basic logic for such unit to do required function. Eg. terraform-aws-security-group creates aws_security_group and aws_security_group_list based on input. This resource module by itself can be used together with other modules to create infrastructure module.
 
 Access between molecules (resource modules and infrastructure modules) is performed using data sources.
+
+Access between compositions is performed using remote states data sources.
+
+When putting things in pseudo-relations it may look like this:
+
+```
+composition-1 {
+  infrastructure-module-1 {
+    data-source-1
+    
+    resource-module-1 {
+      data-source-2
+      resource-1
+      resource-2
+    }
+
+    resource-module-2 {
+      data-source-3
+      resource-3
+      resource-4
+    }
+  }
+}
+```  
 
 ## Code structure
 
 Putting all code in one file (often `main.tf`) is a good idea when you are getting started or writing an example code. In most of other cases you will be better having several files split logically. Recommended approach is to have:
 1. `main.tf` - call modules, locals and data-sources to create all resources
 1. `variables.tf` - contains declarations of variables used in `main.tf`
-1. `outputs.tf` - contains outputs from the resources created in `main.tf` 
+1. `outputs.tf` - contains outputs from the resources created in `main.tf`
 
 `terraform.tfvars` should not be used anywhere except composition. See example structure below.
 
 ### How to think about structure?
 
-For the simplicity let's split structures by the complexity:
+For the simplicity let's split structures by the complexity - from small to very-large infrastructures. This separation is not strict, so please check other structures also.
 
-1. Small infrastructures
-1. Medium-size infrastructures
-1. Large-size infrastructures
-1. Very-large infrastructures
+Another way of splitting structures provided in this repository is by whether Terraform or Terragrunt is used ([read more about Terragrunt](https://github.com/gruntwork-io/terragrunt#use-cases)).
 
-Also, split by whether Terraform or Terragrunt is used ([read more about Terragrunt](https://github.com/gruntwork-io/terragrunt#use-cases)).
+> Notes:
+> 1. Supported by Atlantis - means if Atlantis recognizes the structure natively
+> 1. Terragrunt-ready - means if Terragrunt is used
 
 ### Terraform code structures
 
-| Type | Description | Supported by Atlantis | Terragrunt-ready? |
-|------|-------------|:----:|:-----:|
-| [small](./examples/small) | Few resources, no external dependencies. Single AWS account. Single region. Single environment. | yes | no |
-| [medium-terraform](./examples/medium-terraform) | Several AWS accounts and environments, off-the-shelf infrastructure modules, composition pattern using Terraform. | yes | no |
-| [medium-terragrunt](./examples/medium-terragrunt) | Several AWS accounts and environments, off-the-shelf infrastructure modules, composition pattern using Terragrunt | yes | yes |
-| [large-terraform](./examples/large-terraform) | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terraform | yes | no |
-| [large-terragrunt](./examples/large-terragrunt) | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terragrunt | yes | no |
-| [very-large-terraform](./examples/very-large-terraform) | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terraform | yes | no |
-| [very-large-terragrunt](./examples/very-large-terragrunt) | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terragrunt | yes | yes |
+| Type | Description | Supported by Atlantis |
+|------|-------------|:----:|
+| [small](./examples/small) | Few resources, no external dependencies. Single AWS account. Single region. Single environment. | yes |
+| [medium-terraform](./examples/medium-terraform) | Several AWS accounts and environments, off-the-shelf infrastructure modules, composition pattern using Terraform. | yes |
+| [large-terraform](./examples/large-terraform) | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terraform | yes |
+| [very-large-terraform](./examples/very-large-terraform) | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terraform | yes |
 
-# @todo: Add pros/cons for each type
+### Terragrunt code structures
 
-## * small
+| Type | Description | Supported by Atlantis |
+|------|-------------|:----:|
+| [medium-terragrunt](./examples/medium-terragrunt) | Several AWS accounts and environments, off-the-shelf infrastructure modules, composition pattern using Terragrunt | yes |
+| [large-terragrunt](./examples/large-terragrunt) | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terragrunt | yes |
+| [very-large-terragrunt](./examples/very-large-terragrunt) | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terragrunt | yes |
 
-Pros:
-Cons:
+#### * small
 
-#### Notes
+##### Pros
 
-1. Supported by Atlantis - means if Atlantis recognizes the structure natively
-1. Terragrunt-ready - means if Terragrunt is used
+- Perfect to get started and refactor as you go 
+- Perfect for all resource modules; good for small and linear infrastructure modules (eg, [terraform-aws-atlantis])
+- Great for small number of resources (less then 20-30)
+
+##### Cons
+
+- Single state file for all resources can make process of working with Terraform slow
+
+#### * medium-terraform
+
+##### Pros
+
+- Something good
+
+##### Cons
+
+- Something bad
+
+#### * medium-terraform
+
+##### Pros
+
+- Something good
+
+##### Cons
+
+- Something bad
+
+#### * medium-terraform
+
+##### Pros
+
+- Something good
+
+##### Cons
+
+- Something bad
+
+#### * medium-terraform
+
+##### Pros
+
+- Something good
+
+##### Cons
+
+- Something bad
+
+#### * medium-terraform
+
+##### Pros
+
+- Something good
+
+##### Cons
+
+- Something bad
+
 
 ## Stackoverflow questions about this:
 
