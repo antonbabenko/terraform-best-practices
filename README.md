@@ -1,21 +1,29 @@
-# Terraform best practices for writing modules
+# Terraform best practices
 
-This document is an attempt to systematically describe key points in writing good reusable Terraform modules. 
+This document is an attempt to systematically describe best practices when using Terraform (and Terraform modules specifically).
 
-> Author: Anton Babenko
-> Date: 27.11.2017
-
+```
+Author: Anton Babenko
+Date: 1.6.2018
+```
 
 ### STATUS: Requires proof-reading, corrections, additions, not ready for public yet :)
 
 
 ## Terms of content
+
 1. Concepts
-1. Examples of directory structure
+1. Code structure
+  1. Relations (glue, datasources)
+  1. Examples of directory structure
 1. Naming
 1. Styling
+1. Working as a team
+1. Tools
+1. References
 
 ## Concepts
+
 There are these key concepts:
 * Resource
 * Resource module
@@ -26,34 +34,98 @@ There are these key concepts:
 * Provider, provisioner, etc
 
 ### Resource
+
 Resource is `aws_vpc`, `aws_db_instance`, etc. Resource belongs to provider, accepts arguments, outputs attributes.
 
 ### Resource module
+
 Resource module is a collection of connected resources which together perform the common action (for eg, [AWS VPC Terraform module](terraform-aws-vpc) creates VPC, subnets, NAT gateway, etc). It depends on provider configuration, which can be defined in it, or in higher level structures (eg, infrastructure module).
 
 ### Infrastructure module
-Infrastructure module is a collection of resource modules, which can be logically not connected, but in current situation/project/setup are serving the same purpose. It defines configuration for providers, which is passed to the downstream resource modules and to resources. It is normally limited to work in one entity per logical separator (eg, AWS Region, Google Project)
+
+Infrastructure module is a collection of resource modules, which can be logically not connected, but in current situation/project/setup are serving the same purpose. It defines configuration for providers, which is passed to the downstream resource modules and to resources. It is normally limited to work in one entity per logical separator (eg, AWS Region, Google Project). An example is [terraform-aws-atlantis](terraform-aws-atlantis) which uses resource modules like [terraform-aws-vpc](terraform-aws-vpc) and [terraform-aws-security-group](terraform-aws-security-group) to create infrastructure required for running [Atlantis] on AWS Fargate.
 
 ### Composition
+
 Composition is a collection of infrastructure modules, which can span across several logically separated areas (eg., AWS Regions, several AWS accounts). Composition is used to describe the complete infrastructure required for the whole organization/project. 
 
 Composition consists of infrastructure modules, which consist of resources modules, which implement individual resources.
 
 ### Data source
+
 Since data source performs read-only operation and is dependant on provider configuration, it is used in a resource module or an infrastructure module.
 
 Data source `terraform_remote_state` acts as a glue for higher level modules and compositions. 
 
 ### Remote state
+
 Infrastructure modules and compositions should persist their state in a remote location which can be reached by others in a controllable way (ACL, versioning, logging).
 
 ### Provider, provisioner, etc
+
 Providers, provisioners and few other terms are described very well on the official documentation and there is no point to repeat it here. To my opinion they have little to do with writing good Terraform modules.
 
-## Why so difficult?
-While individual resources are like atoms in the infrastructure, resource module is a molecule. It is a smallest versioned and shareable unit. It has exact list of arguments, implement basic logic for such unit to do required function. Eg. terraform-aws-security-group creates aws_security_group and aws_security_group_list based on dynamic input. This resource module by itself can be used together with other modules to create infrastructure module.
+## Summary (aka "Why so difficult?")
+
+While individual resources are like atoms in the infrastructure, resource modules are molecules. Module is a smallest versioned and shareable unit. It has exact list of arguments, implement basic logic for such unit to do required function. Eg. terraform-aws-security-group creates aws_security_group and aws_security_group_list based on input. This resource module by itself can be used together with other modules to create infrastructure module.
 
 Access between molecules (resource modules and infrastructure modules) is performed using data sources.
+
+## Code structure
+
+Putting all code in one file (often `main.tf`) is a good idea when you are getting started or writing an example code. In most of other cases you will be better having several files split logically. Recommended approach is to have:
+1. `main.tf` - call modules, locals and data-sources to create all resources
+1. `variables.tf` - contains declarations of variables used in `main.tf`
+1. `outputs.tf` - contains outputs from the resources created in `main.tf` 
+
+`terraform.tfvars` should not be used anywhere except composition. See example structure below.
+
+### How to think about structure?
+
+For the simplicity let's split structures by the complexity:
+
+1. Small infrastructures
+1. Medium-size infrastructures
+1. Large-size infrastructures
+1. Very-large infrastructures
+
+Also, split by whether Terraform or Terragrunt is used ([read more about Terragrunt](https://github.com/gruntwork-io/terragrunt#use-cases)).
+
+### Terraform code structures
+
+| Type | Description | Supported by Atlantis | Terragrunt-ready? |
+|------|-------------|:----:|:-----:|
+| [small](./examples/small) | Few resources, no external dependencies. Single AWS account. Single region. Single environment. | yes | no |
+| [medium-terraform](./examples/medium-terraform) | Several AWS accounts and environments, off-the-shelf infrastructure modules, composition pattern using Terraform. | yes | no |
+| [medium-terragrunt](./examples/medium-terragrunt) | Several AWS accounts and environments, off-the-shelf infrastructure modules, composition pattern using Terragrunt | yes | yes |
+| [large-terraform](./examples/large-terraform) | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terraform | yes | no |
+| [large-terragrunt](./examples/large-terragrunt) | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terragrunt | yes | no |
+| [very-large-terraform](./examples/very-large-terraform) | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terraform | yes | no |
+| [very-large-terragrunt](./examples/very-large-terragrunt) | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terragrunt | yes | yes |
+
+# @todo: Add pros/cons for each type
+
+## * small
+
+Pros:
+Cons:
+
+#### Notes
+
+1. Supported by Atlantis - means if Atlantis recognizes the structure natively
+1. Terragrunt-ready - means if Terragrunt is used
+
+## Stackoverflow questions about this:
+
+- https://stackoverflow.com/questions/50737880/terraform-folder-structure-modules-vs-files
+- https://stackoverflow.com/questions/43201497/terraform-state-management-for-multi-tenancy
+
+/* Not in use for now...
+  1. Relations (glue, datasources)
+  1. Examples of directory structure
+
+как разбивать код по разным папкам и зачем - для создания меньшего плана, по частоте изменений в коде, по тому кто его меняет (люди или роботы), по связям в коде (SG + ресурсы где они используются), по технологиям (openshift, k8s), по названию environment, по проектам
+*/
 
 ## Example of directory structure of composition
 
@@ -85,7 +157,7 @@ Bad: `resource "aws_route_table" "public_aws_route_table" {}`
 Good:
 ```
 resource "aws_route_table" "public" {
-  count = "2"`
+  count = "2"
   
   vpc_id = "vpc-12345678"
   # ... remaining arguments omited
@@ -95,7 +167,7 @@ Bad:
 ```
 resource "aws_route_table" "public" {
   vpc_id = "vpc-12345678"
-  count = "2"`
+  count = "2"
   
   # ... remaining arguments omited
 }
@@ -140,6 +212,7 @@ resource "aws_nat_gateway" "this" {
 ```
 
 1. When using condition in `count` argument use boolean value, if it makes sense, otherwise use `length` or other interpolation.
+
 Good 1:
 ```
 count = "${var.create_public_subnets}"
@@ -156,6 +229,7 @@ count = "${var.dont_need_public_subnets}"
 ```
 
 1. To make inverted conditions don't introduce another variable unless really necessary, use `1 - boolean value`.
+
 Good:
 ```
 count = "${1 - var.create_public_subnets}"
@@ -170,3 +244,16 @@ count = "${1 - var.create_public_subnets}"
 WIP
 
 ## Contributions
+
+You are welcome...
+
+## Authors
+
+This repository is maintained by [Anton Babenko](https://github.com/antonbabenko) and [Betajob](https://github.com/betajob). If you're looking for help or commercial support for Terraform and AWS, send an email to anton@antonbabenko.com.
+
+## License
+
+Apache 2 Licensed. See LICENSE for full details.
+
+Copyright © 2018 Betajob.
+
