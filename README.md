@@ -7,7 +7,7 @@ Author: Anton Babenko
 Date: 1.6.2018
 ```
 
-### STATUS: Requires proof-reading, corrections, additions, not ready for public yet :)
+### STATUS: Requires proof-reading, corrections, additions, not ready for public yet.
 
 
 ## Terms of content
@@ -44,6 +44,18 @@ Date: 1.6.2018
 - References
 
 - How to contribute?
+
+```
+## To describe:
+* monorepo vs several repos (mbt, http get, size)
+* scale-up or scale-down for code structures
+* include and describe terragrunt scripts
+* infrastructure versioning, gitops
+* pipelines (+- Spinnaker)
+* CI-CD in general
+* changelog of this repo, gitbook
+* working with multiple instances of the same providers in close proximity (same infrastructure module). Eg, AWS VPC peering, Route53 zone/records.
+```
 
 ## Key concepts
 
@@ -156,6 +168,7 @@ Another way of splitting structures provided in this repository is by whether Te
 ##### Cons
 
 - Single state file for all resources can make process of working with Terraform slow
+- @todo: When using this with large amount of resources, resource targeting will help (`terraform plan -target=...`).
 
 #### * medium-terraform
 

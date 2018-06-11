@@ -1,6 +1,6 @@
 allowed_account_ids = ["111111111111"]
 
-name = "my-vpc"
+name = "my-prod-vpc"
 
 cidr = "10.10.0.0/16"
 

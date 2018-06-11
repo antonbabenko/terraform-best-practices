@@ -2,6 +2,13 @@ provider "aws" {
   region = "eu-west-1"
 }
 
+terraform {
+  backend "s3" {
+    key = "small-terraform/terraform.tfstate"
+    # ...
+  }
+}
+
 locals {
   create_vpc = "${var.vpc_id == "" ? 1 : 0}"
 }

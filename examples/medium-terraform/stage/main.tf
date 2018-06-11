@@ -5,7 +5,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    key = "medium-terraform/prod/terraform.tfstate"
+    key = "medium-terraform/stage/terraform.tfstate"
     # ...
   }
 }
@@ -22,7 +22,7 @@ module "network" {
 
 module "alb" {
   source = "terraform-aws-modules/alb/aws"
-  version = "v2.0.0"
+  version = "v2.2.0"
 
   #...
 }
