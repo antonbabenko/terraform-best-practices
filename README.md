@@ -49,12 +49,21 @@ Date: 1.6.2018
 ## To describe:
 * monorepo vs several repos (mbt, http get, size)
 * scale-up or scale-down for code structures
+* how to handle secrets in Terraform - https://tosbourn.com/hiding-secrets-terraform/
 * include and describe terragrunt scripts
 * infrastructure versioning, gitops
 * pipelines (+- Spinnaker)
 * CI-CD in general
 * changelog of this repo, gitbook
 * working with multiple instances of the same providers in close proximity (same infrastructure module). Eg, AWS VPC peering, Route53 zone/records.
+* Review how https://github.com/travis-ci/terraform-config is organized (main Makefiles in root, modules, workflow)
+* Couple sentences as a review of Terraform related projects - Atlantis, terragrunt
+* https://youtu.be/ShKNCBDQpd4?t=16m34s - about resource and infrastructure modules
+* https://stackoverflow.com/questions/52134830/using-terraform-modules-for-multiple-regional-api-gateway - and similar questions. Multiple providers aliases should be part of composition (often) rather than individual infra modules.
+* Show example of using `http` and `external` data sources to add missing features from external APIs
+* Cross-regions VPC peering - show example code, external orrationc
+
+terraform-quiz
 ```
 
 ## Key concepts
@@ -81,7 +90,12 @@ Composition consists of infrastructure modules, which consist of resources modul
 
 Data source performs read-only operation and is dependant on provider configuration, it is used in a resource module and an infrastructure module.
 
-Data source `terraform_remote_state` acts as a glue for higher level modules and compositions. 
+Data source `terraform_remote_state` acts as a glue for higher level modules and compositions.
+ 
+The [external](https://www.terraform.io/docs/providers/external/data_source.html) data source allows an external program to act as a data source, exposing arbitrary data for use elsewhere in the Terraform configuration.
+
+The [http](https://www.terraform.io/docs/providers/http/data_source.html) data source makes an HTTP GET request to the given URL and exports information about the response which is often useful to get information from endpoints where native Terraform provider does not exist.
+
 
 ### Remote state
 
@@ -89,7 +103,7 @@ Infrastructure modules and compositions should persist their state in a remote l
 
 ### Provider, provisioner, etc
 
-Providers, provisioners and few other terms are described very well on the official documentation and there is no point to repeat it here. To my opinion they have little to do with writing good Terraform modules.
+Providers, provisioners and few other terms are described very well on the official documentation and there is no point to repeat it here. To my opinion they have little to do with writing good Terraform modules. More details will be provided later.
 
 ## Why so difficult?
 
@@ -104,20 +118,21 @@ When putting things in pseudo-relations it may look like this:
 ```
 composition-1 {
   infrastructure-module-1 {
-    data-source-1
+    data-source-1 => d1
     
     resource-module-1 {
-      data-source-2
-      resource-1
-      resource-2
+      data-source-2 => d2
+      resource-1 (d1, d2)
+      resource-2 (d2)
     }
 
     resource-module-2 {
-      data-source-3
-      resource-3
-      resource-4
+      data-source-3 => d3
+      resource-3 (d1, d3)
+      resource-4 (d3)
     }
   }
+  
 }
 ```  
 
@@ -220,6 +235,7 @@ Another way of splitting structures provided in this repository is by whether Te
 
 - Something bad
 
+## How to 
 
 ## Stackoverflow questions about this:
 
@@ -256,7 +272,7 @@ Another way of splitting structures provided in this repository is by whether Te
    - Bad: `resource "aws_route_table" "public_route_table" {}`
    - Bad: `resource "aws_route_table" "public_aws_route_table" {}`
 
-1. Resource id should be named `this` if there is no more descriptive and general name available, or if resource module creates single resource of this type (eg, there is single resource of type `aws_nat_gateway`, but multiple `aws_route_table`, so `aws_nat_gateway` can be named `this`, but `aws_route_table` should be more descriptive).
+1. Resource id should be named `this` if there is no more descriptive and general name available, or if resource module creates single resource of this type (eg, there is single resource of type `aws_nat_gateway`, but multiple `aws_route_table`, so `aws_nat_gateway` can be named `this`, but `aws_route_table` should be more descriptive - like `private`, `public`, `database`).
 
 1. Include `count` argument inside resource blocks as the first argument at the top and separate by newline after it.
 
@@ -281,6 +297,7 @@ Another way of splitting structures provided in this repository is by whether Te
    ```
 
 1. Include `tags` argument, if supported by resource as the last real argument, following my `depends_on` and `lifecycle`, if necessary. All of these should be separated by single empty line.
+
 
    Good:
    ```
@@ -320,15 +337,18 @@ Another way of splitting structures provided in this repository is by whether Te
 
 1. When using condition in `count` argument use boolean value, if it makes sense, otherwise use `length` or other interpolation.
 
+
    Good 1:
    ```
    count = "${var.create_public_subnets}"
    ```
    
+   
    Good 2:
    ```
    count = "${length(var.public_subnets) > 0 ? 1 : 0}"
    ```
+   
    
    Bad:
    ```
@@ -337,14 +357,15 @@ Another way of splitting structures provided in this repository is by whether Te
 
 1. To make inverted conditions don't introduce another variable unless really necessary, use `1 - boolean value`.
 
+
    Good:
    ```
    count = "${1 - var.create_public_subnets}"
    ```
 
-1. Try to avoid using `-` inside resource ids and make it to match `a-z0-9_`.
+1. Try to avoid using `-` inside resource ids and make it to match `a-z0-9`.
 
-1. 
+1. Use `-` inside arguments values and in places where value will be available to a human (eg, inside DNS name of RDS instance). Use `_` (underscore) in all other cases (in resource names, data source name, variables, outputs, etc). Names should be lowercase and include only letters and numbers.
 
 ## Styling
 
@@ -352,14 +373,18 @@ WIP
 
 ## Contributions
 
-You are welcome...
+You are welcome... 
 
 ## Authors
 
-This repository is maintained by [Anton Babenko](https://github.com/antonbabenko) and [Betajob](https://github.com/betajob). If you're looking for help or commercial support for Terraform and AWS, send an email to anton@antonbabenko.com.
+This repository is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors.
+
+The authors and contributors to this content cannot guarantee the validity of the information found here. Please make sure that you understand that the information provided here is being provided freely, and that no kind of agreement or contract is created between you and any persons associated with this content or project. The authors and contributors do not assume and hereby disclaim any liability to any party for any loss, damage, or disruption caused by errors or omissions in the information contained in, associated with, or linked from this content, whether such errors or omissions result from negligence, accident, or any other cause.
+
+If you're looking for help or commercial support for Terraform and AWS, send an email to anton@antonbabenko.com.
 
 ## License
 
-Apache 2 Licensed. See LICENSE for full details.
+This work is licensed under Apache 2 License. See LICENSE for full details.
 
-Copyright © 2018 Betajob.
+Copyright © 2018 Anton Babenko.
