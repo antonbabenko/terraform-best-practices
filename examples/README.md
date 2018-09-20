@@ -6,8 +6,6 @@
 These examples are showing AWS provider but the majority of principles showed in the examples can be applied to other public cloud providers as well as other kind of providers \(DNS, DB, Monitoring, etc\)
 {% endhint %}
 
-
-
 | Type | Description |
 | :--- | :--- |
 | [small](https://github.com/antonbabenko/terraform-best-practices/tree/5957e997ea023df0f5b27891cef944be74b45706/examples/small/README.md) | Few resources, no external dependencies. Single AWS account. Single region. Single environment. |

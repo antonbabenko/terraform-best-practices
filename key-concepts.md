@@ -73,5 +73,3 @@ composition-1 {
 }
 ```
 
-
-

@@ -40,28 +40,9 @@ Some information described in this book may not seem like the best practices. I 
 * References
 * How to contribute?
 
-## Stackoverflow questions about this:
-
-* [https://stackoverflow.com/questions/50737880/terraform-folder-structure-modules-vs-files](https://stackoverflow.com/questions/50737880/terraform-folder-structure-modules-vs-files)
-* [https://stackoverflow.com/questions/43201497/terraform-state-management-for-multi-tenancy](https://stackoverflow.com/questions/43201497/terraform-state-management-for-multi-tenancy)
-
-/\* Not in use for now... 1. Relations \(glue, datasources\) 1. Examples of directory structure
-
-как разбивать код по разным папкам и зачем - для создания меньшего плана, по частоте изменений в коде, по тому кто его меняет \(люди или роботы\), по связям в коде \(SG + ресурсы где они используются\), по технологиям \(openshift, k8s\), по названию environment, по проектам \*/
-
-## Example of directory structure of composition
-
-```text
-.
-├── README.md
-├── ...
-
-112213 directories, 122110 files
-```
-
 ## Contributions
 
-I want to get feedback and update this document as community mature and new ideas are implemented and verified. 
+I want to get feedback and update this document as community mature and new ideas are implemented and verified.
 
 ## Authors
 
