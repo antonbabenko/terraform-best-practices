@@ -24,18 +24,20 @@ This is one of the questions where lots of solutions exist and it is very hard t
 _Logical providers_ work entirely within Terraform's logic, and doesn't interact with any other services, so we can think about their complexity as O\(1\). Most common logical providers include [random](https://www.terraform.io/docs/providers/random/index.html), [template](https://www.terraform.io/docs/providers/template/index.html), [terraform](https://www.terraform.io/docs/providers/terraform/index.html), [null](https://www.terraform.io/docs/providers/null/index.html).
 {% endhint %}
 
+### Common recommendations for structuring code
 
+* It is easier and faster to work with smaller number of resources
+* Radius blast is smaller with fewer resources
+* \(add links to other blog posts\)
 
 How to structure code?
 
 * Relations \(glue, datasources\)
 * Examples of directory structure
 
-## Code structure
+### Getting started with structuring of Terraform configurations
 
-Putting all code in one file \(often `main.tf`\) is a good idea when you are getting started or writing an example code. In most of other cases you will be better having several files split logically. 
-
-Recommended approach is to have:
+Putting all code in `main.tf` is a good idea when you are getting started or writing an example code. In all other cases you will be better having several files split logically like this:
 
 * `main.tf` - call modules, locals and data-sources to create all resources
 * `variables.tf` - contains declarations of variables used in `main.tf`
@@ -43,7 +45,9 @@ Recommended approach is to have:
 
 `terraform.tfvars` should not be used anywhere except [composition](key-concepts.md#composition). See example structure below.
 
-### How to think about structure?
+## How to think about structure further?
+
+Please make sure that you understand key concepts - [resource module](key-concepts.md#resource-module), [infrastructure module](key-concepts.md#infrastructure-module) and [composition](key-concepts.md#composition), as they will be used in the following examples.
 
 For the simplicity let's split structures by the complexity - from small to very-large infrastructures. This separation is not strict, so please check other structures also.
 

@@ -14,13 +14,15 @@ Resource module is a collection of connected resources which together perform th
 
 ## Infrastructure module
 
-Infrastructure module is a collection of resource modules, which can be logically not connected, but in the current situation/project/setup are serving the same purpose. It defines configuration for providers, which is passed to the downstream resource modules and to resources. It is normally limited to work in one entity per logical separator \(eg, AWS Region, Google Project\). An example is [terraform-aws-atlantis](https://github.com/antonbabenko/terraform-best-practices/tree/5957e997ea023df0f5b27891cef944be74b45706/terraform-aws-atlantis/README.md) which uses resource modules like [terraform-aws-vpc](https://github.com/antonbabenko/terraform-best-practices/tree/5957e997ea023df0f5b27891cef944be74b45706/terraform-aws-vpc/README.md) and [terraform-aws-security-group](https://github.com/antonbabenko/terraform-best-practices/tree/5957e997ea023df0f5b27891cef944be74b45706/terraform-aws-security-group/README.md) to create infrastructure required for running \[Atlantis\] on AWS Fargate.
+Infrastructure module is a collection of resource modules, which can be logically not connected, but in the current situation/project/setup are serving the same purpose. It defines configuration for providers, which is passed to the downstream resource modules and to resources. It is normally limited to work in one entity per logical separator \(eg, AWS Region, Google Project\). An example is [terraform-aws-atlantis](https://github.com/antonbabenko/terraform-best-practices/tree/5957e997ea023df0f5b27891cef944be74b45706/terraform-aws-atlantis/README.md) which uses resource modules like [terraform-aws-vpc](https://github.com/antonbabenko/terraform-best-practices/tree/5957e997ea023df0f5b27891cef944be74b45706/terraform-aws-vpc/README.md) and [terraform-aws-security-group](https://github.com/antonbabenko/terraform-best-practices/tree/5957e997ea023df0f5b27891cef944be74b45706/terraform-aws-security-group/README.md) to create infrastructure required for running [Atlantis](https://www.runatlantis.io) on [AWS Fargate](https://aws.amazon.com/fargate/).
 
 ## Composition
 
-Composition is a collection of infrastructure modules, which can span across several logically separated areas \(eg., AWS Regions, several AWS accounts\). Composition is used to describe the complete infrastructure required for the whole organization/project.
+Composition is a collection of infrastructure modules, which can span across several logically separated areas \(eg., AWS Regions, several AWS accounts\). Composition is used to describe the complete infrastructure required for the whole organization or project.
 
 Composition consists of infrastructure modules, which consist of resources modules, which implement individual resources.
+
+![Simple infrastructure composition](.gitbook/assets/composition-1.png)
 
 ## Data source
 
@@ -40,15 +42,15 @@ Infrastructure modules and compositions should persist their state in a remote l
 
 Providers, provisioners and few other terms are described very well on the official documentation and there is no point to repeat it here. To my opinion they have little to do with writing good Terraform modules. More details will be provided later.
 
-## Why so difficult?
+## Why so _difficult_?
 
-While individual resources are like atoms in the infrastructure, resource modules are molecules. Module is a smallest versioned and shareable unit. It has exact list of arguments, implement basic logic for such unit to do required function. Eg. terraform-aws-security-group creates aws\_security\_group and aws\_security\_group\_list based on input. This resource module by itself can be used together with other modules to create infrastructure module.
+While individual resources are like atoms in the infrastructure, resource modules are molecules. Module is a smallest versioned and shareable unit. It has exact list of arguments, implement basic logic for such unit to do required function. Eg. [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group) creates `aws_security_group` and `aws_security_group_list` resources based on input. This resource module by itself can be used together with other modules to create infrastructure module.
 
 Access between molecules \(resource modules and infrastructure modules\) is performed using data sources.
 
 Access between compositions is performed using remote states data sources.
 
-When putting things in pseudo-relations it may look like this:
+When putting concepts described above in pseudo-relations it may look like this:
 
 ```text
 composition-1 {

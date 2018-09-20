@@ -65,7 +65,9 @@ I want to get feedback and update this document as community mature and new idea
 
 ## Authors
 
-This book is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors.
+This book has been written and maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors.
+
+## Need help?
 
 If you're looking for help or commercial support for Terraform and AWS, send an email to [anton@antonbabenko.com](mailto:anton@antonbabenko.com).
 
