@@ -46,7 +46,7 @@ I want to get feedback and update this document as community mature and new idea
 
 ## Authors
 
-This book has been written and maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors.
+This is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors.
 
 ## Need help?
 

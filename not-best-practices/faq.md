@@ -4,9 +4,9 @@ description: FTP (Frequent Terraform Problems)
 
 # FAQ
 
-## Can I become who I want to be?
+## What are the tools I should be aware and consider using?
 
-That's a tough question but thankfully, our team is on it. Please bear with us while we're investigating.
+Terragrunt, tflint, tfenv, Atlantis, pre-commit-terraform, etc. \(todo: add links to these\)
 
 ## Have you had a chance to answer the previous question?
 
