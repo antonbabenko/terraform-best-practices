@@ -13,40 +13,13 @@ Terraform is powerful \(if not the most powerful out there now\) and one of the 
 
 Some information described in this book may not seem like the best practices. I know this, and to help reader to separate what are established best practices and what is just another opinionated way of doing things, I use hints to provide some context and icons to specify the level of maturity on each subsection related to best practices.
 
-## Terms of content
-
-* Key Concepts
-  * Resource
-  * Resource module
-  * Infrastructure module
-  * Composition
-  * Data sources
-  * Remote state
-  * Provider, provisioner, etc
-* How to structure code?
-  * Relations \(glue, datasources\)
-  * Examples of directory structure
-* How to collaborate on Terraform code
-* Naming
-* Formatting
-* Tools
-* Troubleshooting
-  * General
-  * By command:
-    * terraform init
-    * terraform plan
-    * terraform apply
-    * terraform destroy
-* References
-* How to contribute?
-
 ## Contributions
 
 I want to get feedback and update this document as community mature and new ideas are implemented and verified.
 
 ## Authors
 
-This is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors.
+This book is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors.
 
 ## Need help?
 
