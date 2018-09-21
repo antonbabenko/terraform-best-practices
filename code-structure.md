@@ -49,22 +49,22 @@ Please make sure that you understand key concepts - [resource module](key-concep
 * Keep resource modules as plain as possible
 * Don't hardcode values which can be customised or discovered using data sources 
 * Use data sources and `terraform_remote_state` specifically as a glue between infrastructure modules within composition
-* * \(add links to other blog posts\)
+* \(add links to other blog posts\)
 
-For the simplicity let's group imaginary projects by the _complexity_ - from small to very-large infrastructures. This separation is not strict, so check other structures also.
+We will group imaginary projects by the _complexity_ - from small to very-large infrastructures. This separation is not strict, so check other structures also.
 
 ### Orchestration of infrastructure modules and compositions
 
 Having small infrastructure means that there are small amount of dependencies and few resources. As project grows the need in chaining execution of Terraform configurations, connecting different infrastructure modules, and passing values within composition becomes visible.
 
-There are at least 3 distinct group of orchestration solutions which developers use:
+There are at least 4 distinct group of orchestration solutions which developers use:
 
 1. Terraform only. Very straightforward, developers have to know only Terraform to get job done. 
 2. Terragrunt. Pure orchestration tool which can be used to orchestrate the entire infrastructure as well as handle dependencies. Terragrunt operates with infrastructure modules and compositions natively, so it reduces duplication of code.
 3. In-house scripts. Often this happens as a starting point towards orchestration and before discovering Terragrunt.
 4. Ansible or similar general purpose automation tool. Usually used when Terraform is adopted after Ansible, or when Ansible UI is actively used.
 
-Another way for splitting structures of the project is by whether Terraform or Terragrunt is used.
+So, we have another way for reviewing project structures - whether Terraform or Terragrunt is used.
 
-See examples of code structures for [Terraform](examples/terraform.md) or [Terragrunt](examples/terragrunt.md).
+See examples of code structures for [Terraform](examples/terraform.md) or [Terragrunt](examples/terragrunt.md) in the next chapter.
 
