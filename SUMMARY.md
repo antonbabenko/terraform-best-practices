@@ -12,4 +12,5 @@
   * [Unusual use-cases](not-best-practices/unusual-use-cases.md)
   * [FAQ](not-best-practices/faq.md)
 * [References](references.md)
+* [Writing Terraform configurations](writing-terraform-configurations.md)
 

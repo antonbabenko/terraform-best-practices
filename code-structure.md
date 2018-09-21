@@ -24,11 +24,6 @@ This is one of the questions where lots of solutions exist and it is very hard t
 _Logical providers_ work entirely within Terraform's logic, and doesn't interact with any other services, so we can think about their complexity as O\(1\). Most common logical providers include [random](https://www.terraform.io/docs/providers/random/index.html), [template](https://www.terraform.io/docs/providers/template/index.html), [terraform](https://www.terraform.io/docs/providers/terraform/index.html), [null](https://www.terraform.io/docs/providers/null/index.html).
 {% endhint %}
 
-How to structure code?
-
-* Relations \(glue, datasources\)
-* Examples of directory structure
-
 ## Getting started with structuring of Terraform configurations
 
 Putting all code in `main.tf` is a good idea when you are getting started or writing an example code. In all other cases you will be better having several files split logically like this:
@@ -37,7 +32,7 @@ Putting all code in `main.tf` is a good idea when you are getting started or wri
 * `variables.tf` - contains declarations of variables used in `main.tf`
 * `outputs.tf` - contains outputs from the resources created in `main.tf`
 
-`terraform.tfvars` should not be used anywhere except [composition](key-concepts.md#composition). See example structure below.
+`terraform.tfvars` should not be used anywhere except [composition](key-concepts.md#composition).
 
 ## How to think about Terraform configurations structure?
 
@@ -49,9 +44,12 @@ Please make sure that you understand key concepts - [resource module](key-concep
 
 * It is easier and faster to work with smaller number of resources
 * Radius blast is smaller with fewer resources
-* Use remote state not later than when infrastructure layers starts to grow in any direction \(either number of dependencies or resources\)
+* Use remote state not later than when infrastructure layers starts to grow in any direction \(number of dependencies or resources\)
 * It is possible to move resources in Terraform state file but it may be harder to do if you have inconsistent structure and [naming](naming.md)
-* \(add links to other blog posts\)
+* Keep resource modules as plain as possible
+* Don't hardcode values which can be customised or discovered using data sources 
+* Use data sources and `terraform_remote_state` specifically as a glue between infrastructure modules within composition
+* * \(add links to other blog posts\)
 
 For the simplicity let's group imaginary projects by the _complexity_ - from small to very-large infrastructures. This separation is not strict, so check other structures also.
 
