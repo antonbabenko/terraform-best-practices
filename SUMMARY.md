@@ -9,7 +9,7 @@
     * [Small-size infrastructure with Terraform](examples/terraform-1/terraform.md)
     * [Medium-size infrastructure with Terraform](examples/terraform-1/medium-size-infrastructure.md)
     * [Large-size infrastructure with Terraform](examples/terraform-1/large-size-infrastructure-with-terraform.md)
-* [Naming](naming.md)
+* [Naming \(wip\)](naming.md)
 * [Documentation](documentation.md)
 * [incomplete - Not best practices](not-best-practices/README.md)
   * [Unusual use-cases](not-best-practices/unusual-use-cases.md)
