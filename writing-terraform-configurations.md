@@ -1,7 +1,3 @@
----
-description: Best practices for writing Terraform configurations
----
-
 # Writing Terraform configurations
 
 ## Use `locals` to specify explicit dependencies between resources

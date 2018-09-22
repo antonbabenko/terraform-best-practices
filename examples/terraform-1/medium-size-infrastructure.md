@@ -1,0 +1,30 @@
+---
+description: >-
+  Several AWS accounts and environments, off-the-shelf infrastructure modules
+  using Terraform.
+---
+
+# Medium-size infrastructure with Terraform
+
+Source: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/medium-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/medium-terraform)
+
+This example contains code as an example of structuring Terraform configurations for a medium-size infrastructure which uses:
+
+* 2 AWS accounts
+* 2 separate environments \(`prod` and `stage` which share nothing\). Each environment lives in separate AWS account
+* Each environment uses different version of off-the-shelf infrastructure module \(`alb`\) sourced from [Terraform Registry](https://registry.terraform.io/)
+* Each environment uses the same version of internal module `modules/network` since it is sourced from a local directory.
+
+{% hint style="success" %}
+* Perfect for projects where infrastructure is logically separated \(separate AWS accounts\)
+* Good when there is no is need to modify resources shared between AWS accounts \(one environment = one AWS account = one state file\)
+* Good when there is no need in orchestration of changes between environment
+* Good when infrastructure resources are different per environment on purpose and can't be generalised \(eg, some resources are absent on one environment or in some regions\)
+{% endhint %}
+
+{% hint style="warning" %}
+As project grows, it will be harder to keep these environments up-to-date between each other. Consider using of infrastructure modules \(off-the-shelf or internal\) for repeatable tasks.
+{% endhint %}
+
+## 
+

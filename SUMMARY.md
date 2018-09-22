@@ -1,11 +1,14 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Welcome](README.md)
 * [Key concepts](key-concepts.md)
 * [Code structure](code-structure.md)
 * [Code structure examples](examples/README.md)
-  * [Terraform](examples/terraform.md)
   * [Terragrunt](examples/terragrunt.md)
+  * [Terraform](examples/terraform-1/README.md)
+    * [Small-size infrastructure with Terraform](examples/terraform-1/terraform.md)
+    * [Medium-size infrastructure with Terraform](examples/terraform-1/medium-size-infrastructure.md)
+    * [Large-size infrastructure with Terraform](examples/terraform-1/large-size-infrastructure-with-terraform.md)
 * [Naming](naming.md)
 * [Documentation](documentation.md)
 * [incomplete - Not best practices](not-best-practices/README.md)
