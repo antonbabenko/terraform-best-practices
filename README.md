@@ -10,7 +10,9 @@ description: >-
 
 Terraform is powerful \(if not the most powerful out there now\) and one of the most used tool which allows to manage infrastructure as code. It allows developers to do a lot of things and does not restrict them from doing things in ways which will be hard to support or integrate with.
 
-Some information described in this book may not seem like the best practices. I know this, and to help reader to separate what are established best practices and what is just another opinionated way of doing things, I use hints to provide some context and icons to specify the level of maturity on each subsection related to best practices.
+Some information described in this book may not seem like the best practices. I know this, and to help reader to separate what are established best practices and what is just another opinionated way of doing things, I sometimes use hints to provide some context and icons to specify the level of maturity on each subsection related to best practices.
+
+The book is available for free here - [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com/)
 
 ## Status
 
