@@ -16,7 +16,7 @@ Include nice blueprints by [cloudcraft.co](https://cloudcraft.co)
 
 ## Automatically generated documentation
 
-Using [Terraform pre-commit](https://github.com/antonbabenko/pre-commit-terraform) hooks you can get documentation for your Terraform code up-to-date.
+Using [Terraform pre-commit](https://github.com/antonbabenko/pre-commit-terraform) hooks you can get documentation for your Terraform code up-to-date. Link to [https://www.unixdaemon.net/tools/terraform-precommit-hooks/](https://www.unixdaemon.net/tools/terraform-precommit-hooks/) or other blog post.
 
 
 
