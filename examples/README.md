@@ -1,7 +1,3 @@
----
-description: Examples of infrastructure configurations using Terraform and Terragrunt.
----
-
 # Code structure examples
 
 ## Terraform code structures

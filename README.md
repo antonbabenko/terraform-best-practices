@@ -1,7 +1,8 @@
 ---
 description: >-
-  Welcome to Terraform Best Practice - a guide describing some of best practices
-  for daily usage of Terraform.
+  This document is an attempt to systematically describe best practices using
+  Terraform and provide recommendations for the most frequent problems Terraform
+  users experience.
 ---
 
 # Welcome

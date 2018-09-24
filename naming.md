@@ -1,112 +1,228 @@
-# Naming \(wip\)
+---
+description: 'Naming convention for all variables, outputs, arguments, attributes.'
+---
 
-## Naming
+# Naming conventions
 
-### Naming in modules - resource arguments, variables, outputs
+## General conventions
 
-### resource arguments:
+{% hint style="info" %}
+There should be no reason to not follow at least these :\)
+{% endhint %}
 
-1. Do not repeat resource type in resource id \(not partially, nor completely\)
+1. Use `_` \(underscore\) instead of `-` \(dash\) in all names: resource names, data source names, variables, outputs.
+2. Only use lowercase letters and numbers.
+
+## Resource and data source arguments
+
+1. Do not repeat resource type in resource name \(not partially, nor completely\):
    * Good: `resource "aws_route_table" "public" {}`
    * Bad: `resource "aws_route_table" "public_route_table" {}`
    * Bad: `resource "aws_route_table" "public_aws_route_table" {}`
-2. Resource id should be named `this` if there is no more descriptive and general name available, or if resource module creates single resource of this type \(eg, there is single resource of type `aws_nat_gateway`, but multiple `aws_route_table`, so `aws_nat_gateway` can be named `this`, but `aws_route_table` should be more descriptive - like `private`, `public`, `database`\).
-3. Include `count` argument inside resource blocks as the first argument at the top and separate by newline after it.
+2. Resource name should be named `this` if there is no more descriptive and general name available, or if resource module creates single resource of this type \(eg, there is single resource of type `aws_nat_gateway` and multiple resources of type`aws_route_table`, so `aws_nat_gateway` should be named `this` and `aws_route_table` should have more descriptive names - like `private`, `public`, `database`\).
+3. Always use singular nouns for names.
+4. Use `-` inside arguments values and in places where value will be exposed to a human \(eg, inside DNS name of RDS instance\).
+5. Include `count` argument inside resource blocks as the first argument at the top and separate by newline after it. See [example](naming.md#usage-of-count).
+6. Include `tags` argument, if supported by resource as the last real argument, following my `depends_on` and `lifecycle`, if necessary. All of these should be separated by single empty line. See [example](naming.md#usage-of-tags).
+7. When using condition in `count` argument use boolean value, if it makes sense, otherwise use `length` or other interpolation. See [example](naming.md#conditions-in-count).
+8. To make inverted conditions don't introduce another variable unless really necessary, use `1 - boolean value` instead. For example, `count = "${1 - var.create_public_subnets}"`
 
-Good:
+## Code examples of `resource`
 
+### Usage of `count`
+
+{% hint style="success" %}
+{% code-tabs %}
+{% code-tabs-item title="main.tf" %}
 ```text
-   resource "aws_route_table" "public" {
-     count = "2"
+resource "aws_route_table" "public" {
+  count = "2"
 
-     vpc_id = "vpc-12345678"
-     # ... remaining arguments omited
-   }
+  vpc_id = "vpc-12345678"
+  # ... remaining arguments omited
+}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+{% endhint %}
 
-Bad:
-
+{% hint style="danger" %}
+{% code-tabs %}
+{% code-tabs-item title="main.tf" %}
 ```text
-   resource "aws_route_table" "public" {
-     vpc_id = "vpc-12345678"
-     count = "2"`
+resource "aws_route_table" "public" {
+  vpc_id = "vpc-12345678"
+  count  = "2"
 
-     # ... remaining arguments omited
-   }
+  # ... remaining arguments omited
+}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+{% endhint %}
 
-1. Include `tags` argument, if supported by resource as the last real argument, following my `depends_on` and `lifecycle`, if necessary. All of these should be separated by single empty line.
+### Usage of `tags`
 
-Good:
-
+{% hint style="success" %}
+{% code-tabs %}
+{% code-tabs-item title="main.tf" %}
 ```text
-   resource "aws_nat_gateway" "this" {
-     count = "1"
+resource "aws_nat_gateway" "this" {
+  count = "1"
 
-     allocation_id = "..."
-     subnet_id     = "..."
+  allocation_id = "..."
+  subnet_id     = "..."
 
-     tags = "..."
+  tags = "..."
 
-     depends_on = ["aws_internet_gateway.this"]
+  depends_on = ["aws_internet_gateway.this"]
 
-     lifecycle {
-       create_before_destroy = true
-     }
-   }
+  lifecycle {
+    create_before_destroy = true
+  }
+}   
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+{% endhint %}
 
-Bad:
-
+{% hint style="danger" %}
+{% code-tabs %}
+{% code-tabs-item title="main.tf" %}
 ```text
-   resource "aws_nat_gateway" "this" {
-     count = "1"
+resource "aws_nat_gateway" "this" {
+  count = "1"
 
-     tags = "..."
+  tags = "..."
 
-     depends_on = ["aws_internet_gateway.this"]
+  depends_on = ["aws_internet_gateway.this"]
 
-     lifecycle {
-       create_before_destroy = true
-     }
+  lifecycle {
+    create_before_destroy = true
+  }
 
-     allocation_id = "..."
-     subnet_id     = "..."
-   }
+  allocation_id = "..."
+  subnet_id     = "..."
+}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+{% endhint %}
 
-1. When using condition in `count` argument use boolean value, if it makes sense, otherwise use `length` or other interpolation.
+### Conditions in `count`
 
-Good 1:
+{% hint style="success" %}
+* {% code-tabs %}
+  {% code-tabs-item title="main.tf" %}
+  ```text
+  count = "${length(var.public_subnets) > 0 ? 1 : 0}"
+  ```
+  {% endcode-tabs-item %}
+  {% endcode-tabs %}
+* {% code-tabs %}
+  {% code-tabs-item title="main.tf" %}
+  ```
+  count = "${var.create_public_subnets}"
+  ```
+  {% endcode-tabs-item %}
+  {% endcode-tabs %}
+{% endhint %}
 
+## Variables
+
+1. Don't reinvent the wheel in resource modules - use the same variable names, description and default as defined in "Argument Reference" section for the resource you are working on.
+2. Allow skipping of `type = "list"` declaration if there is `default = []` also.
+3. Allow skipping of `type = "map"` declaration if there is `default = {}` also.
+4. Use plural form in name of variables of type `list`  and `map`.
+5. Order of keys: `description` , `type`, `default` .
+6. Always include `decription` for all variables even if you think it is obvious.
+
+## Outputs
+
+Name for the outputs is important to make consistent and understandable outside of its scope \(when user is using a module it should be obvious what type and attribute of the value is returned\).
+
+1. The general recommendation for the names of outputs is that it should be descriptive for the value it contains and be less free-form than you would normally want.
+2. Good structure for names of output looks like `{name}_{type}_{attribute}` , where:
+   1. `{name}` is a resource or data source name without provider prefix. `{name}` for `aws_subnet` is `subnet`,  for`aws_vpc` it is `vpc`.
+   2. `{type}` is a type of a resource sources
+   3. `{attribute}` is an attribute returned by the output
+   4. [See examples](naming.md#code-examples-of-output).
+3. If output is returning a value with interpolation functions and multiple resources, the `{name}` and `{type}` there should be as generic as possible \(`this`  is often the most generic and should be preferred\). [See example](naming.md#code-examples-of-output).
+4. If the returned value is a list it should have plural name. [See example](naming.md#use-plural-name-if-returning-value-is-type-of-list).
+5. Always include `decription` for all outputs even if you think it is obvious.
+
+### Code examples of `output`
+
+Return at most one ID of security group:
+
+{% hint style="success" %}
+{% code-tabs %}
+{% code-tabs-item title="outputs.tf" %}
 ```text
-   count = "${var.create_public_subnets}"
+output "this_security_group_id" {
+  description = "The ID of the security group"
+  value       = "${element(concat(coalescelist(aws_security_group.this.*.id, aws_security_group.this_name_prefix.*.id), list("")), 0)}"
+}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+{% endhint %}
 
-Good 2:
+When there are multiple resources of the same type, `this` should be preferred and it should be part of name in output, also `another_security_group_id`  should be named `web_security_group_id`:
 
+{% hint style="danger" %}
+{% code-tabs %}
+{% code-tabs-item title="outputs.tf" %}
 ```text
-   count = "${length(var.public_subnets) > 0 ? 1 : 0}"
+output "security_group_id" {
+  description = "The ID of the security group"
+  value       = "${element(concat(coalescelist(aws_security_group.this.*.id, aws_security_group.web.*.id), list("")), 0)}"
+}
+
+output "another_security_group_id" {
+  description = "The ID of web security group"
+  value       = "${element(concat(aws_security_group.web.*.id, list("")), 0)}"
+}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+{% endhint %}
 
-Bad:
+### Use plural name if the returning value is a list
 
+{% hint style="success" %}
+{% code-tabs %}
+{% code-tabs-item title="outputs.tf" %}
 ```text
-   count = "${var.dont_need_public_subnets}"
+output "this_rds_cluster_instance_endpoints" {
+  description = "A list of all cluster instance endpoints"
+  value       = ["${aws_rds_cluster_instance.this.*.endpoint}"]
+}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+{% endhint %}
 
-1. To make inverted conditions don't introduce another variable unless really necessary, use `1 - boolean value`.
+### Conditions in `output`
 
-Good:
+There are two resources of type `aws_db_instance`  with names `this` and `this_mssql` where at most one resource can be created at the same time.
 
+{% hint style="success" %}
+{% code-tabs %}
+{% code-tabs-item title="outputs.tf" %}
 ```text
-   count = "${1 - var.create_public_subnets}"
+output "this_db_instance_id" {
+  description = "The RDS instance ID"
+  value       = "${element(concat(coalescelist(aws_db_instance.this_mssql.*.id, aws_db_instance.this.*.id), list("")), 0)}"
+}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+{% endhint %}
 
-1. Try to avoid using `-` inside resource ids and make it to match `a-z0-9`.
-2. Use `-` inside arguments values and in places where value will be available to a human \(eg, inside DNS name of RDS instance\). Use `_` \(underscore\) in all other cases \(in resource names, data source name, variables, outputs, etc\). Names should be lowercase and include only letters and numbers.
+\*\*\*\*
 
-## Styling
+## **Code style**
 
 WIP
 

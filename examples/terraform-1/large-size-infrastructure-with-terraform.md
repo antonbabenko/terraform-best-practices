@@ -1,9 +1,3 @@
----
-description: >-
-  Many AWS accounts, many regions, urgent need to reduce copy-paste, custom
-  infrastructure modules, heavy usage of compositions. Using Terraform.
----
-
 # Large-size infrastructure with Terraform
 
 Source: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/large-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/large-terraform)

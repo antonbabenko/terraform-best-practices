@@ -1,9 +1,3 @@
----
-description: >-
-  Few resources, no external dependencies. Single AWS account. Single region.
-  Single environment.
----
-
 # Small-size infrastructure with Terraform
 
 Source: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform)

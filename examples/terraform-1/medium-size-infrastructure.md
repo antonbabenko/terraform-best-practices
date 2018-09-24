@@ -1,9 +1,3 @@
----
-description: >-
-  Several AWS accounts and environments, off-the-shelf infrastructure modules
-  using Terraform.
----
-
 # Medium-size infrastructure with Terraform
 
 Source: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/medium-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/medium-terraform)
