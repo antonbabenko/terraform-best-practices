@@ -1,7 +1,3 @@
----
-description: How to keep your Terraform documentation in a good shape
----
-
 # Documentation
 
 ## General tips

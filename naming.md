@@ -1,7 +1,3 @@
----
-description: 'Naming convention for all variables, outputs, arguments, attributes.'
----
-
 # Naming conventions
 
 ## General conventions
@@ -221,8 +217,4 @@ output "this_db_instance_id" {
 {% endhint %}
 
 \*\*\*\*
-
-## **Code style**
-
-WIP
 
