@@ -17,4 +17,5 @@
   * [FAQ](not-best-practices/faq.md)
 * [References](references.md)
 * [Writing Terraform configurations](writing-terraform-configurations.md)
+* [Workshop](workshop.md)
 
