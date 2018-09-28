@@ -16,9 +16,9 @@
 * https://stackoverflow.com/questions/52134830/using-terraform-modules-for-multiple-regional-api-gateway - and similar questions. Multiple providers aliases should be part of composition (often) rather than individual infra modules.
 * Show example of using `http` and `external` data sources to add missing features from external APIs
 * Cross-regions VPC peering - show example code, external orrationc
+* How to handle global AWS organization services in terms of services being applied/shared between other environments, accounts (e.g. cloudtrail, config, some global roles, route53 zones, etc.)
+* Don't use terraform workspaces
 
-Stackoverflow questions about this:https://stackoverflow.com/questions/50737880/terraform-folder-structure-modules-vs-fileshttps://stackoverflow.com/questions/43201497/terraform-state-management-for-multi-tenancy/* Not in use for now... 1. Relations (glue, datasources) 1. Examples of directory structureкак разбивать код по разным папкам и зачем - для создания меньшего плана, по частоте изменений в коде, по тому кто его меняет (люди или роботы), по связям в коде (SG + ресурсы где они используются), по технологиям (openshift, k8s), по названию environment, по проектам */Example of directory structure of composition.├── README.md├── ...
-112213 directories, 122110 files
-
+Stackoverflow questions about this:https://stackoverflow.com/questions/50737880/terraform-folder-structure-modules-vs-fileshttps://stackoverflow.com/questions/43201497/terraform-state-management-for-multi-tenancy
 
 terraform-quiz
