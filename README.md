@@ -7,7 +7,7 @@ description: >-
 
 # Welcome
 
-[Terraform](https://www.terraform.io/) is a fairy new project \(as most of DevOps tools actually\) which was started in 2014.
+[Terraform](https://www.terraform.io/) is a fairly new project \(as most of DevOps tools actually\) which was started in 2014.
 
 Terraform is powerful \(if not the most powerful out there now\) and one of the most used tool which allows to manage infrastructure as code. It allows developers to do a lot of things and does not restrict them from doing things in ways which will be hard to support or integrate with.
 
