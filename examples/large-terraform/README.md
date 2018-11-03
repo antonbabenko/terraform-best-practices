@@ -1,6 +1,6 @@
-# Medium-size infrastructure using Terraform
+# Large-size infrastructure using Terraform
 
-This directory contains code as an example of structuring Terraform configurations for a medium-size infrastructure with several AWS accounts, off-the-shelf infrastructure modules.
+This directory contains code as an example of structuring Terraform configurations for a large-size infrastructure with several AWS accounts, off-the-shelf infrastructure modules.
 
 ## Features
 
