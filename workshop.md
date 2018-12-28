@@ -1,7 +1,3 @@
----
-description: (WIP)
----
-
 # Workshop
 
 There is also a workshop for people who want to practice some of the things described in this guide. 
