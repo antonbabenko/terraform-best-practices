@@ -6,7 +6,8 @@
 There should be no reason to not follow at least these :\)
 {% endhint %}
 
-1. Use `_` \(underscore\) instead of `-` \(dash\) in all names: resource names, data source names, variables, outputs.
+1. Use `_` \(underscore\) instead of `-` \(dash\) in all: resource names, data source names, variable names, outputs.
+  * Beware that actual cloud resources have many hidden restrictions in their naming conventions. Some cannot contain dashes, some must be camel cased. These conventions refer to Terraform names themselves.
 2. Only use lowercase letters and numbers.
 
 ## Resource and data source arguments
@@ -32,7 +33,7 @@ There should be no reason to not follow at least these :\)
 {% code-tabs-item title="main.tf" %}
 ```text
 resource "aws_route_table" "public" {
-  count = "2"
+  count  = "2"
 
   vpc_id = "vpc-12345678"
   # ... remaining arguments omited
@@ -57,19 +58,21 @@ resource "aws_route_table" "public" {
 {% endcode-tabs %}
 {% endhint %}
 
-### Usage of `tags`
+### Placement of `tags`
 
 {% hint style="success" %}
 {% code-tabs %}
 {% code-tabs-item title="main.tf" %}
 ```text
 resource "aws_nat_gateway" "this" {
-  count = "1"
+  count         = "1"
 
   allocation_id = "..."
   subnet_id     = "..."
 
-  tags = "..."
+  tags = {
+    Name = "..."
+  }
 
   depends_on = ["aws_internet_gateway.this"]
 
@@ -127,15 +130,15 @@ resource "aws_nat_gateway" "this" {
 ## Variables
 
 1. Don't reinvent the wheel in resource modules - use the same variable names, description and default as defined in "Argument Reference" section for the resource you are working on.
-2. Allow skipping of `type = "list"` declaration if there is `default = []` also.
-3. Allow skipping of `type = "map"` declaration if there is `default = {}` also.
+2. Omit `type = "list"` declaration if there is `default = []` also.
+3. Omit `type = "map"` declaration if there is `default = {}` also.
 4. Use plural form in name of variables of type `list`  and `map`.
-5. Order of keys: `description` , `type`, `default` .
+5. When defining variables order the keys: `description` , `type`, `default` .
 6. Always include `decription` for all variables even if you think it is obvious.
 
 ## Outputs
 
-Name for the outputs is important to make consistent and understandable outside of its scope \(when user is using a module it should be obvious what type and attribute of the value is returned\).
+Name for the outputs is important to make them consistent and understandable outside of its scope \(when user is using a module it should be obvious what type and attribute of the value is returned\).
 
 1. The general recommendation for the names of outputs is that it should be descriptive for the value it contains and be less free-form than you would normally want.
 2. Good structure for names of output looks like `{name}_{type}_{attribute}` , where:
@@ -143,7 +146,7 @@ Name for the outputs is important to make consistent and understandable outside 
    2. `{type}` is a type of a resource sources
    3. `{attribute}` is an attribute returned by the output
    4. [See examples](naming.md#code-examples-of-output).
-3. If output is returning a value with interpolation functions and multiple resources, the `{name}` and `{type}` there should be as generic as possible \(`this`  is often the most generic and should be preferred\). [See example](naming.md#code-examples-of-output).
+3. If output is returning a value with interpolation functions and multiple resources, the `{name}` and `{type}` there should be as generic as possible \(`this` is often the most generic and should be preferred\). [See example](naming.md#code-examples-of-output).
 4. If the returned value is a list it should have plural name. [See example](naming.md#use-plural-name-if-returning-value-is-type-of-list).
 5. Always include `decription` for all outputs even if you think it is obvious.
 
