@@ -19,7 +19,7 @@ There should be no reason to not follow at least these :\)
 3. Always use singular nouns for names.
 4. Use `-` inside arguments values and in places where value will be exposed to a human \(eg, inside DNS name of RDS instance\).
 5. Include `count` argument inside resource blocks as the first argument at the top and separate by newline after it. See [example](naming.md#usage-of-count).
-6. Include `tags` argument, if supported by resource as the last real argument, following my `depends_on` and `lifecycle`, if necessary. All of these should be separated by single empty line. See [example](naming.md#usage-of-tags).
+6. Include `tags` argument, if supported by resource as the last real argument, following by `depends_on` and `lifecycle`, if necessary. All of these should be separated by single empty line. See [example](naming.md#usage-of-tags).
 7. When using condition in `count` argument use boolean value, if it makes sense, otherwise use `length` or other interpolation. See [example](naming.md#conditions-in-count).
 8. To make inverted conditions don't introduce another variable unless really necessary, use `1 - boolean value` instead. For example, `count = "${1 - var.create_public_subnets}"`
 
