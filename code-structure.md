@@ -75,4 +75,3 @@ There are at least 4 distinct groups of orchestration solutions which developers
 With that in mind we will reviewing the first two of these project structures, Terraform only and Terragrunt.
 
 See examples of code structures for [Terraform](examples/terraform.md) or [Terragrunt](examples/terragrunt.md) in the next chapter.
-
