@@ -220,4 +220,3 @@ output "this_db_instance_id" {
 {% endhint %}
 
 \*\*\*\*
-
