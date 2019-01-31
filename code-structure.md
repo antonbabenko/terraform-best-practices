@@ -43,28 +43,36 @@ Please make sure that you understand key concepts - [resource module](key-concep
 ### Common recommendations for structuring code
 
 * It is easier and faster to work with smaller number of resources
-* Radius blast is smaller with fewer resources
-* Use remote state not later than when infrastructure layers starts to grow in any direction \(number of dependencies or resources\)
-* It is possible to move resources in Terraform state file but it may be harder to do if you have inconsistent structure and [naming](naming.md)
+  * `terraform plan` and `terraform apply` both make cloud API calls to verify the status of resources
+  * If you have your entire infrastructure in a single composition this can take many minutes
+* Blast radius is smaller with fewer resources
+  * Insulating unrelated resources from each other by placing them in separate compositions reduces the risk if something goes wrong
+* Start your project using remote state
+  * Your laptop is no place for your infrastructure source of truth
+  * Managing a tfstate file in git is a nightmare
+  * Later when infrastructure layers starts to grow in any direction \(number of dependencies or resources\)
+* Try to practise a consistent structure and [naming](naming.md) convention
+  * Like procedural code, Terraform code should be written for people to read first, consistency will help when changes happen six months from now
+  * It is possible to move resources in Terraform state file but it may be harder to do if you have inconsistent structure and naming
 * Keep resource modules as plain as possible
-* Don't hardcode values which can be customised or discovered using data sources 
+* Don't hardcode values which can be passed as variables or discovered using data sources
 * Use data sources and `terraform_remote_state` specifically as a glue between infrastructure modules within composition
 * \(add links to other blog posts\)
 
-We will group imaginary projects by the _complexity_ - from small to very-large infrastructures. This separation is not strict, so check other structures also.
+We will group example projects by the _complexity_ - from small to very-large infrastructures. This separation is not strict, so check other structures also.
 
 ### Orchestration of infrastructure modules and compositions
 
-Having small infrastructure means that there are small amount of dependencies and few resources. As project grows the need in chaining execution of Terraform configurations, connecting different infrastructure modules, and passing values within composition becomes visible.
+Having small infrastructure means that there are a small number of dependencies and few resources. As the project grows the need to chain the execution of Terraform configurations, connecting different infrastructure modules, and passing values within a composition becomes visible.
 
-There are at least 4 distinct group of orchestration solutions which developers use:
+There are at least 4 distinct groups of orchestration solutions which developers use:
 
 1. Terraform only. Very straightforward, developers have to know only Terraform to get job done. 
 2. Terragrunt. Pure orchestration tool which can be used to orchestrate the entire infrastructure as well as handle dependencies. Terragrunt operates with infrastructure modules and compositions natively, so it reduces duplication of code.
 3. In-house scripts. Often this happens as a starting point towards orchestration and before discovering Terragrunt.
 4. Ansible or similar general purpose automation tool. Usually used when Terraform is adopted after Ansible, or when Ansible UI is actively used.
 
-So, we have another way for reviewing project structures - whether Terraform or Terragrunt is used.
+With that in mind we will reviewing the first two of these project structures, Terraform only and Terragrunt.
 
 See examples of code structures for [Terraform](examples/terraform.md) or [Terragrunt](examples/terragrunt.md) in the next chapter.
 
