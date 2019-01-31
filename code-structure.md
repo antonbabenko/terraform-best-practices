@@ -66,5 +66,5 @@ There are at least 4 distinct group of orchestration solutions which developers 
 
 So, we have another way for reviewing project structures - whether Terraform or Terragrunt is used.
 
-See examples of code structures for [Terraform](examples/terraform-1/terraform.md) or [Terragrunt](examples/terragrunt.md) in the next chapter.
+See examples of code structures for [Terraform](examples/terraform.md) or [Terragrunt](examples/terragrunt.md) in the next chapter.
 

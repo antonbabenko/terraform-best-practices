@@ -2,10 +2,11 @@
 
 ## To describe:
 * monorepo vs several repos (mbt, http get, size) for terraform code
-  - Should app and infra live together? When yes and when no?
+  - Should app and infra live together? When yes and when no? https://apparently.me.uk/terraform-environment-application-pattern/overview.html
 * scale-up or scale-down for code structures
 * how to handle secrets in Terraform - https://tosbourn.com/hiding-secrets-terraform/
-* shared terraform state for environments
+* shared terraform state for environments 
+  - add better and real examples for workspaces - https://www.terraform.io/docs/state/workspaces.html#when-to-use-multiple-workspaces
 * integration with Ansible (via dynamic inventory) vs AWS launch configuration's user_data
 * include and describe terragrunt scripts
 * infrastructure versioning, gitops
@@ -25,6 +26,7 @@
 * Safe way to manage critical infra components (EIP, VPC, RDS, for eg) with prevent_destroy = true + IAM policy (Deny)
 * infrastructure testing options
 * describe ways to integrate modules (eg, as I did in terraform-aws-atlantis - BYO resources, create new, standalone)
+* describe modules in details with examples - infrastructure modules and resource modules
 
 Stackoverflow questions about this:https://stackoverflow.com/questions/50737880/terraform-folder-structure-modules-vs-fileshttps://stackoverflow.com/questions/43201497/terraform-state-management-for-multi-tenancy
 
