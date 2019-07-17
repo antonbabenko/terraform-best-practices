@@ -13,4 +13,4 @@ This code illustrates how it is possible to:
 
 ## See also
 
-Check [Terraform Best Practices](https://www.terraform-best-practices/) for more information about naming, code style and tips for most common problems.
+Check [Terraform Best Practices](https://www.terraform-best-practices.com/) for more information about naming, code style and tips for most common problems.
