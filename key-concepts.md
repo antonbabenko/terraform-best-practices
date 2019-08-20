@@ -46,9 +46,9 @@ Providers, provisioners and few other terms are described very well on the offic
 
 While individual resources are like atoms in the infrastructure, resource modules are molecules. Module is a smallest versioned and shareable unit. It has exact list of arguments, implement basic logic for such unit to do required function. Eg. [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group) creates `aws_security_group` and `aws_security_group_list` resources based on input. This resource module by itself can be used together with other modules to create infrastructure module.
 
-Access between molecules \(resource modules and infrastructure modules\) is performed using data sources.
+Access to data accross molecules \(resource modules and infrastructure modules\) is performed using (module) outputs and data sources.
 
-Access between compositions is performed using remote states data sources.
+Access between compositions is performed using remote state data sources.
 
 When putting concepts described above in pseudo-relations it may look like this:
 
