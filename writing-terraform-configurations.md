@@ -6,11 +6,35 @@ Helpful way to give a hint to Terraform that some resources should be deleted be
 
 [https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf](https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf)
 
+## Terraform 0.12 - Required vs Optional arguments
 
+1. Required argument `index_document` must be set, if `var.website` is not an empty map.
+1. Optional argument `error_document` can be omitted.
 
-## Have you had a chance to answer the previous question?
+main.tf:
+```
+variable "website" {
+  type    = map(string)
+  default = {}
+}
 
-Yes, after a few months we finally found the answer. Sadly, Mike is on vacations right now so I'm afraid we are not able to provide the answer at this point.
+resource "aws_s3_bucket" "this" {
+  # omitted...
 
+  dynamic "website" {
+    for_each = length(keys(var.website)) == 0 ? [] : [var.website]
 
+    content {
+      index_document = website.value.index_document
+      error_document = lookup(website.value, "error_document", null)
+    }
+  }
+}
+```
 
+terraform.tfvars:
+```
+website = {
+  index_document = "index.html"
+}
+```

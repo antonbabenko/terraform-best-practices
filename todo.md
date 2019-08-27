@@ -15,6 +15,7 @@
 * changelog of this repo, gitbook
 * working with multiple instances of the same providers in close proximity (same infrastructure module). Eg, AWS VPC peering, Route53 zone/records.
 * Review how https://github.com/travis-ci/terraform-config is organized (main Makefiles in root, modules, workflow)
+  - add links to modules collections like https://github.com/wellcometrust/terraform-modules and Telia-oss
 * Couple sentences as a review of Terraform related projects - Atlantis, terragrunt
 * https://youtu.be/ShKNCBDQpd4?t=16m34s - about resource and infrastructure modules
 * https://stackoverflow.com/questions/52134830/using-terraform-modules-for-multiple-regional-api-gateway - and similar questions. Multiple providers aliases should be part of composition (often) rather than individual infra modules.
