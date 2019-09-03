@@ -23,7 +23,7 @@
 
 - Perfect to get started and refactor as you go 
 - Perfect for all resource modules; good for small and linear infrastructure modules (eg, [terraform-aws-atlantis])
-- Great for small number of resources (less then 20-30)
+- Great for small number of resources (fewer than 20-30)
 
 ##### Cons
 
