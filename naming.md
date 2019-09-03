@@ -36,7 +36,7 @@ resource "aws_route_table" "public" {
   count  = "2"
 
   vpc_id = "vpc-12345678"
-  # ... remaining arguments omited
+  # ... remaining arguments omitted
 }
 ```
 {% endcode-tabs-item %}
@@ -51,7 +51,7 @@ resource "aws_route_table" "public" {
   vpc_id = "vpc-12345678"
   count  = "2"
 
-  # ... remaining arguments omited
+  # ... remaining arguments omitted
 }
 ```
 {% endcode-tabs-item %}
@@ -134,7 +134,7 @@ resource "aws_nat_gateway" "this" {
 3. Omit `type = "map"` declaration if there is `default = {}` also.
 4. Use plural form in name of variables of type `list`  and `map`.
 5. When defining variables order the keys: `description` , `type`, `default` .
-6. Always include `decription` for all variables even if you think it is obvious.
+6. Always include `description` for all variables even if you think it is obvious.
 
 ## Outputs
 
@@ -148,7 +148,7 @@ Name for the outputs is important to make them consistent and understandable out
    4. [See examples](naming.md#code-examples-of-output).
 3. If output is returning a value with interpolation functions and multiple resources, the `{name}` and `{type}` there should be as generic as possible \(`this` is often the most generic and should be preferred\). [See example](naming.md#code-examples-of-output).
 4. If the returned value is a list it should have plural name. [See example](naming.md#use-plural-name-if-returning-value-is-type-of-list).
-5. Always include `decription` for all outputs even if you think it is obvious.
+5. Always include `description` for all outputs even if you think it is obvious.
 
 ### Code examples of `output`
 

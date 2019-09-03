@@ -8,7 +8,7 @@ This example contains code as an example of structuring Terraform configurations
 * Perfect to get started and refactor as you go 
 * Perfect for small resource modules
 * Good for small and linear infrastructure modules \(eg, [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis)\)
-* Good for small number of resources \(less then 20-30\)
+* Good for small number of resources \(fewer than 20-30\)
 {% endhint %}
 
 {% hint style="warning" %}
