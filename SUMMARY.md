@@ -2,9 +2,9 @@
 
 * [Welcome](README.md)
 * [Key concepts](key-concepts.md)
-  * [Resource modules](resource-modules.md)
-  * [Infrastructure modules](infrastructure-modules.md)
-  * [Compositions](compositions.md)
+  * [Resource modules](key-concepts/resource-modules.md)
+  * [Infrastructure modules](key-concepts/infrastructure-modules.md)
+  * [Compositions](key-concepts/compositions.md)
 * [Code structure](code-structure.md)
 * [Code structure examples](examples/README.md)
   * [Terragrunt](examples/terragrunt.md)
