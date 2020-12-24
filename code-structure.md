@@ -55,7 +55,7 @@ Please make sure that you understand key concepts - [resource module](key-concep
   * Like procedural code, Terraform code should be written for people to read first, consistency will help when changes happen six months from now
   * It is possible to move resources in Terraform state file but it may be harder to do if you have inconsistent structure and naming
 * Keep resource modules as plain as possible
-* Don't hardcode values which can be passed as variables or discovered using data sources
+* Don't hardcode values which can be passed as variables or discovered using data sources when creating modules that will be used by others
 * Use data sources and `terraform_remote_state` specifically as a glue between infrastructure modules within composition
 * \(add links to other blog posts\)
 
