@@ -6,7 +6,11 @@ description: FTP (Frequent Terraform Problems)
 
 ## What are the tools I should be aware and consider using?
 
-Terragrunt, tflint, tfenv, Atlantis, pre-commit-terraform, etc. \(todo: add links to these\)
+ - **[Terragrunt](https://terragrunt.gruntwork.io/)** - Orchestration tool
+ - **[tflint](https://github.com/terraform-linters/tflint)** - Code linter
+ - **[tfenv](https://github.com/tfutils/tfenv)** - Version manager
+ - **[Atlantis](https://www.runatlantis.io/)** - Pull Request automation 
+ - **[pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform)** - Collection of git hooks for Terraform to be used with [pre-commit framework](https://pre-commit.com/)
 
 ## Have you had a chance to answer the previous question?
 
