@@ -1,4 +1,4 @@
-# Notes about code styling and documentation
+# Code styling
 
 {% hint style="success" %}
 * Examples and Terraform modules should contain documentation explaining features and how to use them.
@@ -11,7 +11,7 @@
 
 ### Automatically generated documentation
 
-[pre-commit](https://pre-commit.com/) is a framework for managing and maintaining multi-language pre-commit hooks. It is written in Python and is a powerful tool to do something automatically on developer's machine before code is committed to git repository. Normally, it is used run linters and format code (see [supported hooks](https://pre-commit.com/hooks.html)).
+[pre-commit](https://pre-commit.com) is a framework for managing and maintaining multi-language pre-commit hooks. It is written in Python and is a powerful tool to do something automatically on developer's machine before code is committed to git repository. Normally, it is used run linters and format code (see [supported hooks](https://pre-commit.com/hooks.html)).
 
 With Terraform configurations pre-commit can be used to format and validate code, as well as to update documentation.
 
@@ -21,8 +21,10 @@ Check out [pre-commit-terraform repository](https://github.com/antonbabenko/pre-
 
 [terraform-docs](https://github.com/segmentio/terraform-docs) is a tool which does generation of documentation from Terraform modules in various output formats. You can run it manually (without pre-commit hooks), or using [pre-commit-terraform hooks](https://github.com/antonbabenko/pre-commit-terraform) to get documentation updated automatically.
 
+@todo: Document module versions, release, GH actions
+
 ## Resources
 
-1. [pre-commit framework homepage](https://pre-commit.com/)
-1. [Collection of git hooks for Terraform to be used with pre-commit framework](https://github.com/antonbabenko/pre-commit-terraform)
-1. Blog post by [Dean Wilson](https://github.com/deanwilson): [pre-commit hooks and terraform - a safety net for your repositories](https://www.unixdaemon.net/tools/terraform-precommit-hooks/)
+1. [pre-commit framework homepage](https://pre-commit.com)
+2. [Collection of git hooks for Terraform to be used with pre-commit framework](https://github.com/antonbabenko/pre-commit-terraform)
+3. Blog post by [Dean Wilson](https://github.com/deanwilson): [pre-commit hooks and terraform - a safety net for your repositories](https://www.unixdaemon.net/tools/terraform-precommit-hooks/)

@@ -2,13 +2,10 @@
 
 * [Welcome](README.md)
 * [Key concepts](key-concepts.md)
-  * [Resource modules](key-concepts/resource-modules.md)
-  * [Infrastructure modules](key-concepts/infrastructure-modules.md)
-  * [Compositions](key-concepts/compositions.md)
 * [Code structure](code-structure.md)
 * [Code structure examples](examples/README.md)
   * [Terragrunt](examples/terragrunt.md)
-  * [Terraform](examples/terraform.md)
+  * [Terraform](examples/terraform/README.md)
     * [Small-size infrastructure with Terraform](examples/terraform/small-size-infrastructure.md)
     * [Medium-size infrastructure with Terraform](examples/terraform/medium-size-infrastructure.md)
     * [Large-size infrastructure with Terraform](examples/terraform/large-size-infrastructure-with-terraform.md)
@@ -20,4 +17,3 @@
 * [References](references.md)
 * [Writing Terraform configurations](writing-terraform-configurations.md)
 * [Workshop](workshop.md)
-
