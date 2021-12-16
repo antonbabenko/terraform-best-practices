@@ -6,7 +6,7 @@ Everything is simple and a good start for proof of concepts, hobby projects and 
 
 ## Features
 
-This code illustrates how it is possible to:
+This code illustrates how to:
 
 1. Create new VPC and Internet Gateway
 1. Specify existing VPC and attach Internet Gateway to it 

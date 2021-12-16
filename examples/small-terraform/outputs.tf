@@ -1,4 +1,4 @@
-output "this_vpc_id" {
-  description = "The ID of the VPC"
-  value       = "${coalescelist(data.aws_vpc.selected.*.id, aws_vpc.this.*.id)}"
+output "vpc_id" {
+  description = "ID of the VPC"
+  value       = try(data.aws_vpc.selected[0].id, aws_vpc.this[0].id)
 }
