@@ -19,8 +19,8 @@ A few years later it has been updated with more actual best practices available 
 
 ## Translations
 
-{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/D440IbeO4vxZpA715aMx/" %}
-[Español](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/D440IbeO4vxZpA715aMx/)
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/fTxekzr50pIuGmrPkXUD/" %}
+[Español](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/fTxekzr50pIuGmrPkXUD/)
 {% endcontent-ref %}
 
 ## Contributions
