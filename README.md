@@ -9,19 +9,13 @@ description: >-
 
 [Terraform](https://www.terraform.io) is a fairly new project (as most DevOps tools actually) that was started in 2014.
 
-Terraform is powerful (if not the most powerful out there now) and one of the most used tools which allows to manage infrastructure as code. It allows developers to do a lot of things and does not restrict them from doing things in ways that will be hard to support or integrate with.
+Terraform is powerful (if not the most powerful out there now) and one of the most used tools which allow management infrastructure as code. It allows developers to do a lot of things and does not restrict them from doing things in ways that will be hard to support or integrate with.
 
 Some information described in this book may not seem like the best practices. I know this, and to help readers to separate what are established best practices and what is just another opinionated way of doing things, I sometimes use hints to provide some context and icons to specify the level of maturity on each subsection related to best practices.
 
 The book has started in sunny Madrid in 2018 and is available for free here - [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com) .
 
 A few years later it has been updated with more actual best practices available with Terraform 1.0. Eventually, this book should contain most of the indisputable best practices and recommendations for Terraform users.
-
-## Translations
-
-{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/fTxekzr50pIuGmrPkXUD/" %}
-[Español](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/fTxekzr50pIuGmrPkXUD/)
-{% endcontent-ref %}
 
 ## Contributions
 
