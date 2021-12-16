@@ -9,10 +9,10 @@ Helpful way to give a hint to Terraform that some resources should be deleted be
 ## Terraform 0.12 - Required vs Optional arguments
 
 1. Required argument `index_document` must be set, if `var.website` is not an empty map.
-1. Optional argument `error_document` can be omitted.
+2. Optional argument `error_document` can be omitted.
 
-main.tf:
-```
+{% code title="main.tf" %}
+```hcl
 variable "website" {
   type    = map(string)
   default = {}
@@ -31,10 +31,12 @@ resource "aws_s3_bucket" "this" {
   }
 }
 ```
+{% endcode %}
 
-terraform.tfvars:
-```
+{% code title="terraform.tfvars" %}
+```hcl
 website = {
   index_document = "index.html"
 }
 ```
+{% endcode %}
