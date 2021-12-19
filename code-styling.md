@@ -2,7 +2,7 @@
 
 {% hint style="info" %}
 * Examples and Terraform modules should contain documentation explaining features and how to use them.
-* Links on the Terraform Registry website are relevant and will not work, so use absolute paths in README.md.
+* All links in README.md files should be absolute to make Terraform Registry website show them correctly.
 * Documentation may include diagrams created with [mermaid](https://github.com/mermaid-js/mermaid) and blueprints created with [cloudcraft.co](https://cloudcraft.co).
 * Use [Terraform pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform) to make sure that the code is valid, properly formatted, and automatically documented before it is pushed to git and reviewed by humans.
 {% endhint %}
