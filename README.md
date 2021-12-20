@@ -27,7 +27,7 @@ If you are interested in certain topics please [open an issue](https://github.co
 
 This book is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors and translators.
 
-Contact me ([email](https://app.gitbook.com/u/564c621e10276010007cd30b) or [twitter](https://twitter.com/antonbabenko)) if you want to translate this book.
+Contact me ([email](mailto:anton@antonbabenko.com) or [twitter](https://twitter.com/antonbabenko)) if you want to translate this book.
 
 ## License
 
