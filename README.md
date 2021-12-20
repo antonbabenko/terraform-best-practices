@@ -37,8 +37,8 @@ This book is maintained by [Anton Babenko](https://github.com/antonbabenko) with
 
 ## Sponsors
 
-| ![](.gitbook/assets/cluster-dev-logo-site.png) | [Cluster.dev](http://cluster.dev) — the only manager for cloud-native infrastructures. |
-| ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/cluster-dev-logo-site.png)](https://cluster.dev) | [Cluster.dev](http://cluster.dev) — the only manager for cloud-native infrastructures. |
+| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 
 ## License
 
