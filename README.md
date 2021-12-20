@@ -17,6 +17,14 @@ The book has started in sunny Madrid in 2018 and is available for free here - [h
 
 A few years later it has been updated with more actual best practices available with Terraform 1.0. Eventually, this book should contain most of the indisputable best practices and recommendations for Terraform users.
 
+## Translations
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/fTxekzr50pIuGmrPkXUD/" %}
+[Español](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/fTxekzr50pIuGmrPkXUD/)
+{% endcontent-ref %}
+
+Contact me if you want to help translate this book into other languages.
+
 ## Contributions
 
 I always want to get feedback and update this book as the community mature and new ideas are implemented and verified over time.
@@ -26,8 +34,6 @@ If you are interested in certain topics please [open an issue](https://github.co
 ## Authors
 
 This book is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors and translators. [Abel López](https://www.linkedin.com/in/abelopz/) <mark style="color:blue;"></mark> translated it into <mark style="color:purple;"></mark> Spanish.
-
-Contact me ([email](mailto:anton@antonbabenko.com) or [twitter](https://twitter.com/antonbabenko)) if you want to translate this book.
 
 ## License
 
