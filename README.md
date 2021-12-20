@@ -25,7 +25,7 @@ If you are interested in certain topics please [open an issue](https://github.co
 
 ## Authors
 
-This book is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors and translators.
+This book is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors and translators. [<mark style="color:purple;">Abel López</mark>](https://www.linkedin.com/in/abelopz/) translated it into <mark style="color:purple;"></mark> Spanish.
 
 Contact me ([email](mailto:anton@antonbabenko.com) or [twitter](https://twitter.com/antonbabenko)) if you want to translate this book.
 
