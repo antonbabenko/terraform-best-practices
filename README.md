@@ -35,6 +35,11 @@ If you are interested in certain topics please [open an issue](https://github.co
 
 This book is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors and translators. [Abel López](https://www.linkedin.com/in/abelopz/) <mark style="color:blue;"></mark> translated it into <mark style="color:purple;"></mark> Spanish.
 
+## Sponsors
+
+| ![](.gitbook/assets/cluster-dev-logo-site.png) | [Cluster.dev](http://cluster.dev) — the only manager for cloud-native infrastructures. |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+
 ## License
 
 This work is licensed under Apache 2 License. See LICENSE for full details.
