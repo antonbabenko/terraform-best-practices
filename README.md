@@ -23,6 +23,10 @@ Años después, ha sido actualizado incluyendo a más de las mejores prácticas 
 [English](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/e1Mp2scOX6OnQbifCen3/)
 {% endcontent-ref %}
 
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/ZLCz7lNWbSJxDGuNOI44/" %}
+[Indonesian](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/ZLCz7lNWbSJxDGuNOI44/)
+{% endcontent-ref %}
+
 Contáctame ([<mark style="color:purple;">email</mark>](mailto:anton@antonbabenko.com) o [<mark style="color:purple;">twitter</mark>](https://twitter.com/antonbabenko)) si te gustaría traducirlo.
 
 ## **Contribuciones**
