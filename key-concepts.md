@@ -48,7 +48,7 @@ Penyedia, pengada, dan beberapa istilah lainnya dijabarkan dengan baik pada doku
 
 ## Kok susah ya?
 
-Ketika sumber daya - sumber daya individu diandaikan seperti atom di infrastruktur, maka modul sumber daya adalah molekul. Modul adalah unit terkecil yang dapat diversikan dan dibagikan. Modul memiliki daftar argumen yang tepat dan mengimplementasi logik dasar untuk unit tersebut sehingga dapat menjalankan fungsinya. Contohnya adalah modul [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group). Modul ini menciptakan sumber daya `aws_security_group` dan `aws_security_group_list` berdasarkan masukan yang diberikan. Modul sumber daya ini sendiri bisa digunakan bersamaan dengan modul-modul lain untuk menciptakan modul infrastruktur.
+Ketika sumber daya - sumber daya individu diandaikan seperti atom di infrastruktur, maka modul sumber daya adalah molekul. Modul adalah unit terkecil yang dapat diversikan dan dibagikan. Modul memiliki daftar argumen yang tepat dan mengimplementasi logik dasar untuk unit tersebut sehingga dapat menjalankan fungsinya. Contohnya adalah modul [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group). Modul ini menciptakan sumber daya `aws_security_group` dan `aws_security_group_rule` berdasarkan masukan yang diberikan. Modul sumber daya ini sendiri bisa digunakan bersamaan dengan modul-modul lain untuk menciptakan modul infrastruktur.
 
 Akses terhadap data lintas molekul (modul sumber daya dan infrastruktur) dilakukan menggunakan keluaran modul dan sumber data.
 
