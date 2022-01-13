@@ -48,7 +48,7 @@ Providers, provisioners, and a few other terms are described very well on the of
 
 ## Why so _difficult_?
 
-While individual resources are like atoms in the infrastructure, resource modules are molecules. A module is the smallest versioned and shareable unit. It has an exact list of arguments, implement basic logic for such a unit to do the required function. Eg. [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group) module creates `aws_security_group` and `aws_security_group_list` resources based on input. This resource module by itself can be used together with other modules to create the infrastructure module.
+While individual resources are like atoms in the infrastructure, resource modules are molecules. A module is the smallest versioned and shareable unit. It has an exact list of arguments, implement basic logic for such a unit to do the required function. Eg. [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group) module creates `aws_security_group` and `aws_security_group_rule` resources based on input. This resource module by itself can be used together with other modules to create the infrastructure module.
 
 Access to data across molecules (resource modules and infrastructure modules) is performed using the modules' outputs and data sources.
 
