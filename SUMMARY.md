@@ -7,7 +7,7 @@
   * [Terragrunt](examples/terragrunt.md)
   * [Terraform](examples/terraform/README.md)
     * [Малорозмірна структура із Terraform](examples/terraform/small-size-infrastructure.md)
-    * [Medium-size infrastructure with Terraform](examples/terraform/medium-size-infrastructure.md)
+    * [Середня інфраструктура з Terraform](examples/terraform/medium-size-infrastructure.md)
     * [Large-size infrastructure with Terraform](examples/terraform/large-size-infrastructure-with-terraform.md)
 * [Naming conventions](naming.md)
 * [Code styling](code-styling.md)
