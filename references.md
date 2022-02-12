@@ -1,13 +1,13 @@
-# References
+# Посилання
 
 {% hint style="info" %}
-There are a lot of people who create great content and manage open-source projects relevant to the Terraform community but I can't think of the best structure to get these links listed here without copying lists like [awesome-terraform](https://github.com/shuaibiyy/awesome-terraform).
+Є багато людей, які створюють чудовий контент і керують проектами з відкритим кодом, що мають відношення до спільноти Terraform, але я не можу думати про найкращу структуру, не згадавши посилання, перераховані тут, а також без копіювання списків, наприклад таких як [awesome-terraform](https://github.com/shuaibiyy/awesome-terraform).
 {% endhint %}
 
-[https://twitter.com/antonbabenko/lists/terraform-experts](https://twitter.com/antonbabenko/lists/terraform-experts) - List of people who work with Terraform very actively and can tell you a lot (if you ask them).
+[https://twitter.com/antonbabenko/lists/terraform-experts](https://twitter.com/antonbabenko/lists/terraform-experts) - Список людей, які дуже активно працюють з Terraform і можуть багато розповісти (якщо їх запитати).
 
-[https://github.com/shuaibiyy/awesome-terraform](https://github.com/shuaibiyy/awesome-terraform) - Curated list of resources on HashiCorp's Terraform.
+[https://github.com/shuaibiyy/awesome-terraform](https://github.com/shuaibiyy/awesome-terraform) - Кураторський список ресурсів на HashiCorp's Terraform.
 
-[http://bit.ly/terraform-youtube](http://bit.ly/terraform-youtube) - "Your Weekly Dose of Terraform" YouTube channel by Anton Babenko. Live streams with reviews, interviews, Q\&A, live coding, and some hacking with Terraform.
+[http://bit.ly/terraform-youtube](http://bit.ly/terraform-youtube) - YouTube-канал «Ваша щотижнева доза Terraform» від Антона Бабенка. Прямі трансляції з оглядами, інтерв’ю, запитаннями й відповідями, кодуванням у прямому ефірі та деякими лайф-хаками за допомогою Terraform.
 
-[https://weekly.tf](https://weekly.tf) - Terraform Weekly newsletter. Various news in the Terraform world (projects, announcements, discussions) by Anton Babenko.
+[https://weekly.tf](https://weekly.tf) - Terraform Weekly newsletter. Різні новини у світі Terraform (проекти, анонси, дискусії) від Антона Бабенка.

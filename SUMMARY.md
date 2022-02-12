@@ -12,6 +12,6 @@
 * [Naming conventions](naming.md)
 * [Code styling](code-styling.md)
 * [FAQ](faq.md)
-* [References](references.md)
+* [Посилання](references.md)
 * [Writing Terraform configurations](writing-terraform-configurations.md)
 * [Workshop](workshop.md)
