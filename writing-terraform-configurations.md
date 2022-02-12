@@ -2,7 +2,7 @@
 
 ## Використовуйте `locals` щоб вказати явні залежності між ресурсами
 
-Корисний спосіб дати підказку Terraform про те, що деякі ресурси слід видалити раніше, навіть якщо немає прямої залежності в конфігураціях Terraform.
+Корисний спосіб дати підказку Terraform про те, що деякі ресурси слід видаляти раніше, навіть якщо немає прямої залежності в конфігураціях Terraform.
 
 [https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf](https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf)
 
