@@ -1,15 +1,15 @@
-# Writing Terraform configurations
+# Написання конфігурацій Terraform
 
-## Use `locals` to specify explicit dependencies between resources
+## Використовуйте `locals` щоб вказати явні залежності між ресурсами
 
-Helpful way to give a hint to Terraform that some resources should be deleted before even when there is no direct dependency in Terraform configurations.
+Корисний спосіб дати підказку Terraform про те, що деякі ресурси слід видалити раніше, навіть якщо немає прямої залежності в конфігураціях Terraform.
 
 [https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf](https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf)
 
-## Terraform 0.12 - Required vs Optional arguments
+## Terraform 0.12 - Обов’язкові та необов’язкові аргументи
 
-1. Required argument `index_document` must be set, if `var.website` is not an empty map.
-2. Optional argument `error_document` can be omitted.
+1. Обов'язковий аргумент `index_document`необхідно встановити, якщо `var.website -` це не порожній map
+2. Необов'язковий аргумент`error_document` можна пропустити.
 
 {% code title="main.tf" %}
 ```hcl

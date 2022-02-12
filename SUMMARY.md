@@ -13,5 +13,5 @@
 * [Code styling](code-styling.md)
 * [FAQ](faq.md)
 * [Посилання](references.md)
-* [Writing Terraform configurations](writing-terraform-configurations.md)
+* [Написання конфігурацій Terraform](writing-terraform-configurations.md)
 * [Workshop](workshop.md)
