@@ -4,20 +4,20 @@ description: FTP (Frequent Terraform Problems)
 
 # FAQ
 
-## What are the tools I should be aware and consider using?
+## Які інструменти я повинен знати та розглянути можливість їх використання?
 
-* [**Terragrunt**](https://terragrunt.gruntwork.io) - Orchestration tool
-* [**tflint**](https://github.com/terraform-linters/tflint) - Code linter
-* [**tfenv**](https://github.com/tfutils/tfenv) - Version manager
-* [**Atlantis**](https://www.runatlantis.io) - Pull Request automation
-* [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - Collection of git hooks for Terraform to be used with [pre-commit framework](https://pre-commit.com)
+* [**Terragrunt**](https://terragrunt.gruntwork.io) - Інструмент оркестрування
+* [**tflint**](https://github.com/terraform-linters/tflint) - Код лінтер
+* [**tfenv**](https://github.com/tfutils/tfenv) - Менеджер версій
+* [**Atlantis**](https://www.runatlantis.io) - Автоматизація Pull Request
+* [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - Колекція git hooks для Terraform, щоб використовувати із [pre-commit framework](https://pre-commit.com)
 
-## Have you had a chance to answer the previous question?
+## Чи була у вас можливість відповісти на попереднє запитання?
 
-Yes, after a few months we finally found the answer. Sadly, Mike is on vacations right now so I'm afraid we are not able to provide the answer at this point.
+Так, через кілька місяців ми нарешті знайшли відповідь. На жаль, Майк зараз у відпустці, тому я боюся, що ми не зможемо дати відповідь на даний момент.
 
-## What are the solutions to [dependency hell](https://en.wikipedia.org/wiki/Dependency\_hell) with modules?
+## Які є рішення щодо [пекла залежностей](https://en.wikipedia.org/wiki/Dependency\_hell) з модулями?
 
-Versions of resource and infrastructure modules should be specified. Providers should be configured outside of modules, but only in composition. Version of providers and Terraform can be locked also.
+Необхідно вказувати версії ресурсних та інфраструктурних модулів. Постачальники повинні бути налаштовані за межами модулів, але тільки у композиції. Також можна заблокувати версії провайдерів і Terraform.
 
-There is no master dependency management tool, but there are some tips to make dependency hell less problematic. For example, [Dependabot](https://dependabot.com) can be used to automate dependency updates. Dependabot creates pull requests to keep your dependencies secure and up-to-date. Dependabot supports Terraform configurations.
+Головного інструменту керування залежностями немає, але є кілька порад, щоб зробити пекло залежностей менш проблематичним. Наприклад, [Dependabot](https://dependabot.com) можна використовувати для автоматизації оновлень залежностей. Dependabot створює pull requests, щоб підтримувати ваші залежності в безпеці та актуальності. Dependabot підтримує конфігурації Terraform.
