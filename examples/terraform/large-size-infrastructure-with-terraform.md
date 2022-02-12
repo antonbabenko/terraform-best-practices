@@ -1,28 +1,28 @@
-# Large-size infrastructure with Terraform
+# Велика структура Terraform
 
-Source: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/large-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/large-terraform)
+Джерело: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/large-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/large-terraform)
 
-This example contains code as an example of structuring Terraform configurations for a large-size infrastructure which uses:
+Цей приклад містить код як приклад структурування конфігурацій Terraform для інфраструктури великого розміру, яка використовує:
 
-* 2 AWS accounts
-* 2 regions
-* 2 separate environments (`prod` and `stage` which share nothing). Each environment lives in a separate AWS account and span resources between 2 regions
-* Each environment uses a different version of the off-the-shelf infrastructure module (`alb`) sourced from [Terraform Registry](https://registry.terraform.io)
-* Each environment uses the same version of an internal module `modules/network` since it is sourced from a local directory.
+* 2 AWS акаунти
+* 2 регіона
+* 2 окремих середовища (`prod` та `stage, у яких немає нічого спільного`). Кожне середовище живе в окремому акаунті AWS і охоплює ресурси між 2 регіонами
+* Кожне середовище використовує різну версію готового інфраструктурного модуля (alb), отриманого з [Terraform Registry](https://registry.terraform.io)
+* Кожне середовище використовує одинакову версію модулів/мережі внутрішнього модуля, оскільки джерело отримане з локального каталогу.
 
 {% hint style="info" %}
-In a large project like described here the benefits of using Terragrunt become very visible. See [Code Structures examples with Terragrunt](../terragrunt.md).
+У великому проекті, як описано тут, переваги використання Terragrunt стають дуже помітними. Перегляньте [Code Structures examples with Terragrunt](../terragrunt.md).
 {% endhint %}
 
 {% hint style="success" %}
-* Perfect for projects where infrastructure is logically separated (separate AWS accounts)
-* Good when there is no is need to modify resources shared between AWS accounts (one environment = one AWS account = one state file)
-* Good when there is no need for the orchestration of changes between the environments
-* Good when infrastructure resources are different per environment on purpose and can't be generalized (eg, some resources are absent in one environment or in some regions)
+* Ідеально підходить для проектів, де інфраструктура логічно розділена (окремі акаунти AWS)
+* Добре, коли немає необхідності змінювати ресурси, спільні між акаунтами AWS (одне середовище = один акаунт AWS = один файл стану)
+* Добре, коли немає потреби в оркестровці змін між середовищами
+* Добре, коли ресурси інфраструктури відрізняються для кожного середовища спеціально і не можуть бути узагальнені (наприклад, деякі ресурси відсутні в одному середовищі або в деяких регіонах)
 {% endhint %}
 
 {% hint style="warning" %}
-As the project grows, it will be harder to keep these environments up-to-date with each other. Consider using infrastructure modules (off-the-shelf or internal) for repeatable tasks.
+Із розвитком проекту буде все важче підтримувати ці середовища в актуальному стані одне з одним. Подумайте про використання інфраструктурних модулів (готових або внутрішніх) для повторюваних завдань.
 {% endhint %}
 
 ##
