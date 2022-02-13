@@ -35,7 +35,7 @@
 6. Включайте аргумент `tags,`якщо це підтримується ресурсом, як останній реальний аргумент, наступний за `depends_on` та `lifecycle`, якщо необхідно. Всі вони повинні бути розділені одним порожнім рядком.
 7. При використанні умов в аргументі`count` / `for_each`віддавайте перевагу логічним значенням замість використання `length` або інших виразів.
 
-## Приклади коду ресурсу
+## Приклади коду ресурсів
 
 ### Використання `count` / `for_each`
 
@@ -136,19 +136,19 @@ resource "aws_nat_gateway" "this" {    # Good
 
 ## Змінні
 
-1. Don't reinvent the wheel in resource modules: use `name`, `description`, and `default` value for variables as defined in the "Argument Reference" section for the resource you are working with.
-2. Support for validation in variables is rather limited (e.g. can't access other variables or do lookups). Plan accordingly because in many cases this feature is useless.
-3. Use the plural form in a variable name when type is `list(...)` or `map(...)`.
-4. Order keys in a variable block like this: `description` , `type`, `default`, `validation`.
-5. Always include `description` on all variables even if you think it is obvious (you will need it in the future).
-6. Prefer using simple types (`number`, `string`, `list(...)`, `map(...)`, `any`) over specific type like `object()` unless you need to have strict constraints on each key.
-7. Use specific types like `map(map(string))` if all elements of the map have the same type (e.g. `string`) or can be converted to it (e.g. `number` type can be converted to `string`).
-8. Use type `any` to disable type validation starting from a certain depth or when multiple types should be supported.
-9. Value `{}` is sometimes a map but sometimes an object. Use `tomap(...)` to make a map because there is no way to make an object.
+1. Не винаходьте велосипед у ресурсних модулях: використовуйте `name`, `description і` `default` значення для змінних, як зазначено в розділі «Довідник аргументів» для ресурсу, з яким ви працюєте.
+2. Підтримка перевірки змінних досить обмежена (наприклад, не можна отримати доступ до інших змінних або виконати пошук). Плануйте відповідно, тому що в багатьох випадках ця функція не корисна.
+3. Використовуйте форму множини в імені змінної, якщо тип є `list(...)` or `map(...)`.
+4. Упорядковуйте ключі у змінному блоці, як описано далі: `description` , `type`, `default`, `validation`.
+5. Завжди включайте `description` для всіх змінних, навіть якщо ви думаєте, що це очевидно (це знадобиться вам у майбутньому).
+6. Віддавайте перевагу використанню простих типів (`number`, `string`, `list(...)`, `map(...),` над спеціальними, як наприклад `object(),` якщо вам не потрібні жорсткі обмеження для кожного ключа.
+7. Використовуйте спеціальні типи, наприклад `map(map(string))` якщо всі елементи у map мають одинаковий тип (наприклад, `string`) або можна конвертувати в нього (наприклад тип `number` можна конвертувати у `string`).
+8. Використовуйте тип `any` щоб відключити перевірку типу, починаючи з певної глибини або коли має підтримуватися декілька типів.
+9. Значенння `{}` це іноді map, а іноді - object. Використовуйте `tomap(...)` щоб зробити map, тому що немає можливості зробити об'єкт.
 
-## Outputs
+## Вихідна дані
 
-Make outputs consistent and understandable outside of its scope (when a user is using a module it should be obvious what type and attribute of the value it returns).
+Робіть вихідні дані узгодженими і зрозумілими за межами їх області (коли користувач використовує модуль, має бути очевидним, який тип і атрибут значення він повертає).
 
 1. The name of output should describe the property it contains and be less free-form than you would normally want.
 2. Good structure for the name of output looks like `{name}_{type}_{attribute}` , where:
