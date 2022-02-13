@@ -1,4 +1,4 @@
-# Умови найменування
+# Умови найменувань
 
 ## Загальні умови
 
@@ -15,7 +15,7 @@
 
 ## Аргументи ресурсів і джерел даних
 
-1.  Не повторюйте тип ресурсу в назві ресурсу (ні частково ні повністю):
+1.  Не повторюйте тип ресурсу в назві ресурсу (ні частково, ні повністю):
 
     {% hint style="success" %}
     `resource "aws_route_table" "public" {}`
@@ -28,16 +28,16 @@
     {% hint style="danger" %}
     `resource "aws_route_table" "public_aws_route_table" {}`
     {% endhint %}
-2. Resource name should be named `this` if there is no more descriptive and general name available, or if the resource module creates a single resource of this type (eg, in [AWS VPC module](https://github.com/terraform-aws-modules/terraform-aws-vpc) there is a single resource of type `aws_nat_gateway` and multiple resources of type`aws_route_table`, so `aws_nat_gateway` should be named `this` and `aws_route_table` should have more descriptive names - like `private`, `public`, `database`).
+2. Ім'я ресурсу повинно називатись `this,` якщо немає більш описової та загальної назви, або якщо модуль ресурсів створює один ресурс цього типу (наприклад, у [AWS VPC module](https://github.com/terraform-aws-modules/terraform-aws-vpc) існує єдиний ресурс типу `aws_nat_gateway` і декілька типів ресурсів`aws_route_table`, так що `aws_nat_gateway` має бути названий `this` і `aws_route_table` повинен мати більш описову назву - наприклад приватний, публічний, база даних).
 3. Завжди використовуйте іменники в однині для імен.
-4. Використовуйте - всередині значень аргументів і в місцях, де значення буде доступне для людини (наприклад, всередині імені DNS екземпляра RDS).
-5. Include argument `count` / `for_each` inside resource or data source block as the first argument at the top and separate by newline after it.
-6. Include argument `tags,` if supported by resource, as the last real argument, following by `depends_on` and `lifecycle`, if necessary. All of these should be separated by a single empty line.
-7. When using conditions in an argument`count` / `for_each` prefer boolean values instead of using `length` or other expressions.
+4. Використання - всередині значень аргументів і в місцях, де значення буде доступне для людини (наприклад, всередині імені DNS екземпляра RDS).
+5. Включайте аргумент `count` / `for_each` всередині блоку ресурсу або джерела даних як перший аргумент угорі та розділяйте новим рядком після нього.
+6. Включайте аргумент `tags,`якщо це підтримується ресурсом, як останній реальний аргумент, наступний за `depends_on` та `lifecycle`, якщо необхідно. Всі вони повинні бути розділені одним порожнім рядком.
+7. При використанні умов в аргументі`count` / `for_each`віддавайте перевагу логічним значенням замість використання `length` або інших виразів.
 
-## Code examples of `resource`
+## Приклади коду ресурсу
 
-### Usage of `count` / `for_each`
+### Використання `count` / `for_each`
 
 {% hint style="success" %}
 {% code title="main.tf" %}
@@ -72,7 +72,7 @@ resource "aws_route_table" "public" {
 {% endcode %}
 {% endhint %}
 
-### Placement of `tags`
+### Розміщення тегів
 
 {% hint style="success" %}
 {% code title="main.tf" %}
@@ -118,7 +118,7 @@ resource "aws_nat_gateway" "this" {
 {% endcode %}
 {% endhint %}
 
-### Conditions in `count`
+### Умови в`count`
 
 {% hint style="success" %}
 {% code title="outputs.tf" %}
@@ -134,7 +134,7 @@ resource "aws_nat_gateway" "this" {    # Good
 {% endcode %}
 {% endhint %}
 
-## Variables
+## Змінні
 
 1. Don't reinvent the wheel in resource modules: use `name`, `description`, and `default` value for variables as defined in the "Argument Reference" section for the resource you are working with.
 2. Support for validation in variables is rather limited (e.g. can't access other variables or do lookups). Plan accordingly because in many cases this feature is useless.

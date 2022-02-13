@@ -9,7 +9,7 @@
     * [Малорозмірна структура із Terraform](examples/terraform/small-size-infrastructure.md)
     * [Середня інфраструктура з Terraform](examples/terraform/medium-size-infrastructure.md)
     * [Велика структура Terraform](examples/terraform/large-size-infrastructure-with-terraform.md)
-* [Умови найменування](naming.md)
+* [Умови найменувань](naming.md)
 * [Стиль коду](code-styling.md)
 * [FAQ](faq.md)
 * [Посилання](references.md)
