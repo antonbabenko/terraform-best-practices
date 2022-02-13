@@ -138,7 +138,7 @@ resource "aws_nat_gateway" "this" {    # Good
 
 1. Не винаходьте велосипед у ресурсних модулях: використовуйте `name`, `description і` `default` значення для змінних, як зазначено в розділі «Довідник аргументів» для ресурсу, з яким ви працюєте.
 2. Підтримка перевірки змінних досить обмежена (наприклад, не можна отримати доступ до інших змінних або виконати пошук). Плануйте відповідно, тому що в багатьох випадках ця функція не корисна.
-3. Використовуйте форму множини в імені змінної, якщо тип є `list(...)` or `map(...)`.
+3. Використовуйте форму множини в імені змінної, якщо тип є `list(...)` або `map(...)`.
 4. Упорядковуйте ключі у змінному блоці, як описано далі: `description` , `type`, `default`, `validation`.
 5. Завжди включайте `description` для всіх змінних, навіть якщо ви думаєте, що це очевидно (це знадобиться вам у майбутньому).
 6. Віддавайте перевагу використанню простих типів (`number`, `string`, `list(...)`, `map(...),` над спеціальними, як наприклад `object(),` якщо вам не потрібні жорсткі обмеження для кожного ключа.
@@ -146,25 +146,25 @@ resource "aws_nat_gateway" "this" {    # Good
 8. Використовуйте тип `any` щоб відключити перевірку типу, починаючи з певної глибини або коли має підтримуватися декілька типів.
 9. Значенння `{}` це іноді map, а іноді - object. Використовуйте `tomap(...)` щоб зробити map, тому що немає можливості зробити об'єкт.
 
-## Вихідна дані
+## Вихідні дані
 
 Робіть вихідні дані узгодженими і зрозумілими за межами їх області (коли користувач використовує модуль, має бути очевидним, який тип і атрибут значення він повертає).
 
-1. The name of output should describe the property it contains and be less free-form than you would normally want.
-2. Good structure for the name of output looks like `{name}_{type}_{attribute}` , where:
-   1. `{name}` is a resource or data source name without a provider prefix. `{name}` for `aws_subnet` is `subnet`, for`aws_vpc` it is `vpc`.
-   2. `{type}` is a type of a resource sources
-   3. `{attribute}` is an attribute returned by the output
-   4. [See examples](naming.md#code-examples-of-output).
-3. If the output is returning a value with interpolation functions and multiple resources, `{name}` and `{type}` there should be as generic as possible (`this` as prefix should be omitted). [See example](naming.md#code-examples-of-output).
-4. If the returned value is a list it should have a plural name. [See example](naming.md#use-plural-name-if-the-returning-value-is-a-list).
-5. Always include `description` for all outputs even if you think it is obvious.
-6. Avoid setting `sensitive` argument unless you fully control usage of this output in all places in all modules.
-7. Prefer `try()` (available since Terraform 0.13) over `element(concat(...))` (legacy approach for the version before 0.13)
+1. Ім’я виводу має описувати властивість, яке він містить, і бути менш вільною формою, ніж ви зазвичай хотіли б.
+2. Хороша структура назви виводу виглядає так `{name}_{type}_{attribute}` , де:
+   1. `{name}` це ім’я ресурсу або джерела даних без префікса постачальника. `{name}` для `aws_subnet` - це `subnet`, для`aws_vpc` - це `vpc`.
+   2. `{type}` є різновидом джерела ресурсів
+   3. `{attribute}` є атрибутом, який повертає вихідні дані
+   4. [Перегляньте приклади](naming.md#code-examples-of-output).
+3. Якщо вихідні дані повертають значення з функціями інтерполяції та кількома ресурсами, `{name}` і `{type},вони`мають бути якомога загальнішими (це як префікс слід пропустити). [Перегляньте приклади](naming.md#code-examples-of-output).
+4. Якщо повертається значення у вигляді списка, воно повинно мати назву у множині. [Перегляньте приклади](naming.md#use-plural-name-if-the-returning-value-is-a-list).
+5. Завжди включайте `description` для всіх результатів, навіть якщо ви думаєте, що це очевидно.
+6. Уникайте налаштування `чутливих` аргументів, якщо ви повністю не контролюєте використання цього виводу в усіх місцях і у всіх модулях.
+7. Віддавайте перевагу`try()` (доступний з Terraform 0.13) над `element(concat(...))` (застарілий підхід для версій до 0.13)
 
-### Code examples of `output`
+### Приклади коду вихідних даних
 
-Return at most one ID of security group:
+Повертає щонайбільше один ідентифікатор із групи безпеки:
 
 {% hint style="success" %}
 {% code title="outputs.tf" %}
@@ -177,7 +177,7 @@ output "security_group_id" {
 {% endcode %}
 {% endhint %}
 
-When having multiple resources of the same type, `this` should be omitted in the name of output:
+Якщо є декілька ресурсів одного типу, це слід пропустити в назві виводу:
 
 {% hint style="danger" %}
 {% code title="outputs.tf" %}
@@ -190,7 +190,7 @@ output "this_security_group_id" {
 {% endcode %}
 {% endhint %}
 
-### Use plural name if the returning value is a list
+### Використовуйте назви у множині, якщо повернене значення є списком
 
 {% hint style="success" %}
 {% code title="outputs.tf" %}
