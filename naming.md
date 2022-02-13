@@ -7,10 +7,10 @@
 {% endhint %}
 
 {% hint style="info" %}
-Beware that actual cloud resources often have restrictions in allowed names. Some resources, for example, can't contain dashes, some must be camel-cased. The conventions in this book refer to Terraform names themselves.
+Майте на увазі, що реальні хмарні ресурси часто мають обмеження у дозволених іменах. Деякі ресурси, наприклад, не можуть містити тире, деякі мають бути у формі camel-cased. Умови в цій книзі посилаються на самі імена Terraform.
 {% endhint %}
 
-1. Use `_` (underscore) instead of `-` (dash) everywhere (resource names, data source names, variable names, outputs, etc).
+1. Використовуйте `_` (підкреслення) замість `-` (тире) всюди (імена ресурсів, імена джерел даних, імена змінних, вихідні дані тощо).
 2. Prefer to use lowercase letters and numbers (even though UTF-8 is supported).
 
 ## Resource and data source arguments
