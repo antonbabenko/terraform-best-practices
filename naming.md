@@ -1,9 +1,9 @@
-# Naming conventions
+# Умови найменування
 
-## General conventions
+## Загальні умови
 
 {% hint style="info" %}
-There should be no reason to not follow at least these conventions :)
+Не повинно бути ніяких причин не дотримуватися принаймні цих умов :)
 {% endhint %}
 
 {% hint style="info" %}
