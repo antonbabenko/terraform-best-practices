@@ -10,7 +10,7 @@
     * [Середня інфраструктура з Terraform](examples/terraform/medium-size-infrastructure.md)
     * [Велика структура Terraform](examples/terraform/large-size-infrastructure-with-terraform.md)
 * [Naming conventions](naming.md)
-* [Code styling](code-styling.md)
+* [Стиль коду](code-styling.md)
 * [FAQ](faq.md)
 * [Посилання](references.md)
 * [Написання конфігурацій Terraform](writing-terraform-configurations.md)

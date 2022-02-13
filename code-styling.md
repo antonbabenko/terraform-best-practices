@@ -1,15 +1,15 @@
-# Code styling
+# Стиль коду
 
 {% hint style="info" %}
-* Examples and Terraform modules should contain documentation explaining features and how to use them.
-* All links in README.md files should be absolute to make Terraform Registry website show them correctly.
-* Documentation may include diagrams created with [mermaid](https://github.com/mermaid-js/mermaid) and blueprints created with [cloudcraft.co](https://cloudcraft.co).
-* Use [Terraform pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform) to make sure that the code is valid, properly formatted, and automatically documented before it is pushed to git and reviewed by humans.
+* Приклади та модулі Terraform повинні містити документацію, яка пояснює функції та як їх використовувати.
+* Усі посилання у файлах README.md мають бути абсолютними, щоб веб-сайт Terraform Registry відображав їх правильно.
+* Документація може включати схеми, створені за допомогою [mermaid](https://github.com/mermaid-js/mermaid) і креслення, створені за допомогою [cloudcraft.co](https://cloudcraft.co).
+* Використовуйте [Terraform pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform) щоб переконатися, що код валідний, правильно відформатований і автоматично задокументований, перш ніж запушати його на git і надати для подальшого код рев'ю.
 {% endhint %}
 
-## Documentation
+### Документація
 
-### Automatically generated documentation
+### Автоматично згенерована документація
 
 [pre-commit](https://pre-commit.com) is a framework for managing and maintaining multi-language pre-commit hooks. It is written in Python and is a powerful tool to do something automatically on a developer's machine before code is committed to a git repository. Normally, it is used to run linters and format code (see [supported hooks](https://pre-commit.com/hooks.html)).
 
