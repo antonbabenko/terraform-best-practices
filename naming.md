@@ -11,11 +11,11 @@
 {% endhint %}
 
 1. Використовуйте `_` (підкреслення) замість `-` (тире) всюди (імена ресурсів, імена джерел даних, імена змінних, вихідні дані тощо).
-2. Prefer to use lowercase letters and numbers (even though UTF-8 is supported).
+2. Віддавайте перевагу використанню малих літер і цифр (навіть якщо підтримується UTF-8).
 
-## Resource and data source arguments
+## Аргументи ресурсів і джерел даних
 
-1.  Do not repeat resource type in resource name (not partially, nor completely):
+1.  Не повторюйте тип ресурсу в назві ресурсу (ні частково ні повністю):
 
     {% hint style="success" %}
     `resource "aws_route_table" "public" {}`
@@ -29,8 +29,8 @@
     `resource "aws_route_table" "public_aws_route_table" {}`
     {% endhint %}
 2. Resource name should be named `this` if there is no more descriptive and general name available, or if the resource module creates a single resource of this type (eg, in [AWS VPC module](https://github.com/terraform-aws-modules/terraform-aws-vpc) there is a single resource of type `aws_nat_gateway` and multiple resources of type`aws_route_table`, so `aws_nat_gateway` should be named `this` and `aws_route_table` should have more descriptive names - like `private`, `public`, `database`).
-3. Always use singular nouns for names.
-4. Use `-` inside arguments values and in places where value will be exposed to a human (eg, inside DNS name of RDS instance).
+3. Завжди використовуйте іменники в однині для імен.
+4. Використовуйте - всередині значень аргументів і в місцях, де значення буде доступне для людини (наприклад, всередині імені DNS екземпляра RDS).
 5. Include argument `count` / `for_each` inside resource or data source block as the first argument at the top and separate by newline after it.
 6. Include argument `tags,` if supported by resource, as the last real argument, following by `depends_on` and `lifecycle`, if necessary. All of these should be separated by a single empty line.
 7. When using conditions in an argument`count` / `for_each` prefer boolean values instead of using `length` or other expressions.
