@@ -11,15 +11,15 @@
 
 ### Автоматично згенерована документація
 
-[pre-commit](https://pre-commit.com) - це фреймворком для керування та підтримки багатомовних pre-commit hooks. Він написаний на Python і є потужним інструментом для автоматичного виконання завдань на машині розробника до того, як код буде передано в репозиторій git. Зазвичай він використовується для запуску лінтерів і форматування коду (дивіться [supported hooks](https://pre-commit.com/hooks.html)).
+[pre-commit](https://pre-commit.com) - це фреймворк для керування та підтримки багатомовних pre-commit хуків. Він написаний на Python і є потужним інструментом для автоматичного виконання завдань на машині розробника до того, як код буде передано в репозиторій git. Зазвичай він використовується для запуску лінтерів і форматування коду (дивіться [підтримувані хуки](https://pre-commit.com/hooks.html)).
 
 З конфігураціями Terraform `pre-commit` можна використовувати для форматування та перевірки коду, а також для оновлення документації.
 
-Перегляньте [pre-commit-terraform repository](https://github.com/antonbabenko/pre-commit-terraform/blob/master/README.md), щоб ознайомитися з ним та існуючими репозиторіями (наприклад, [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc)) де це вже використовується.
+Перегляньте [pre-commit-terraform repository](https://github.com/antonbabenko/pre-commit-terraform/blob/master/README.md), щоб ознайомитися з ним та існуючими репозиторіями (наприклад, [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc)), де це вже використовується.
 
 ### terraform-docs
 
-[terraform-docs](https://github.com/segmentio/terraform-docs) - це інструмент, який створює документацію з модулів Terraform у різних вихідних форматах. Ви можете запустити його вручну (без pre-commit hooks, або ж використовувати [pre-commit-terraform hooks](https://github.com/antonbabenko/pre-commit-terraform), щоб документація оновлювалася автоматично.
+[terraform-docs](https://github.com/segmentio/terraform-docs) - це інструмент, який створює документацію з модулів Terraform у різних вихідних форматах. Ви можете запускати його вручну (без pre-commit хуків, або ж використовувати [pre-commit-terraform hooks](https://github.com/antonbabenko/pre-commit-terraform), щоб документація оновлювалася автоматично).
 
 @todo: Document module versions, release, GH actions
 
