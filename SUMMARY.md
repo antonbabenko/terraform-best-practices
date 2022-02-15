@@ -11,7 +11,7 @@
     * [Велика структура Terraform](examples/terraform/large-size-infrastructure-with-terraform.md)
 * [Умови найменувань](naming.md)
 * [Стиль коду](code-styling.md)
-* [FAQ](faq.md)
+* [FAQ (Часті запитання)](faq.md)
 * [Посилання](references.md)
 * [Написання конфігурацій Terraform](writing-terraform-configurations.md)
 * [Workshop](workshop.md)
