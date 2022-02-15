@@ -18,7 +18,7 @@
 
 Наприклад, [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis/) модуль використовує ресурсні модулі ([terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc/) та [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group/)) щоб керувати інфраструктурою, необхідною для роботи [Atlantis](https://www.runatlantis.io) на [AWS Fargate](https://aws.amazon.com/fargate/).
 
-Інший приклад - [terraform-aws-cloudquery](https://github.com/cloudquery/terraform-aws-cloudquery), де численні модулі використовуються разом в [terraform-aws-modules](https://github.com/terraform-aws-modules/) для керування інфраструктурою, а також для використання ресурсів Docker, щоб мати змогу створювати, пушати та розгортати образи Docker. Все в одному наборі.
+Інший приклад - [terraform-aws-cloudquery](https://github.com/cloudquery/terraform-aws-cloudquery), де численні модулі [terraform-aws-modules](https://github.com/terraform-aws-modules/) використовуються разом для керування інфраструктурою, а також для використання ресурсів Docker, щоб мати змогу створювати, пушати та розгортати образи Docker. Все в одному наборі.
 
 ## Композиція
 
@@ -28,13 +28,13 @@
 
 ![Simple infrastructure composition](.gitbook/assets/composition-1.png)
 
-## Джерело даних
+## Джерело даних (data source)
 
 Джерело даних виконує лише read-only операції та залежить від конфігурації постачальника, використовується в ресурсних та інфраструктурних модулях.
 
 Джерело даних `terraform_remote_state` діє як з'єднувальник для модулів і композицій вищого рівня.
 
-[Зовнішн](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/data\_source)є джерело даних дозволяє зовнішній програмі діяти як основі, відкриваючи довільні дані для використання в інших місцях конфігурації Terraform. Як приклад можна назвати [terraform-aws-lambda module](https://github.com/terraform-aws-modules/terraform-aws-lambda/blob/258e82b50adc451f51544a2b57fd1f6f8f4a61e4/package.tf#L5-L7), де ім'я файлу обчислюється шляхом виклику зовнішнього Python скрипта.
+[External ](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/data\_source)data source дозволяє зовнішній програмі діяти, відкриваючи довільні дані для використання в інших місцях конфігурації Terraform. Як приклад можна назвати [terraform-aws-lambda module](https://github.com/terraform-aws-modules/terraform-aws-lambda/blob/258e82b50adc451f51544a2b57fd1f6f8f4a61e4/package.tf#L5-L7), де ім'я файлу обчислюється шляхом виклику зовнішнього Python скрипта.
 
 Інший приклад - [http](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) джерело даних робить HTTP GET запит на заданий URL і експортує інформацію про відповідь, яка часто корисна для отримання інформації з кінцевих точок, де рідний Terraform провайдер не існує.
 
@@ -42,7 +42,7 @@
 
 Інфраструктурні модулі та композиції повинні зберігати свої [Terraform state](https://www.terraform.io/docs/language/state/index.html) у віддаленому місці, де їх зможуть отримати інші керованим способом (наприклад через ACL, версії, журналювання).
 
-## Провайдер, постачальник і т.д.
+## Провайдер, постачальник (provisioner) і т.д.
 
 Провайдери, постачальники та деякі інші терміни дуже добре описані в офіційній документації, тому немає сенсу повторювати їх тут. На мою думку вони мають мало спільного з написанням якісних Terraform модулів.
 
