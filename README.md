@@ -13,11 +13,15 @@ Terraform є одним із найпотужніших і найбільш ви
 
 Деяка інформація, описана в цій книзі, на перший погляд може здатися не найкращою практикою. Я знаю це, і, щоб допомогти читачам відокремити, що є загальноприйнятими найкращими практиками, а що - просто додатковим упевненим способом робити речі, я іноді використовую підказки, щоб надати деякий контекст, а також піктограми, щоб визначити рівень відповідності найкращим практикам.
 
-Книга вийшла в сонячному Мадриді у 2018 році і доступна безкоштовно за цим посиланням - [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com) .
+Книга вийшла в сонячному Мадриді у 2018 році і доступна безкоштовно за цим посиланням - [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com)
 
 Кілька років потому вона була оновлена більш актуальними передовими методами, доступними з Terraform 1.0. Зрештою, ця книга має містити більшість незаперечних найкращих практик та рекомендацій для користувачів Terraform.
 
 ## Переклади
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/e1Mp2scOX6OnQbifCen3/" %}
+[English](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/e1Mp2scOX6OnQbifCen3/)
+{% endcontent-ref %}
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/fTxekzr50pIuGmrPkXUD/" %}
 [Español (Spanish)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/fTxekzr50pIuGmrPkXUD/)
@@ -29,6 +33,14 @@ Terraform є одним із найпотужніших і найбільш ви
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/6shyPtr2KrqW4ANbFXYg/" %}
 [Français (French)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/6shyPtr2KrqW4ANbFXYg/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/" %}
+[Português (Brazilian Portuguese)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/9yChMGbFo2G47Wiow1yY/" %}
+[Polski (Polish)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/9yChMGbFo2G47Wiow1yY/)
 {% endcontent-ref %}
 
 Зв’яжіться зі мною, якщо ви хочете допомогти перекласти цю книгу іншими мовами.
