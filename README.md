@@ -13,7 +13,7 @@ Terraform es bastante potente (si no es que la herramienta más potente disponib
 
 Algo de la información descrita tal vez no parezca como parte de las mejores prácticas, lo sé, y para ayudar a los lectores a separar cuáles son las mejores prácticas establecidas y cuáles son sólo otras formas opinadas de hacer las cosas, hago uso de sugerencias para proporcionar algo del contexto e iconos para especificar el nivel de madurez de cada subsección relacionada con las mejores prácticas.
 
-Este libro tuvo su comienzo un día soleado de Madrid del 2018, y se encuentra disponible de manera gratuita en [<mark style="color:purple;">https://www.terraform-best-practices.com/</mark>](https://www.terraform-best-practices.com).
+Este libro tuvo su comienzo un día soleado de Madrid del 2018, y se encuentra disponible de manera gratuita en [<mark style="color:purple;">https://www.terraform-best-practices.com/</mark>](https://www.terraform-best-practices.com)
 
 Años después, ha sido actualizado incluyendo a más de las mejores prácticas disponibles para Terraform 1.0. Eventualmente, este libro debería contener la mayoría de las mejores prácticas y recomendaciones indiscutibles para los usuarios de Terraform.
 
@@ -29,6 +29,18 @@ Años después, ha sido actualizado incluyendo a más de las mejores prácticas 
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/6shyPtr2KrqW4ANbFXYg/" %}
 [Français (French)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/6shyPtr2KrqW4ANbFXYg/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/" %}
+[Português (Brazilian Portuguese)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/9yChMGbFo2G47Wiow1yY/" %}
+[Polski (Polish)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/9yChMGbFo2G47Wiow1yY/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/" %}
+[Українська (Ukrainian)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/)
 {% endcontent-ref %}
 
 Contáctame ([<mark style="color:purple;">email</mark>](mailto:anton@antonbabenko.com) o [<mark style="color:purple;">twitter</mark>](https://twitter.com/antonbabenko)) si te gustaría traducirlo.
