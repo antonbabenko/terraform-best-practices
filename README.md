@@ -13,7 +13,7 @@ Terraform est  un outil puissant (si ce n'est le plus  puissant actuellement dis
 
 Certaines informations décrit dans ce livre pourraient ne pas ressembler aux bonnes pratiques. J'en suis conscient, et pour aider les lecteurs à séparer ce qui établit comme bonnes pratiques et ce que je considère être d'autres méthodes équivalentes, j'utiliserai par moment des indications pour fournir un certain contexte et des icônes pour spécifier le niveau de maturité de chaque sous-section reliée aux bonnes pratiques
 
-Ce livre a été commencé dans une ville de Madrid ensoleillée en 2018 et est disponible gratuitement ici [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com) .
+Ce livre a été commencé dans une ville de Madrid ensoleillée en 2018 et est disponible gratuitement ici [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com)
 
 Quelques années plus tard il a été mis à jour grâce à plusieurs récentes bonnes pratiques disponibles avec Terraform 1.0. Éventuellement ce livre devrait contenir la plupart des bonnes pratiques et recommandations indiscutables pour les utilisateurs de Terraform.
 
@@ -29,6 +29,18 @@ Quelques années plus tard il a été mis à jour grâce à plusieurs récentes 
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/ZLCz7lNWbSJxDGuNOI44/" %}
 [Bahasa Indonesia (Indonesian)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/ZLCz7lNWbSJxDGuNOI44/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/" %}
+[Português (Brazilian Portuguese)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/9yChMGbFo2G47Wiow1yY/" %}
+[Polski (Polish)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/9yChMGbFo2G47Wiow1yY/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/" %}
+[Українська (Ukrainian)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/)
 {% endcontent-ref %}
 
 Contactez-moi si vous voulez aider à traduire ce livre dans d'autres langues.
