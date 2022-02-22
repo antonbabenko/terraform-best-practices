@@ -13,7 +13,7 @@ O Terraform é poderoso (se não o mais poderoso que existe atualmente) e uma da
 
 Algumas informações descritas neste livro podem não parecer as melhores práticas. Sei disso, e, para ajudar os leitores a separar as melhores práticas estabelecidas e do que apenas mais uma maneira opinativa, às vezes, dou dicas para fornecer algum contexto e ícones para especificar o nível de maturidade em cada subseção relacionada às melhores práticas.
 
-Este livro começou na ensolarada Madri em 2018 e está disponível gratuitamente aqui - [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com) .
+Este livro começou na ensolarada Madri em 2018 e está disponível gratuitamente aqui - [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com)
 
 Alguns anos depois, ele foi atualizado com mais práticas atuais recomendadas disponíveis com o Terraform 1.0. Eventualmente, este livro deve conter a maioria das melhores práticas e recomendações incontestáveis para usuários do Terraform.
 
