@@ -13,11 +13,15 @@ Terraform jest potężnym (jeśli nie najpotężniejszym) i jednym z najczęści
 
 Niektóre informacje opisane w tej książce mogą wydawać się nieoptymalnymi praktykami. Jestem tego świadom. Czasem zachodzi potrzeba pomocy czytelnikom\_czkom w oddzieleniu tego, co jest powszechnie znanymi najlepszymi praktykami, a co jest po prostu kolejnym subiektywnym sposobem robienia rzeczy. Używam wtedy wskazówek, aby zapewnić kontekst oraz ikony, które określają poziom trudności w każdej podsekcji dotyczącej najlepszych praktyk.
 
-Historia tej książki rozpoczęła się w słonecznym Madrycie w 2018 roku i jest dostępna za darmo pod tym linkiem - [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com).
+Historia tej książki rozpoczęła się w słonecznym Madrycie w 2018 roku i jest dostępna za darmo pod tym linkiem - [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com)
 
 Kilka lat później został on zaktualizowany o najnowsze zalecane praktyki dostępne w Terraform 1.0. Ostatecznie — ta książka powinna zawierać większość praktyk i zaleceń dla użytkowników Terraform, które można uznać za bezdyskusyjnie najlepsze.
 
 ## Tłumaczenia
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/e1Mp2scOX6OnQbifCen3/" %}
+[English](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/e1Mp2scOX6OnQbifCen3/)
+{% endcontent-ref %}
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/fTxekzr50pIuGmrPkXUD/" %}
 [Español (Spanish)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/fTxekzr50pIuGmrPkXUD/)
@@ -29,6 +33,14 @@ Kilka lat później został on zaktualizowany o najnowsze zalecane praktyki dost
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/6shyPtr2KrqW4ANbFXYg/" %}
 [Français (French)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/6shyPtr2KrqW4ANbFXYg/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/" %}
+[Português (Brazilian Portuguese)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/" %}
+[Українська (Ukrainian)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/)
 {% endcontent-ref %}
 
 Skontaktuj się ze [mną](mailto:anton@antonbabenko.com), jeśli chcesz pomóc przetłumaczyć tę książkę na inne języki.
