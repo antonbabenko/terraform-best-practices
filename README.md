@@ -13,7 +13,7 @@ Terraform is powerful (if not the most powerful out there now) and one of the mo
 
 Some information described in this book may not seem like the best practices. I know this, and to help readers to separate what are established best practices and what is just another opinionated way of doing things, I sometimes use hints to provide some context and icons to specify the level of maturity on each subsection related to best practices.
 
-The book has started in sunny Madrid in 2018 and is available for free here - [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com) .
+The book has started in sunny Madrid in 2018 and is available for free here - [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com)
 
 A few years later it has been updated with more actual best practices available with Terraform 1.0. Eventually, this book should contain most of the indisputable best practices and recommendations for Terraform users.
 
