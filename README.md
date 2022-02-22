@@ -13,7 +13,7 @@ Terraform adalah alat yang ampuh (mungkin alat yang paling ampuh di luar sana sa
 
 Beberapa informasi yang dijabarkan pada buku ini mungkin tampak tidak seperti praktik terbaik. Ini merupakan hal yang lumrah. Untuk membantu pembaca memisahkan antara praktik terbaik yang telah teruji atau cara dogmatis lainnya untuk melakukan hal yang sama, penulis sesekali menggunakan petunjuk untuk menyediakan konteks dan ikon-ikon untuk menentukan level kematangan dari setiap subbagian yang terkait dengan praktik terbaik.
 
-Buku ini mulai ditulis di Madrid yang cerah pada tahun 2018. Buku ini tersedia secara gratis di [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com).
+Buku ini mulai ditulis di Madrid yang cerah pada tahun 2018. Buku ini tersedia secara gratis di [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com)
 
 Beberapa tahun kemudian buku ini telah diperbarui dengan konten praktik terbaik dari Terraform versi 1.0. Pada akhirnya, buku ini akan berisi sebagian besar dari praktik terbaik dan rekomendasi yang tidak terbantahkan bagi para pengguna Terraform.
 
@@ -29,6 +29,18 @@ Beberapa tahun kemudian buku ini telah diperbarui dengan konten praktik terbaik 
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/6shyPtr2KrqW4ANbFXYg/" %}
 [Français (French)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/6shyPtr2KrqW4ANbFXYg/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/" %}
+[Português (Brazilian Portuguese)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/9yChMGbFo2G47Wiow1yY/" %}
+[Polski (Polish)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/9yChMGbFo2G47Wiow1yY/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/" %}
+[Українська (Ukrainian)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/)
 {% endcontent-ref %}
 
 Hubungi penulis jika Anda ingin membantu menerjemahkan buku ini ke dalam bahasa lainnya.
