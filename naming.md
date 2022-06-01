@@ -10,7 +10,7 @@ There should be no reason to not follow at least these conventions :)
 Beware that actual cloud resources often have restrictions in allowed names. Some resources, for example, can't contain dashes, some must be camel-cased. The conventions in this book refer to Terraform names themselves.
 {% endhint %}
 
-1. Use `_` (underscore) instead of `-` (dash) everywhere (resource names, data source names, variable names, outputs, etc).
+1. Use `_` (underscore) instead of `-` (dash) everywhere (in resource names, data source names, variable names, outputs, etc).
 2. Prefer to use lowercase letters and numbers (even though UTF-8 is supported).
 
 ## Resource and data source arguments

@@ -9,11 +9,11 @@ description: >-
 
 [Terraform](https://www.terraform.io) is a fairly new project (as most DevOps tools actually) that was started in 2014.
 
-Terraform is powerful (if not the most powerful out there now) and one of the most used tools which allow management infrastructure as code. It allows developers to do a lot of things and does not restrict them from doing things in ways that will be hard to support or integrate with.
+Terraform is powerful (if not the most powerful out there now) and one of the most used tools which allow management of infrastructure as code. It allows developers to do a lot of things and does not restrict them from doing things in ways that will be hard to support or integrate with.
 
 Some information described in this book may not seem like the best practices. I know this, and to help readers to separate what are established best practices and what is just another opinionated way of doing things, I sometimes use hints to provide some context and icons to specify the level of maturity on each subsection related to best practices.
 
-The book has started in sunny Madrid in 2018 and is available for free here - [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com)
+The book was started in sunny Madrid in 2018, available for free here at [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com).
 
 A few years later it has been updated with more actual best practices available with Terraform 1.0. Eventually, this book should contain most of the indisputable best practices and recommendations for Terraform users.
 
@@ -47,9 +47,9 @@ Contact me if you want to help translate this book into other languages.
 
 ## Contributions
 
-I always want to get feedback and update this book as the community mature and new ideas are implemented and verified over time.
+I always want to get feedback and update this book as the community matures and new ideas are implemented and verified over time.
 
-If you are interested in certain topics please [open an issue](https://github.com/antonbabenko/terraform-best-practices/issues), or thumb up an issue you want to be covered most. If you feel that **you have content** and you want to contribute, write a draft and submit a pull request (don't worry about writing good text at this point!)
+If you are interested in specific topics, please [open an issue](https://github.com/antonbabenko/terraform-best-practices/issues), or thumb up an issue you want to be covered. If you feel that **you have content** and you want to contribute, write a draft and submit a pull request (don't worry about writing good text at this point!).
 
 ## Authors
 
