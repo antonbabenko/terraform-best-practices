@@ -34,9 +34,9 @@ Data source performs a read-only operation and is dependant on provider configur
 
 Data source `terraform_remote_state` acts as a glue for higher-level modules and compositions.
 
-The [external](https://re.g.istry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/data\_source) data source allows an external program to act as a data source, exposing arbitrary data for use elsewhere in the Terraform configuration. Here is an example from the [terraform-aws-lambda module](https://github.com/terraform-aws-modules/terraform-aws-lambda/blob/258e82b50adc451f51544a2b57fd1f6f8f4a61e4/package.tf#L5-L7) where the filename is computed by calling an external Python script.
+The [external](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/data\_source) data source allows an external program to act as a data source, exposing arbitrary data for use elsewhere in the Terraform configuration. Here is an example from the [terraform-aws-lambda module](https://github.com/terraform-aws-modules/terraform-aws-lambda/blob/258e82b50adc451f51544a2b57fd1f6f8f4a61e4/package.tf#L5-L7) where the filename is computed by calling an external Python script.
 
-The [http](https://re.g.istry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) data source makes an HTTP GET request to the given URL and exports information about the response which is often useful to get information from endpoints where a native Terraform provider does not exist.
+The [http](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) data source makes an HTTP GET request to the given URL and exports information about the response which is often useful to get information from endpoints where a native Terraform provider does not exist.
 
 ## Remote state
 
