@@ -35,7 +35,7 @@ Putting all code in `main.tf` is a good idea when you are getting started or wri
 
 `terraform.tfvars` should not be used anywhere except [composition](key-concepts.md#composition).
 
-## How to think about Terraform configurations structure?
+## How to think about Terraform configuration structure?
 
 {% hint style="info" %}
 Please make sure that you understand key concepts - [resource module](key-concepts.md#resource-module), [infrastructure module](key-concepts.md#infrastructure-module), and [composition](key-concepts.md#composition), as they are used in the following examples.
@@ -46,7 +46,7 @@ Please make sure that you understand key concepts - [resource module](key-concep
 * It is easier and faster to work with a smaller number of resources
   * `terraform plan` and `terraform apply` both make cloud API calls to verify the status of resources
   * If you have your entire infrastructure in a single composition this can take some time
-* A blast radius is smaller with fewer resources
+* A blast radius (in case of security breach) is smaller with fewer resources
   * Insulating unrelated resources from each other by placing them in separate compositions reduces the risk if something goes wrong
 * Start your project using remote state because:
   * Your laptop is no place for your infrastructure source of truth
@@ -71,7 +71,7 @@ There are at least 5 distinct groups of orchestration solutions that developers 
 2. Terragrunt. Pure orchestration tool which can be used to orchestrate the entire infrastructure as well as handle dependencies. Terragrunt operates with infrastructure modules and compositions natively, so it reduces duplication of code.
 3. In-house scripts. Often this happens as a starting point towards orchestration and before discovering Terragrunt.
 4. Ansible or similar general purpose automation tool. Usually used when Terraform is adopted after Ansible, or when Ansible UI is actively used.
-5. [Crossplane](https://crossplane.io) and other Kubernetes-inspired solutions. Sometimes it makes sense to utilize the Kubernetes ecosystem and employ a reconciliation loop feature to achieve desired state of your Terraform configurations. View video [Crossplane vs Terraform](https://www.youtube.com/watch?v=ELhVbSdcqSY) for more information.
+5. [Crossplane](https://crossplane.io) and other Kubernetes-inspired solutions. Sometimes it makes sense to utilize the Kubernetes ecosystem and employ a reconciliation loop feature to achieve the desired state of your Terraform configurations. View video [Crossplane vs Terraform](https://www.youtube.com/watch?v=ELhVbSdcqSY) for more information.
 
 With that in mind, this book reviews the first two of these project structures, Terraform only and Terragrunt.
 
