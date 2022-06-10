@@ -60,6 +60,7 @@ Ta książka jest pod opieką [Anton Babenko](https://github.com/antonbabenko) o
 
 | [![](.gitbook/assets/cluster-dev-logo-site.png)](https://cluster.dev) | [Cluster.dev](http://cluster.dev) — jedyne takie narzędzie do infrastruktury cloud-native. |
 | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| [![](.gitbook/assets/coder-logo-for-sponsor.png)](http://coder.com/)  | [Coder.com](http://coder.com/) — create remote development machines for your team, powered by Terraform. |
 
 ## Licencja
 
