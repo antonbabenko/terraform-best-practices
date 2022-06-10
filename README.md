@@ -59,6 +59,7 @@ Este livro é mantido por [Anton Babenko](https://github.com/antonbabenko) com a
 
 | [![](.gitbook/assets/cluster-dev-logo-site.png)](https://cluster.dev) | [Cluster.dev](http://cluster.dev) — o único gerenciador de infraestruturas nativas da núvem. |
 | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/coder-logo-for-sponsor.png)](http://coder.com/)  | [Coder.com](http://coder.com/) — create remote development machines for your team, powered by Terraform. |
 
 ## Licença
 
