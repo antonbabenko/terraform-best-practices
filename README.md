@@ -59,6 +59,7 @@ Buku ini dikelola oleh [Anton Babenko](https://github.com/antonbabenko) dengan b
 
 | [![](.gitbook/assets/cluster-dev-logo-site.png)](https://cluster.dev) | [Cluster.dev](http://cluster.dev) — the only manager for cloud-native infrastructures. |
 | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/coder-logo-for-sponsor.png)](http://coder.com/)  | [Coder.com](http://coder.com/) — create remote development machines for your team, powered by Terraform. |
 
 ## Lisensi
 
