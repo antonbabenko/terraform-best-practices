@@ -7,7 +7,7 @@ This example contains code as an example of structuring Terraform configurations
 * 2 AWS accounts
 * 2 regions
 * 2 separate environments (`prod` and `stage` which share nothing). Each environment lives in a separate AWS account and span resources between 2 regions
-* Each environment uses a different version of the off-the-shelf infrastructure module (`alb`) sourced from [Terraform Registry](https://registry.terraform.io)
+* Each environment uses a different version of the off-the-shelf infrastructure module (`alb`) sourced from [Terraform Registry](https://registry.terraform.io/)
 * Each environment uses the same version of an internal module `modules/network` since it is sourced from a local directory.
 
 {% hint style="info" %}
