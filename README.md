@@ -55,6 +55,12 @@ Si estás interesado en ciertos temas, por favor, [<mark style="color:purple;">a
 
 Este libro es mantenido por [<mark style="color:purple;">Anton Babenko</mark>](https://github.com/antonbabenko) con la ayuda de varios contribuidores y traductores. Su versión al español es traducida por [<mark style="color:purple;">Abel López</mark>](https://www.linkedin.com/in/abelopz/).
 
+## **Patrocinadores**
+
+| [![](.gitbook/assets/cluster-dev-logo-site.png)](https://cluster.dev) | [Cluster.dev](http://cluster.dev) — the only manager for cloud-native infrastructures. |
+| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/coder-logo-for-sponsor.png)](http://coder.com/)  | [Coder.com](http://coder.com/) — create remote development machines for your team, powered by Terraform. |
+
 ## **Licencia**
 
 El presente trabajo es licenciado bajo la Licencia Apache 2. Ver LICENCIA para detalles completos.
