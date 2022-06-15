@@ -11,6 +11,7 @@ description: FTP (Frequent Terraform Problems)
 * [**tfenv**](https://github.com/tfutils/tfenv) - Менеджер версій
 * [**Atlantis**](https://www.runatlantis.io) - Автоматизація Pull Request
 * [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - Колекція git хуків для Terraform, щоб використовувати із [pre-commit framework](https://pre-commit.com)
+* [**Infracost**](https://www.infracost.io/) - Оцінка вартості інфраструктури для Terraform в pull requests. Працює з Terragrunt, Atlantis, й pre-commit-terraform.
 
 ## Чи була у вас можливість відповісти на попереднє запитання?
 
