@@ -1,5 +1,5 @@
 ---
-descrição: FTP (Frequent Terraform Problems)
+description: FTP (Frequent Terraform Problems)
 ---
 
 # FAQ
