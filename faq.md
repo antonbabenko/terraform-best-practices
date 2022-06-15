@@ -6,11 +6,11 @@ description: FTP (Frequent Terraform Problems)
 
 ## Quais são as ferramentas que eu deveria estar ciente e considerar utilizar?
 
-* [**Terragrunt**](https://terragrunt.gruntwork.io) - Orchestration tool
-* [**tflint**](https://github.com/terraform-linters/tflint) - Code linter
-* [**tfenv**](https://github.com/tfutils/tfenv) - Version manager
-* [**Atlantis**](https://www.runatlantis.io) - Pull Request automation
-* [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - Collection of git hooks for Terraform to be used with [pre-commit framework](https://pre-commit.com)
+* [**Terragrunt**](https://terragrunt.gruntwork.io) - Ferramenta de orquestração
+* [**tflint**](https://github.com/terraform-linters/tflint) - Ferramenta de checagem de código
+* [**tfenv**](https://github.com/tfutils/tfenv) - Sistema de controle de versão
+* [**Atlantis**](https://www.runatlantis.io) - Automação de Pull Requests
+* [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - Coleção de git hooks para Terraform para ser usado com o [framework pre-commit](https://pre-commit.com)
 * [**Infracost**](https://infracost.io) - Estimativas de custo de nuvem para Terraform em solicitações de Pull Requests. Funciona com Terragrunt, Atlantis e pré-commits também.
 
 ## Você já teve a oportunidade de responder a pergunta anterior?
