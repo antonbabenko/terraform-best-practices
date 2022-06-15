@@ -11,6 +11,7 @@ description: FTP (Frequent Terraform Problems)
  - **[tfenv](https://github.com/tfutils/tfenv)** - Version manager
  - **[Atlantis](https://www.runatlantis.io/)** - Pull Request automation 
  - **[pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform)** - Collection of git hooks for Terraform to be used with [pre-commit framework](https://pre-commit.com/)
+ - **[Infracost](https://www.infracost.io)** - Cloud cost estimates for Terraform in pull requests. Works with Terragrunt, Atlantis and pre-commit-terraform too.
 
 ## Have you had a chance to answer the previous question?
 
