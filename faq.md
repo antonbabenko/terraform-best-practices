@@ -11,7 +11,7 @@ description: PFT (Problemas Frecuentes de Terraform)
 * [<mark style="color:purple;">**tfenv**</mark>](https://github.com/tfutils/tfenv) - gestor de versiones.
 * [<mark style="color:purple;">**Atlantis**</mark>](https://www.runatlantis.io) - automaticación de Pull Request.
 * [<mark style="color:purple;">**pre-commit-terraform**</mark>](https://github.com/antonbabenko/pre-commit-terraform) <mark style="color:purple;"></mark> - Colección de hooks de git para Terraform a usar con [<mark style="color:purple;">pre-commit framework</mark>](https://pre-commit.com).
-* [<mark style="color:purple;">**Infracost**</mark>](https://www.infracost.io/) - Cloud estima los costes de Terraform mediante un sistema de extraccion y trabaja con Terragrunt, Atlantis y Terraform pre-cometido
+* [<mark style="color:purple;">**Infracost**</mark>](https://www.infracost.io/) - Cloud estima los costes de Terraform mediante un sistema de extraccion y trabaja con Terragrunt, Atlantis y pre-commit-terraform
 
 ### ¿Has tenido la oportunidad de responder a la pregunta anterior?&#x20;
 
