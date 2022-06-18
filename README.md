@@ -35,6 +35,10 @@ Kilka lat później został on zaktualizowany o najnowsze zalecane praktyki dost
 [Français (French)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/6shyPtr2KrqW4ANbFXYg/)
 {% endcontent-ref %}
 
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/PKopCWJZbhpQ9FT0W8tL/" %}
+[Deutsch (German)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/PKopCWJZbhpQ9FT0W8tL/)
+{% endcontent-ref %}
+
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/" %}
 [Português (Brazilian Portuguese)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/)
 {% endcontent-ref %}
@@ -49,23 +53,22 @@ Skontaktuj się ze [mną](mailto:anton@antonbabenko.com), jeśli chcesz pomóc p
 
 Zawsze chętnie usłyszę wasze opinie i zaktualizuje tę książkę. Społeczność ciągle dojrzewa, a nowe pomysły są weryfikowane i wdrażane.
 
-Jeśli jesteś zainteresowany konkretnymi tematami, [otwórz nowy wątek (issue)](https://github.com/antonbabenko/terraform-best-practices/issues) lub daj kciuk w górę przy istniejącym, który chcesz poruszyć najbardziej. **Jeśli chcesz wnieść swój wkład do książki,** wprowadź zmianę i utwórz pull request (nie martw się czy to co napisałeś\_aś jest idealne od samego początku!)\
-
+Jeśli jesteś zainteresowany konkretnymi tematami, [otwórz nowy wątek (issue)](https://github.com/antonbabenko/terraform-best-practices/issues) lub daj kciuk w górę przy istniejącym, który chcesz poruszyć najbardziej. **Jeśli chcesz wnieść swój wkład do książki,** wprowadź zmianę i utwórz pull request (nie martw się czy to co napisałeś\_aś jest idealne od samego początku!)\\
 
 ## Autorzy\_ki
 
-Ta książka jest pod opieką [Anton Babenko](https://github.com/antonbabenko) oraz wielu innych współautorów\_ek i __ tłumaczy_\__ek.
+Ta książka jest pod opieką [Anton Babenko](https://github.com/antonbabenko) oraz wielu innych współautorów\_ek i \_\_ tłumaczy\_\_\_ek.
 
 ## Sponsorowanie
 
-| [![](.gitbook/assets/cluster-dev-logo-site.png)](https://cluster.dev) | [Cluster.dev](http://cluster.dev) — jedyne takie narzędzie do infrastruktury cloud-native. |
-| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| [![](.gitbook/assets/cluster-dev-logo-site.png)](https://cluster.dev) | [Cluster.dev](http://cluster.dev) — jedyne takie narzędzie do infrastruktury cloud-native.               |
+| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | [![](.gitbook/assets/coder-logo-for-sponsor.png)](http://coder.com/)  | [Coder.com](http://coder.com/) — create remote development machines for your team, powered by Terraform. |
 
 ## Licencja
 
 Ta praca jest objęta licencją Apache 2. Zobacz _LICENSE_, aby uzyskać szczegółowe informacje.
 
-Autorzy\_rki __ i __ współtwórcy\_czynie treści nie mogą zagwarantować aktualności oraz poprawności informacji tutaj znalezionych. Upewnij się, że rozumiesz, iż informacje podane tutaj są dostarczane dobrowolnie i że między Tobą a jakimikolwiek osobami związanymi z tą treścią lub projektem nie powstaje żadna umowa ani kontrakt. Autorzy\_rki __ i __ współtwórcy\_czynie nie przyjmują i niniejszym zrzekają się jakiejkolwiek odpowiedzialności wobec jakiejkolwiek strony za jakiekolwiek straty, szkody, lub zakłócenia spowodowane błędami, lub pominięciami w informacjach zawartych w tych treściach, powiązanych z nimi lub z nimi połączonych, niezależnie od tego, czy takie błędy lub pominięcia wynikają z zaniedbania, wypadku lub jakiejkolwiek innej przyczyny.
+Autorzy\_rki \_\_ i \_\_ współtwórcy\_czynie treści nie mogą zagwarantować aktualności oraz poprawności informacji tutaj znalezionych. Upewnij się, że rozumiesz, iż informacje podane tutaj są dostarczane dobrowolnie i że między Tobą a jakimikolwiek osobami związanymi z tą treścią lub projektem nie powstaje żadna umowa ani kontrakt. Autorzy\_rki \_\_ i \_\_ współtwórcy\_czynie nie przyjmują i niniejszym zrzekają się jakiejkolwiek odpowiedzialności wobec jakiejkolwiek strony za jakiekolwiek straty, szkody, lub zakłócenia spowodowane błędami, lub pominięciami w informacjach zawartych w tych treściach, powiązanych z nimi lub z nimi połączonych, niezależnie od tego, czy takie błędy lub pominięcia wynikają z zaniedbania, wypadku lub jakiejkolwiek innej przyczyny.
 
 Prawa autorskie © 2018-2022 Anton Babenko.
