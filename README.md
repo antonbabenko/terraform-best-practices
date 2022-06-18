@@ -19,6 +19,10 @@ Ein paar Jahre später wurde es mit mehr aktuellen Best Practices aktualisiert, 
 
 ## Übersetzungen
 
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/e1Mp2scOX6OnQbifCen3/" %}
+[English](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/e1Mp2scOX6OnQbifCen3/)
+{% endcontent-ref %}
+
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/fTxekzr50pIuGmrPkXUD/" %}
 [Español (Spanish)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/fTxekzr50pIuGmrPkXUD/)
 {% endcontent-ref %}
@@ -43,10 +47,6 @@ Ein paar Jahre später wurde es mit mehr aktuellen Best Practices aktualisiert, 
 [Українська (Ukrainian)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/)
 {% endcontent-ref %}
 
-{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/e1Mp2scOX6OnQbifCen3/" %}
-[English](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/e1Mp2scOX6OnQbifCen3/)
-{% endcontent-ref %}
-
 Kontaktieren Sie mich, wenn Sie bei der Übersetzung dieses Buches in andere Sprachen helfen wollen.
 
 ## Beiträge
@@ -61,9 +61,9 @@ Dieses Buch wird von [Anton Babenko](https://github.com/antonbabenko) mit Hilfe 
 
 ## Sponsoren
 
-| [<img src=".gitbook/assets/cluster-dev-logo-site.png" alt="" data-size="original">](https://cluster.dev/) | [Cluster.dev](http://cluster.dev/) — the only manager for cloud-native infrastructures. |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| [![](.gitbook/assets/coder-logo-for-sponsor.png)](http://coder.com/)  | [Coder.com](http://coder.com/) — create remote development machines for your team, powered by Terraform. |
+| [<img src=".gitbook/assets/cluster-dev-logo-site.png" alt="" data-size="original">](https://cluster.dev/) | [Cluster.dev](http://cluster.dev/) — the only manager for cloud-native infrastructures.                  |
+| --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/coder-logo-for-sponsor.png)](http://coder.com/)                                      | [Coder.com](http://coder.com/) — create remote development machines for your team, powered by Terraform. |
 
 ## Lizenzen
 
