@@ -31,6 +31,10 @@ Años después, ha sido actualizado incluyendo a más de las mejores prácticas 
 [Français (French)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/6shyPtr2KrqW4ANbFXYg/)
 {% endcontent-ref %}
 
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/PKopCWJZbhpQ9FT0W8tL/" %}
+[Deutsch (German)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/PKopCWJZbhpQ9FT0W8tL/)
+{% endcontent-ref %}
+
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/" %}
 [Português (Brazilian Portuguese)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/)
 {% endcontent-ref %}
@@ -57,8 +61,8 @@ Este libro es mantenido por [<mark style="color:purple;">Anton Babenko</mark>](h
 
 ## **Patrocinadores**
 
-| [![](.gitbook/assets/cluster-dev-logo-site.png)](https://cluster.dev) | [Cluster.dev](http://cluster.dev) — the only manager for cloud-native infrastructures. |
-| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/cluster-dev-logo-site.png)](https://cluster.dev) | [Cluster.dev](http://cluster.dev) — the only manager for cloud-native infrastructures.                   |
+| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | [![](.gitbook/assets/coder-logo-for-sponsor.png)](http://coder.com/)  | [Coder.com](http://coder.com/) — create remote development machines for your team, powered by Terraform. |
 
 ## **Licencia**
