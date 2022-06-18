@@ -9,7 +9,7 @@ description: >-
 
 [Terraform](https://www.terraform.io), un projet relativement nouveau (comme la plus part des outils Devops actuellement), a été lancé en 2014.
 
-Terraform est  un outil puissant (si ce n'est le plus  puissant actuellement disponible) et le plus utilisé pour le gestion de l'infrastructure comme code. Il permet aux developpeurs de créer plusieurs codes dont le support et l'intégration seront faciles
+Terraform est un outil puissant (si ce n'est le plus puissant actuellement disponible) et le plus utilisé pour le gestion de l'infrastructure comme code. Il permet aux developpeurs de créer plusieurs codes dont le support et l'intégration seront faciles
 
 Certaines informations décrit dans ce livre pourraient ne pas ressembler aux bonnes pratiques. J'en suis conscient, et pour aider les lecteurs à séparer ce qui établit comme bonnes pratiques et ce que je considère être d'autres méthodes équivalentes, j'utiliserai par moment des indications pour fournir un certain contexte et des icônes pour spécifier le niveau de maturité de chaque sous-section reliée aux bonnes pratiques
 
@@ -29,6 +29,10 @@ Quelques années plus tard il a été mis à jour grâce à plusieurs récentes 
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/ZLCz7lNWbSJxDGuNOI44/" %}
 [Bahasa Indonesia (Indonesian)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/ZLCz7lNWbSJxDGuNOI44/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/PKopCWJZbhpQ9FT0W8tL/" %}
+[Deutsch (German)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/PKopCWJZbhpQ9FT0W8tL/)
 {% endcontent-ref %}
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/" %}
@@ -55,8 +59,8 @@ Ce livre est maintenu par Anton Babenko avec l'aide de différents contributeurs
 
 ## Sponsors
 
-| [![](.gitbook/assets/cluster-dev-logo-site.png)](https://cluster.dev) | [Cluster.dev](http://cluster.dev) — the only manager for cloud-native infrastructures. |
-| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/cluster-dev-logo-site.png)](https://cluster.dev) | [Cluster.dev](http://cluster.dev) — the only manager for cloud-native infrastructures.                   |
+| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | [![](.gitbook/assets/coder-logo-for-sponsor.png)](http://coder.com/)  | [Coder.com](http://coder.com/) — create remote development machines for your team, powered by Terraform. |
 
 ## License
