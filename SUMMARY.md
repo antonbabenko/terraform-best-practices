@@ -1,0 +1,17 @@
+# Table of contents
+
+* [ברוכים הבאים](README.md)
+* [מושגי מפתח](key-concepts.md)
+* [מבנה הקוד](code-structure.md)
+* [דוגמאות למבנה קוד](examples/README.md)
+  * [Terragrunt](examples/terragrunt.md)
+  * [Terraform](examples/terraform/README.md)
+    * [תשתיות בקנה מידה קטן עם Terraform](examples/terraform/small-size-infrastructure.md)
+    * [תשתיות בקנה מידה בינוני עם Terraform](examples/terraform/medium-size-infrastructure.md)
+    * [תשתיות בקנה מידה גדול עם Terraform](examples/terraform/large-size-infrastructure-with-terraform.md)
+* [מוסכמות למתן שמות](naming.md)
+* [עיצוב קוד](code-styling.md)
+* [שאלות ותשובות](faq.md)
+* [קישוריים חיצוניים](references.md)
+* [כתיבת קונפיגורציות של Terraform](writing-terraform-configurations.md)
+* [סדנה](workshop.md)
