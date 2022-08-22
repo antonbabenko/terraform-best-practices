@@ -7,17 +7,17 @@ description: >-
 
 # Benvenuti
 
-[Terraform](https://www.terraform.io/) é un nuovo progetto (come la maggior parte degli strumenti di DevOps) inizato nel 2014.&#x20;
+[Terraform](https://www.terraform.io/) é un nuovo progetto (come la maggior parte degli strumenti di DevOps) inizato nel 2014.
 
-Terraform é un potente (se non il piú potente disponibile al momento) e uno dei tool più usati, che permette l'approccio infrastruttura come codice. Abilita agli sviluppatori di fare molte cose, e non li limita a fare cose in un modo che è difficile da supportare o integrare con altri strumenti.&#x20;
+Terraform é un potente (se non il piú potente disponibile al momento) e uno dei tool più usati, che permette l'approccio infrastruttura come codice. Abilita agli sviluppatori di fare molte cose, e non li limita a fare cose in un modo che è difficile da supportare o integrare con altri strumenti.
 
-Alcune informazioni descritte in questo libro potrebbero non sembrare delle best practices. Voglio distinguere cosa sono delle best practices certe e stabilite e cosa invece sono opinioni. Alcune volte userò note per specificare meglio il contesto e icone per il livello di maturitá di ogni sottosezione.&#x20;
+Alcune informazioni descritte in questo libro potrebbero non sembrare delle best practices. Voglio distinguere cosa sono delle best practices certe e stabilite e cosa invece sono opinioni. Alcune volte userò note per specificare meglio il contesto e icone per il livello di maturitá di ogni sottosezione.
 
-Il libro é iniziato nel 2018 in una soleggiata Madrid ed é disponibile gratuitamente qui -   [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com/) .
+Il libro é iniziato nel 2018 in una soleggiata Madrid ed é disponibile gratuitamente qui - [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com/) .
 
-Qualche anno dopo é sto aggiornato con alcune delle piú recenti best practices in Terraform 1.0.  Infine, questo libro dovrebbe contenere alcune delle più indiscutibili best practices e raccomandazioni per utenti di Terraform.
+Qualche anno dopo é sto aggiornato con alcune delle piú recenti best practices in Terraform 1.0. Infine, questo libro dovrebbe contenere alcune delle più indiscutibili best practices e raccomandazioni per utenti di Terraform.
 
-Nota del traduttore: sono stato molto combattuto (e ho chiesto consiglio ad altre persone che come me lavorano nell'informatica) se tradurre best practices oppure no. Alla fine ho deciso che le "pratiche migliori" , o "stato dell'arte", "pratiche buone" non rendeva bene il termine e quindi l'ho lasciato in inglese.&#x20;
+Nota del traduttore: sono stato molto combattuto (e ho chiesto consiglio ad altre persone che come me lavorano nell'informatica) se tradurre best practices oppure no. Alla fine ho deciso che le "pratiche migliori" , o "stato dell'arte", "pratiche buone" non rendeva bene il termine e quindi l'ho lasciato in inglese.
 
 ## Traduzioni
 
@@ -39,6 +39,10 @@ Nota del traduttore: sono stato molto combattuto (e ho chiesto consiglio ad altr
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/PKopCWJZbhpQ9FT0W8tL/" %}
 [Deutsch (German)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/PKopCWJZbhpQ9FT0W8tL/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/4bq6CyY8vYiEHkjN63rT/" %}
+[עברית (Hebrew)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/4bq6CyY8vYiEHkjN63rT/)
 {% endcontent-ref %}
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/" %}
@@ -67,14 +71,14 @@ Questo libro é mantenuto da [Anton Babenko](https://github.com/antonbabenko) co
 
 ## Sponsors
 
-| [<img src=".gitbook/assets/cluster-dev-logo-site.png" alt="" data-size="original">](https://cluster.dev/) | [Cluster.dev](http://cluster.dev/) — the only manager for cloud-native infrastructures. |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| [![](.gitbook/assets/coder-logo-for-sponsor.png)](http://coder.com/)  | [Coder.com](http://coder.com/) — create remote development machines for your team, powered by Terraform. |
+| [<img src=".gitbook/assets/cluster-dev-logo-site.png" alt="" data-size="original">](https://cluster.dev/) | [Cluster.dev](http://cluster.dev/) — the only manager for cloud-native infrastructures.                  |
+| --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/coder-logo-for-sponsor.png)](http://coder.com/)                                      | [Coder.com](http://coder.com/) — create remote development machines for your team, powered by Terraform. |
 
 ## Licenza
 
 Questo contenuto é sotto la licenza Apache 2. Controlla LICENSE per maggiori dettagli.
 
-Gli autori e i collaboratori di questo contenuto non possono garantire la validitá  delle informazioni. Per favore assicurati di capire che le informazioni fornite qui sono date in maniera gratuita, non c'é nessuno accordo o contratto tra te e ogni persona associata al contenuto e al progetto. Gli autori e i collaboratori non si assumano e con la presente declinano qualsivoglia responsabilitá a ogni parte per qualsiasi perdita, danneggiamento o discontinuitá causata da errori o omissioni nelle informazioni contenute, associate o collegate a questo contenuto, sia che siano errori o omissioni causate da negligenza, o qualsiasi altra causa.
+Gli autori e i collaboratori di questo contenuto non possono garantire la validitá delle informazioni. Per favore assicurati di capire che le informazioni fornite qui sono date in maniera gratuita, non c'é nessuno accordo o contratto tra te e ogni persona associata al contenuto e al progetto. Gli autori e i collaboratori non si assumano e con la presente declinano qualsivoglia responsabilitá a ogni parte per qualsiasi perdita, danneggiamento o discontinuitá causata da errori o omissioni nelle informazioni contenute, associate o collegate a questo contenuto, sia che siano errori o omissioni causate da negligenza, o qualsiasi altra causa.
 
 Copyright © 2018-2022 Anton Babenko.
