@@ -1,0 +1,17 @@
+# Table of contents
+
+* [Bine ați venit](README.md)
+* [Concepte cheie](key-concepts.md)
+* [Structura codului](code-structure.md)
+* [Exemple de structuri de cod](examples/README.md)
+  * [Terragrunt](examples/terragrunt.md)
+  * [Terraform](examples/terraform/README.md)
+    * [Infrastructură de dimensiune mică - Terraform](examples/terraform/small-size-infrastructure.md)
+    * [Infrastructură de dimensiune medie - Terraform](examples/terraform/medium-size-infrastructure.md)
+    * [Infrastructură de dimensiune mare - Terraform](examples/terraform/large-size-infrastructure-with-terraform.md)
+* [Convenții de numire](naming.md)
+* [Formatarea codului](code-styling.md)
+* [FAQ](faq.md)
+* [Referințe](references.md)
+* [Scrierea configurațiilor Terraform](writing-terraform-configurations.md)
+* [Workshop](workshop.md)
