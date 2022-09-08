@@ -17,7 +17,7 @@ Cartea a început în însoritul Madrid în 2018 și este disponibilă gratuit a
 
 Câțiva ani mai târziu, a fost actualizată cu mai multe bune practici disponibile cu Terraform 1.0. În cele din urmă, această carte ar trebui să conțină cele mai multe dintre cele mai bune practici și recomandări indiscutabile pentru utilizatorii Terraform.
 
-## Translations
+## Traduceri
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/fTxekzr50pIuGmrPkXUD/" %}
 [Español (Spanish)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/fTxekzr50pIuGmrPkXUD/)
