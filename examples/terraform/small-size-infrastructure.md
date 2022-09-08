@@ -12,5 +12,5 @@ Acest exemplu conține un cod ca exemplu de structurare a configuraților Terraf
 {% endhint %}
 
 {% hint style="warning" %}
-Un singur fișier de stare pentru toate resursele poate face procesul de lucru cu Terraform să încetinească dacă numărul de resurse crește (considerați folosirea unui argument ca  `-target` pentru a limita numărul de resurse).
+Un singur fișier de stare pentru toate resursele poate face procesul de lucru cu Terraform să încetinească dacă numărul de resurse crește (considerați folosirea unui argument ca`-target` pentru a limita numărul de resurse).
 {% endhint %}

@@ -4,7 +4,7 @@
 
 ## Cum ar trebui să-mi structurez configurațiile Terraform?
 
-Aceasta este una dintre întrebările pentru care există o mulțime de soluții și este foarte greu să dai sfaturi universale, așa că să începem cu a înțelege cu ce avem de-a face.
+Aceasta este una dintre întrebările pentru care există o mulțime de soluții și este foarte greu să dai sfaturi universale, așa că este util să începem prin a înțelege cu ce avem de-a face.
 
 * Care este complexitatea proiectului?
   * Numărul de resurse aferente
@@ -12,8 +12,8 @@ Aceasta este una dintre întrebările pentru care există o mulțime de soluții
 * Cât de des se schimbă infrastructura proiectului?
   * **De la** o dată pe lună/săptămână/zi
   * **La** continuu (de fiecare dată când există un nou commit)
-* Tirggeri pentru schimbari in cod? _Permiteți serverului CI să actualizeze depozitul Gitatunci când este construit un nou artefact?_
-  * Doar dezvoltatorii pot face push în depozitul de infrastructură
+* Tirggeri pentru schimbari in cod? _Permiteți serverului CI să actualizeze Git repository atunci când este construit un nou artefact?_
+  * Doar dezvoltatorii pot face push în repository-ul de infrastructură
   * Toată lumea poate propune o schimbare la orice, deschizând un PR (inclusiv activități automate care rulează pe serverul CI)
 * Ce platformă de implementare sau serviciu de implementare utilizați?
   * AWS CodeDeploy, Kubernetes, sau OpenShift au nevoie de o abordare ușor diferită
@@ -38,7 +38,7 @@ Punerea întregului cod în `main.tf` este o idee bună atunci când începeți 
 ## Cum să ne gândim la structura fișierelor de configurație Terraform?
 
 {% hint style="info" %}
-Vă rugăm să vă asigurați că înțelegeți conceptele cheie - [modulul de resurse](key-concepts.md#modul-de-resurse), [modulul de infrastructură](key-concepts.md#modulul-de-infrastructura) și [compoziția de infrastructură](key-concepts.md#compozitia-de-infrastructura), așa cum sunt utilizate în exemplele următoare.
+Vă rog să vă asigurați că înțelegeți conceptele cheie - [modulul de resurse](key-concepts.md#modul-de-resurse), [modulul de infrastructură](key-concepts.md#modulul-de-infrastructura) și [compoziția de infrastructură](key-concepts.md#compozitia-de-infrastructura), așa cum sunt utilizate în exemplele următoare.
 {% endhint %}
 
 ### Recomandări uzuale pentru structurarea codului
@@ -53,7 +53,7 @@ Vă rugăm să vă asigurați că înțelegeți conceptele cheie - [modulul de r
   * Gestionarea unui fișier`tfstate` în git este un coșmar
   * Mai târziu, când straturile de infrastructură vor începe să crească în mai multe direcții (număr de dependențe sau resurse), va fi mai ușor să țineți lucrurile sub control
 * Practicați o structură consecventă și o convenție de denumire a resurselor ([naming](naming.md) convention):
-  * La fel ca în cazul codului procedural, codul Terraform ar trebui scris pentru ca oamenii să-l citească mai întâi, consecvența va ajuta atunci când vor avea loc schimbări peste șase luni.
+  * La fel ca în cazul codului procedural, codul Terraform ar trebui scris pentru ca oamenii să-l citească mai întâi, consecvența va ajuta atunci când vor avea loc schimbări peste șase luni
   * Este posibil să mutați resurse în fișierul de stare Terraform, dar poate fi mai greu de făcut dacă aveți o structură și o denumire inconsecventă
 * Păstrați modulele de resurse cât mai simple posibil
 * Nu puneți simplu text (hardcoded) valorile care pot fi transmise ca variabile sau descoperite folosind surse de date
@@ -63,7 +63,7 @@ Vă rugăm să vă asigurați că înțelegeți conceptele cheie - [modulul de r
 
 ### Orchestrarea modulelor și compozițiilor de infrastructură
 
-A avea o infrastructură mică înseamnă că există un număr mic de dependențe și puține resurse. Pe măsură ce proiectul crește, necesitatea de a înlănțui execuția configurațiilor Terraform, conectarea diferitelor module de infrastructură și transmiterea valorilor într-o compoziție devine evidentă.
+A avea o infrastructură mică înseamnă că există un număr mic de dependențe și puține resurse. Pe măsură ce proiectul crește, necesitatea de a înlănțui execuția configurațiilor Terraform, conectarea diferitelor module de infrastructură și transmiterea valorilor într-o compoziție, devine evidentă.
 
 Există cel puțin 5 grupuri distincte de soluții de orchestrare pe care dezvoltatorii le folosesc:
 
@@ -71,7 +71,7 @@ Există cel puțin 5 grupuri distincte de soluții de orchestrare pe care dezvol
 2. Terragrunt. Instrument de orchestrare pur, care poate fi folosit pentru a orchestra întreaga infrastructură, precum și pentru a gestiona dependențe. Terragrunt operează cu module de infrastructură și compoziții în mod nativ, astfel încât reduce duplicarea codului.
 3. Scripturi interne. Adesea, acest lucru se întâmplă ca punct de plecare către orchestrare și înainte de a descoperi Terragrunt.
 4. Instrument de automatizare Ansible sau altceva asemănător. Utilizat de obicei atunci când Terraform este adoptat după Ansible sau când Ansible UI este utilizat în mod activ.
-5. [Crossplane](https://crossplane.io/) și alte soluții inspirate de Kubernetes. Uneori, este logic să utilizați ecosistemul Kubernetes și să folosiți o funcție de buclă de reconciliere pentru a obține starea dorită a configurațiilor dvs. Terraform. Vizualizați videoclipul [Crossplane vs Terraform](https://www.youtube.com/watch?v=ELhVbSdcqSY) pentru mai multe informatii.
+5. [Crossplane](https://crossplane.io/) și alte soluții inspirate de Kubernetes. Uneori, este logic să utilizați ecosistemul Kubernetes și să folosiți o funcție de buclă de reconciliere pentru a obține starea dorită a configurațiilor Terraform. Vizualizați videoclipul [Crossplane vs Terraform](https://www.youtube.com/watch?v=ELhVbSdcqSY) pentru mai multe informații.
 
 Având în vedere acest lucru, această carte trece în revistă primele două dintre aceste structuri de proiect, doar Terraform și Terragrunt.
 

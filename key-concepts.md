@@ -8,7 +8,7 @@ Acest capitol descrie conceptele cheie folosite în această carte.
 
 Resursele sunt, de exemplu, `aws_vpc`, `aws_db_instance`, etc. O resursă aparține unui furnizor (provider), acceptă argumente, întoarce atribute și are cicluri de viață. O resursă poate fi creată, preluată, actualizată și ștearsă.
 
-## Modul de resurse
+## Modulul de resurse
 
 Modulul de resurse este o colecție de resurse conectate care realizează împreună o acțiune comună (de exemplu, [modulul Terraform pentru AWS VPC](https://github.com/terraform-aws-modules/terraform-aws-vpc/) creează VPC, subrețele, NAT gateway etc.). Depinde de configurația furnizorului, care poate fi definită în acesta, sau în structuri de nivel superior (de exemplu, în modulul de infrastructură).
 
@@ -24,7 +24,7 @@ Un alt exemplu este modulul [terraform-aws-cloudquery](https://github.com/cloudq
 
 Compoziţia este o colecție de module de infrastructură, care se pot întinde pe mai multe zone separate logic (de exemplu, regiuni AWS, mai multe conturi AWS). Compoziţia este utilizată pentru a descrie infrastructura completă necesară pentru întreaga organizație sau întreagul proiect.
 
-O compoziţie constă din module de infrastructură, care constau din module de resurse, care implementează resurse individuale.
+O compoziţie este constituită din module de infrastructură, care sunt constituite din module de resurse, care implementează resurse individuale.
 
 ![O compoziţie de infrastructură simplă ](.gitbook/assets/composition-1.png)
 
@@ -40,7 +40,7 @@ Sursa de date [http ](https://registry.terraform.io/providers/hashicorp/http/lat
 
 ## Remote state
 
-Modulele de infrastructură și compozițiile ar trebui să-și păstreze [starea Terraform](https://www.terraform.io/language/state) într-o locație la distanță numită remote state, unde pot fi preluate de către alții într-un mod controlabil (de exemplu, specificați ACL, versionări, logging).
+Modulele de infrastructură și compozițiile ar trebui să-și păstreze [starea Terraform](https://www.terraform.io/language/state) într-o locație la distanță numită remote state, unde pot fi preluate de către alții într-un mod controlabil (de exemplu, specificații ACL, versionări, logging).
 
 ## Provider, provisioner, etc
 

@@ -8,7 +8,7 @@ Acest exemplu conține un cod ca exemplu de structurare a configuraților Terraf
 * 2 regiuni
 * 2 medii de lucru separate (`prod` și `stage` care nu au procese comune). Fiecare mediu de lucru există într-un cont AWS separat și conține resurse în două regiuni
 * Fiecare mediu de lucru folosește o altă versiune a modulelor de infrastructură gata de folosire (`alb`) provenite din [Terraform Registry](https://registry.terraform.io/)
-* Fiecare mediu de lucru folosește aceeași versiune a unui modul intern `modules/network` provenind din aceeași sursă locală (local directory).
+* Fiecare mediu de lucru folosește aceeași versiune a unui modul intern `modules/network` provenind din aceeași sursă locală (local directory)
 
 {% hint style="info" %}
 Într-un proiect de dimensiuni mari ca cel descris aici, beneficiile utilizării Terragrunt devin foarte vizibile. Vezi [Exemple de structuri de cod - Terragrunt](../terragrunt.md).

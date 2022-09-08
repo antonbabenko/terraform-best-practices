@@ -15,8 +15,8 @@ Exemplele următoare prezintă cazul în care AWS a fost ales ca furnizor, dar m
 
 ## Structuri de cod Terragrunt
 
-| Tip         | Descriere                                                                                                                                                                                                               | Disponibilitate |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| medie       | Mai multe conturi de AWS și medii de lucru, module de infrastructură gata de folosire, model de compoziție folosind Terragrunt.                                                                                         | Nu              |
-| mare        | Mai multe conturi de AWS, multiple regiuni many regions, nevoie urgentă de a reduce folosirea metodei copy-paste, module de infrastructură personalizate, utilizare ridicata a compoziției de cod. Folosind Terragrunt. | Nu              |
-| foarte mare | Furnizori multiplii (AWS, GCP, Azure). Implementări multi-cloud. Folosind Terragrunt.                                                                                                                                   | Nu              |
+| Tip         | Descriere                                                                                                                                                                                                  | Disponibilitate |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| medie       | Mai multe conturi de AWS și medii de lucru, module de infrastructură gata de folosire, model de compoziție folosind Terragrunt.                                                                            | Nu              |
+| mare        | Mai multe conturi de AWS, multiple regiuni, nevoie urgentă de a reduce folosirea metodei copy-paste, module de infrastructură personalizate, utilizare ridicata a compoziției de cod. Folosind Terragrunt. | Nu              |
+| foarte mare | Furnizori multiplii (AWS, GCP, Azure). Implementări multi-cloud. Folosind Terragrunt.                                                                                                                      | Nu              |

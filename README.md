@@ -7,7 +7,7 @@ description: >-
 
 # Bine ați venit
 
-[Terraform](https://www.terraform.io/) este un proiect nou (ca și concept-ul de DevOps) și a fost creat în 2014.
+[Terraform](https://www.terraform.io/) este un proiect nou (ca și majoritatea tool-urilor de DevOps) și a fost creat în 2014.
 
 Terraform este unul din cele mai puternice (poate chiar cel mai puternic) instrumente și unul din cele mai folosite pentru a defini infrastructura ca și cod. Le permite dezvoltatorilor să facă o mulțime de lucruri și nu îi împiedică să facă lucruri în moduri care vor fi greu de susținut sau de integrat în viitor.
 
@@ -59,28 +59,28 @@ Câțiva ani mai târziu, a fost actualizată cu mai multe bune practici disponi
 [Українська (Ukrainian)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/)
 {% endcontent-ref %}
 
-Contact me if you want to help translate this book into other languages.
+Contactați-mă dacă doriți să ajutați la traducerea acestei cărți în alte limbi.
 
-## Contributions
+## Contribuții
 
-I always want to get feedback and update this book as the community mature and new ideas are implemented and verified over time.
+Îmi doresc întotdeauna să primesc feedback și să actualizez această carte pe măsură ce comunitatea se maturizează și noi idei sunt implementate și verificate în timp.
 
-If you are interested in certain topics please [open an issue](https://github.com/antonbabenko/terraform-best-practices/issues), or thumb up an issue you want to be covered most. If you feel that **you have content** and you want to contribute, write a draft and submit a pull request (don't worry about writing good text at this point!)
+Dacă sunteți interesați de anumite subiecte vă rog[ ](https://github.com/antonbabenko/terraform-best-practices/issues)deschideți [un issue](https://github.com/antonbabenko/terraform-best-practices/issues) (o problemă), sau dați "Like" la o problemă existentă pe care doriți să o abordați cel mai mult. Dacă simțiți că aveți conținut și doriți să contribui, scrieți un text și trimiteți un pull request (nu vă faceți griji dacă scrieți un text bun în acest moment!).
 
-## Authors
+## Autori
 
-This book is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors and translators.
+Această carte este menținută de [Anton Babenko](https://github.com/antonbabenko) cu ajutorul diferiților colaboratori și traducători.
 
-## Sponsors
+## Sponsori
 
-| [![](.gitbook/assets/cluster-dev-logo-site.png)](https://cluster.dev) | [Cluster.dev](http://cluster.dev) — the only manager for cloud-native infrastructures.                   |
-| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [![](.gitbook/assets/coder-logo-for-sponsor.png)](http://coder.com/)  | [Coder.com](http://coder.com/) — create remote development machines for your team, powered by Terraform. |
+| [![](.gitbook/assets/cluster-dev-logo-site.png)](https://cluster.dev) | [Cluster.dev](http://cluster.dev) — singurul manager pentru infrastructurile cloud native.                                      |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/coder-logo-for-sponsor.png)](http://coder.com/)  | [Coder.com](http://coder.com/) — creați mașini de dezvoltare la distanță (remote) pentru echipa voastră, susținut de Terraform. |
 
-## License
+## Licență
 
-This work is licensed under Apache 2 License. See LICENSE for full details.
+Această lucrare este licențiată sub Apache 2 License. Consultați LICENSE pentru detalii complete.
 
-The authors and contributors to this content cannot guarantee the validity of the information found here. Please make sure that you understand that the information provided here is being provided freely, and that no kind of agreement or contract is created between you and any persons associated with this content or project. The authors and contributors do not assume and hereby disclaim any liability to any party for any loss, damage, or disruption caused by errors or omissions in the information contained in, associated with, or linked from this content, whether such errors or omissions result from negligence, accident, or any other cause.
+Autorii și colaboratorii la acest conținut nu pot garanta valabilitatea informațiilor găsite aici. Vă rugăm să vă asigurați că înțelegeți că informațiile furnizate aici sunt furnizate în mod liber și că nu este creat niciun fel de acord sau contract între dvs. și orice persoană asociată cu acest conținut sau proiect. Autorii și colaboratorii nu își asumă și nu își declină nicio responsabilitate față de orice parte pentru orice pierdere, daune sau întrerupere cauzată de erori sau omisiuni în informațiile conținute în, asociate cu sau legate de acest conținut, indiferent dacă astfel de erori sau omisiuni rezultă din neglijență, accident sau orice altă cauză.
 
 Copyright © 2018-2022 Anton Babenko.
