@@ -73,6 +73,5 @@ composition-1 {
       resource-4 (d3)
     }
   }
-
 }
 ```
