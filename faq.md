@@ -13,10 +13,6 @@ description: FTP (Frequent Terraform Problems) - Häufige Probleme mit Terraform
 * [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - Sammlung von Git-Hooks für Terraform, die mit dem [Pre-Commit-Framework](https://pre-commit.com/) verwendet werden können
 * [**Infracost**](https://www.infracost.io) - Cloud-Kostenschätzungen für Terraform in Pull Requests. Funktioniert auch mit Terragrunt, Atlantis und pre-commit-terraform.
 
-## Hatten Sie schon Gelegenheit, die vorherige Frage zu beantworten?
-
-Ja, nach ein paar Monaten haben wir endlich die Antwort gefunden. Leider ist Mike zur Zeit im Urlaub, so dass wir die Antwort leider nicht geben können.
-
 ## Was sind Lösungen für die [dependency hell](https://en.wikipedia.org/wiki/Dependency\_hell) bei Modulen?
 
 Die Versionen der Ressourcen- und Infrastrukturmodule sollten angegeben werden. Provider sollten außerhalb von Modulen konfiguriert werden, aber nur in der Komposition. Die Versionen von Providern und Terraform können auch fixiert werden.
