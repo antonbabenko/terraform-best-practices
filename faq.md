@@ -6,16 +6,12 @@ description: FTP (Frequent Terraform Problems)
 
 ## Quels sont les outils que je devrais connaître et envisager d'utiliser?
 
-* [**Terragrunt**](https://terragrunt.gruntwork.io) - Outil d'orchestration&#x20;
+* [**Terragrunt**](https://terragrunt.gruntwork.io) - Outil d'orchestration
 * [**tflint**](https://github.com/terraform-linters/tflint) - Code linter
 * [**tfenv**](https://github.com/tfutils/tfenv) - Gestionnaire de versions
 * [**Atlantis**](https://www.runatlantis.io) - Automation des demandes d'extraction (Pull Request)
 * [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - Collection de git hooks pour Terraform à utiliser avec [pre-commit framework](https://pre-commit.com)
 * [**Infracost**](https://www.infracost.io/) - Estimation des coûts du cloud pour Terraform dans les demandes de pull. Fonctionne aussi avec Terragrunt, Atlantis et pre-commit-terraform
-
-## Avez-vous eu l'occasion de répondre à la question précédente?
-
-Malheureusement, Mike est en vacances en ce moment, donc je crains que nous ne soyons pas en mesure de fournir la réponse à ce stade.
 
 ## Quelles sont les solutions à l'enfer des dépendances avec les modules ?
 
