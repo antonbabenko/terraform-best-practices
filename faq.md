@@ -12,10 +12,6 @@ description: PFT (Probleme Frecvente cu Terrafom)
 * [**Atlantis**](https://www.runatlantis.io/) - Automatizare pentru Pull Requests
 * [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - O colecție de git hooks pentru Terraform pentru a fi folosite cu [pre-commit framework](https://pre-commit.com/)
 
-## Ați avut ocazia să răspundeți la întrebarea anterioară?
-
-Da, după câteva luni am găsit în sfârșit răspunsul. Din păcate, Mike este în vacanță acum, așa că mă tem că nu putem oferi răspunsul în acest moment.
-
 ## Care sunt soluțiile pentru iadul dependenței - [dependency hell](https://en.wikipedia.org/wiki/Dependency\_hell), cu module?
 
 Ar trebui specificate versiunile modulelor de resurse și infrastructură. Furnizorii de infrastructură (providers) ar trebui configurați în afara modulelor, dar numai în compoziție. Versiunea furnizorilor și  cea a Terraform pot fi, de asemenea, blocate.
