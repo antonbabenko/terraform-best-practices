@@ -13,10 +13,6 @@ description: FTP (Frequent Terraform Problems)
 * [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - Coleção de git hooks para Terraform para ser usado com o [framework pre-commit](https://pre-commit.com)
 * [**Infracost**](https://infracost.io) - Estimativas de custo de nuvem para Terraform em solicitações de Pull Requests. Funciona com Terragrunt, Atlantis e pré-commits também.
 
-## Você já teve a oportunidade de responder a pergunta anterior?
-
-Sim, depois de alguns meses, finalmente encontramos a resposta. Infelizmente, Mike está de férias agora, então temo que não possamos fornecer a responsta neste momento.
-
 ## Quais são as soluções do [Inferno de Dependências](https://pt.wikipedia.org/wiki/Inferno\_de\_depend%C3%AAncias) com módulos?
 
 As versões dos módulos de recursos e infraestrutura devem ser especificadas. Os provedores devem ser configurados fora dos módulos, mas apenas na composição. A versão dos provedores e do Terraform podem também ser travadas.
