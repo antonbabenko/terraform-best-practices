@@ -7,7 +7,7 @@ description: >-
 
 # ¡Bienvenido!
 
-<mark style="color:purple;">Terraform</mark> es un proyecto relativamente nuevo (como la mayoría de las herramientas DevOps, de echo) que comenzó en el año 2014.
+<mark style="color:purple;">Terraform</mark> es un proyecto relativamente nuevo (como la mayoría de las herramientas DevOps, de hecho) que comenzó en el año 2014.
 
 Terraform es bastante potente (si no es que la herramienta más potente disponible en el mercado actualmente) y una de las herramientas que permiten la administración de infraestructura como código más usadas. Terraform permite a los desarrolladores realizar una gran variedad de cosas pero no los restringe de hacerlas de maneras en las que en un futuro les serán difíciles de integrar o de dar soporte.
 
