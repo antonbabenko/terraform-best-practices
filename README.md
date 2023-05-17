@@ -21,9 +21,6 @@ Beberapa tahun kemudian buku ini telah diperbarui dengan konten praktik terbaik 
 
 
 
-{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/u3iITRIHQx97ro2PkfdC/" %}
-[العربية (Arabic)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/u3iITRIHQx97ro2PkfdC/)
-{% endcontent-ref %}
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/PJbgKPAX0ohEMLpETpg7/" %}
 [Bosanski (Bosnian)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/PJbgKPAX0ohEMLpETpg7/)
@@ -51,10 +48,6 @@ Beberapa tahun kemudian buku ini telah diperbarui dengan konten praktik terbaik 
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/5c1kFpqxaDZC2g9e6rtT/" %}
 [ελληνικά (Greek)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/5c1kFpqxaDZC2g9e6rtT/)
-{% endcontent-ref %}
-
-{% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/4bq6CyY8vYiEHkjN63rT/" %}
-[עברית (Hebrew)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/4bq6CyY8vYiEHkjN63rT/)
 {% endcontent-ref %}
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/Mgong4S6IjtibE055zUM/" %}
@@ -92,6 +85,8 @@ Beberapa tahun kemudian buku ini telah diperbarui dengan konten praktik terbaik 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/" %}
 [Українська (Ukrainian)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/)
 {% endcontent-ref %}
+
+
 
 
 
