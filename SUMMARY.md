@@ -1,0 +1,17 @@
+# Table of contents
+
+* [स्वागतम्](README.md)
+* [मुख्य अवधारणाएं](key-concepts.md)
+* [कोड संरचना](code-structure.md)
+* [कोड संरचना उदाहरण](examples/README.md)
+  * [टेराग्रंट](examples/terragrunt.md)
+  * [टेराफ़ॉर्म](examples/terraform/README.md)
+    * [टेराफॉर्म के साथ छोटे आकार का बुनियादी ढांचा](examples/terraform/small-size-infrastructure.md)
+    * [टेराफॉर्म के साथ मध्यम आकार का बुनियादी ढांचा](examples/terraform/medium-size-infrastructure.md)
+    * [टेराफॉर्म के साथ बड़े आकार का बुनियादी ढांचा](examples/terraform/large-size-infrastructure-with-terraform.md)
+* [नामकरण की परंपरा](naming.md)
+* [कोड स्टाइलिंग](code-styling.md)
+* [सामान्य प्रश्न](faq.md)
+* [संदर्भ](references.md)
+* [टेराफ़ॉर्म कॉन्फ़िगरेशन लिखना](writing-terraform-configurations.md)
+* [कार्यशाला](workshop.md)
