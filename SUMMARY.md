@@ -1,0 +1,17 @@
+# Table of contents
+
+* [მოგესალმებით!](README.md)
+* [ძირითადი ცნებები](key-concepts.md)
+* [კოდის სტრუქტურა](code-structure.md)
+* [კოდის სტრუქტურის მაგალითები](examples/README.md)
+  * [Terragrunt](examples/terragrunt.md)
+  * [Terraform](examples/terraform/README.md)
+    * [მცირე ზომის ინფრასტრუქტურა  Terraform-ით](examples/terraform/small-size-infrastructure.md)
+    * [საშუალო ზომის ინფრასტრუქტურა Terraform-ით](examples/terraform/medium-size-infrastructure.md)
+    * [დიდი ზომის ინფრასტრუქტურა  Terraform-ით](examples/terraform/large-size-infrastructure-with-terraform.md)
+* [დასახელების კონვენცია](naming.md)
+* [კოდის სტილი](code-styling.md)
+* [ხშირად დასმული კითხვები](faq.md)
+* [მითითებები](references.md)
+* [Terraform კონფიგურაციის წერა](writing-terraform-configurations.md)
+* [ვორქშოპი](workshop.md)
