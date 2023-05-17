@@ -20,6 +20,7 @@ Sözün özü, bu kitap Terraform kullanıcıları için en iyi uygulama metodla
 ## Translations
 
 
+
 {% content-ref url="http://localhost:5000/o/-LMqIrDlzEiI-N4uHrWg/s/u3iITRIHQx97ro2PkfdC/" %}
 [العربية (Arabic)](http://localhost:5000/o/-LMqIrDlzEiI-N4uHrWg/s/u3iITRIHQx97ro2PkfdC/)
 {% endcontent-ref %}
@@ -91,6 +92,8 @@ Sözün özü, bu kitap Terraform kullanıcıları için en iyi uygulama metodla
 {% content-ref url="http://localhost:5000/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/" %}
 [Українська (Ukrainian)](http://localhost:5000/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/)
 {% endcontent-ref %}
+
+
 
 
 
