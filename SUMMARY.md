@@ -1,0 +1,17 @@
+# Table of contents
+
+* [ಸ್ವಾಗತ](README.md)
+* [ಮುಖ್ಯ ಪರಿಕಲ್ಪನೆಗಳು](key-concepts.md)
+* [ಕೋಡ್ ರಚನೆ](code-structure.md)
+* [ಕೋಡ್ ರಚನೆ ಉದಾಹರಣೆಗಳು](examples/README.md)
+  * [ಟೆರಾಗ್ರಂಟ್](examples/terragrunt.md)
+  * [ಟೆರಾಫಾರ್ಮ್](examples/terraform/README.md)
+    * [ಸಣ್ಣ ಗಾತ್ರದ infrastructure ಟೆರಾಫಾರ್ಮ್ ನೊಂದಿಗೆ](examples/terraform/small-size-infrastructure.md)
+    * [ಮಧ್ಯಮ ಗಾತ್ರದ infrastructure ಟೆರಾಫಾರ್ಮ್ ನೊಂದಿಗೆ](examples/terraform/medium-size-infrastructure.md)
+    * [ದೊಡ್ಡಗಾತ್ರದ infrastructure ಟೆರಾಫಾರ್ಮ್ ನೊಂದಿಗೆ](examples/terraform/large-size-infrastructure-with-terraform.md)
+* [ನೇಮಿಂಗ್ conventionಗಳು](naming.md)
+* [ಕೋಡ್ ಸ್ಟೈಲಿಂಗ್](code-styling.md)
+* [ಆಗಾಗ್ಗೆ ಕೇಳಲಾಗುವ ಪ್ರಶ್ನೆಗಳು (FAQ)](faq.md)
+* [ಉಲ್ಲೇಖಗಳು](references.md)
+* [ಟೆರ್ರಾಫಾರ್ಮ್ ಕಾಂಫಿಗುರೇಶನ್ ಗಳನ್ನು ಬರೆಯುವ ಬಗ್ಗೆ](writing-terraform-configurations.md)
+* [ಕಾರ್ಯಾಗಾರ](workshop.md)
