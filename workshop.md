@@ -1,5 +1,5 @@
-# Workshop
+# Εργαστήριο
 
-There is also a workshop for people who want to practice some of the things described in this guide.
+Υπάρχει επίσης ένα εργαστήριο για άτομα που θέλουν να εφαρμόσουν στην πράξη κάποια από τα πράγματα που περιγράφονται σε αυτόν τον οδηγό.&#x20;
 
-The content is here - [https://github.com/antonbabenko/terraform-best-practices-workshop](https://github.com/antonbabenko/terraform-best-practices-workshop)
+Το περιεχόμενο βρίσκεται εδώ - [https://github.com/antonbabenko/terraform-best-practices-workshop](https://github.com/antonbabenko/terraform-best-practices-workshop)

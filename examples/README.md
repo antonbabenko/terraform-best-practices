@@ -1,22 +1,22 @@
-# Code structure examples
+# Παραδείγματα δομής κώδικα
 
-## Terraform code structures
+## Δομές κώδικα Terraform
 
 {% hint style="info" %}
-These examples are showing AWS provider but the majority of principles shown in the examples can be applied to other public cloud providers as well as other kinds of providers (DNS, DB, Monitoring, etc)
+Αυτά τα παραδείγματα δείχνουν τον πάροχο AWS, αλλά η πλειονότητα των αρχών που παρουσιάζονται στα παραδείγματα μπορούν να εφαρμοστούν σε άλλους παρόχους δημόσιου cloud καθώς και σε άλλα είδη παρόχων (DNS, DB, Monitoring κ.λπ.).
 {% endhint %}
 
-| Type                                                           | Description                                                                                                                                     | Readiness |
-| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| [small](terraform/small-size-infrastructure.md)                | Few resources, no external dependencies. Single AWS account. Single region. Single environment.                                                 | Yes       |
-| [medium](terraform/medium-size-infrastructure.md)              | Several AWS accounts and environments, off-the-shelf infrastructure modules using Terraform.                                                    | Yes       |
-| [large](terraform/large-size-infrastructure-with-terraform.md) | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terraform. | WIP       |
-| very-large                                                     | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terraform.                                                                  | No        |
+| Τυπος                                                            | Περιγραφή                                                                                                                                                                  | Ετοιμότητα |
+| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| [μικρός](terraform/small-size-infrastructure.md)                 | Λίγοι πόροι, χωρίς εξωτερικές εξαρτήσεις. Ενιαίος λογαριασμός AWS. Μία μόνο περιοχή. Ενιαίο περιβάλλον.                                                                    | Ναι        |
+| [μεσαίος](terraform/medium-size-infrastructure.md)               | Διάφοροι λογαριασμοί και περιβάλλοντα AWS, έτοιμες μονάδες υποδομής με χρήση της Terraform.                                                                                | Ναι        |
+| [μεγάλος](terraform/large-size-infrastructure-with-terraform.md) | Πολλοί λογαριασμοί AWS, πολλά regions, επείγουσα ανάγκη μείωσης της αντιγραφής-επικόλλησης, προσαρμοσμένες ενότητες υποδομής, έντονη χρήση συνθέσεων. Χρήση της Terraform. | Σε εξέλιξη |
+| πολύ μεγάλος                                                     | Εγκαταστάσεις πολλαπλών παρόχων cloud. Χρήση της Terraform.                                                                                                                | Όχι        |
 
-## Terragrunt code structures
+## Δομές κώδικα Terragrunt
 
-| Type       | Description                                                                                                                                      | Readiness |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| medium     | Several AWS accounts and environments, off-the-shelf infrastructure modules, composition pattern using Terragrunt.                               | No        |
-| large      | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terragrunt. | No        |
-| very-large | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terragrunt.                                                                  | No        |
+| Τύπος        | Περιγραφή                                                                                                                                                                   | Ετοιμότητα |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| μεσαίος      | Διάφοροι λογαριασμοί και περιβάλλοντα AWS, έτοιμες μονάδες υποδομής, σύνθεση με χρήση της Terragrunt.                                                                       | Όχι        |
+| μεγάλος      | Πολλοί λογαριασμοί AWS, πολλά regions, επείγουσα ανάγκη μείωσης της αντιγραφής-επικόλλησης, προσαρμοσμένες ενότητες υποδομής, έντονη χρήση συνθέσεων. Χρήση της Terragrunt. | Όχι        |
+| πολύ μεγάλος | Διάφοροι πάροχοι (AWS, GCP, Azure). Εγκαταστάσεις πολλαπλών cloud. Χρήση της Terragrunt.                                                                                    | Όχι        |

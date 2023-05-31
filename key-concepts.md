@@ -1,60 +1,60 @@
-# Key concepts
+# Βασικές έννοιες
 
-The official Terraform documentation describes [all aspects of configuration in details](https://www.terraform.io/docs/configuration/index.html). Read it carefully to understand the rest of this section.
+Η επίσημη τεκμηρίωση του Terraform περιγράφει [όλες τις πτυχές της διαμόρφωσης με λεπτομέρειες](https://www.terraform.io/docs/configuration/index.html). Διαβάστε την προσεκτικά για να κατανοήσετε το υπόλοιπο αυτής της ενότητας.&#x20;
 
-This section describes key concepts which are used inside the book.
+Αυτή η ενότητα περιγράφει βασικές έννοιες που χρησιμοποιούνται μέσα στο βιβλίο.
 
-## Resource
+## Πόρος
 
-Resource is `aws_vpc`, `aws_db_instance`, etc. A resource belongs to a provider, accepts arguments, outputs attributes, and has a lifecycle. A resource can be created, retrieved, updated, and deleted.
+Ως πόρος λογίζεται ένα `aws_vpc`, ένα `aws_db_instance` κλπ. Ένας πόρος ανήκει σε έναν πάροχο, δέχεται ορίσματα, εξάγει χαρακτηριστικά και έχει κύκλο ζωής. Ένας πόρος μπορεί να δημιουργηθεί, να ανακτηθεί, να ενημερωθεί και να διαγραφεί.
 
-## Resource module
+## Μονάδα (module) πόρων
 
-Resource module is a collection of connected resources which together perform the common action (for e.g., [AWS VPC Terraform module](https://github.com/terraform-aws-modules/terraform-aws-vpc/) creates VPC, subnets, NAT gateway, etc). It depends on provider configuration, which can be defined in it, or in higher-level structures (e.g., in infrastructure module).
+Η μονάδα πόρων είναι μια συλλογή συνδεδεμένων πόρων οι οποίοι εκτελούν από κοινού την κοινή ενέργεια (π.χ. η [μονάδα AWS VPC Terraform](https://github.com/terraform-aws-modules/terraform-aws-vpc/) δημιουργεί VPC, subnets, NAT gateway κλπ.). Εξαρτάται από τη διαμόρφωση του παρόχου, η οποία μπορεί να οριστεί σε αυτήν ή σε δομές υψηλότερου επιπέδου (π.χ. στη μονάδα υποδομής).
 
-## Infrastructure module
+## Μονάδα υποδομής
 
-An infrastructure module is a collection of resource modules, which can be logically not connected, but in the current situation/project/setup serves the same purpose. It defines the configuration for providers, which is passed to the downstream resource modules and to resources. It is normally limited to work in one entity per logical separator (e.g., AWS Region, Google Project).
+Μια μονάδα υποδομής είναι μια συλλογή από μονάδες πόρων, οι οποίες μπορεί να μην συνδέονται λογικά, αλλά στην τρέχουσα κατάσταση/έργο/ρύθμιση εξυπηρετούν τον ίδιο σκοπό. Καθορίζει τη διαμόρφωση για τους παρόχους, η οποία μεταβιβάζεται στις μεταγενέστερες μονάδες πόρων και στους πόρους. Συνήθως περιορίζεται να  δουλεύει σε μία οντότητα ανά λογικό διαχωριστή (π.χ. AWS Region, Google Project).
 
-For example, [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis/) module uses resource modules like [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc/) and [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group/) to manage the infrastructure required for running [Atlantis](https://www.runatlantis.io) on [AWS Fargate](https://aws.amazon.com/fargate/).
+Για παράδειγμα, η μονάδα [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis/) χρησιμοποιεί μονάδες πόρων όπως οι [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc/) και [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group/) για τη διαχείριση της υποδομής που απαιτείται για τη εκτέλεση [Atlantis](https://www.runatlantis.io/) σε [AWS Fargate](https://aws.amazon.com/fargate/).
 
-Another example is [terraform-aws-cloudquery](https://github.com/cloudquery/terraform-aws-cloudquery) module where multiple modules by [terraform-aws-modules](https://github.com/terraform-aws-modules/) are being used together to manage the infrastructure as well as using Docker resources to build, push, and deploy Docker images. All in one set.
+Ένα άλλο παράδειγμα είναι η μονάδα [terraform-aws-cloudquery](https://github.com/cloudquery/terraform-aws-cloudquery) όπου πολλαπλές μονάδες [terraform-aws-modules](https://github.com/terraform-aws-modules/) χρησιμοποιούνται μαζί για τη διαχείριση της υποδομής καθώς και η χρήση πόρων Docker για τη δημιουργία, την προώθηση και την ανάπτυξη Docker images. Όλα σε ένα σύνολο.
 
-## Composition
+## Σύνθεση
 
-Composition is a collection of infrastructure modules, which can span across several logically separated areas (e.g.., AWS Regions, several AWS accounts). Composition is used to describe the complete infrastructure required for the whole organization or project.
+Η σύνθεση είναι μια συλλογή μονάδων υποδομής, η οποία μπορεί να εκτείνεται σε διάφορες λογικά διαχωρισμένες περιοχές (π.χ. AWS regions, αρκετοί λογαριασμοί AWS). Η σύνθεση χρησιμοποιείται για να περιγράψει την πλήρη υποδομή που απαιτείται για ολόκληρο τον οργανισμό ή το έργο.&#x20;
 
-A composition consists of infrastructure modules, which consist of resources modules, which implement individual resources.
+Μια σύνθεση αποτελείται από μονάδες υποδομής, οι οποίες αποτελούνται από μονάδες πόρων, οι οποίες υλοποιούν μεμονωμένους πόρους.
 
-![Simple infrastructure composition](.gitbook/assets/composition-1.png)
+![Απλή σύνθεση υποδομής](.gitbook/assets/composition-1.png)
 
-## Data source
+## Πηγή δεδομένων
 
-Data source performs a read-only operation and is dependant on provider configuration, it is used in a resource module and an infrastructure module.
+Η πηγή δεδομένων εκτελεί μια λειτουργία μόνο για ανάγνωση και εξαρτάται από τη διαμόρφωση του παρόχου, χρησιμοποιείται σε μια μονάδα πόρων και μια μονάδα υποδομής.&#x20;
 
-Data source `terraform_remote_state` acts as a glue for higher-level modules and compositions.
+Η πηγή δεδομένων `terraform_remote_state` λειτουργεί ως «συγκολλητική ουσία» για μονάδες και συνθέσεις υψηλότερου επιπέδου.
 
-The [external](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) data source allows an external program to act as a data source, exposing arbitrary data for use elsewhere in the Terraform configuration. Here is an example from the [terraform-aws-lambda module](https://github.com/terraform-aws-modules/terraform-aws-lambda/blob/258e82b50adc451f51544a2b57fd1f6f8f4a61e4/package.tf#L5-L7) where the filename is computed by calling an external Python script.
+Η [εξωτερική](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) πηγή δεδομένων επιτρέπει σε ένα εξωτερικό πρόγραμμα να ενεργεί ως πηγή δεδομένων, εκθέτοντας αυθαίρετα δεδομένα για χρήση αλλού στην διαμόρφωση του Terraform. Ακολουθεί ένα παράδειγμα από τη μονάδα [terraform-aws-lambda](https://github.com/terraform-aws-modules/terraform-aws-lambda/blob/258e82b50adc451f51544a2b57fd1f6f8f4a61e4/package.tf#L5-L7) όπου το όνομα αρχείου υπολογίζεται με την κλήση ενός εξωτερικού Python script.
 
-The [http](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) data source makes an HTTP GET request to the given URL and exports information about the response which is often useful to get information from endpoints where a native Terraform provider does not exist.
+Η πηγή δεδομένων [http](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) πραγματοποιεί μια κλήση HTTP GET στη δεδομένη διεύθυνση URL και εξάγει πληροφορίες σχετικά με την απόκριση, η οποία είναι συχνά χρήσιμη για τη λήψη πληροφοριών από endpoints όπου δεν υπάρχει εγγενής πάροχος Terraform.
 
-## Remote state
+## Απομακρυσμένη κατάσταση
 
-Infrastructure modules and compositions should persist their [Terraform state](https://www.terraform.io/docs/language/state/index.html) in a remote location where it can be retrieved by others in a controllable way (e.g., specify ACL, versioning, logging).
+Οι μονάδες υποδομής και οι συνθέσεις θα πρέπει να διατηρούν την [Terraform κατάστασή τους](https://www.terraform.io/docs/language/state/index.html) σε μια απομακρυσμένη τοποθεσία όπου μπορεί να ανακτηθεί από άλλους με ελεγχόμενο τρόπο (π.χ. προσδιορισμός ACL, versioning, logging).
 
-## Provider, provisioner, etc
+## Πάροχος, παροχέας, κλπ.
 
-Providers, provisioners, and a few other terms are described very well in the official documentation and there is no point to repeat it here. To my opinion, they have little to do with writing good Terraform modules.
+Οι πάροχοι, οι παροχείς και μερικοί άλλοι όροι περιγράφονται πολύ καλά στo επίσημo εγχειρίδιο και δεν έχει νόημα να τα επαναλάβουμε εδώ. Κατά τη γνώμη μου, έχουν ελάχιστη σχέση με τη συγγραφή καλών μονάδων Terraform.
 
-## Why so _difficult_?
+## Γιατί είναι τόσο _δύσκολο;_
 
-While individual resources are like atoms in the infrastructure, resource modules are molecules (consisting of atoms). A module is the smallest versioned and shareable unit. It has an exact list of arguments, implement basic logic for such a unit to do the required function. e.g., [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group) module creates `aws_security_group` and `aws_security_group_rule` resources based on input. This resource module by itself can be used together with other modules to create the infrastructure module.
+Ενώ οι μεμονωμένοι πόροι μοιάζουν με άτομα σε επίπεδο υποδομής, οι μονάδες πόρων μοιάζουν με μόρια (που αποτελούνται από άτομα). Μια μονάδα είναι η μικρότερη εκδοχή οντότητας που μπορεί να διαμοιραστεί. Έχει έναν ακριβή κατάλογο ορισμάτων, υλοποιεί τη βασική λογική μιας τέτοιας μονάδας για να κάνει την απαιτούμενη λειτουργία. π.χ., η μονάδα [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group) δημιουργεί τους πόρους `aws_security_group` και `aws_security_group_rule` με βάση τo input. Αυτή η μονάδα πόρων από μόνη της μπορεί να χρησιμοποιηθεί μαζί με άλλες μονάδες για τη δημιουργία της μονάδας υποδομής.
 
-Access to data across molecules (resource modules and infrastructure modules) is performed using the modules' outputs and data sources.
+Η πρόσβαση σε δεδομένα μεταξύ των μορίων (μονάδες πόρων και μονάδες υποδομής) πραγματοποιείται χρησιμοποιώντας τα output και τις πηγές δεδομένων των μονάδων.
 
-Access between compositions is often performed using remote state data sources. There are [multiple ways to share data between configurations](https://www.terraform.io/docs/language/state/remote-state-data.html#alternative-ways-to-share-data-between-configurations).
+Η πρόσβαση μεταξύ συνθέσεων πραγματοποιείται συχνά με τη χρήση απομακρυσμένων πηγών δεδομένων κατάστασης. Υπάρχουν [πολλοί τρόποι διαμοιρασμού δεδομένων μεταξύ συνθέσεων](https://www.terraform.io/docs/language/state/remote-state-data.html#alternative-ways-to-share-data-between-configurations).&#x20;
 
-When putting concepts described above in pseudo-relations it may look like this:
+Όταν τοποθετούμε τις έννοιες που περιγράφονται παραπάνω σε ψευδοσχέσεις μπορεί να μοιάζει ως εξής:
 
 ```
 composition-1 {

@@ -1,15 +1,15 @@
-# Writing Terraform configurations
+# Γράφοντας ρυθμίσεις για την Τerraform
 
-## Use `locals` to specify explicit dependencies between resources
+## Χρησιμοποιήστε `locals` για να καθορίσετε ρητές εξαρτήσεις μεταξύ πόρων
 
-Helpful way to give a hint to Terraform that some resources should be deleted before even when there is no direct dependency in Terraform configurations.
+Χρήσιμος τρόπος για να δώσετε μια υπόδειξη στην Terraform ότι κάποιοι πόροι πρέπει να διαγραφούν πριν, ακόμη και όταν δεν υπάρχει άμεση εξάρτηση στις ρυθμίσεις της Terraform.
 
 [https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf](https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf)
 
-## Terraform 0.12 - Required vs Optional arguments
+## Terraform 0.12 - Απαιτούμενα εναντίον Προαιρετικών ορισμάτων
 
-1. Required argument `index_document` must be set, if `var.website` is not an empty map.
-2. Optional argument `error_document` can be omitted.
+1. Το Απαιτούμενο όρισμα `index_document` πρέπει να οριστεί, αν το `var.website` δεν είναι ένα κενό map.&#x20;
+2. Το προαιρετικό όρισμα `error_document` μπορεί να παραληφθεί.
 
 {% code title="main.tf" %}
 ```hcl

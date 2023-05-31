@@ -1,13 +1,13 @@
-# References
+# Αναφορές
 
 {% hint style="info" %}
-There are a lot of people who create great content and manage open-source projects relevant to the Terraform community but I can't think of the best structure to get these links listed here without copying lists like [awesome-terraform](https://github.com/shuaibiyy/awesome-terraform).
+Υπάρχουν πολλοί άνθρωποι που δημιουργούν σπουδαίο περιεχόμενο και διαχειρίζονται έργα ανοιχτού κώδικα σχετικά με την κοινότητα Terraform, αλλά δεν μπορώ να σκεφτώ την καλύτερη δομή για να παραθέσω αυτούς τους συνδέσμους εδώ χωρίς να αντιγράψω λίστες όπως η [awesome-terraform](https://github.com/shuaibiyy/awesome-terraform).
 {% endhint %}
 
-[https://twitter.com/antonbabenko/lists/terraform-experts](https://twitter.com/antonbabenko/lists/terraform-experts) - List of people who work with Terraform very actively and can tell you a lot (if you ask them).
+[https://twitter.com/antonbabenko/lists/terraform-experts](https://twitter.com/antonbabenko/lists/terraform-experts) - Λίστα ανθρώπων που εργάζονται πολύ ενεργά με το Terraform και μπορούν να σας πουν πολλά (αν τους ρωτήσετε).&#x20;
 
-[https://github.com/shuaibiyy/awesome-terraform](https://github.com/shuaibiyy/awesome-terraform) - Curated list of resources on HashiCorp's Terraform.
+[https://github.com/shuaibiyy/awesome-terraform](https://github.com/shuaibiyy/awesome-terraform) - Επιμελημένος κατάλογος πηγών σχετικά με το Terraform της HashiCorp.&#x20;
 
-[http://bit.ly/terraform-youtube](http://bit.ly/terraform-youtube) - "Your Weekly Dose of Terraform" YouTube channel by Anton Babenko. Live streams with reviews, interviews, Q\&A, live coding, and some hacking with Terraform.
+[http://bit.ly/terraform-youtube](http://bit.ly/terraform-youtube) - Το κανάλι "Η εβδομαδιαία δόση σας από το Terraform" στο YouTube από τον Anton Babenko. Ζωντανές ροές με κριτικές, συνεντεύξεις, ερωταπαντήσεις, ζωντανό coding και λίγο hacking με την Terraform.&#x20;
 
-[https://weekly.tf](https://weekly.tf) - Terraform Weekly newsletter. Various news in the Terraform world (projects, announcements, discussions) by Anton Babenko.
+[https://weekly.tf](https://weekly.tf/) - Εβδομαδιαίο ενημερωτικό δελτίο για το Terraform. Διάφορα νέα στον κόσμο του Terraform (έργα, ανακοινώσεις, συζητήσεις) από τον Anton Babenko.

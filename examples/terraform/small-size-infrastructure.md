@@ -1,16 +1,16 @@
-# Small-size infrastructure with Terraform
+# Υποδομή μικρού μεγέθους με Terraform
 
-Source: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform)
+Πηγή: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform)
 
-This example contains code as an example of structuring Terraform configurations for a small-size infrastructure, where no external dependencies are used.
+Αυτό το παράδειγμα περιέχει κώδικα ως παράδειγμα δόμησης των ρυθμίσεων του Terraform για μια υποδομή μικρού μεγέθους, όπου δεν χρησιμοποιούνται εξωτερικές εξαρτήσεις.
 
 {% hint style="success" %}
-* Perfect to get started and refactor as you go
-* Perfect for small resource modules
-* Good for small and linear infrastructure modules (eg, [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis))
-* Good for a small number of resources (fewer than 20-30)
+* Ιδανικό για να ξεκινήσετε και να αναδιαμορφώσετε καθώς προχωράτε
+* Ιδανικό για μικρές ενότητες πόρων
+* Καλό για μικρές και γραμμικές ενότητες υποδομής (π.χ. [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis))
+* Καλό για μικρό αριθμό πόρων (λιγότερους από 20-30)&#x20;
 {% endhint %}
 
 {% hint style="warning" %}
-Single state file for all resources can make the process of working with Terraform slow if the number of resources is growing (consider using an argument `-target` to limit the number of resources)
+Το ενιαίο αρχείο κατάστασης για όλους τους πόρους μπορεί να κάνει τη διαδικασία εργασίας με το Terraform αργή αν ο αριθμός των πόρων αυξάνεται (εξετάστε το ενδεχόμενο να χρησιμοποιήσετε ένα όρισμα `-target` για να περιορίσετε τον αριθμό των πόρων)
 {% endhint %}
