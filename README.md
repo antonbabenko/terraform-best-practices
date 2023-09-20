@@ -15,6 +15,13 @@ description: >-
 
 Λίγα χρόνια αργότερα έχει ενημερωθεί με περισσότερες πραγματικές βέλτιστες πρακτικές που είναι διαθέσιμες με το Terraform 1.0. Τελικά, αυτό το βιβλίο θα πρέπει να περιέχει τις περισσότερες από τις αδιαμφισβήτητες βέλτιστες πρακτικές και συστάσεις για τους χρήστες του Terraform.
 
+## Χορηγοί
+
+Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-links) if you want to become a sponsor.
+
+| [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko) | [Cast.AI](https://cast.ai/antonbabenko) — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE! |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+
 ## Μεταφράσεις
 
 {% content-ref url="http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/u3iITRIHQx97ro2PkfdC/" %}
@@ -89,7 +96,6 @@ description: >-
 [Українська (Ukrainian)](http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/)
 {% endcontent-ref %}
 
-
 Επικοινωνήστε μαζί μου αν θέλετε να βοηθήσετε στη μετάφραση αυτού του βιβλίου σε άλλες γλώσσες.
 
 ## Συνεισφορές
@@ -98,18 +104,9 @@ description: >-
 
 Αν ενδιαφέρεστε για συγκεκριμένα θέματα, παρακαλώ ανοίξτε [ένα θέμα](https://github.com/antonbabenko/terraform-best-practices/issues) ή κάντε 'thumb up' σε ένα θέμα που θέλετε να καλυφθεί. Αν αισθάνεστε ότι **έχετε περιεχόμενο** και θέλετε να συνεισφέρετε, γράψτε ένα προσχέδιο και υποβάλετε ένα pull request (μην ανησυχείτε για τη συγγραφή καλού κειμένου σε αυτό το σημείο!).\
 
-
 ## Συγγραφείς
 
 Αυτό το βιβλίο συντηρείται από τον [Anton Babenko](https://github.com/antonbabenko) με τη βοήθεια διαφόρων συνεργατών και μεταφραστών.\
-
-
-## Χορηγοί
-
-Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-links) if you want to become a sponsor.
-
-| [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko) | [Cast.AI](https://cast.ai/antonbabenko) — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE! |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
 
 ## Άδεια
 
