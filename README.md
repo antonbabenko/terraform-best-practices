@@ -21,7 +21,7 @@ Quelques années plus tard il a été mis à jour grâce à plusieurs récentes 
 
 Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-links) if you want to become a sponsor.
 
-| [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko) | [Cast.AI](https://cast.ai/antonbabenko) — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE! |
+| [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko) | [CAST AI](https://cast.ai/antonbabenko) — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE! |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
 
 ## Translations
