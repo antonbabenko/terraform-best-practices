@@ -21,8 +21,7 @@ Terraform є одним із найпотужніших і найбільш ви
 
 Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-links) if you want to become a sponsor.
 
-| [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko) | [CAST AI](https://cast.ai/antonbabenko) — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE! |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+<table data-header-hidden><thead><tr><th width="175"></th><th></th></tr></thead><tbody><tr><td><a href="https://cast.ai/antonbabenko"><img src=".gitbook/assets/cast-logo.png" alt=""></a></td><td><a href="https://cast.ai/antonbabenko">CAST AI</a> — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!</td></tr></tbody></table>
 
 ## Переклади
 
