@@ -17,7 +17,7 @@ description: >-
 
 ## Χορηγοί
 
-<table data-header-hidden><thead><tr><th width="175"></th><th></th></tr></thead><tbody><tr><td><a href="https://cast.ai/antonbabenko"><img src=".gitbook/assets/cast-logo.png" alt=""></a></td><td><a href="https://cast.ai/antonbabenko">CAST AI</a> — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!</td></tr></tbody></table>
+<table data-header-hidden data-full-width="false"><thead><tr><th width="178.06666666666666"></th><th></th></tr></thead><tbody><tr><td><a href="https://cast.ai/antonbabenko"><img src=".gitbook/assets/cast-logo.png" alt=""></a></td><td><a href="https://cast.ai/antonbabenko">CAST AI</a> — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!</td></tr></tbody></table>
 
 ## Μεταφράσεις
 
@@ -99,11 +99,11 @@ description: >-
 
 Θέλω πάντα να λαμβάνω σχόλια και να ενημερώνω αυτό το βιβλίο καθώς η κοινότητα ωριμάζει και νέες ιδέες εφαρμόζονται και επαληθεύονται με την πάροδο του χρόνου.
 
-Αν ενδιαφέρεστε για συγκεκριμένα θέματα, παρακαλώ ανοίξτε [ένα θέμα](https://github.com/antonbabenko/terraform-best-practices/issues) ή κάντε 'thumb up' σε ένα θέμα που θέλετε να καλυφθεί. Αν αισθάνεστε ότι **έχετε περιεχόμενο** και θέλετε να συνεισφέρετε, γράψτε ένα προσχέδιο και υποβάλετε ένα pull request (μην ανησυχείτε για τη συγγραφή καλού κειμένου σε αυτό το σημείο!).\
+Αν ενδιαφέρεστε για συγκεκριμένα θέματα, παρακαλώ ανοίξτε [ένα θέμα](https://github.com/antonbabenko/terraform-best-practices/issues) ή κάντε 'thumb up' σε ένα θέμα που θέλετε να καλυφθεί. Αν αισθάνεστε ότι **έχετε περιεχόμενο** και θέλετε να συνεισφέρετε, γράψτε ένα προσχέδιο και υποβάλετε ένα pull request (μην ανησυχείτε για τη συγγραφή καλού κειμένου σε αυτό το σημείο!).\\
 
 ## Συγγραφείς
 
-Αυτό το βιβλίο συντηρείται από τον [Anton Babenko](https://github.com/antonbabenko) με τη βοήθεια διαφόρων συνεργατών και μεταφραστών.\
+Αυτό το βιβλίο συντηρείται από τον [Anton Babenko](https://github.com/antonbabenko) με τη βοήθεια διαφόρων συνεργατών και μεταφραστών.\\
 
 ## Άδεια
 
