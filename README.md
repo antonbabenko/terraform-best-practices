@@ -19,7 +19,7 @@ description: >-
 
 Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-links) if you want to become a sponsor.
 
-<table><tbody><tr><td style="width: 160px"><a href="https://cast.ai/antonbabenko"><img src=".gitbook/assets/cast-logo.png" alt="CAST AI - Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!"></a></td><td style="font-size: 26px; line-height: normal;"><a href="https://cast.ai/antonbabenko">CAST AI</a> — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!</td></tr></tbody>
+<table><thead><tr><th width="160"></th><th></th></tr></thead><tbody><tr><td style="width: 160px"><a href="https://cast.ai/antonbabenko"><img src=".gitbook/assets/cast-logo.png" alt="CAST AI - Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!"></a></td><td style="font-size: 26px; line-height: normal;"><a href="https://cast.ai/antonbabenko">CAST AI</a> — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!</td></tr></tbody>
 </table>
 
 ## Μεταφράσεις
