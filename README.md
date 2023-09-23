@@ -18,6 +18,7 @@ description: >-
 ## Χορηγοί
 
 <table data-header-hidden><thead><tr><th width="175"></th><th></th></tr></thead><tbody><tr><td><a href="https://cast.ai/antonbabenko"><img src=".gitbook/assets/cast-logo.png" alt=""></a></td><td><a href="https://cast.ai/antonbabenko">CAST AI</a> — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!</td></tr></tbody></table>
+
 ## Μεταφράσεις
 
 {% content-ref url="http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/u3iITRIHQx97ro2PkfdC/" %}
