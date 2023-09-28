@@ -17,7 +17,9 @@ description: >-
 
 ## Χορηγοί
 
-<table data-header-hidden data-full-width="false"><thead><tr><th width="175"></th><th></th></tr></thead><tbody><tr><td><a href="https://cast.ai/antonbabenko"><img src=".gitbook/assets/cast-logo.png" alt=""></a></td><td><a href="https://cast.ai/antonbabenko">CAST AI</a> — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!</td></tr></tbody></table>
+| [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko)                                                             | [CAST AI](https://cast.ai/antonbabenko) — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/speakeasy-logo.png)](https://speakeasyapi.dev?utm_source=tf_best_practices&utm_medium=github+sponsorship) | [Speakeasy](https://speakeasyapi.dev?utm_source=tf_best_practices&utm_medium=github+sponsorship) — Speakeasy — Terraform Providers, SDKs and docs for your API. Make your API enterprise-ready! |
 
 ## Μεταφράσεις
 
@@ -92,6 +94,7 @@ description: >-
 {% content-ref url="http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/" %}
 [Українська (Ukrainian)](http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/)
 {% endcontent-ref %}
+
 
 Επικοινωνήστε μαζί μου αν θέλετε να βοηθήσετε στη μετάφραση αυτού του βιβλίου σε άλλες γλώσσες.
 
