@@ -98,7 +98,6 @@ Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-
 [Türkçe (Turkish)](http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/Fedpbc5NbKjynXI8xTeF/)
 {% endcontent-ref %}
 
-
 Зв’яжіться зі мною, якщо ви хочете допомогти перекласти цю книгу іншими мовами.
 
 ## Внески
