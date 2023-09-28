@@ -20,8 +20,9 @@ Terraform הוא כלי רב עוצמה (אם לא העוצמתי ביותר ש�
 
 Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-links) if you want to become a sponsor.
 
-| [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko) | [CAST AI](https://cast.ai/antonbabenko) — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE! |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko)                                                             | [CAST AI](https://cast.ai/antonbabenko) — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/speakeasy-logo.png)](https://speakeasyapi.dev?utm_source=tf_best_practices&utm_medium=github+sponsorship) | [Speakeasy](https://speakeasyapi.dev?utm_source=tf_best_practices&utm_medium=github+sponsorship) — Speakeasy — Terraform Providers, SDKs and docs for your API. Make your API enterprise-ready! |
 
 ## תרגומים
 
