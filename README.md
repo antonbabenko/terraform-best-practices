@@ -1,29 +1,32 @@
 ---
 description: >-
-  This document is an attempt to systematically describe best practices using
-  Terraform and provide recommendations for the most frequent problems Terraform
-  users experience.
+  이 문서는 Terraform 사용의 모범 사례를 체계적으로 설명하고 Terraform 사용자들이 겪는 가장 흔한 문제에 대한 권장 사항을
+  제공합니다.
 ---
 
-# Welcome
+# 어서오세요
 
-[Terraform](https://www.terraform.io) is powerful (if not the most powerful out there now) and one of the most used tools which allow management of infrastructure as code. It allows developers to do a lot of things and does not restrict them from doing things in ways that will be hard to support or integrate with.
 
-Some information described in this book may not seem like the best practices. I know this, and to help readers to separate what are established best practices and what is just another opinionated way of doing things, I sometimes use hints to provide some context and icons to specify the level of maturity on each subsection related to best practices.
 
-The book was started in sunny Madrid in 2018, available for free here at [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com).
 
-A few years later it has been updated with more actual best practices available with Terraform 1.0. Eventually, this book should contain most of the indisputable best practices and recommendations for Terraform users.
 
-## Sponsors
+[Terraform](https://www.terraform.io)은 강력하며(지금 최강의 툴이 아니라면) 가장 많이 사용되는 도구 중 하나로, 인프라를 코드로 관리할 수 있습니다. 개발자들이 많은 일을 할 수 있도록 해주며 지원과 통합을 손쉽게 만들어 줍니다.
 
-Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-links) if you want to become a sponsor.
+이 책에서 설명하는 정보의 일부는 모범 사례처럼 보이지 않을지 모릅니다. 저도 이를 인지하고 있습니다. 따라서 독자들이 사용자들이 선호하는 비슷한 방식과 업계에서 확립된 모범 사례를 구분할 수 있도록, 문맥에 대한 힌트와 아이콘을 사용해 각 하위 항목과 관련된 모범 사례의 깊이를 표시해 두었습니다.
 
-| [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko)                                                                   | [CAST AI](https://cast.ai/antonbabenko) — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![](.gitbook/assets/speakeasy-logo.png)](https://speakeasyapi.dev/?utm\_source=tf\_best\_practices\&utm\_medium=github+sponsorship) | [Speakeasy](https://speakeasyapi.dev/?utm\_source=tf\_best\_practices\&utm\_medium=github+sponsorship) — Terraform Providers, SDKs and docs for your API. Make your API enterprise-ready! |
+이 책은 2018년 햇살이 가득한 마드리드에서 집필을 시작했으며, 여기 이 주소에서 읽어볼 수 있습니다. [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com).
 
-## Translations
+Terraform 1.0에서 사용할 수 있는 실질적 모범 사례를 지난 몇 년 간 업데이트해 왔습니다. 결과적으로 이 책에는 Terraform 사용자들을 위한, 논란의 여지가 없는 모범 사례와 권장 사항이 대부분 포함되어 있다고 할 수 있습니다.
+
+## 후원자
+
+후원하기를 희망하신다면 [제게 연락](https://github.com/antonbabenko/terraform-aws-devops#social-links)주세요.
+
+| [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko)                                                                   | [CAST AI](https://cast.ai/antonbabenko) — Kubernetes 비용을 평균 60% 이상 절감하세요. 첫 번째 클러스터 최적화는 **무료**입니다!                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/speakeasy-logo.png)](https://speakeasyapi.dev/?utm\_source=tf\_best\_practices\&utm\_medium=github+sponsorship) | [Speakeasy](https://speakeasyapi.dev/?utm\_source=tf\_best\_practices\&utm\_medium=github+sponsorship) — API용Terraform 프로바이더, SDK 및 문서. 귀하의 API를기업용으로 만드세요! |
+
+## 번역
 
 {% content-ref url="http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/u3iITRIHQx97ro2PkfdC/" %}
 [العربية (Arabic)](http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/u3iITRIHQx97ro2PkfdC/)
@@ -97,22 +100,22 @@ Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-
 [Українська (Ukrainian)](http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/)
 {% endcontent-ref %}
 
-Contact me if you want to help translate this book into other languages.
+이 책을 다른 언어로 번역하는 데 기여하고 싶다면 저에게 연락주세요.
 
-## Contributions
+## 기여
 
-I always want to get feedback and update this book as the community matures and new ideas are implemented and verified over time.
+시간이 지남에 따라 커뮤니티가 성숙해가고 새로운 아이디어가 구현 및 검증되어감에 따라 저는 항상 피드백을 받아 이 책을 업데이트 하고자 합니다.
 
-If you are interested in specific topics, please [open an issue](https://github.com/antonbabenko/terraform-best-practices/issues), or thumb up an issue you want to be covered. If you feel that **you have content** and you want to contribute, write a draft and submit a pull request (don't worry about writing good text at this point!).
+특정 주제에 관심이 있다면 [이슈를 열거나,](https://github.com/antonbabenko/terraform-best-practices/issues) 다루어졌으면 하는 이슈에 엄지손가락을 눌러주세요. 기여하고 싶은 **콘텐츠를 가지고 계시면** 초안을 작성해 풀 리퀘스트를 제출해 주세요(이 단계에서는 빼어난 글솜씨를 걱정할 필요가 없습니다!).
 
-## Authors
+## 저자
 
-This book is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors and translators.
+이 책은 다양한 기고자와 번역가의 도움을 받아 [안똔 바벤코(Anton Babenko)](https://github.com/antonbabenko)가 유지하고 있습니다.
 
-## License
+## 특허(라이선스)
 
-This work is licensed under Apache 2 License. See LICENSE for full details.
+이 저작물은 Apache 2 라이선스에 따라 라이선스가 부여됩니다. 자세한 내용은 [라이선스](https://github.com/antonbabenko/terraform-best-practices/blob/master/LICENSE)를 참조하세요.
 
-The authors and contributors to this content cannot guarantee the validity of the information found here. Please make sure that you understand that the information provided here is being provided freely, and that no kind of agreement or contract is created between you and any persons associated with this content or project. The authors and contributors do not assume and hereby disclaim any liability to any party for any loss, damage, or disruption caused by errors or omissions in the information contained in, associated with, or linked from this content, whether such errors or omissions result from negligence, accident, or any other cause.
+본 컨텐츠의 저자와 기여자는 본 컨텐츠에서 발견되는 정보의 유효성을 보장하지 않습니다. 귀하는 본 컨텐츠에서 제공되는 정보는 자유롭게 제공되며, 귀하와 본 컨텐츠 또는 프로젝트와 관련된 사람들 사이에 그 어떤 종류의 합의나 계약도 이루어지지 않는다는 점을 이해하셔야 합니다. 오류 또는 누락이 과실, 사고 또는 어떤 기타 원인에 의한 것이든, 본저자와 기여자는 컨텐츠에 포함되거나, 관련되거나, 연결된 정보의 오류 또는 누락으로 인한 그 어떠한 손실, 손상 또는 중단에 대해서 당사자에게 그 어떠한 책임도 지지 않으며 그책임을 부인함을 여기밝힙니다.
 
-Copyright © 2018-2023 Anton Babenko.
+저작권© 2018-2023 안똔 바벤코 Anton Babenko.

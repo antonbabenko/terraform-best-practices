@@ -1,22 +1,24 @@
-# Code structure examples
+# 코드 구조 예제
 
-## Terraform code structures
+## Terraform 코드 구조
 
 {% hint style="info" %}
-These examples are showing AWS provider but the majority of principles shown in the examples can be applied to other public cloud providers as well as other kinds of providers (DNS, DB, Monitoring, etc)
+다음의 예제는 AWS 프로바이더를 보여 주지만 예제에 표시된 대부분의 원칙은 다른 퍼블릭 클라우드 공급자는 물론 다른 종류의 공급자(DNS, DB, 모니터링 등)에도 적용될 수 있습니다.
 {% endhint %}
 
-| Type                                                           | Description                                                                                                                                     | Readiness |
-| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| [small](terraform/small-size-infrastructure.md)                | Few resources, no external dependencies. Single AWS account. Single region. Single environment.                                                 | Yes       |
-| [medium](terraform/medium-size-infrastructure.md)              | Several AWS accounts and environments, off-the-shelf infrastructure modules using Terraform.                                                    | Yes       |
-| [large](terraform/large-size-infrastructure-with-terraform.md) | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terraform. | WIP       |
-| very-large                                                     | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terraform.                                                                  | No        |
+
+
+| 유형                                                           | 설명                                                                                           | 가용 상태 |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------- | ----- |
+| [소규모](terraform/small-size-infrastructure.md)                | 리소스가 적고 외부 의존성이 없음. 단일 AWS 계정. 단일 지역. 단일 환경.                                                 | 예     |
+| [중간 규모](terraform/medium-size-infrastructure.md)             | 여러 AWS 계정 및 환경, Terraform을 사용하는 기존의 인프라 모듈                                                   | 예     |
+| [대규모](terraform/large-size-infrastructure-with-terraform.md) | 많은 AWS 계정, 많은 지역, 복사-붙여넣기를 줄이는 일이 시급함, 사용자 지정 인프라 모듈, 과도한 구성(composition) 사용. Terraform을 사용. | WIP   |
+| 매우 대규모                                                       | 여러 공급자(AWS, GCP, Azure). 다중 클라우드 배포. Terraform을 사용.                                          | 아니오   |
 
 ## Terragrunt code structures
 
-| Type       | Description                                                                                                                                      | Readiness |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| medium     | Several AWS accounts and environments, off-the-shelf infrastructure modules, composition pattern using Terragrunt.                               | No        |
-| large      | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terragrunt. | No        |
-| very-large | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terragrunt.                                                                  | No        |
+| 유형     | 설명                                                                                           | 가용 상태 |
+| ------ | -------------------------------------------------------------------------------------------- | ----- |
+| 중간 규모  | 여러 AWS 계정 및 환경, 기존 인프라 모듈, Terrgrunt를 사용한 구성(composition) 패턴.                                | 아니오   |
+| 대규모    | 많은 AWS 계정, 많은 지역, 복사-붙여넣기를 줄이는 일이 시급함, 사용자 지정 인프라 모듈, 과도한 구성(composition) 사용. Terragrunt 사용. | 아니오   |
+| 매우 대규모 | 여러 프로바이더(AWS, GCP, Azure), 멀티 클라우드 배포, Terragrunt 사용.                                        | 아니오   |

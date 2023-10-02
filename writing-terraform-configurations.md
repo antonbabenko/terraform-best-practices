@@ -1,15 +1,15 @@
-# Writing Terraform configurations
+# Terraform 구성(configurations) 작성하기
 
-## Use `locals` to specify explicit dependencies between resources
+## `locals`를 사용해 리소스 간의 명시적 종속성 지정하기 <a href="#use-locals-to-specify-explicit-dependencies-between-resources" id="use-locals-to-specify-explicit-dependencies-between-resources"></a>
 
-Helpful way to give a hint to Terraform that some resources should be deleted before even when there is no direct dependency in Terraform configurations.
+Terraform 구성(configurations)에 직접적인 의존성이 없는 경우에도 특정 리소스가 삭제되어야 함을 Terraform에 알려주는 유용한 방법입니다.
 
 [https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf](https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf)
 
-## Terraform 0.12 - Required vs Optional arguments
+## Terraform 0.12 - 필수적  vs 선택적 인수 <a href="#required-vs-optional-arguments" id="required-vs-optional-arguments"></a>
 
-1. Required argument `index_document` must be set, if `var.website` is not an empty map.
-2. Optional argument `error_document` can be omitted.
+1. `var.website`가 빈 맵이 아닌 경우 필수적  인수 `index_document`를 반드시 설정해야 합니다.
+2. 선택적 인수 `error_document`는 생략할 수 있습니다.
 
 {% code title="main.tf" %}
 ```hcl

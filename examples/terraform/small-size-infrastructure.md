@@ -1,16 +1,16 @@
-# Small-size infrastructure with Terraform
+# Terraform을 사용한 소규모 인프라
 
-Source: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform)
+출처: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform)
 
-This example contains code as an example of structuring Terraform configurations for a small-size infrastructure, where no external dependencies are used.
+이 예시에는 외부 종속성을 전혀 사용하지 않는 소규모 인프라에 대한 Terraform 구성(configurations)을 구조화하는 예제 코드가 포함되어 있습니다.
 
 {% hint style="success" %}
-* Perfect to get started and refactor as you go
-* Perfect for small resource modules
-* Good for small and linear infrastructure modules (eg, [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis))
-* Good for a small number of resources (fewer than 20-30)
+* 프로젝트를시작하고 진행해 가면서 리팩토링하기에 딱입니다.
+* 소규모 리소스 모듈에 적합
+* 소규모 및 선형 인프라 모듈(예: [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis))에 적합
+* 소수의 리소스에 적합(20\~30개 미만)
 {% endhint %}
 
 {% hint style="warning" %}
-Single state file for all resources can make the process of working with Terraform slow if the number of resources is growing (consider using an argument `-target` to limit the number of resources)
+리소스 수가 증가하는 경우, 모든 리소스에 대한 단일 상태 파일은 Terraform 작업 프로세스를 느리게 만들 수 있습니다(리소스 수를 제한하려면 `-target` 인수를 사용하는 것이 좋습니다).
 {% endhint %}
