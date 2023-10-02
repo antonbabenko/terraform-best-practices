@@ -2,7 +2,7 @@
 
 출처: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform)
 
-이 예시에는 외부 종속성을 전혀 사용하지 않는 소규모 인프라에 대한 Terraform 구성(configurations)을 구조화하는 예제 코드가 포함되어 있습니다.
+이 예시에는 외부 의존성을 전혀 사용하지 않는 소규모 인프라에 대한 Terraform 구성(configurations)을 구조화하는 예제 코드가 포함되어 있습니다.
 
 {% hint style="success" %}
 * 프로젝트를시작하고 진행해 가면서 리팩토링하기에 딱입니다.

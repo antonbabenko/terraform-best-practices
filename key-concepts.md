@@ -28,6 +28,10 @@
 
 <figure><img src=".gitbook/assets/Composition 1 (4) Korean with English.drawio.png" alt=""><figcaption><p>간단한 인프라 구성</p></figcaption></figure>
 
+## 구성 요소의 구성(Composition)과 설정의 구성(Configuration)
+
+역자의 말: 이 책에서는 어떤 대상을 이루는 구성 요소의 집합을 의미하는 composition과 소프트웨어나 환경 등의 상세 옵션을 설정한다는 의미의 configuration이라는 용어가 많이 쓰입니다. 우리말로 옮기면 둘 다 '구성'으로 번역이 되기 때문에 어떻게 할까 고민하다가, 한국어로 이 책을 접하시는 독자분들께 가장 편안하고 이해하기 쉬운 방법이기를 바라는 마음에서 '구성'이라고 쓰고 괄호 안에 영어 원문의 용어를 병기하는 방식을 선택했습니다. 모쪼록 번역이 도움이 되기를 바라며, composition의 구성과 configuration의 구성이 혼란 없이 잘 전달되기를 바랍니다.
+
 ## 데이터 소스(Data source)
 
 데이터 소스는 읽기 전용 작업을 수행하며 프로바이더 구성에 따라 리소스 모듈 및 인프라 모듈에서 사용됩니다.

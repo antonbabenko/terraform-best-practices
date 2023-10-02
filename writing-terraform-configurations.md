@@ -1,6 +1,6 @@
 # Terraform 구성(configurations) 작성하기
 
-## `locals`를 사용해 리소스 간의 명시적 종속성 지정하기 <a href="#use-locals-to-specify-explicit-dependencies-between-resources" id="use-locals-to-specify-explicit-dependencies-between-resources"></a>
+## `locals`를 사용해 리소스 간의 명시적 의존성 지정하기 <a href="#use-locals-to-specify-explicit-dependencies-between-resources" id="use-locals-to-specify-explicit-dependencies-between-resources"></a>
 
 Terraform 구성(configurations)에 직접적인 의존성이 없는 경우에도 특정 리소스가 삭제되어야 함을 Terraform에 알려주는 유용한 방법입니다.
 

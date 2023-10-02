@@ -44,9 +44,9 @@ _논리적 프로바이더_는 전적으로 Terraform의 논리 내에서 작동
 ### 코드 구조화에 대한 일반적인 권장 사항 <a href="#common-recommendations-for-structuring-code" id="common-recommendations-for-structuring-code"></a>
 
 * 적은 수의 리소스로 작업하는 것이 더 쉽고 빠릅니다.
-  * `terraform plan` 및 `terraform apply`는 모두 클라우드 API 호출<mark style="background-color:red;">(예: AWS, GCP)</mark>을 보내 리소스 상태를 확인합니다.
+  * `terraform plan` 및 `terraform apply`는 모두 클라우드 API 호출(예: AWS, GCP, Azure)을 보내 리소스 상태를 확인합니다.
   * 전체 인프라를 단일 구성(composition)으로 구성(configure)하는 경우 시간이 다소 걸릴 수 있습니다.
-* 리소스가 적을 경우 <mark style="background-color:red;">폭발 반경(blast radius, 보안 침해의 경우)</mark>이 더 작습니다.
+* 리소스가 적을 경우 폭발 반경(역주: blast radius. 보안 침해의 경우 문제가 생겼을 시 그 여파로 영향을 받는 범위를 폭발의 반경에 비유)이 더 작습니다.
   * 관련되지 않은 리소스를 별도의 구성(composition)에 배치하여 서로 격리하면 문제가 발생할 경우 위험이 줄어듭니다.
 * 원격 상태(remote state)를 사용해 프로젝트를 시작하세요. 이유는 다음과 같습니다.&#x20;
   * 노트북은 인프라의 단일 진실 공급원(infrastructure source of truth)을 위한 장소가 아닙니다.
