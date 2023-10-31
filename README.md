@@ -6,10 +6,6 @@ description: >-
 
 # 어서오세요
 
-
-
-
-
 [Terraform](https://www.terraform.io)은 강력하며(지금 최강의 툴이 아니라면) 가장 많이 사용되는 도구 중 하나로, 인프라를 코드로 관리할 수 있습니다. 개발자들이 많은 일을 할 수 있도록 해주며 지원과 통합을 손쉽게 만들어 줍니다.
 
 이 책에서 설명하는 정보의 일부는 모범 사례처럼 보이지 않을지 모릅니다. 저도 이를 인지하고 있습니다. 따라서 독자들이 사용자들이 선호하는 비슷한 방식과 업계에서 확립된 모범 사례를 구분할 수 있도록, 문맥에 대한 힌트와 아이콘을 사용해 각 하위 항목과 관련된 모범 사례의 깊이를 표시해 두었습니다.
@@ -20,11 +16,11 @@ Terraform 1.0에서 사용할 수 있는 실질적 모범 사례를 지난 몇 �
 
 ## 후원자
 
-후원하기를 희망하신다면 [제게 연락](https://github.com/antonbabenko/terraform-aws-devops#social-links)주세요.
+Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-links) if you want to become a sponsor.
 
-| [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko)                                                                   | [CAST AI](https://cast.ai/antonbabenko) — Kubernetes 비용을 평균 60% 이상 절감하세요. 첫 번째 클러스터 최적화는 **무료**입니다!                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![](.gitbook/assets/speakeasy-logo.png)](https://speakeasyapi.dev/?utm\_source=tf\_best\_practices\&utm\_medium=github+sponsorship) | [Speakeasy](https://speakeasyapi.dev/?utm\_source=tf\_best\_practices\&utm\_medium=github+sponsorship) — API용Terraform 프로바이더, SDK 및 문서. 귀하의 API를기업용으로 만드세요! |
+| [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko)                                                             | [CAST AI](https://cast.ai/antonbabenko) — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/speakeasy-logo.png)](https://speakeasyapi.dev?utm_source=tf_best_practices&utm_medium=github+sponsorship) | [Speakeasy](https://speakeasyapi.dev?utm_source=tf_best_practices&utm_medium=github+sponsorship) — Terraform Providers, SDKs and docs for your API. Make your API enterprise-ready! |
 
 ## 번역
 
@@ -38,6 +34,10 @@ Terraform 1.0에서 사용할 수 있는 실질적 모범 사례를 지난 몇 �
 
 {% content-ref url="http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/" %}
 [Português (Brazilian Portuguese)](http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/B48qUSNPO2XmkIySLzfr/)
+{% endcontent-ref %}
+
+{% content-ref url="http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/e1Mp2scOX6OnQbifCen3/" %}
+[English](http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/e1Mp2scOX6OnQbifCen3/)
 {% endcontent-ref %}
 
 {% content-ref url="http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/6shyPtr2KrqW4ANbFXYg/" %}
@@ -98,6 +98,10 @@ Terraform 1.0에서 사용할 수 있는 실질적 모범 사례를 지난 몇 �
 
 {% content-ref url="http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/" %}
 [Українська (Ukrainian)](http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/)
+{% endcontent-ref %}
+
+{% content-ref url="http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/dcjhau04KQIKHUJA90iN/" %}
+[اردو (Urdu)](http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/dcjhau04KQIKHUJA90iN/)
 {% endcontent-ref %}
 
 이 책을 다른 언어로 번역하는 데 기여하고 싶다면 저에게 연락주세요.
