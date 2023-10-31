@@ -1,5 +1,5 @@
-# Workshop
+# ورکشاپ
 
-There is also a workshop for people who want to practice some of the things described in this guide.
+ان لوگوں کے لیے ایک ورکشاپ بھی ہے جو اس گائیڈ میں بیان کردہ چیزوں پر عمل کرنا چاہتے ہیں۔
 
-The content is here - [https://github.com/antonbabenko/terraform-best-practices-workshop](https://github.com/antonbabenko/terraform-best-practices-workshop)
+مواد یہاں ہے۔[https://github.com/antonbabenko/terraform-best-practices-workshop](https://github.com/antonbabenko/terraform-best-practices-workshop)

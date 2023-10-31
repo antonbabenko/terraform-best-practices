@@ -1,78 +1,79 @@
-# Code structure
+# کوڈ کی ساخت
 
-Questions related to Terraform code structure are by far the most frequent in the community. Everyone thought about the best code structure for the project at some point also.
+&#x20;ٹیرافارم **کوڈ کی ساخت سے متعلق سوالات کمیونٹی میں اب تک سب سے زیادہ آتے ہیں۔ ہر کوئی کسی**  نہ **کسی** **نقطہ پر پروجیکٹ کے لئے بہترین کوڈ کی ساخت کے بارے میں سوچتا ہے۔**
 
-## How should I structure my Terraform configurations?
+## مجھے اپنے ٹیرافارم Terraform کنفیگریشنز کو کیسے ترتیب دینا چاہیے؟
 
-This is one of the questions where lots of solutions exist and it is very hard to give universal advice, so let's start with understanding what are we dealing with.
+**یہ ان سوالات میں سے ایک ہے جہاں بہت سارے حل موجود ہیں اور عالمی مشورہ دینا بہت مشکل ہے، اس لیے آئیے اس سے شروع کریں کہ ہم کیا کر رہے ہیں**۔
 
-* What is the complexity of your project?
-  * Number of related resources
-  * Number of Terraform providers (see note below about "logical providers")
-* How often does your infrastructure change?
-  * **From** once a month/week/day
-  * **To** continuously (every time when there is a new commit)
-* Code change initiators? _Do you let the CI server update the repository when a new artifact is built?_
-  * Only developers can push to the infrastructure repository
-  * Everyone can propose a change to anything by opening a PR (including automated tasks running on the CI server)
-* Which deployment platform or deployment service do you use?
-  * AWS CodeDeploy, Kubernetes, or OpenShift require a slightly different approach
-* How environments are grouped?
-  * By environment, region, project
-
-{% hint style="info" %}
-_Logical providers_ work entirely within Terraform's logic and very often don't interact with any other services, so we can think about their complexity as O(1). The most common logical providers include [random](https://registry.terraform.io/providers/hashicorp/random/latest/docs), [local](https://registry.terraform.io/providers/hashicorp/local/latest/docs), [terraform](https://www.terraform.io/docs/providers/terraform/index.html), [null](https://registry.terraform.io/providers/hashicorp/null/latest/docs), [time](https://registry.terraform.io/providers/hashicorp/time/latest).
-{% endhint %}
-
-## Getting started with the structuring of Terraform configurations
-
-Putting all code in `main.tf` is a good idea when you are getting started or writing an example code. In all other cases you will be better having several files split logically like this:
-
-* `main.tf` - call modules, locals, and data sources to create all resources
-* `variables.tf` - contains declarations of variables used in `main.tf`
-* `outputs.tf` - contains outputs from the resources created in `main.tf`
-* `versions.tf` - contains version requirements for Terraform and providers
-
-`terraform.tfvars` should not be used anywhere except [composition](key-concepts.md#composition).
-
-## How to think about Terraform configuration structure?
+* **آپ کے پروجیکٹ کی پیچیدگی کیا ہے؟**
+  * متعلقہ ریسورسز کی تعداد
+  * ٹیرافارم providers کی تعداد (نیچے "logical providers" کے بارے میں نوٹ دیکھیں)
+* **آپ کا انفراسٹرکچر کتنا اور کب تبدیل ہوتا ہے؟**
+  * ایک مہینے/ہفتے/دن میں ایک بار سے
+  * مسلسل (ہر بار جب ایک نیا کمٹ  commitہوتا ہے)
+* کوڈ کی تبدیلی کے آغاز کنندگان؟ کیا آپ CI سرور کو ایک نیا آرٹی فیکٹ بنائے جانے پر _repository_ **کو اپ ڈیٹ کرنے دیتے ہیں؟**
+  * صرف ڈویلپرز انفراسٹرکچر _repository_ **میں پش کر سکتے ہیں**
+  * ہر کوئی PR **کھول کر کسی بھی چیز میں تبدیلی کی تجویز پیش کر سکتا ہے** (CI سرور پر چلنے والے خودکار کردہ کاموں سمیت)
+* **آپ کس ڈپلائیمنٹ پلیٹ فارم یا ڈپلائیمنٹ سروس کا استعمال کرتے ہیں؟**
+  * ان چیزوں AWS CodeDeploy، Kubernetes، یا OpenShift **کو تھوڑا مختلف طریقہ کار کی ضرورت ہے**&#x20;
+* انوائرنمنٹ  **environments کیسے گروپ کیے جاتے ہیں؟**
+  * انوائرنمنٹ environments، علاقے، پروجیکٹ کے لحاظ سے
 
 {% hint style="info" %}
-Please make sure that you understand key concepts - [resource module](key-concepts.md#resource-module), [infrastructure module](key-concepts.md#infrastructure-module), and [composition](key-concepts.md#composition), as they are used in the following examples.
+> منطقی _providers_ مکمل طور پر Terraform کی منطق کے اندر کام کرتے ہیں اور اکثر کسی دوسری خدمت سے تعامل نہیں کرتے، اس لیے ہم ان کی پیچیدگی O(1) کے طور پر سوچ سکتے ہیں۔ سب سے عام منطقی providers میں [random](https://registry.terraform.io/providers/hashicorp/random/latest/docs), [local](https://registry.terraform.io/providers/hashicorp/local/latest/docs), [terraform](https://www.terraform.io/docs/providers/terraform/index.html), [null](https://registry.terraform.io/providers/hashicorp/null/latest/docs), [time](https://registry.terraform.io/providers/hashicorp/time/latest) **شامل ہیں۔**
 {% endhint %}
 
-### Common recommendations for structuring code
+## ٹیرافارم (Terraform) کنفیگریشنز کی ساخت کے ساتھ شروع کرنا&#x20;
 
-* It is easier and faster to work with a smaller number of resources
-  * `terraform plan` and `terraform apply` both make cloud API calls to verify the status of resources
-  * If you have your entire infrastructure in a single composition this can take some time
-* A blast radius (in case of security breach) is smaller with fewer resources
-  * Insulating unrelated resources from each other by placing them in separate compositions reduces the risk if something goes wrong
-* Start your project using remote state because:
-  * Your laptop is no place for your infrastructure source of truth
-  * Managing a `tfstate` file in git is a nightmare
-  * Later when infrastructure layers start to grow in multiple directions (number of dependencies or resources) it will be easier to keep things under control
-* Practice a consistent structure and [naming](naming.md) convention:
-  * Like procedural code, Terraform code should be written for people to read first, consistency will help when changes happen six months from now
-  * It is possible to move resources in Terraform state file but it may be harder to do if you have inconsistent structure and naming
-* Keep resource modules as plain as possible
-* Don't hardcode values that can be passed as variables or discovered using data sources
-* Use data sources and `terraform_remote_state` specifically as a glue between infrastructure modules within the composition
+جب آپ شروع کر رہے ہوں یا مثال کا کوڈ لکھ رہے ہوں تو تمام کوڈ main.tf **میں رکھنا ایک اچھا خیال ہے۔ تمام دوسرے معاملات میں آپ کے پاس منطقی طور پر اس طرح سے تقسیم کی گئی کئی فائلیں ہونگی:**
 
-In this book, example projects are grouped by _complexity_ - from small to very-large infrastructures. This separation is not strict, so check other structures also.
+* `main.tf` -  تمام ریسورسز بنانے کے لیے ماڈیولز، لوکلز اور ڈیٹا سورکس کو کال کریں۔ `main.tf`
+* `variables.tf` **- میں استعمال ہونے والے وہرہبلیس   کے اعلانات پر مشتمل ہے۔** `main.tf`
+* `outputs.tf` -**میں بنائے گئے ریسورسز سے آؤٹ پٹ پر مشتمل ہے۔** `main.tf`
+* `versions.tf` - **کے لیے ورژن کی ضروریات پر مشتمل ہے**۔ Terraform اور providers
 
-### Orchestration of infrastructure modules and compositions
+`terraform.tfvars` کے علاوہ کہیں بھی استعمال نہیں کیا جانا چاہئے۔ [composition](key-concepts.md#composition).
 
-Having a small infrastructure means that there is a small number of dependencies and few resources. As the project grows the need to chain the execution of Terraform configurations, connecting different infrastructure modules, and passing values within a composition becomes obvious.
+## &#x20; ٹیرافارم (Terraform) کنفیگریشن کی ساخت کے بارے میں کیسے سوچنا ہے؟&#x20;
 
-There are at least 5 distinct groups of orchestration solutions that developers use:
+{% hint style="info" %}
+**براہ کرم یقینی بنائیں کہ آپ کلیدی تصورات -** [**ریسورس ماڈیول**](key-concepts.md#resource-module)**،** [**انفراسٹرکچر ماڈیول** ](key-concepts.md#infrastructure-module)**اور**[ **کمپوزیشن**](key-concepts.md#composition) **کو سمجھتے ہیں، کیونکہ وہ مندرجہ ذیل مثالوں میں استعمال ہوتے ہیں۔**
+{% endhint %}
 
-1. Terraform only. Very straightforward, developers have to know only Terraform to get the job done.
-2. Terragrunt. Pure orchestration tool which can be used to orchestrate the entire infrastructure as well as handle dependencies. Terragrunt operates with infrastructure modules and compositions natively, so it reduces duplication of code.
-3. In-house scripts. Often this happens as a starting point towards orchestration and before discovering Terragrunt.
-4. Ansible or similar general purpose automation tool. Usually used when Terraform is adopted after Ansible, or when Ansible UI is actively used.
-5. [Crossplane](https://crossplane.io) and other Kubernetes-inspired solutions. Sometimes it makes sense to utilize the Kubernetes ecosystem and employ a reconciliation loop feature to achieve the desired state of your Terraform configurations. View video [Crossplane vs Terraform](https://www.youtube.com/watch?v=ELhVbSdcqSY) for more information.
+### کوڈ کی ساخت کے لیے عام سفارشات
 
-With that in mind, this book reviews the first two of these project structures, Terraform only and Terragrunt.
+* چھوٹے **ریسورس کے ساتھ کام کرنا آسان اور تیز ہے**
+  * &#x20;کمانڈ `terraform plan` اور `terraform apply`**دونوں ہی** **ریسورس** کی حیثیت کو تصدیق کرنے کے لیے کلاؤڈ API **کالز کرتے ہیں**
+  * &#x20;**اگر آپ کا پورا انفراسٹرکچر ایک ہی کمپوزیشن میں ہے تو اس میں کچھ وقت لگ سکتا ہے**
+* کم **ریسورس** **کے ساتھ بلاسٹ رداس (سیکیورٹی کی خلاف ورزی کی صورت میں) چھوٹا ہوتا ہے**
+  * الگ الگ کمپوزیشن میں رکھ کر غیر متعلق **ریسورس** **کو ایک دوسرے سے الگ تھلگ کرنا اگر کچھ غلط ہوتا ہے تو اس سے خطرہ کم کرتا ہے۔**
+* اپنا پراجیکٹ ریموٹ سٹیٹ استعمال کرکے شروع کریں کیونکہ:
+  * **آپ کا لیپ ٹاپ آپ کے انفراسٹرکچر کے کوڈکے لیے کوئی مقام نہیں ہے۔**
+  * فائل`tfstate` کو git**میں رکھنا**  نہ مناسب **ہے**
+  * بعد میں جب انفراسٹرکچر کی تہیں متعدد سمتوں (انحصار یا **ریسورس** کی تعداد) میں بڑھنا شروع ہو جائیں  تو چیزوں کو قابو میں رکھنا آسان ہو گا
+* مستقل ساخت اور [نامزدگی](naming.md) کے طریقے کا مشق کریں:
+  * پروسیجرول کوڈ کی طرح، Terraform **کوڈ کو پہلے لوگوں کو پڑھنے کے لیے لکھا جانا چاہیے، مستقل مزاجی مدد کرے گی جب چھ ماہ بعد تبدیلیاں ہوں۔**
+  * **Terraform اسٹیٹ فائل میں ریسورس کو منتقل کرنا ممکن ہے لیکن اگر آپ کے پاس مستقل ساخت اور نامزدگی کا طریقہ نہ ہو تو یہ کرنا مشکل ہو سکتا ہے۔**
+* &#x20;ماڈیولزresource کو جتنا ممکن ہو سادہ رکھیں۔
+* ان values کو ہارڈکوڈ نہ کریں جو variables کے طور پر پاس کی جا سکیں یا ڈیٹا sources کا استعمال کرتے ہوئے دریافت کی جا سکیں۔
+* کمپوزیشن کے اندر انفراسٹرکچر ماڈیولز کے درمیان گلو کے طور پر خاص طور پر ڈیٹا ذرائع اور `terraform_remote_state` استعمال کریں۔
 
-See examples of code structures for [Terraform](examples/terraform/) or [Terragrunt](examples/terragrunt.md) in the next chapter.
+اس کتاب میں، مثال کے طور پر منصوبوں کو پیچیدگی کے لحاظ سے گروپ کیا گیا ہے - چھوٹے سے لے کر بہت بڑے انفراسٹرکچر تک۔ یہ علیحدگی سخت نہیں ہے، اس لیے دوسری ساختوں کو بھی چیک کریں۔
+
+### **انفراسٹرکچر ماڈیولز اور کمپوزیشن کی ترتیب**
+
+چھوٹی انفراسٹرکچر کا مطلب ہے کہ انحصار کی تعداد کم ہے اور ریسورس **کم ہیں۔ جیسے جیسے پروجیکٹ بڑھتا ہے،**ٹیرافارم **Terraform کنفیگریشنز کی سلسلہ وار تخلیق کی ضرورت، مختلف انفراسٹرکچر ماڈیولز کو جوڑنا، اور کمپوزیشن کے اندر اقدار پاس کرنا واضح ہو جاتا ہے۔**
+
+ڈویلپرز کی طرف سے استعمال ہونے والے آرکسٹریشن حل کرنے کم از کم 5 **مختلف گروپس ہیں:**
+
+1. ڈویلپرز کو کام کرنے کے لیے صرف Terraform **جاننے کی ضرورت ہے** .Terraform only&#x20;
+2. خالص آرکسٹریشن ٹول جسے پوری انفراسٹرکچر کو منظم کرنے اور انحصار کو سنبھالنے کے لیے.Terragrunt **استعمال کیا جا سکتا ہے۔ Terragrunt انفراسٹرکچر ماڈیولز اور کمپوزیشن کے ساتھ نیٹیو طور پر کام کرتا ہے، اس لیے یہ کوڈ کی نقل کو کم کرتا ہے**
+3. In-house scripts. **اکثر یہ آرکسٹریشن کی طرف ایک نقطہ آغاز کے طور پر ہوتا ہے اوردریافت کرنے سے پہلے ہوتا ہے۔**
+4. جب Terraform کو Ansible کے بعد اپنایا جاتا ہے، یا جب Ansible UI **کو فعال طور پر استعمال کیا جاتا ہے۔**
+5. کبھی کبھی یہ Kubernetes **اور** [**Crossplane**](https://crossplane.io/)  ecosystem نظام کو استعمال کرنے اور اپنے Terraform کنفیگریشنز کی مطلوبہ حالت کو حاصل کرنے کے لیے ایک reconciliation loop فیچر استعمال  کرتا ہے۔ مزید معلومات کے لیے [Crossplane vs Terraform](https://www.youtube.com/watch?v=ELhVbSdcqSY) ویڈیو دیکھیں۔
+
+اس بات کو مدنظر رکھتے ہوئے، یہ کتاب ان دو Terraform  اور Terragrunt**منصوبہ کی ساختوں کا جائزہ لیتی ہ**
+
+اگلے باب میں Terraform یا Terragrunt کے لیے کوڈ کی ساختوں کی مثالیں دیکھیں۔
+

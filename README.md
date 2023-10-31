@@ -1,29 +1,30 @@
 ---
 description: >-
-  This document is an attempt to systematically describe best practices using
-  Terraform and provide recommendations for the most frequent problems Terraform
-  users experience.
+  یہ دستاویز ایک کوشش ہے کہ منظم طریقے سے ٹیرافارم (Terraform) کا استعمال کرتے
+  ہوئے بہترین طریقوں کو بیان کیا جائے اور ٹیرافارم کے صارفین کو پیش آنے والے
+  اکثر مسائل کے لیے سفارشات فراہم کی جائیں۔
 ---
 
-# Welcome
+# خوش آمدید
 
-[Terraform](https://www.terraform.io) is powerful (if not the most powerful out there now) and one of the most used tools which allow management of infrastructure as code. It allows developers to do a lot of things and does not restrict them from doing things in ways that will be hard to support or integrate with.
+ٹیرافارم ([Terraform](https://www.terraform.io/))  ایک طاقتور (اگرچہ اب تک کا سب سے طاقتورٹول نہیں ہے) اور سب سے زیادہ استعمال ہونے والے ٹولز میں سے ایک ہے جو انفراسٹرکچر کو کوڈ (infrastructure as code) کے طور پر منظم کرتا ہے۔ اور یہ ڈویلپرز کو بہت سے کام کرنے کی اجازت دیتا ہے . انہیں ایسی چیزوں کو کرنے سے نہیں  روکتا جن کی حمایت یا انضمام کرنا مشکل ہو گا۔
 
-Some information described in this book may not seem like the best practices. I know this, and to help readers to separate what are established best practices and what is just another opinionated way of doing things, I sometimes use hints to provide some context and icons to specify the level of maturity on each subsection related to best practices.
+میں یہ جانتا ہوں،اس کتاب میں بیان کردہ کچھ معلومات بہترین طریقوں کی طرح نہیں ہو سکتی ہیں۔  اور قارئین کو یہ الگ کرنے میں مدد کرنے کے لیے کہ کیا قائم کردہ بہترین طریقے ہیں اور کیا صرف چیزوں کو کرنے کا ایک اور طریقہ ہے، میں کبھی کبھی بہترین طریقوں سے متعلق ہر ذیلی سیکشن پر پختگی کی سطح کو واضح کرنے کے لیے اشارے اور آئیکون (icons) استعمال کرتا ہو ں۔
 
-The book was started in sunny Madrid in 2018, available for free here at [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com).
+**کتاب کی ابتدا 2018 میں اسپین کے خوبصورت شہر مدريد میں ہوئی تھی، اور یہ کتاب  مفت میں یہاں سے ڈاؤن لوڈ کی جا سکتی ہے ۔**\
+&#x20;[https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com).
 
-A few years later it has been updated with more actual best practices available with Terraform 1.0. Eventually, this book should contain most of the indisputable best practices and recommendations for Terraform users.
+چند سالوں بعد، اس میں مزید حقیقی بہترین طریقوں کے ساتھ اپ ڈیٹ کیا گیا ہے جو ٹیرافارم (Terraform) 1.0 کے ساتھ دستیاب ہیں۔ آخر کار، یہ کتاب ٹیرافارم (Terraform) کے صارفین کے لئے ببہترین طریقوں اور تجویزات کا حامل ہونی چاہئے۔                                                                                                                                                      &#x20;
 
-## Sponsors
+## **سرپرستان(**Sponsors)
 
-Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-links) if you want to become a sponsor.
+اگر آپ سپانسر بننا چاہتے ہیں تو براہ کرم [مجھ سے رابطہ کریں](https://github.com/antonbabenko/terraform-aws-devops#social-links)۔                                                                    &#x20;
 
 | [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko)                                                                   | [CAST AI](https://cast.ai/antonbabenko) — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!                                                                  |
 | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [![](.gitbook/assets/speakeasy-logo.png)](https://speakeasyapi.dev/?utm\_source=tf\_best\_practices\&utm\_medium=github+sponsorship) | [Speakeasy](https://speakeasyapi.dev/?utm\_source=tf\_best\_practices\&utm\_medium=github+sponsorship) — Terraform Providers, SDKs and docs for your API. Make your API enterprise-ready! |
 
-## Translations
+## ترجمہ
 
 {% content-ref url="http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/u3iITRIHQx97ro2PkfdC/" %}
 [العربية (Arabic)](http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/u3iITRIHQx97ro2PkfdC/)
@@ -97,22 +98,24 @@ Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-
 [Українська (Ukrainian)](http://127.0.0.1:5000/o/-LMqIrDlzEiI-N4uHrWg/s/tXRvMPILxeJaJTM2CsSq/)
 {% endcontent-ref %}
 
-Contact me if you want to help translate this book into other languages.
+اگر آپ اس کتاب کو دوسری زبانوں میں ترجمہ کرنے میں مدد کرنا چاہتے ہیں تو [مجھ سے رابطہ کریں](https://github.com/antonbabenko/terraform-aws-devops#social-links)۔
 
-## Contributions
+## &#x20;شراکت
 
-I always want to get feedback and update this book as the community matures and new ideas are implemented and verified over time.
+\
+**میں ہمیشہ اس کتاب کے بارے میں ردعمل حاصل کرنا اور اسے اپ ڈیٹ کرنا چاہتا ہوں کیونکہ کمیونٹی بڑھتی ہے اور نئے خیالات کو نافذ کیا جاتا ہے اور وقت کے ساتھ ساتھ تصدیق کی جاتی ہے** &#x20;
 
-If you are interested in specific topics, please [open an issue](https://github.com/antonbabenko/terraform-best-practices/issues), or thumb up an issue you want to be covered. If you feel that **you have content** and you want to contribute, write a draft and submit a pull request (don't worry about writing good text at this point!).
+اگر آپ مخصوص موضوعات میں دلچسپی رکھتے ہیں، تو براہ کرم ایک مسئلہ کھولیں ([open an issue](https://github.com/antonbabenko/terraform-best-practices/issues))، یا اس مسئلے کو تھمبز اپ (thumb up) کریں جسے آپ شامل کرنا چاہتے ہیں۔ اگر آپ محسوس کرتے ہیں کہ آپ کے پاس مواد ہے اور آپ حصہ ڈالنا چاہتے ہیں، تو ایک مسودہ لکھیں اور ایک پل ریکویسٹ (pull request) جمع کروائیں (اس وقت اچھا متن لکھنے کے بارے میں فکر نہ کریں!)
 
-## Authors
+## مصنفین
 
-This book is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors and translators.
+**اس کتاب کی دیکھ بھال**  [**Anton Babenko**](https://github.com/antonbabenko)   **کی طرف سے مختلف معاونین اور ترجمہ کاروں کی مدد سے کی جاتی ہے**&#x20;
 
-## License
+## لائسنس
 
-This work is licensed under Apache 2 License. See LICENSE for full details.
+یہ کام Apache 2 لائسنس کے تحت لائسنس یافتہ ہے۔ مکمل تفصیلات کے لیے LICENSE فائل دیکھیں۔\
 
-The authors and contributors to this content cannot guarantee the validity of the information found here. Please make sure that you understand that the information provided here is being provided freely, and that no kind of agreement or contract is created between you and any persons associated with this content or project. The authors and contributors do not assume and hereby disclaim any liability to any party for any loss, damage, or disruption caused by errors or omissions in the information contained in, associated with, or linked from this content, whether such errors or omissions result from negligence, accident, or any other cause.
 
-Copyright © 2018-2023 Anton Babenko.
+اس مواد کے مصنفین اور شراکت دار یہاں پائی جانے والی معلومات کی صحت کی ضمانت نہیں دے سکتے۔ براہ کرم یقینی بنائیں کہ آپ سمجھتے ہیں کہ یہاں فراہم کردہ معلومات آزادانہ طور پر فراہم کی جا رہی ہے، اور آپ اور اس مواد یا منصوبے سے وابستہ کسی بھی شخص کے درمیان کسی بھی قسم کا معاہدہ یا کنٹریکٹ نہیں بنایا گیا ہے۔ مصنفین اور شراکت دار اس مواد میں موجود معلومات میں کسی غلطی یا کمی کی وجہ سے ہونے والے کسی نقصان، نقصان، یا خرابی کے لیے کسی فریق کے سامنے کوئی ذمہ داری نہیں لیتے ہیں، خواہ وہ غلطیاں یا کمیاں غفلت، حادثہ، یا کسی اور وجہ سے ہو ں۔  \
+\
+کاپی رائٹ © 2018-2023 Anton Babenko

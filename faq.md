@@ -1,20 +1,20 @@
 ---
-description: FTP (Frequent Terraform Problems)
+description: (عام  ٹیرافارم مسائل)
 ---
 
-# FAQ
+# عمومی سوالات
 
-## What are the tools I should be aware of and consider using?
+## یہاں کچھ ٹولز ہیں جن کے بارے میں آپ کو آگاہ ہونا چاہیے اور ٹیرافارم کے ساتھ کام کرتے وقت استعمال کرنے پر غور کرنا چاہیے
 
-* [**Terragrunt**](https://terragrunt.gruntwork.io/) - Orchestration tool
-* [**tflint**](https://github.com/terraform-linters/tflint) - Code linter
-* [**tfenv**](https://github.com/tfutils/tfenv) - Version manager
-* [**Atlantis**](https://www.runatlantis.io/) - Pull Request automation
-* [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - Collection of git hooks for Terraform to be used with [pre-commit framework](https://pre-commit.com/)
-* [**Infracost**](https://www.infracost.io) - Cloud cost estimates for Terraform in pull requests. Works with Terragrunt, Atlantis and pre-commit-terraform too.
+* [Terragrunt ](https://terragrunt.gruntwork.io/)- آرکیسٹریشن ٹول&#x20;
+* [tflint](https://github.com/terraform-linters/tflint) - کوڈ لنٹر&#x20;
+* [tfenv](https://github.com/tfutils/tfenv) - ورژن منیجر&#x20;
+* [Atlantis](https://www.runatlantis.io/) - پل پریس کی آٹومیشن&#x20;
+* [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform) - ٹیرافارم کی ساتھ استعمال کرنے والے [پری-کمٹ فریم ورک](https://pre-commit.com/) کے لئے گٹ ہکس کا مجموعہ&#x20;
+* [Infracost](https://www.infracost.io/) - **پل کی درخواستوں میں ٹیرافارم کے لیے کلاؤڈ لاگت کا تخمینہ۔ ٹیراگرنٹ، اٹلانٹس اور پری کمٹ ٹیرافارم کے ساتھ بھی کام کرتا ہے۔**
 
-## What are the solutions to [dependency hell](https://en.wikipedia.org/wiki/Dependency\_hell) with modules?
+## ماڈیولز کے ساتھ انحصار کی مشکل کا حل کیا ہوتا ہے؟
 
-Versions of resource and infrastructure modules should be specified. Providers should be configured outside of modules, but only in composition. Version of providers and Terraform can be locked also.
+مواد اور زیریں ماڈیول کی ورژنز کو وضاحت سے ذکر کرنا چاہئیں۔ Providers کو ماڈیول کے باہر تشکیل دینا چاہئیں، مگر صرف ترتیب میں providers **اور ٹیرا فارم کی ورژنز کو بھی بند کرسکتے ہیں۔**
 
-There is no master dependency management tool, but there are some tips to make dependency specifications less problematic. For example, [Dependabot](https://dependabot.com/) can be used to automate dependency updates. Dependabot creates pull requests to keep your dependencies secure and up-to-date. Dependabot supports Terraform configurations.
+&#x20;کوئی ماسٹر ڈیپنڈنسی منجمنٹ ٹول نہیں ہے۔، مگر انحصار کو کم پریشانی والی بنانے کے لئے کچھ مشورے ہیں۔ مثال کے طور پر، [Dependabot](https://dependabot.com/) **کو ڈیپنڈنسی اپ ڈیٹس کو خود بخود کرنے کے لئے استعمال کیا جا سکتا ہے۔** Dependabot آپ کی ڈیپنڈنسیوں کو محفوظ اور up-to-date رکھنے کے لئے pull requests **کھولتا  ہے۔** Dependabot **ٹیرا فارم کنفیگریشن کو بھی معاونیت پہنچاتا ہے۔**

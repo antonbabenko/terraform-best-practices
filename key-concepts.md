@@ -1,60 +1,66 @@
-# Key concepts
+# بنیادی خیال
 
-The official Terraform documentation describes [all aspects of configuration in details](https://www.terraform.io/docs/configuration/index.html). Read it carefully to understand the rest of this section.
+ٹیرافارم (Terraform) کی دستاویزات تمام پہلوؤں کو تفصیل سے بیان کرتی ہیں۔ اس سیکشن کے باقی حصوں کو سمجھنے کے لیے [اسے غور سے پڑھیں۔](https://developer.hashicorp.com/terraform/language)
 
-This section describes key concepts which are used inside the book.
+**یہ سیکشن ان اہم بنیادی** خیالات **کی وضاحت کرتا ہے جو کتاب میں استعمال کیے جاتے ہیں**
 
-## Resource
+## ریسورس (Resource)
 
-Resource is `aws_vpc`, `aws_db_instance`, etc. A resource belongs to a provider, accepts arguments, outputs attributes, and has a lifecycle. A resource can be created, retrieved, updated, and deleted.
+ریسورس (Resource)  `aws_vpc`, `aws_db_instance`وغیرہ ہوتے ہیں۔ ایک ریسورس کسی provider سے تعلق رکھتا ہے، arguments قبول کرتا ہے، خصوصیات آؤٹ پٹ(outputs) کرتا ہے، اور اس کا ایک lifecycle ہوتا **ہے۔** ایک ریسورس کو بنایا، حاصل کیا، اپ ڈیٹ کیا اور ختم کیا جا سکتاہے &#x20;
 
-## Resource module
+## ریسورس کے ماڈیول (Resource module)
 
-Resource module is a collection of connected resources which together perform the common action (for e.g., [AWS VPC Terraform module](https://github.com/terraform-aws-modules/terraform-aws-vpc/) creates VPC, subnets, NAT gateway, etc). It depends on provider configuration, which can be defined in it, or in higher-level structures (e.g., in infrastructure module).
+ریسورس کے ماڈیول( Resource module) منسلک ریسورسز  `Resources` کا ایک مجموعہ ہوتاہے جو مل کر مشترکہ کارروائی انجام دیتے ہیں (مثال کے طور پر،   [AWS VPC Terraform module](https://github.com/terraform-aws-modules/terraform-aws-vpc/)  VPC، subnets ، NAT gateway وغیرہ بناتا ہے)۔ یہ provider  کی ترتیب پر منحصر ہے، جس کی وضاحت اس میں کی جا سکتی ہے، یا اعلیٰ سطح کے ڈھانچے میں (مثال کے طور پر، انفراسٹرکچر (module) میں)
 
-## Infrastructure module
+## &#x20;انفراسٹرکچر  ماڈیول (Infrastructure module)
 
-An infrastructure module is a collection of resource modules, which can be logically not connected, but in the current situation/project/setup serves the same purpose. It defines the configuration for providers, which is passed to the downstream resource modules and to resources. It is normally limited to work in one entity per logical separator (e.g., AWS Region, Google Project).
+ایک انفراسٹرکچر ماڈیول، ریسورس ماڈیولز کا ایک مجموعہ ہے، جو منطقی طور پر منسلک نہیں ہو سکتے، لیکن موجودہ صورتحال/پروجیکٹ/سیٹ اپ میں ایک ہی مقصد پورا کرتے ہیں۔ یہ provider کے لیے ترتیب کو متعین کرتا ہے، جو ڈاون اسٹریم ریسورس ماڈیولز اور ریسورس کو پاس کر دیا جاتا ہے۔ یہ عام طور پر ایک منطقی سیپریٹر (مثال کے طور پر، AWS Region, Google Project) **کے ساتھ کام کرنے کے لیے محدود ہوتا ہے۔**
 
-For example, [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis/) module uses resource modules like [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc/) and [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group/) to manage the infrastructure required for running [Atlantis](https://www.runatlantis.io) on [AWS Fargate](https://aws.amazon.com/fargate/).
+\
+مثال کے طور پر، [terraform-aws-atlantis](https://github.com/cloudquery/terraform-aws-cloudquery) ماڈیول میں [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc/) اور [ terraform-aws-security-  group](https://github.com/terraform-aws-modules/terraform-aws-security-group/)  جیسے ریسورس ماڈیولز استعمال ہوتے ہیں تاکہ [AWS Fargate](https://aws.amazon.com/fargate/) پر [Atlantis](https://www.runatlantis.io/) کو چلانے کے لئے ضروری انفراسٹرکچر کو بنایا جا سکے۔
 
-Another example is [terraform-aws-cloudquery](https://github.com/cloudquery/terraform-aws-cloudquery) module where multiple modules by [terraform-aws-modules](https://github.com/terraform-aws-modules/) are being used together to manage the infrastructure as well as using Docker resources to build, push, and deploy Docker images. All in one set.
+دوسری مثال [terraform-aws-cloudquery](https://github.com/cloudquery/terraform-aws-cloudquery) ماڈیول کی ہے جہاں [terraform-aws-modules](https://github.com/terraform-aws-modules/) کی طرف سے مختلف ماڈیولز کا اشتراک ہوتا ہے تاکہ انفراسٹرکچر کو منظم کیا جا سکے اور Docker کے  ریسورس کا استعمال کیا جا سکتا ہے تاکہ ایک ہی سیٹ میں images Docker  **کو تخلیق، منتقلی، اور تنصیب کیا جا سکے ۔**
 
-## Composition
+## **ترکیب (**Composition)&#x20;
 
-Composition is a collection of infrastructure modules, which can span across several logically separated areas (e.g.., AWS Regions, several AWS accounts). Composition is used to describe the complete infrastructure required for the whole organization or project.
+ترکیب انفراسٹرکچر ماڈیولز کا ایک مجموعہ ہے، جو کئی منطقی طور پر الگ علاقوں (مثال کے طور پر،Regions  AWS ، متعدد AWS **اکاؤنٹس) میں پھیلا ہو سکتا ہے۔ ترکیب کو پوری تنظیم یا پروجیکٹ کے لیے درکار مکمل انفراسٹرکچر کی وضاحت کے لیے استعمال کیا جاتا ہے۔**
 
-A composition consists of infrastructure modules, which consist of resources modules, which implement individual resources.
+**ترکیب میں انفراسٹرکچر ماڈیولز ہوتے ہیں، جن میں ریسورس ماڈیولز ہوتے ہیں، جو انفرادی ریسورس کو بناتے  ہیں۔**\
+
 
 ![Simple infrastructure composition](.gitbook/assets/composition-1.png)
 
-## Data source
+## ڈیٹا سورس **(**Data source)
 
-Data source performs a read-only operation and is dependant on provider configuration, it is used in a resource module and an infrastructure module.
+ڈیٹا سورس  **(**Data source) ایک ریڈ-اونلی `read-only` آپریشن انجام دیتا ہے اور provider **کی ترتیب پر منحصر ہے، یہ ایک ریسورس ماڈیول اور ایک انفراسٹرکچر ماڈیول میں استعمال ہوتاہے۔**
 
-Data source `terraform_remote_state` acts as a glue for higher-level modules and compositions.
+**ڈیٹا سورس  `terraform_remote_state` اعلیٰ سطحی ماڈیولز اور ترکیبوں کے لیے گلو کے طور پر کام کرتا ہے۔**
 
-The [external](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) data source allows an external program to act as a data source, exposing arbitrary data for use elsewhere in the Terraform configuration. Here is an example from the [terraform-aws-lambda module](https://github.com/terraform-aws-modules/terraform-aws-lambda/blob/258e82b50adc451f51544a2b57fd1f6f8f4a61e4/package.tf#L5-L7) where the filename is computed by calling an external Python script.
+[بیرونی ڈیٹا](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external)  کسی بیرونی پروگرام کو ڈیٹا سورس کے طور پر کام کرنے کی اجازت دیتا ہے، جو ٹیرافارم Terraform **ترتیب میں کہیں اور استعمال کے لیے غیر معمولی ڈیٹا کو بے نقاب کرتا ہے۔** [**terraform-aws-lambda** ](https://github.com/terraform-aws-modules/terraform-aws-lambda/blob/258e82b50adc451f51544a2b57fd1f6f8f4a61e4/package.tf#L5-L7)**ماڈیول سے ایک مثال یہاں ہے جہاں فائل کا نام ایک بیرونی Python اسکرپٹ کو کال کرکے کمپیوٹ کیا جاتا ہے۔**
 
-The [http](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) data source makes an HTTP GET request to the given URL and exports information about the response which is often useful to get information from endpoints where a native Terraform provider does not exist.
+ہتپ [http](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http)  ڈیٹا  سورس دیئے گئے URL پر HTTP GET کی درخواست کرتا ہے اور ردعمل کے بارے میں معلومات حاصل کرتا ہے جو اکثر endpoints  سے معلومات حاصل کرنے کے لیے مفید ہوتا ہے جہاں Terraform provider **موجود نہیں ہوتا ہے۔**
 
-## Remote state
+## &#x20;ریموٹ حالت (Remote state)
 
-Infrastructure modules and compositions should persist their [Terraform state](https://www.terraform.io/docs/language/state/index.html) in a remote location where it can be retrieved by others in a controllable way (e.g., specify ACL, versioning, logging).
+\
+انفراسٹرکچر ماڈیولز اور ترتیبوں کو اپنی [Terraform state](https://www.terraform.io/docs/language/state/index.html) کو ایک remote جگہ میں جمع رکھنی چاہئے جہاں دوسرے لوگوں کی طرف سے اسے ایک کنٹرول طریقے سے استعمال کیا جا سکتا ہے (مثلاً، specify ACL, versioning, logging)۔
 
-## Provider, provisioner, etc
+## &#x20;فراہم کنندہ، فراہم کرنے والا، وغیرہ (Provider, provisioner, etc)
 
-Providers, provisioners, and a few other terms are described very well in the official documentation and there is no point to repeat it here. To my opinion, they have little to do with writing good Terraform modules.
+\
+پروودرس Providers، پرووسونیرس provisioners، اور کچھ دوسرے مصطلحات کو آفیشل دستاویز میں بہت اچھی طرح وضاحت کی گئی ہے اور یہاں پر اسے دہرانے کا کوئی موقع نہیں ہے۔ میرے خیال میں، ان کا زیادہ Terraform modules **لکھنے سے کچھ تعلق نہیں ہے۔**
 
-## Why so _difficult_?
+## &#x20;یہ کیوں اتنا مشکل ہے؟ (?Why so _difficult_)
 
-While individual resources are like atoms in the infrastructure, resource modules are molecules (consisting of atoms). A module is the smallest versioned and shareable unit. It has an exact list of arguments, implement basic logic for such a unit to do the required function. e.g., [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group) module creates `aws_security_group` and `aws_security_group_rule` resources based on input. This resource module by itself can be used together with other modules to create the infrastructure module.
+انفرادی ریسورس بنیادی ڈھانچے میں ایٹموں کی طرح ہوتے ہیں، جب کہ ریسورس ماڈیولز مالیکیولز (ایٹموں پر مشتمل) ہوتے ہیں۔ ماڈیول سب سے چھوٹی ورژن والی اور شیئر کرنے والی اکائی ہے۔ اس میں دلائل کی ایک درست فہرست ہے، جو اس طرح کی اکائی کے لیے مطلوبہ کام کرنے کے لیے بنیادی منطق کو استعمال کرتی ہے۔ مثال کے طور پر، [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group) ماڈیول ان پٹ کی بنیاد پر `aws_security_group` اور `aws_security_group_rule` **ریسورس بناتا ہے۔ یہ ریسورس ماڈیول انفراسٹرکچر ماڈیول بنانے کے لیے دیگر ماڈیولز کے ساتھ مل کر استعمال کیا جا سکتا ہے۔**
 
-Access to data across molecules (resource modules and infrastructure modules) is performed using the modules' outputs and data sources.
+مالیکیولز (ریسورس ماڈیولز اور انفراسٹرکچر ماڈیولز) میں ڈیٹا تک رسائی ماڈیولز کے آؤٹ پٹس اور data sources **کا استعمال کرکے کی جاتی ہے۔**
 
-Access between compositions is often performed using remote state data sources. There are [multiple ways to share data between configurations](https://www.terraform.io/docs/language/state/remote-state-data.html#alternative-ways-to-share-data-between-configurations).
+ترکیبات کے درمیان رسائی اکثر ریموٹ سٹیٹ data sources **کا استعمال کرکے کی جاتی ہے۔** [پیکجوں کے درمیان ڈیٹا شیئر کرنے کے کئی طریقے ہیں۔](https://www.terraform.io/docs/language/state/remote-state-data.html#alternative-ways-to-share-data-between-configurations)
 
-When putting concepts described above in pseudo-relations it may look like this:
+&#x20;اوپر بیان کردہ چیزوں کو pseudo-**ریلیشنز کرنے میں رکھیں تو یہ کچھ اس طرح نظر آ سکتا ہے:**
+
+
 
 ```
 composition-1 {

@@ -1,22 +1,22 @@
-# Code structure examples
+# کوڈ کی ساخت کی مثالیں
 
-## Terraform code structures
+## &#x20;کوڈ ساخت ٹیرافارم  (Terraform)
 
 {% hint style="info" %}
-These examples are showing AWS provider but the majority of principles shown in the examples can be applied to other public cloud providers as well as other kinds of providers (DNS, DB, Monitoring, etc)
+یہ مثالیںprovider  AWS  دکھاتی ہیں لیکن ان مثالوں میں دکھائے گئے اکثر اصول دوسرے عوامی کلاؤڈ providers اور ساتھ ہی دیگر قسم کے providers (DNS، DB، مانیٹرنگ، وغیرہ) **پر بھی لاگو کیے جا سکتے ہیں۔**
 {% endhint %}
 
-| Type                                                           | Description                                                                                                                                     | Readiness |
-| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| [small](terraform/small-size-infrastructure.md)                | Few resources, no external dependencies. Single AWS account. Single region. Single environment.                                                 | Yes       |
-| [medium](terraform/medium-size-infrastructure.md)              | Several AWS accounts and environments, off-the-shelf infrastructure modules using Terraform.                                                    | Yes       |
-| [large](terraform/large-size-infrastructure-with-terraform.md) | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terraform. | WIP       |
-| very-large                                                     | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terraform.                                                                  | No        |
+| قسم                                                          | تفصیل                                                                                                                                                     | تیاری     |
+| ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| [چھوٹا](terraform/small-size-infrastructure.md)              | **چند وسائل، کوئی بیرونی انحصار نہیں۔ واحد AWS اکاؤنٹ۔ واحد علاقہ۔ واحد** انوائرنمنٹ**۔**                                                                 | **ہاں**   |
+| [درمیانہ](terraform/medium-size-infrastructure.md)           | **بہت سے AWS اکاؤنٹس اور بہت سے** انوائرنمنٹ**،** ٹیرافارم **کا استعمال کرتے ہوئے آف دی شیلف انفراسٹرکچر ماڈیولز**                                        | **ہاں**   |
+| [بڑا](terraform/large-size-infrastructure-with-terraform.md) | **بہت سے AWS اکاؤنٹس، بہت سے علاقے، کاپی پیسٹ کم کرنے کی فوری ضرورت، حسب ضرورت انفراسٹرکچر ماڈیولز، کمپوزیشن کا بھاری استعمال۔** ٹیرافارم **کا استعمال۔** | زیر تکمیل |
+| بہت بڑا                                                      | "مختلف Provider (AWS، GCP، Azure)۔ **متعدد کلاؤڈ کی انجام دہی۔ ٹیرا فارم کا استعمال کیا جاتا ہے۔**"                                                       | نہیں      |
 
-## Terragrunt code structures
+## &#x20;کوڈ ساخت ٹیراگرنٹ (Terragrunt)&#x20;
 
-| Type       | Description                                                                                                                                      | Readiness |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| medium     | Several AWS accounts and environments, off-the-shelf infrastructure modules, composition pattern using Terragrunt.                               | No        |
-| large      | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terragrunt. | No        |
-| very-large | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terragrunt.                                                                  | No        |
+| قسم     | تفصیل                                                                                                                                                               | تیاری |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| درمیانہ | "مختلف AWS اکاؤنٹس اور انوائرنمنٹ، آف دی شیلف زیرِ بنائی انوائرنمنٹ ماڈیولز، ٹیراگرنٹ کا استعمال کرتے ہوئے ترتیب کا نمونہ۔"                                         | نہیں  |
+| بڑا     | **بہت سے AWS اکاؤنٹس، بہت سے علاقے، کاپی پیسٹ کم کرنے کی فوری ضرورت، حسب ضرورت انفراسٹرکچر ماڈیولز، کمپوزیشن کا بھاری استعمال۔ Terragrunt** ٹیراگرنٹ **کا استعمال** | نہیں  |
+| بہت بڑا | **متعدد** Provider **(AWS، GCP، Azure)۔ ملٹی کلاؤڈ تعیناتیاں۔ Terragrunt** ٹیراگرنٹ **کا استعمال۔**                                                                 | نہیں  |

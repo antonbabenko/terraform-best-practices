@@ -1,28 +1,30 @@
-# Large-size infrastructure with Terraform
+# ٹیرافارم (Terraform) کے ساتھ بڑے سائز کا انفراسٹرکچر
 
-Source: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/large-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/large-terraform)
+**ماخذ:**[https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/large-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/large-terraform)
 
-This example contains code as an example of structuring Terraform configurations for a large-size infrastructure which uses:
+یہ مثال ایک بڑے سائز کے انفراسٹرکچر کے لیے ٹیرافارم **کنفیگریشنز کو ساخت دینے کی طور پر استعمال کرتا ہے**
 
-* 2 AWS accounts
-* 2 regions
-* 2 separate environments (`prod` and `stage` which share nothing). Each environment lives in a separate AWS account and span resources between 2 regions
-* Each environment uses a different version of the off-the-shelf infrastructure module (`alb`) sourced from [Terraform Registry](https://registry.terraform.io/)
-* Each environment uses the same version of an internal module `modules/network` since it is sourced from a local directory.
+* 2 AWS اکاؤنٹس
+* 2 ریجن
+* 2 الگ انوائرنمنٹ (prod اور stage جو کچھ بھی شیئر نہیں کرتے)۔ ہر انوائرنمنٹ ایک الگ AWS اکاؤنٹ میں رہتا ہے اور 2 ریجن کے درمیان ریسورس کا احاطہ کرتا ہے
+* ہر انوائرنمنٹ [Terraform Registry](https://registry.terraform.io/) سے ماخوذ آف دی شیلف انفراسٹرکچر ماڈل (`alb`) کے مختلف ورژن کا استعمال کرتا ہے۔
+*   ہر انوائرنمنٹ `modules/network` کے ایک ہی ورژن کے اندرونی ماڈل کا استعمال کرتا ہے کیونکہ یہ `local` **ڈائرکٹری سے ماخوذ ہے۔**
+
+    \
+
 
 {% hint style="info" %}
-In a large project like described here the benefits of using Terragrunt become very visible. See [Code Structures examples with Terragrunt](../terragrunt.md).
+اس طرح کے بڑے پراجیکٹ میں Terragrunt کا استعمال کرنے کے فوائد واضح دکھتے ہیں۔[ تراگنٹ کے ساتھ کوڈ سکریپچر کے مثال دیکھیں۔](../terragrunt.md)
 {% endhint %}
 
 {% hint style="success" %}
-* Perfect for projects where infrastructure is logically separated (separate AWS accounts)
-* Good when there is no is need to modify resources shared between AWS accounts (one environment = one AWS account = one state file)
-* Good when there is no need for the orchestration of changes between the environments
-* Good when infrastructure resources are different per environment on purpose and can't be generalized (eg, some resources are absent in one environment or in some regions)
+* &#x20;ان پروجیکٹس کے لئے مثالی ہیں جہاں بنیادی طور پر ریسورس معلومات کو الگ کیا گیا ہے (الگ AWS اکاؤنٹس)
+* یہ اچھا ہے جب الگ الگ AWS اکاؤنٹس کے درمیان آپس میں تبدیلی کی ضرورت نہ ہوتی ہے (ایک انوائرنمنٹ = ایک AWS اکاؤنٹ = ایک اسٹیٹ فائل)
+* یہ اچھا ہے جب انوائرنمنٹ **کے درمیان تبدیلیوں کی ضرورت نہ ہوتی ہے**
+* اچھا جب انفراسٹرکچر ریسورس ہر انوائرنمنٹ کے لیے مقصد پر مختلف ہوں اور انہیں عام نہیں بنایا جا سکتا (مثلاً، کچھ ریسورس ایک انوائرنمنٹ میں یا کچھ regions **میں موجود نہیں ہیں)**
 {% endhint %}
 
 {% hint style="warning" %}
-As the project grows, it will be harder to keep these environments up-to-date with each other. Consider using infrastructure modules (off-the-shelf or internal) for repeatable tasks.
+انوائرنمنٹ کو ایک دوسرے کے ساتھ up-to-date رکھنا مشکل تر ہوتا جائے گا۔ دہرائے جانے والے کاموں کے لیے انفراسٹرکچر ماڈلز (آف دی شیلف یا اندرونی) استعمال کرنے پر غور کریں۔
 {% endhint %}
 
-##

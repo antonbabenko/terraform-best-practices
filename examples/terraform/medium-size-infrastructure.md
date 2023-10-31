@@ -1,23 +1,28 @@
-# Medium-size infrastructure with Terraform
+# ٹیرافارم (Terraform) کے ساتھ درمیانے سائز کا انفراسٹرکچر
 
-Source: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/medium-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/medium-terraform)
+**ماخذ:** [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/medium-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/medium-terraform)
 
-This example contains code as an example of structuring Terraform configurations for a medium-size infrastructure which uses:
+یہ مثال ایک میڈیم سائز کے انفراسٹرکچر کے لیے ٹیرافارم Terraform **کنفیگریشنز کو ساخت دینے  طور پر استعمال کرتا ہے:**
 
-* 2 AWS accounts
-* 2 separate environments (`prod` and `stage` which share nothing). Each environment lives in a separate AWS account
-* Each environment uses a different version of the off-the-shelf infrastructure module (`alb`) sourced from [Terraform Registry](https://registry.terraform.io/)
-* Each environment uses the same version of an internal module `modules/network` since it is sourced from a local directory.
+* 2 AWS اکاؤنٹس
+* 2 الگ انوائرنمنٹ (prod اور stage جو کچھ بھی شیئر نہیں کرتے)۔ ہر انوائرنمنٹ ایک الگ AWS **اکاؤنٹ میں رہتا ہے**
+* ہر انوائرنمنٹ [Terraform Registry](https://registry.terraform.io/)  سے ماخوذ آف دی شیلف انفراسٹرکچر ماڈل (`alb`) **کے مختلف ورژن کا استعمال کرتا ہے۔**
+* ہر انوائرنمنٹ `modules/network` کے ایک ہی ورژن کے اندرونی ماڈل کا استعمال کرتا ہے کیونکہ یہ `local` **ڈائرکٹری سے ماخوذ ہے۔**
+
+**نوٹ:** میں نے "off-the-shelf infrastructure module" **کو "آف دی شیلف انفراسٹرکچر ماڈل" کے طور پر ترجمہ کیا ہے کیونکہ یہ اصطلاح اردو میں زیادہ عام ہے۔**\
+
 
 {% hint style="success" %}
-* Perfect for projects where infrastructure is logically separated (separate AWS accounts)
-* Good when there is no is need to modify resources shared between AWS accounts (one environment = one AWS account = one state file)
-* Good when there is no need in the orchestration of changes between the environments
-* Good when infrastructure resources are different per environment on purpose and can't be generalized (eg, some resources are absent in one environment or in some regions)
+* ان منصوبوں کے لیے بہترین انفراسٹرکچر منطقی طور پر الگ کیا گیا ہے (الگ AWS اکاؤنٹس)
+* یہ اچھا  **ہے۔**جب AWS اکاؤنٹس کے درمیان شیئر کیے جانے والے ریسورس کو تبدیل کرنے کی کوئی ضرورت نہ ہو (ایک انوائرنمنٹ = ایک AWS اکاؤنٹ = ایک state فائل)
+* &#x20; یہ اچھا  **ہے۔** جب انوائرنمنٹ **کے درمیان تبدیلیوں کی آرکاسٹریشن کی کوئی ضرورت نہ ہو**
+* &#x20;یہ اچھا  **ہے۔** جب انفراسٹرکچر ریسورس ہرانوائرنمنٹ کے لیے  مختلف مقصد پر  ہوں اور انہیں عام نہیں بنایا جا سکتا (مثلاً، کچھ ریسورس ایک انوائرنمنٹ میں یا کچھ regions **میں موجود نہیں ہیں)**
 {% endhint %}
 
 {% hint style="warning" %}
-As the project grows, it will be harder to keep these environments up-to-date with each other. Consider using infrastructure modules (off-the-shelf or internal) for repeatable tasks.
+جیسے جیسے پروجیکٹ بڑھتا ہے، ان انوائرنمنٹ کو ایک دوسرے کے ساتھ up-to-date رکھنا مشکل تر ہوتا جائے گا۔ دہرائے جانے والے کاموں کے لیے انفراسٹرکچر ماڈلز (آف دی شیلف یا اندرونی) استعمال کرنے پر غور کریں۔
+
+
 {% endhint %}
 
 ##

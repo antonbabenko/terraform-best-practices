@@ -1,15 +1,15 @@
-# Writing Terraform configurations
+# ٹیرافارم (Terraform)کنفیگریشنز لکھنا
 
-## Use `locals` to specify explicit dependencies between resources
+## ریسورس  کے درمیان واضح تعلقات کو بیان کرنے کے لئے `locals` کا استعمال کریں۔
 
-Helpful way to give a hint to Terraform that some resources should be deleted before even when there is no direct dependency in Terraform configurations.
+ٹیرافارم (Terraform)**کو اشارہ دینے کا مددگار طریقہ کہ کچھریسورس کو اس سے پہلے حذف کر دینا چاہیے جب کہ ٹیرافارم کنفیگریشنز میں براہ راست انحصار نہ ہو**۔
 
 [https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf](https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf)
 
-## Terraform 0.12 - Required vs Optional arguments
+## Terraform 0.12 - مطلوبہ بمقابلہ اختیاری دلائل
 
-1. Required argument `index_document` must be set, if `var.website` is not an empty map.
-2. Optional argument `error_document` can be omitted.
+1. &#x20;اگر `var.website` ایک خالی map نہیں ہے، تو ضروری ہے کہ argument `index_document` کو سیٹ کیا جائے۔
+2. اختیاری argument `error_document` کو چھوڑا جا سکتا ہے۔
 
 {% code title="main.tf" %}
 ```hcl

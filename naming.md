@@ -1,21 +1,21 @@
-# Naming conventions
+# نامزدگی کے اصول
 
-## General conventions
+## **متفقہ اصول**
 
 {% hint style="info" %}
-There should be no reason to not follow at least these conventions :)
+کم از کم ان کنونشنز پر عمل نہ کرنے کی کوئی وجہ نہیں ہونی چاہیے۔
 {% endhint %}
 
 {% hint style="info" %}
-Beware that actual cloud resources often have restrictions in allowed names. Some resources, for example, can't contain dashes, some must be camel-cased. The conventions in this book refer to Terraform names themselves.
+یہ احتیاط کریں کہ حقیقی کلاؤڈ ریسورس کو مخصوص ناموں میں پابندیوں کی عادت ہوتی ہے۔ کچھ ریسورس میں ڈیشز شامل نہیں ہوسکتے ہیں، کچھ کو کیمل کیس کی ضرورت ہوتی ہے۔ اس کتاب میں روایات ٹیرافارم **ناموں کو اشارہ کرتی ہیں۔**
 {% endhint %}
 
-1. Use `_` (underscore) instead of `-` (dash) everywhere (in resource names, data source names, variable names, outputs, etc).
-2. Prefer to use lowercase letters and numbers (even though UTF-8 is supported).
+1. ہر جگہ - (ڈیش) کی بجائے \_ (انڈرسکور) کا استعمال کریں (ریسورس کے ناموں، ڈیٹا سورس کے ناموں، وہرہبلیس کے ناموں، outputs وغیرہ میں)
+2. &#x20;بہتر ہے کہ چھوٹے حرف اور اعداد کا استعمال کریں (حتی کہ یو ٹی ایف-8 کا استعمال ہو)۔
 
-## Resource and data source arguments
+## ریسورس (Resource) اور ڈیٹا سورس(data source) کے دلائل
 
-1. Do not repeat resource type in resource name (not partially, nor completely):
+1. ریسورس(Resource) کے نام میں ریسورس  (Resource) کی قسم کو دوہرانے سے بچیں (جزوی طور پر نہیں، مکمل طور پر نہیں)
 
 {% hint style="success" %}
 ```
@@ -35,16 +35,16 @@ Beware that actual cloud resources often have restrictions in allowed names. Som
 ```
 {% endhint %}
 
-1. Resource name should be named `this` if there is no more descriptive and general name available, or if the resource module creates a single resource of this type (eg, in [AWS VPC module](https://github.com/terraform-aws-modules/terraform-aws-vpc) there is a single resource of type `aws_nat_gateway` and multiple resources of type`aws_route_table`, so `aws_nat_gateway` should be named `this` and `aws_route_table` should have more descriptive names - like `private`, `public`, `database`).
-2. Always use singular nouns for names.
-3. Use `-` inside arguments values and in places where value will be exposed to a human (eg, inside DNS name of RDS instance).
-4. Include argument `count` / `for_each` inside resource or data source block as the first argument at the top and separate by newline after it.
-5. Include argument `tags,` if supported by resource, as the last real argument, following by `depends_on` and `lifecycle`, if necessary. All of these should be separated by a single empty line.
-6. When using conditions in an argument`count` / `for_each` prefer boolean values instead of using `length` or other expressions.
+1. اگر کوئی زیادہ وضاحتی اور عام نام دستیاب نہیں ہے، یا اگر ریسورس کا ماڈیول اس قسم کا ایک واحد ریسورس تخلیق کرتا ہے، تو ریسورس کا نام اس طرح رکھا جانا چاہیے۔ (مثال کے طور پر، AWS VPC ماڈیول میں aws\_nat\_gateway کی قسم کا ایک واحد ریسورس ہے اور aws\_route\_table کی قسم کے متعدد ریسورس ہیں، اس لیے aws\_nat\_gateway کا نام اس طرح رکھا جانا چاہیے اور aws\_route\_table کے پاس زیادہ وضاحتی نام ہونے چاہئیں - جیسے `private`، `public`، ڈیٹا بیس)۔
+2. ناموں کے لیے ہمیشہ واحد اسم استعمال کریں
+3. دلائل کو بیان کرتےوقت اور ان جگہوں پر - استعمال کریں جہاںvalue کسی انسان کے سامنے آئے گی (مثال کے طور پر، RDS مثال کے DNS نام کے اندر)۔
+4. ریسورس یا ڈیٹا سورس بلاک کے اندر پہلی دلیل کے طور پر سب سے اوپر`count` / `for_each`  دلیل شامل کریں اور اس کے بعد نئی لائن کے ذریعے الگ کریں۔
+5. **اگر**resource اجازت دے تو**، حقیقی دلیل کے طور `tags` دلیل شامل کریں، اس کے بعد depends\_on اور lifecycle،**اور **اگر ضروری ہو۔ ان سب کو ایک خالی لائن سے الگ کیا جانا چاہیے۔**
+6. "جب ارگومنٹ `count / for_each` میں values استعمال کر رہے ہیں تو `length` یا دیگر اعبار کی بجائے بولین values کو ترجیح دیں۔"
 
-## Code examples of `resource`
+## ریسورس`resource` **کی کوڈ مثالیں**
 
-### Usage of `count` / `for_each`
+### **`count / for_each` کا استعمال**
 
 {% hint style="success" %}
 {% code title="main.tf" %}
@@ -79,7 +79,7 @@ resource "aws_route_table" "public" {
 {% endcode %}
 {% endhint %}
 
-### Placement of `tags`
+### **ٹیگز**`tags` **کی جگہ**
 
 {% hint style="success" %}
 {% code title="main.tf" %}
@@ -125,7 +125,7 @@ resource "aws_nat_gateway" "this" {
 {% endcode %}
 {% endhint %}
 
-### Conditions in `count`
+### &#x20;کونٹ`count` **میں شرائط**&#x20;
 
 {% hint style="success" %}
 {% code title="outputs.tf" %}
@@ -141,37 +141,39 @@ resource "aws_nat_gateway" "this" {    # Good
 {% endcode %}
 {% endhint %}
 
-## Variables
+## وہرہبلیس (Variables)
 
-1. Don't reinvent the wheel in resource modules: use `name`, `description`, and `default` value for variables as defined in the "Argument Reference" section for the resource you are working with.
-2. Support for validation in variables is rather limited (e.g. can't access other variables or do lookups). Plan accordingly because in many cases this feature is useless.
-3. Use the plural form in a variable name when type is `list(...)` or `map(...)`.
-4. Order keys in a variable block like this: `description` , `type`, `default`, `validation`.
-5. Always include `description` on all variables even if you think it is obvious (you will need it in the future).
-6. Prefer using simple types (`number`, `string`, `list(...)`, `map(...)`, `any`) over specific type like `object()` unless you need to have strict constraints on each key.
-7. Use specific types like `map(map(string))` if all elements of the map have the same type (e.g. `string`) or can be converted to it (e.g. `number` type can be converted to `string`).
-8. Use type `any` to disable type validation starting from a certain depth or when multiple types should be supported.
-9. Value `{}` is sometimes a map but sometimes an object. Use `tomap(...)` to make a map because there is no way to make an object.
+1. ریسورس کے ماڈیولز میں چیزوں کو دوبارہ  نہ بنائیں: وہرہبلیس (Variables) کے لیے نام، تفصیل، اور پہلے سے طے شدہ value استعمال کریں جیسا کہ ریسورس کے لیے "Argument Reference" **سیکشن میں بیان کیا گیا ہے جس کے ساتھ آپ کام کر رہے ہیں۔**
+2. وہرہبلیس (Variables) **میں توثیق کے لیے تعاون کافی محدود ہے (مثال کے طور پر** آپ **دوسرے** وہرہبلیس (Variables) **تک رسائی حاصل نہیں کر سکتے یا تلاش نہیں کر سکتے)۔ اس کے مطابق منصوبہ بندی کریں کیونکہ بہت سے معاملات میں یہ خصوصیت بیکار ہے۔**
+3. جب قسم list(...) یا map(...) ہو تو وہرہبلیس (Variables) کے نام میں جمع فارم استعمال کریں۔
+4. وہرہبلیس (Variables) بلاک میں کلیدیں اس طرح ترتیب دیں: تفصیل، قسم، پہلے سے طے شدہ، توثیق۔
+5. ہمیشہ تمام وہرہبلیس (Variables) **پر تفصیل شامل کریں یہاں تک کہ اگر آپ کو لگتا ہے کہ یہ واضح ہے (آپ کو مستقبل میں اس کی ضرورت ہوگی)۔**
+6. جب تک کہ آپ کو ہر کلید پر سخت پابندیوں کی ضرورت نہ ہو، مخصوص قسم جیسے object() کے مقابلے میں سادہ اقسام (number، string، list(...)، map(...)، any) استعمال کرنے کو ترجیح دیں۔
+7. اگر map کے تمام عناصر ایک ہی قسم کے ہیں (مثال کے طور پر `string`) یا اس میں تبدیل کیے جا سکتے ہیں (مثال کے طور پر `number` کی قسم کو `string` میں تبدیل کیا جا سکتا ہے) تو `map(map(string))` جیسے مخصوص اقسام کا  استعمال کریں۔
+8. ایک خاص گہرائی سے شروع ہونے والی قسم کی جانچنا کو غیر فعال کرنے کے لیے یا جب متعدد اقسام کی حمایت کی جانی چاہیے تو `any` کا استعمال کریں۔
+9. والیو Value**`{}` کبھی کبھی** map **ہوتی ہے لیکن کبھی کبھی ایک** object **ہوتی ہے۔** map **بنانے کے لیے `tomap(...)` استعمال کریں کیونکہ کوئی**object **بنانے کا کوئی طریقہ نہیں ہے۔**
 
-## Outputs
+## آؤٹ پٹس  (Outputs)
 
-Make outputs consistent and understandable outside of its scope (when a user is using a module it should be obvious what type and attribute of the value it returns).
+آؤٹ پٹسOutputs کو اس کے دائرہ کار سے باہر مستقل اور قابل فہم بنائیں (جب کوئی صارف کسی ماڈیول کا استعمال کر رہا ہو تو یہ واضح ہونا چاہیے کہ یہ کس قسم اور والیو Value **کی خصوصیت واپس کرتا ہے)۔**
 
-1. The name of output should describe the property it contains and be less free-form than you would normally want.
-2. Good structure for the name of output looks like `{name}_{type}_{attribute}` , where:
-   1. `{name}` is a resource or data source name without a provider prefix. `{name}` for `aws_subnet` is `subnet`, for`aws_vpc` it is `vpc`.
-   2. `{type}` is a type of a resource sources
-   3. `{attribute}` is an attribute returned by the output
+1. آؤٹ پٹ کا نام اس میں موجود پراپرٹی کو بیان کرنا چاہیے اور عام طور پر آپ کی خواہش سے کم آزاد شکل کا ہونا چاہیے۔
+2. آؤٹ پٹ کے نام کے لیے اچھی ساخت `{name}_{type}_{attribute}` کی طرح نظر آتی ہے، جہاں:
+   1. نام `{name}`ریسورس یا ڈیٹا کے سورسہ کے نام کے بغیر provider کے سابقہ کے بغیر استعمال کریں `aws_subnet` کے لیے `{name}` `subnet`ہے، `aws_vpc` کے لیے یہ `vpc` ہے۔
+   2. ٹائپ`{type}` ریسورسسورسہ   کی قسم ہے۔
+   3. {attribute} آؤٹ پٹ کے واپس کرنے کی ایک صفت ہے
    4. [See examples](naming.md#code-examples-of-output).
-3. If the output is returning a value with interpolation functions and multiple resources, `{name}` and `{type}` there should be as generic as possible (`this` as prefix should be omitted). [See example](naming.md#code-examples-of-output).
-4. If the returned value is a list it should have a plural name. [See example](naming.md#use-plural-name-if-the-returning-value-is-a-list).
-5. Always include `description` for all outputs even if you think it is obvious.
-6. Avoid setting `sensitive` argument unless you fully control usage of this output in all places in all modules.
-7. Prefer `try()` (available since Terraform 0.13) over `element(concat(...))` (legacy approach for the version before 0.13)
+3. "اگرآؤٹ پٹ  وسیع تعریفی تفصیلات، انٹرپولیشن فنکشنز، اور مختلف ریسورس کی value واپس دے رہا ہے، تو `{name}` اور `{type}` کو جتنا ممکن ہو، عام اور عمومی رکھنا چاہئے (`this` کا پریفکس نہیں ہونا چاہئے). [مثال دیکھیں](naming.md#code-examples-of-output)."
+4. اگر واپس آنے والی value فہرست ہے تو اس کا جمع کا نام ہونا چاہیے۔ [مثال دیکھیں۔](naming.md#use-plural-name-if-the-returning-value-is-a-list)
+5. ہمیشہ تمام آؤٹ پٹس کے لیے تفصیل `description` **شامل کریں یہاں تک کہ اگر آپ کو لگتا ہے کہ یہ واضح ہے۔**
+6. &#x20;حساس دلیل کو ترتیب دینے سے گریز کریں۔جب تک آپ تمام ماڈیولز میں تمام جگہوں پر اس آؤٹ پٹ کے استعمال کو مکمل طور پر کنٹرول نہیں کرتے،&#x20;
+7.  &#x20;ٹیرافارم (Terraform) کی شروعات سے دستیاب `try()` کو (جو بعد از Terraform 0.13 کے ورژنز کے لئے چھوڑ دی گئی)`element(concat(...))` (قدیم طریقہ کار) کے بجائے ترجیح دیں"
 
-### Code examples of `output`
 
-Return at most one ID of security group:
+
+### آؤٹ پٹ`output` کوڈ کی مثالیں&#x20;
+
+زیادہ سے زیادہ ایک سیکورٹی گروپ کی ID واپس کریں:
 
 {% hint style="success" %}
 {% code title="outputs.tf" %}
@@ -184,7 +186,7 @@ output "security_group_id" {
 {% endcode %}
 {% endhint %}
 
-When having multiple resources of the same type, `this` should be omitted in the name of output:
+جب ایک ہی قسم کے متعدد ریسورسز ہوں، تو`this` آؤٹ پٹ کے نام سے حذف کر دینے چاہیے:
 
 {% hint style="danger" %}
 {% code title="outputs.tf" %}
@@ -197,7 +199,7 @@ output "this_security_group_id" {
 {% endcode %}
 {% endhint %}
 
-### Use plural name if the returning value is a list
+**اگر واپس آنے والی** value **فہرست ہے تو جمع کا نام استعمال کریں۔**
 
 {% hint style="success" %}
 {% code title="outputs.tf" %}
