@@ -152,8 +152,12 @@ Make outputs consistent and understandable outside of its scope (when a user is 
 
 1. The name of output should describe the property it contains and be less free-form than you would normally want.
 2. Good structure for the name of output looks like `{name}_{type}_{attribute}` , where:
-   1. `{name}` is a resource or data source name without a provider prefix. `{name}` for `aws_subnet` is `subnet`, for`aws_vpc` it is `vpc`.
-   2. `{type}` is a type of a resource sources
+   1. `{name}` is a resource or data source name
+      * `{name}` for `data "aws_subnet" "private"` is `private`
+      * `{name}` for `resource "aws_vpc_endpoint_policy" "test"` is `test`
+   2. `{type}` is a resource or data source type without a provider prefix
+      * `{type}` for `data "aws_subnet" "private"` is `subnet`
+      * `{type}` for `resource "aws_vpc_endpoint_policy" "test"` is `vpc_endpoint_policy`
    3. `{attribute}` is an attribute returned by the output
    4. [See examples](naming.md#code-examples-of-output).
 3. If the output is returning a value with interpolation functions and multiple resources, `{name}` and `{type}` there should be as generic as possible (`this` as prefix should be omitted). [See example](naming.md#code-examples-of-output).
