@@ -16,7 +16,7 @@ In a large project like described here the benefits of using Terragrunt become v
 
 {% hint style="success" %}
 * Perfect for projects where infrastructure is logically separated (separate AWS accounts)
-* Good when there is no is need to modify resources shared between AWS accounts (one environment = one AWS account = one state file)
+* Good when there is no need to modify resources shared between AWS accounts (one environment = one AWS account = one state file)
 * Good when there is no need for the orchestration of changes between the environments
 * Good when infrastructure resources are different per environment on purpose and can't be generalized (eg, some resources are absent in one environment or in some regions)
 {% endhint %}
