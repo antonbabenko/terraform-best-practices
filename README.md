@@ -1,8 +1,8 @@
 ---
 description: >-
-  This document is an attempt to systematically describe best practices using
-  Terraform and provide recommendations for the most frequent problems Terraform
-  users experience.
+  japanese textgoes here... This document is an attempt to systematically
+  describe best practices using Terraform and provide recommendations for the
+  most frequent problems Terraform users experience.
 ---
 
 # Welcome
