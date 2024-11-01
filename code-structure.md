@@ -38,7 +38,7 @@ Terraformのコード構造に関する質問は、コミュニティで最も�
 ## Terraformの設定構造についての考え方
 
 {% hint style="info" %}
-以下の例で使用される主要な概念の [resource module](key-concepts.md#resource-module)[infrastructure module](key-concepts.md#infrastructure-module)、 [composition](key-concepts.md#composition) を必ず理解してください。
+以下の例で使用される主要な概念の [resource module](key-concepts.md#resource-module)、[infrastructure module](key-concepts.md#infrastructure-module)、 [composition](key-concepts.md#composition) を必ず理解してください。
 {% endhint %}
 
 ### コードを構造化するための一般的な推奨事項
@@ -73,6 +73,6 @@ Terraformのコード構造に関する質問は、コミュニティで最も�
 4. Ansibleやそれに類似する汎用自動化ツール：通常、TerraformがAnsible採用後に導入される場合や、Ansible UIが積極的に使用される場合に使用されます。
 5. [Crossplane](https://crossplane.io) やその他のKubernetesに触発されたソリューション：Kubernetesエコシステムを活用し、reconciliation loop機能を使用してTerraform設定の望ましい状態を達成することが意味を持つ場合があります。詳細については、「 [Crossplane vs Terraform](https://www.youtube.com/watch?v=ELhVbSdcqSY) 」 の動画を参照
 
-これを踏まえて、この本では最初の2つのプロジェクト構造、TerraformのみとTerragruntについて検討します。
+これを踏まえて、本書では最初の2つのプロジェクト構造、TerraformのみとTerragruntについて検討します。
 
 次の章で [Terraform](examples/terraform/) または [Terragrunt](examples/terragrunt.md) のコード構造の例を確認してください。
