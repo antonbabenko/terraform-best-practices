@@ -1,13 +1,13 @@
-# References
+# 参考文献
 
 {% hint style="info" %}
-There are a lot of people who create great content and manage open-source projects relevant to the Terraform community but I can't think of the best structure to get these links listed here without copying lists like [awesome-terraform](https://github.com/shuaibiyy/awesome-terraform).
+Terraformコミュニティに関連する素晴らしいコンテンツやオープンソースプロジェクトを作成・管理している人々は大勢いますが、[awesome-terraform](https://github.com/shuaibiyy/awesome-terraform)のような既存のコレクションをコピーすることなく、これらのリンクを掲載するための最適な構造を考えるのは難しいです。
 {% endhint %}
 
-[https://twitter.com/antonbabenko/lists/terraform-experts](https://twitter.com/antonbabenko/lists/terraform-experts) - List of people who work with Terraform very actively and can tell you a lot (if you ask them).
+[https://twitter.com/antonbabenko/lists/terraform-experts](https://twitter.com/antonbabenko/lists/terraform-experts) - Terraformを非常に活発に使用しており、尋ねると多くのことを教えてくれる人々のリスト
 
-[https://github.com/shuaibiyy/awesome-terraform](https://github.com/shuaibiyy/awesome-terraform) - Curated list of resources on HashiCorp's Terraform.
+[https://github.com/shuaibiyy/awesome-terraform](https://github.com/shuaibiyy/awesome-terraform) - HashiCorpのTerraformに関するキュレーションされたリソースのリスト
 
-[http://bit.ly/terraform-youtube](http://bit.ly/terraform-youtube) - "Your Weekly Dose of Terraform" YouTube channel by Anton Babenko. Live streams with reviews, interviews, Q\&A, live coding, and some hacking with Terraform.
+[http://bit.ly/terraform-youtube](http://bit.ly/terraform-youtube) - Anton Babenkoによる"Your Weekly Dose of Terraform"というYouTubeチャンネル。レビュー、インタビュー、Q\&A、ライブコーディング、そしてTerraformを使用したハッキングなどのライブストリームを提供しています。
 
-[https://weekly.tf](https://weekly.tf) - Terraform Weekly newsletter. Various news in the Terraform world (projects, announcements, discussions) by Anton Babenko.
+[https://weekly.tf](https://weekly.tf) - Anton Babenkoによる"Terraform Weekly"ニュースレター。Terraformの世界における様々なニュース（プロジェクト、アナウンス、ディスカッション）を提供しています。

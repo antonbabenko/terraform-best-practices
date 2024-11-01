@@ -1,78 +1,78 @@
-# Code structure
+# コード構造
 
-Questions related to Terraform code structure are by far the most frequent in the community. Everyone thought about the best code structure for the project at some point also.
+Terraformのコード構造に関する質問は、コミュニティで最も頻繁に見られるものです。誰もが一度はプロジェクトの最適なコード構造について考えたことがあるでしょう。
 
-## How should I structure my Terraform configurations?
+## Terraformの設定はどのように構造化すべきでしょうか？
 
-This is one of the questions where lots of solutions exist and it is very hard to give universal advice, so let's start with understanding what are we dealing with.
+これは多くの解決策が存在する質問の一つであり、普遍的なアドバイスを提供することは非常に難しいため、まず私たちが扱っているものを理解することから始めましょう。
 
-* What is the complexity of your project?
-  * Number of related resources
-  * Number of Terraform providers (see note below about "logical providers")
-* How often does your infrastructure change?
-  * **From** once a month/week/day
-  * **To** continuously (every time when there is a new commit)
-* Code change initiators? _Do you let the CI server update the repository when a new artifact is built?_
-  * Only developers can push to the infrastructure repository
-  * Everyone can propose a change to anything by opening a PR (including automated tasks running on the CI server)
-* Which deployment platform or deployment service do you use?
-  * AWS CodeDeploy, Kubernetes, or OpenShift require a slightly different approach
-* How environments are grouped?
-  * By environment, region, project
-
-{% hint style="info" %}
-_Logical providers_ work entirely within Terraform's logic and very often don't interact with any other services, so we can think about their complexity as O(1). The most common logical providers include [random](https://registry.terraform.io/providers/hashicorp/random/latest/docs), [local](https://registry.terraform.io/providers/hashicorp/local/latest/docs), [terraform](https://www.terraform.io/docs/providers/terraform/index.html), [null](https://registry.terraform.io/providers/hashicorp/null/latest/docs), [time](https://registry.terraform.io/providers/hashicorp/time/latest).
-{% endhint %}
-
-## Getting started with the structuring of Terraform configurations
-
-Putting all code in `main.tf` is a good idea when you are getting started or writing an example code. In all other cases you will be better having several files split logically like this:
-
-* `main.tf` - call modules, locals, and data sources to create all resources
-* `variables.tf` - contains declarations of variables used in `main.tf`
-* `outputs.tf` - contains outputs from the resources created in `main.tf`
-* `versions.tf` - contains version requirements for Terraform and providers
-
-`terraform.tfvars` should not be used anywhere except [composition](key-concepts.md#composition).
-
-## How to think about Terraform configuration structure?
+* プロジェクトの複雑さはどの程度ですか？
+  * 関連するリソースの数
+  * Terraformプロバイダーの数 (下記の「論理的なプロバイダー」に関する注記を参照)
+* インフラの変更頻度は？
+  * 月1回/週1回/1日1回
+  * 継続的 (新しいコミットがある度に毎回)
+* 誰がコードを変更しますか？ 新しいアーティファクトがビルドされた時にCIサーバーがリポジトリを更新することを許可していますか？
+  * 開発者のみがインフラのリポジトリにプッシュ可能
+  * 誰でも（CIサーバー上で実行される自動化されたタスクを含む）PRをオープンすることで何かしらの変更を提案可能
+* どのデプロイメントプラットフォームまたはデプロイメントサービスを使用していますか？
+  * AWS CodeDeploy、Kubernetes、OpenShiftは少し異なるアプローチが必要
+* 環境はどのようにグループ化されていますか？
+  * 環境、リージョン、プロジェクトごと
 
 {% hint style="info" %}
-Please make sure that you understand key concepts - [resource module](key-concepts.md#resource-module), [infrastructure module](key-concepts.md#infrastructure-module), and [composition](key-concepts.md#composition), as they are used in the following examples.
+論理的なプロバイダーはTerraformのロジック内だけで完全に動作し、他のサービスとの相互作用はほとんどありません。そのため、その複雑さはO(1)として考えることができます。最も一般的な論理的なプロバイダーには、[random](https://registry.terraform.io/providers/hashicorp/random/latest/docs)、[local](https://registry.terraform.io/providers/hashicorp/local/latest/docs)、[terraform](https://www.terraform.io/docs/providers/terraform/index.html)、[null](https://registry.terraform.io/providers/hashicorp/null/latest/docs)、[time](https://registry.terraform.io/providers/hashicorp/time/latest) などがあります。
 {% endhint %}
 
-### Common recommendations for structuring code
+## Terraformの設定の構造化を始めるにあたって
 
-* It is easier and faster to work with a smaller number of resources
-  * `terraform plan` and `terraform apply` both make cloud API calls to verify the status of resources
-  * If you have your entire infrastructure in a single composition this can take some time
-* A blast radius (in case of security breach) is smaller with fewer resources
-  * Insulating unrelated resources from each other by placing them in separate compositions reduces the risk if something goes wrong
-* Start your project using remote state because:
-  * Your laptop is no place for your infrastructure source of truth
-  * Managing a `tfstate` file in git is a nightmare
-  * Later when infrastructure layers start to grow in multiple directions (number of dependencies or resources) it will be easier to keep things under control
-* Practice a consistent structure and [naming](naming.md) convention:
-  * Like procedural code, Terraform code should be written for people to read first, consistency will help when changes happen six months from now
-  * It is possible to move resources in Terraform state file but it may be harder to do if you have inconsistent structure and naming
-* Keep resource modules as plain as possible
-* Don't hardcode values that can be passed as variables or discovered using data sources
-* Use data sources and `terraform_remote_state` specifically as a glue between infrastructure modules within the composition
+すべてのコードを `main.tf` に配置することは、初めて始める時やサンプルコードを書く時には良い方法です。それ以外の場合は、以下のように論理的に複数のファイルに分割する方が良いでしょう：
 
-In this book, example projects are grouped by _complexity_ - from small to very-large infrastructures. This separation is not strict, so check other structures also.
+* `main.tf` - モジュール、ローカル変数、データソースを呼び出してすべてのリソースを作成します
+* `variables.tf` - `main.tf`で使用される変数の宣言を含みます
+* `outputs.tf` - `main.tf`で作成されたリソースからの出力を含みます
+* `versions.tf` - Terraformとプロバイダーのバージョン要件を含みます
 
-### Orchestration of infrastructure modules and compositions
+`terraform.tfvars` は、 [composition](key-concepts.md#composition) 以外では使用すべきではありません。
 
-Having a small infrastructure means that there is a small number of dependencies and few resources. As the project grows the need to chain the execution of Terraform configurations, connecting different infrastructure modules, and passing values within a composition becomes obvious.
+## Terraformの設定構造についての考え方
 
-There are at least 5 distinct groups of orchestration solutions that developers use:
+{% hint style="info" %}
+以下の例で使用される主要な概念の [resource module](key-concepts.md#resource-module)[infrastructure module](key-concepts.md#infrastructure-module)、 [composition](key-concepts.md#composition) を必ず理解してください。
+{% endhint %}
 
-1. Terraform only. Very straightforward, developers have to know only Terraform to get the job done.
-2. Terragrunt. Pure orchestration tool which can be used to orchestrate the entire infrastructure as well as handle dependencies. Terragrunt operates with infrastructure modules and compositions natively, so it reduces duplication of code.
-3. In-house scripts. Often this happens as a starting point towards orchestration and before discovering Terragrunt.
-4. Ansible or similar general purpose automation tool. Usually used when Terraform is adopted after Ansible, or when Ansible UI is actively used.
-5. [Crossplane](https://crossplane.io) and other Kubernetes-inspired solutions. Sometimes it makes sense to utilize the Kubernetes ecosystem and employ a reconciliation loop feature to achieve the desired state of your Terraform configurations. View video [Crossplane vs Terraform](https://www.youtube.com/watch?v=ELhVbSdcqSY) for more information.
+### コードを構造化するための一般的な推奨事項
 
-With that in mind, this book reviews the first two of these project structures, Terraform only and Terragrunt.
+* より少ないリソース数で作業する方が容易で速い
+  * `terraform plan`と `terraform apply` はともに、リソースの状態を確認するためにクラウドAPIを呼び出します
+  * インフラ全体を単一の構成にまとめると時間がかかる可能性がある
+* セキュリティ侵害時の影響範囲はリソースが少ない方が小さい
+  * 関連のないリソースを別々の構成に配置することで、問題が発生した場合のリスクを軽減
+* プロジェクトはリモートステートを使用して開始してください。その理由は:
+  * あなたのラップトップは、インフラストラクチャの信頼できる情報源として適切な場所ではありません
+  * gitでtfstateファイルを管理することは悪夢のようなものです
+  * 後にインフラストラクチャレイヤーが複数の方向（依存関係やリソースの数）に成長した時、制御しやすい
+* 一貫した構造と[命名](naming.md)規則を実践してください
+  * 手続き型コードと同様に、Terraformコードは最初に人が読むことを考えて書かれるべきです。一貫性があれば、6ヶ月後に変更が必要になった時に役立ちます
+  * Terraformステートファイル内でリソースを移動することは可能ですが、構造や命名に一貫性がない場合、移動が困難になる可能性があります
+* リソースモジュールはできるだけシンプルに保ってください
+* &#x20;変数として渡せる値や、データソースを使用して検出できる値は、ハードコードしないでください
+* データソースと `terraform_remote_state` は、特に構成内のインフラストラクチャモジュール間の「接着剤」として使用してください
 
-See examples of code structures for [Terraform](examples/terraform/) or [Terragrunt](examples/terragrunt.md) in the next chapter.
+本書では、サンプルプロジェクトが複雑さによって小規模から大規模インフラまでグループ分けされています。この区分は厳密なものではないので、他の構造も確認してください。
+
+### インフラストラクチャモジュールと構成のオーケストレーション
+
+小規模なインフラストラクチャとは、依存関係が少なく、リソースも少ないことを意味します。プロジェクトが成長するにつれて、Terraformの設定の実行を連鎖させ、異なるインフラストラクチャモジュールを接続し、構成内で値を受け渡す必要性が明らかになってきます。
+
+開発者が使用するオーケストレーションソリューションには、少なくとも5つの異なるグループがあります：
+
+1. Terraformのみ：非常に直接的なアプローチで、開発者は仕事を完了するためにTerraformだけを知って必要があります。
+2. Terragrunt：インフラ全体のオーケストレーションと依存関係の処理が可能な純粋なオーケストレーションツールです。Terragruntはインフラストラクチャモジュールと構成をネイティブに扱うため、コードの重複を減らすことができます。
+3. 自社開発スクリプト：多くの場合、これはオーケストレーションへの最初のステップとして、Terragruntを発見する前に行われます。
+4. Ansibleやそれに類似する汎用自動化ツール：通常、TerraformがAnsible採用後に導入される場合や、Ansible UIが積極的に使用される場合に使用されます。
+5. [Crossplane](https://crossplane.io) やその他のKubernetesに触発されたソリューション：Kubernetesエコシステムを活用し、reconciliation loop機能を使用してTerraform設定の望ましい状態を達成することが意味を持つ場合があります。詳細については、「 [Crossplane vs Terraform](https://www.youtube.com/watch?v=ELhVbSdcqSY) 」 の動画を参照
+
+これを踏まえて、この本では最初の2つのプロジェクト構造、TerraformのみとTerragruntについて検討します。
+
+次の章で [Terraform](examples/terraform/) または [Terragrunt](examples/terragrunt.md) のコード構造の例を確認してください。

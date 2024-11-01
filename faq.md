@@ -4,18 +4,18 @@ description: FTP (Frequent Terraform Problems)
 
 # FAQ
 
-## What are the tools I should be aware of and consider using?
+## 使用を検討すべきツールは何ですか？
 
-* [**Terragrunt**](https://terragrunt.gruntwork.io/) - Orchestration tool
-* [**tflint**](https://github.com/terraform-linters/tflint) - Code linter
-* [**tfenv**](https://github.com/tfutils/tfenv) - Version manager
-* [**asdf-hashicorp**](https://github.com/asdf-community/asdf-hashicorp) - HashiCorp plugin for the [asdf](https://github.com/asdf-vm/asdf) version manager
-* [**Atlantis**](https://www.runatlantis.io/) - Pull Request automation
-* [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - Collection of git hooks for Terraform to be used with [pre-commit framework](https://pre-commit.com/)
-* [**Infracost**](https://www.infracost.io) - Cloud cost estimates for Terraform in pull requests. Works with Terragrunt, Atlantis and pre-commit-terraform too.
+* [**Terragrunt**](https://terragrunt.gruntwork.io/) - オーケストレーションツール
+* [**tflint**](https://github.com/terraform-linters/tflint) - コードリンター
+* [**tfenv**](https://github.com/tfutils/tfenv) - バージョンマネージャー
+* [**asdf-hashicorp**](https://github.com/asdf-community/asdf-hashicorp) - [asdf](https://github.com/asdf-vm/asdf)バージョンマネージャー用のHashiCorpプラグイン
+* [**Atlantis**](https://www.runatlantis.io/) - プルリクエストの自動化
+* [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - [pre-commitフレームワーク](https://pre-commit.com/)で使用するTerraform用のGitフックコレクション
+* [**Infracost**](https://www.infracost.io) - プルリクエストでのTerraformのクラウドコスト見積もり。Terragrunt、Atlantis、pre-commit-terraformとも連携可能。
 
-## What are the solutions to [dependency hell](https://en.wikipedia.org/wiki/Dependency\_hell) with modules?
+## モジュールの[ディペンデンシーヘル](https://en.wikipedia.org/wiki/Dependency\_hell)に対する解決策は何ですか？
 
-Versions of resource and infrastructure modules should be specified. Providers should be configured outside of modules, but only in composition. Version of providers and Terraform can be locked also.
+リソースとインフラストラクチャモジュールのバージョンは指定されるべきです。プロバイダーはモジュールの外部で、コンポジション内でのみ設定されるべきです。プロバイダーとTerraformのバージョンもロックすることができます。
 
-There is no master dependency management tool, but there are some tips to make dependency specifications less problematic. For example, [Dependabot](https://dependabot.com/) can be used to automate dependency updates. Dependabot creates pull requests to keep your dependencies secure and up-to-date. Dependabot supports Terraform configurations.
+マスターとなる依存関係管理ツールは存在しませんが、依存関係の指定をより問題の少ないものにするためのヒントがいくつかあります。例えば、[Dependabot](https://dependabot.com/)を使用して依存関係の更新を自動化することができます。Dependabotは、依存関係を安全かつ最新の状態に保つためのプルリクエストを作成します。DependabotはTerraformの設定をサポートしています。

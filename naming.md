@@ -1,21 +1,21 @@
-# Naming conventions
+# 命名規則
 
-## General conventions
+## 一般的な規則
 
 {% hint style="info" %}
-There should be no reason to not follow at least these conventions :)
+少なくともこれらの規則には従うべきですよ :)
 {% endhint %}
 
 {% hint style="info" %}
-Beware that actual cloud resources often have restrictions in allowed names. Some resources, for example, can't contain dashes, some must be camel-cased. The conventions in this book refer to Terraform names themselves.
+クラウドリソースの実際の名前には、多くの場合、使用可能な名前に制限があることに注意してください。例えば、一部のリソースではダッシュ（-）を含めることができなかったり、キャメルケースでなければならなかったりします。本書で説明する規則は、Terraform自体の名前に関するものです。
 {% endhint %}
 
-1. Use `_` (underscore) instead of `-` (dash) everywhere (in resource names, data source names, variable names, outputs, etc).
-2. Prefer to use lowercase letters and numbers (even though UTF-8 is supported).
+1. リソース名、データソース名、変数名、出力など、すべての場所で `-`（ダッシュ）の代わりに `_`（アンダースコア）を使用してください。
+2. UTF-8がサポートされていても、小文字とアルファベットを使用することを推奨します。
 
-## Resource and data source arguments
+リソースとデータソースの引数
 
-1. Do not repeat resource type in resource name (not partially, nor completely):
+1. リソース名にリソースタイプを（部分的にも、完全にも）繰り返さないでください：
 
 {% hint style="success" %}
 ```
@@ -35,16 +35,16 @@ Beware that actual cloud resources often have restrictions in allowed names. Som
 ```
 {% endhint %}
 
-2. Resource name should be named `this` if there is no more descriptive and general name available, or if the resource module creates a single resource of this type (eg, in [AWS VPC module](https://github.com/terraform-aws-modules/terraform-aws-vpc) there is a single resource of type `aws_nat_gateway` and multiple resources of type`aws_route_table`, so `aws_nat_gateway` should be named `this` and `aws_route_table` should have more descriptive names - like `private`, `public`, `database`).
-3. Always use singular nouns for names.
-4. Use `-` inside arguments values and in places where value will be exposed to a human (eg, inside DNS name of RDS instance).
-5. Include argument `count` / `for_each` inside resource or data source block as the first argument at the top and separate by newline after it.
-6. Include argument `tags,` if supported by resource, as the last real argument, following by `depends_on` and `lifecycle`, if necessary. All of these should be separated by a single empty line.
-7. When using conditions in an argument`count` / `for_each` prefer boolean values instead of using `length` or other expressions.
+2. より説明的で一般的な名前が利用できない場合、またはリソースモジュールがこのタイプのリソースを1つだけ作成する場合（例えば、[AWS VPCモジュール](https://github.com/terraform-aws-modules/terraform-aws-vpc)では `aws_nat_gateway` タイプのリソースは1つだけで、`aws_route_table` タイプのリソースは複数ある場合、`aws_nat_gateway` はこのままの名前にし、`aws_route_table` には `private`、`public`、`database` のようなより説明的な名前をつけるべき）、リソース名はこのままにすべきです。
+3. 名前には常に単数名詞を使用してください。
+4. 引数の値の中や、人が目にする場所（例：RDSインスタンスのDNS名）では、`-`（ハイフン）を使用してください。
+5. リソースまたはデータソースのブロック内で、`count`/`for_each`引数を最初の引数として一番上に記述し、その後に改行を入れて区切ってください。
+6. リソースでサポートされている場合は`tags`引数を実質的な最後の引数として記述し、必要に応じてその後に`depends_on`と`lifecycle`を続けてください。これらはすべて空行1行で区切ってください。
+7. `count`/`for_each`引数で条件を使用する場合は、`length`やその他の式を使用するのではなく、ブール値を使用することを推奨します。
 
-## Code examples of `resource`
+## `resource`のコード例
 
-### Usage of `count` / `for_each`
+### `count`と`for_each`の使用方法
 
 {% hint style="success" %}
 {% code title="main.tf" %}
@@ -53,14 +53,14 @@ resource "aws_route_table" "public" {
   count = 2
 
   vpc_id = "vpc-12345678"
-  # ... remaining arguments omitted
+  # ... 残りの引数は省略
 }
 
 resource "aws_route_table" "private" {
   for_each = toset(["one", "two"])
 
   vpc_id = "vpc-12345678"
-  # ... remaining arguments omitted
+  # ... 残りの引数は省略
 }
 ```
 {% endcode %}
@@ -73,13 +73,13 @@ resource "aws_route_table" "public" {
   vpc_id = "vpc-12345678"
   count  = 2
 
-  # ... remaining arguments omitted
+  # ... 残りの引数は省略
 }
 ```
 {% endcode %}
 {% endhint %}
 
-### Placement of `tags`
+### `tags` の配置
 
 {% hint style="success" %}
 {% code title="main.tf" %}
@@ -125,57 +125,57 @@ resource "aws_nat_gateway" "this" {
 {% endcode %}
 {% endhint %}
 
-### Conditions in `count`
+### `count`内の条件
 
 {% hint style="success" %}
 {% code title="outputs.tf" %}
 ```hcl
-resource "aws_nat_gateway" "that" {    # Best
+resource "aws_nat_gateway" "that" {    # 最適
   count = var.create_public_subnets ? 1 : 0
 }
 
-resource "aws_nat_gateway" "this" {    # Good
+resource "aws_nat_gateway" "this" {    # 良い
   count = length(var.public_subnets) > 0 ? 1 : 0
 }
 ```
 {% endcode %}
 {% endhint %}
 
-## Variables
+## 変数
 
-1. Don't reinvent the wheel in resource modules: use `name`, `description`, and `default` value for variables as defined in the "Argument Reference" section for the resource you are working with.
-2. Support for validation in variables is rather limited (e.g. can't access other variables or do lookups). Plan accordingly because in many cases this feature is useless.
-3. Use the plural form in a variable name when type is `list(...)` or `map(...)`.
-4. Order keys in a variable block like this: `description` , `type`, `default`, `validation`.
-5. Always include `description` on all variables even if you think it is obvious (you will need it in the future).
-6. Prefer using simple types (`number`, `string`, `list(...)`, `map(...)`, `any`) over specific type like `object()` unless you need to have strict constraints on each key.
-7. Use specific types like `map(map(string))` if all elements of the map have the same type (e.g. `string`) or can be converted to it (e.g. `number` type can be converted to `string`).
-8. Use type `any` to disable type validation starting from a certain depth or when multiple types should be supported.
-9. Value `{}` is sometimes a map but sometimes an object. Use `tomap(...)` to make a map because there is no way to make an object.
+1. リソースモジュールで車輪の再発明をしないでください：作業しているリソースの "Argument Reference" セクションで定義されている通りに、変数の`name`、`description`、`default`値を使用してください。
+2. 変数のバリデーションサポートはかなり限定的です（例：他の変数へのアクセスや参照ができません）。多くの場合この機能は役に立たないので、それを考慮して計画してください。
+3. 型が`list(...)`または`map(...)`の場合は、変数名に複数形を使用してください。
+4. &#x20;変数ブロック内のキーは次の順序で並べてください：description、type、default、validation
+5. 明白だと思える場合でも、将来必要になるので、すべての変数に必ずdescriptionを含めてください。
+6. 各キーに厳密な制約が必要な場合を除き、`object()`のような特定の型よりも、シンプルな型（`number`、`string`、`list(...)`、`map(...)`、`any`）の使用を推奨します。
+7. マップのすべての要素が同じ型（例：`string`）を持つ場合、または変換可能な場合（例：`number`型は`string`に変換可能）は、`map(map(string))`のような特定の型を使用してください。
+8. 特定の深さから型バリデーションを無効にする場合や、複数の型をサポートする必要がある場合は、`any`型を使用してください。
+9. 値`{}`は時にマップであり、時にオブジェクトです。オブジェクトを作成する方法がないため、マップを作成するには`tomap(...)`を使用してください。
 
-## Outputs
+## 出力
 
-Make outputs consistent and understandable outside of its scope (when a user is using a module it should be obvious what type and attribute of the value it returns).
+出力はスコープ外でも一貫性があり理解しやすいものにしてください（モジュールを使用するユーザーにとって、返される値の型と属性が明らかであるべきです）。
 
-1. The name of output should describe the property it contains and be less free-form than you would normally want.
-2. Good structure for the name of output looks like `{name}_{type}_{attribute}` , where:
-   1. `{name}` is a resource or data source name
-      * `{name}` for `data "aws_subnet" "private"` is `private`
-      * `{name}` for `resource "aws_vpc_endpoint_policy" "test"` is `test`
-   2. `{type}` is a resource or data source type without a provider prefix
-      * `{type}` for `data "aws_subnet" "private"` is `subnet`
-      * `{type}` for `resource "aws_vpc_endpoint_policy" "test"` is `vpc_endpoint_policy`
-   3. `{attribute}` is an attribute returned by the output
-   4. [See examples](naming.md#code-examples-of-output).
-3. If the output is returning a value with interpolation functions and multiple resources, `{name}` and `{type}` there should be as generic as possible (`this` as prefix should be omitted). [See example](naming.md#code-examples-of-output).
-4. If the returned value is a list it should have a plural name. [See example](naming.md#use-plural-name-if-the-returning-value-is-a-list).
-5. Always include `description` for all outputs even if you think it is obvious.
-6. Avoid setting `sensitive` argument unless you fully control usage of this output in all places in all modules.
-7. Prefer `try()` (available since Terraform 0.13) over `element(concat(...))` (legacy approach for the version before 0.13)
+1. 出力名は、含まれるプロパティを説明するものであり、通常望むよりも自由度は低くすべきです。
+2. 出力名の良い構造は`{name}_{type}_{attribute}`のようになります。ここで：
+   1. `{name}`はリソースまたはデータソース名です
+      * `data "aws_subnet" "private"`の`{name}`は`private`です
+      * `resource "aws_vpc_endpoint_policy" "test"`の`{name}`は`test`です
+   2. `{type}`はプロバイダーのプレフィックスを除いたリソースまたはデータソースの型です
+      * `data "aws_subnet" "private"`の`{type}`は`subnet`です
+      * `resource "aws_vpc_endpoint_policy" "test"`の`{type}`は`vpc_endpoint_policy`です
+   3. `{attribute}`は出力によって返される属性です
+   4. [例](naming.md#code-examples-of-output)を参照してください。
+3. 出力が補間関数と複数のリソースを使用した値を返す場合、`{name}`と`{type}`はできるだけ一般的にすべきです（プレフィックスとしての`this`は省略すべき）。[例](naming.md#code-examples-of-output)を参照してください。
+4. 返される値がリストの場合は、複数形の名前にすべきです。[例](naming.md#code-examples-of-output)を参照してください。
+5. 明白だと思える場合でも、すべての出力に必ず`description`を含めてください。
+6. すべてのモジュールのすべての場所でその出力の使用を完全に制御できない限り、`sensitive`引数の設定は避けてください。
+7. （0.13以前のバージョンでの従来のアプローチである）`element(concat(...))`よりも（Terraform 0.13以降で利用可能な）`try()`を推奨します。
 
-### Code examples of `output`
+### `output`のコード例
 
-Return at most one ID of security group:
+セキュリティグループのIDを最大1つ返す場合：
 
 {% hint style="success" %}
 {% code title="outputs.tf" %}
@@ -188,7 +188,7 @@ output "security_group_id" {
 {% endcode %}
 {% endhint %}
 
-When having multiple resources of the same type, `this` should be omitted in the name of output:
+同じタイプの複数のリソースがある場合、出力名では`this`を省略すべきです：
 
 {% hint style="danger" %}
 {% code title="outputs.tf" %}
@@ -201,7 +201,7 @@ output "this_security_group_id" {
 {% endcode %}
 {% endhint %}
 
-### Use plural name if the returning value is a list
+### 返される値がリストの場合は、複数形の名前を使用してください
 
 {% hint style="success" %}
 {% code title="outputs.tf" %}
