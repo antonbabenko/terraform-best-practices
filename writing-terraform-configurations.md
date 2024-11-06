@@ -1,15 +1,15 @@
-# Writing Terraform configurations
+# Terraform 設定ファイルの記述
 
-## Use `locals` to specify explicit dependencies between resources
+## `locals` を使用してリソース間の明示的な依存関係を指定する
 
-Helpful way to give a hint to Terraform that some resources should be deleted before even when there is no direct dependency in Terraform configurations.
+リソースの直接的な依存関係がTerraformの構成にない場合でも、Terraformに対していくつかのリソースを削除すべきことを示すための便利な方法です。
 
 [https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf](https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf)
 
-## Terraform 0.12 - Required vs Optional arguments
+## Terraform 0.12 - Required 引数 vs Optional 引数
 
-1. Required argument `index_document` must be set, if `var.website` is not an empty map.
-2. Optional argument `error_document` can be omitted.
+1. `var.website` が空のマップでない場合は、Required引数である `index_document` が設定されている必要があります。
+2. Optional引数の `error_document` は省略可能です。
 
 {% code title="main.tf" %}
 ```hcl

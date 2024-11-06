@@ -1,29 +1,27 @@
 ---
 description: >-
-  japanese textgoes here... This document is an attempt to systematically
-  describe best practices using Terraform and provide recommendations for the
-  most frequent problems Terraform users experience.
+  このドキュメントでは、Terraformのベストプラクティスを体系的に説明し、Terraformユーザーが最も頻繁に経験する問題に対する推奨事項を提供します。
 ---
 
-# Welcome
+# ようこそ
 
-[Terraform](https://www.terraform.io) is powerful (if not the most powerful out there now) and one of the most used tools which allow management of infrastructure as code. It allows developers to do a lot of things and does not restrict them from doing things in ways that will be hard to support or integrate with.
+[Terraform](https://www.terraform.io)は非常に強力（現在では最も強力なものかもしれません）で、インフラをコードとして管理できるツールの中でも最も広く使用されています。開発者に多くのことを可能にし、サポートや統合が困難になる方法で作業することを制限しません。
 
-Some information described in this book may not seem like the best practices. I know this, and to help readers to separate what are established best practices and what is just another opinionated way of doing things, I sometimes use hints to provide some context and icons to specify the level of maturity on each subsection related to best practices.
+本書で説明されている情報の一部は、ベストプラクティスとは見えないかもしれません。そのため、読者が確立されたベストプラクティスと単なる一つの意見に基づくやり方を区別できるように、時折ヒントを使って文脈を提供し、各サブセクションに関連するベストプラクティスの成熟度レベルを示すアイコンを使用しています。
 
-The book was started in sunny Madrid in 2018, available for free here at [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com).
+本書は2018年、晴れたマドリードで書き始められ、無料で以下のサイトから入手可能です: [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com)
 
-A few years later it has been updated with more actual best practices available with Terraform 1.0. Eventually, this book should contain most of the indisputable best practices and recommendations for Terraform users.
+数年後、Terraform 1.0で利用可能な最新のベストプラクティスで更新されました。最終的には、Terraformユーザーにとって疑いのないベストプラクティスと推奨事項のほとんどを本書に収めることを目指しています。
 
-## Sponsors
+## 出資
 
-Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-links) if you want to become a sponsor.
+スポンサーになっていただける場合は[こちら](https://github.com/antonbabenko/terraform-aws-devops#social-links)からご連絡ください。
 
-| [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko)                                                                   | [CAST AI](https://cast.ai/antonbabenko) — Cut your Kubernetes costs by 60%+ on average. First cluster optimization FREE!                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![](.gitbook/assets/speakeasy-logo.png)](https://speakeasyapi.dev/?utm\_source=tf\_best\_practices\&utm\_medium=github+sponsorship) | [Speakeasy](https://speakeasyapi.dev/?utm\_source=tf\_best\_practices\&utm\_medium=github+sponsorship) — Terraform Providers, SDKs and docs for your API. Make your API enterprise-ready! |
+| [![](.gitbook/assets/cast-logo.png)](https://cast.ai/antonbabenko)                                                                   | [CAST AI](https://cast.ai/antonbabenko) — Kubernetesのコストを平均60％以上削減。最初のクラスター最適化は無料です！                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/speakeasy-logo.png)](https://speakeasyapi.dev/?utm\_source=tf\_best\_practices\&utm\_medium=github+sponsorship) | [Speakeasy](https://speakeasyapi.dev/?utm\_source=tf\_best\_practices\&utm\_medium=github+sponsorship) —APIのためのTerraformプロバイダー、SDK、ドキュメント。APIをエンタープライズ対応に！ |
 
-## Translations
+## 言語
 
 {% content-ref url="https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/u3iITRIHQx97ro2PkfdC/" %}
 [العربية (Arabic)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/u3iITRIHQx97ro2PkfdC/)
@@ -105,22 +103,23 @@ Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-
 [اردو (Urdu)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/dcjhau04KQIKHUJA90iN/)
 {% endcontent-ref %}
 
-Contact me if you want to help translate this book into other languages.
+他言語への翻訳にご協力いただける方はご連絡ください。
 
-## Contributions
+## コントリビューション
 
-I always want to get feedback and update this book as the community matures and new ideas are implemented and verified over time.
+常にフィードバックを求め、この本をコミュニティの成熟や新しいアイデアの実装・検証に応じて更新していきたいと考えています。
 
-If you are interested in specific topics, please [open an issue](https://github.com/antonbabenko/terraform-best-practices/issues), or thumb up an issue you want to be covered. If you feel that **you have content** and you want to contribute, write a draft and submit a pull request (don't worry about writing good text at this point!).
+特定のトピックに興味がある場合は、[issue](https://github.com/antonbabenko/terraform-best-practices/issues)を立てるか、取り上げてほしいリクエストに「いいね」をしてください。また、**コンテンツを提供**したい場合は、ドラフトを書いてプルリクエストを送ってください（現時点で文章の完成度を気にする必要はありません！）。
 
-## Authors
+## 著者
 
-This book is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors and translators.
+この本は、 [Anton Babenko](https://github.com/antonbabenko) と様々な寄稿者や翻訳者の協力によって管理されています。
 
-## License
+## ライセンス
 
-This work is licensed under Apache 2 License. See LICENSE for full details.
+この作品はApache 2ライセンスの下で提供されています。詳細はLICENSEをご確認ください。
 
-The authors and contributors to this content cannot guarantee the validity of the information found here. Please make sure that you understand that the information provided here is being provided freely, and that no kind of agreement or contract is created between you and any persons associated with this content or project. The authors and contributors do not assume and hereby disclaim any liability to any party for any loss, damage, or disruption caused by errors or omissions in the information contained in, associated with, or linked from this content, whether such errors or omissions result from negligence, accident, or any other cause.
+このコンテンツの著者および寄稿者は、ここで提供される情報の正確性を保証するものではありません。ここで提供される情報は自由に提供されており、このコンテンツやプロジェクトに関わるいかなる人との間にも、契約や合意が成立しないことをご理解ください。\
+著者および寄稿者は、このコンテンツに含まれる、関連する、またはリンクされている情報の誤りや不足に起因して、いかなる当事者に生じた損失、損害、または混乱に対しても一切の責任を負わないことをここに明記します。これには、過失、事故、その他の理由に起因する誤りや不足が含まれます。
 
 Copyright © 2018-2023 Anton Babenko.

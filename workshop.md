@@ -1,5 +1,9 @@
-# Workshop
+---
+description: ワークショップ
+---
 
-There is also a workshop for people who want to practice some of the things described in this guide.
+# ワークショップ
 
-The content is here - [https://github.com/antonbabenko/terraform-best-practices-workshop](https://github.com/antonbabenko/terraform-best-practices-workshop)
+このガイドで説明されている内容を練習したい人のためのワークショップもあります。&#x20;
+
+コンテンツはこちらから - [https://github.com/antonbabenko/terraform-best-practices-workshop](https://github.com/antonbabenko/terraform-best-practices-workshop)

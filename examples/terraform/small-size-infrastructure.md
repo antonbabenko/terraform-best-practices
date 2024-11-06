@@ -1,16 +1,16 @@
-# Small-size infrastructure with Terraform
+# Terraformを使用した小規模インフラ
 
-Source: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform)
+ソース: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform)
 
-This example contains code as an example of structuring Terraform configurations for a small-size infrastructure, where no external dependencies are used.
+この例には、外部依存がない小規模インフラストラクチャのためのTerraform構成を整理するコードが含まれています。
 
 {% hint style="success" %}
-* Perfect to get started and refactor as you go
-* Perfect for small resource modules
-* Good for small and linear infrastructure modules (eg, [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis))
-* Good for a small number of resources (fewer than 20-30)
+* 初めての導入や進めながらのリファクタリングに最適
+* 小規模なリソースモジュールに最適
+* 小規模かつ直線的なインフラストラクチャモジュールに適している（例： [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis))
+* リソースが少ない（20〜30未満）の場合に適している
 {% endhint %}
 
 {% hint style="warning" %}
-Single state file for all resources can make the process of working with Terraform slow if the number of resources is growing (consider using an argument `-target` to limit the number of resources)
+すべてのリソースに対して単一の状態ファイルを使用すると、リソースが増え、Terraformの操作が遅くなる可能性があります（`-target`引数を使ってリソース数を制限することを検討してください）
 {% endhint %}

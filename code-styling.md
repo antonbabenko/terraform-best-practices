@@ -1,29 +1,29 @@
-# Code styling
+# コーディングスタイル
 
 {% hint style="info" %}
-* Examples and Terraform modules should contain documentation explaining features and how to use them.
-* All links in README.md files should be absolute to make Terraform Registry website show them correctly.
-* Documentation may include diagrams created with [mermaid](https://github.com/mermaid-js/mermaid) and blueprints created with [cloudcraft.co](https://cloudcraft.co).
-* Use [Terraform pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform) to make sure that the code is valid, properly formatted, and automatically documented before it is pushed to git and reviewed by humans.
+* 例やTerraformモジュールには、機能と使用方法を説明するドキュメントを含める必要があります。
+* README.mdファイル内のすべてのリンクは絶対Pathにし、Terraform Registryのウェブサイトで正しく表示されるようにします。
+* ドキュメントには、[mermaid](https://github.com/mermaid-js/mermaid)で作成した図や[cloudcraft.co](https://cloudcraft.co/)で作成した設計図を含めることができます。
+* Terraformのプリコミットフック([Terraform pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform))を使用して、コードが正しく、適切にフォーマットされ、自動的にドキュメント化されるようにし、Gitにプッシュされる前に確認できるようにしてください。
 {% endhint %}
 
-## Documentation
+## ドキュメンテーション
 
-### Automatically generated documentation
+### ドキュメントの自動生成
 
-[pre-commit](https://pre-commit.com/) is a framework for managing and maintaining multi-language pre-commit hooks. It is written in Python and is a powerful tool to do something automatically on a developer's machine before code is committed to a git repository. Normally, it is used to run linters and format code (see [supported hooks](https://pre-commit.com/hooks.html)).
+[pre-commit](https://pre-commit.com/)は、マルチランゲージのプリコミットフックを管理および維持するためのフレームワークです。Pythonで書かれており、コードがGitリポジトリにコミットされる前に、開発者のマシン上で自動的に何かしらの処理を行うための強力なツールです。通常は、リンターを実行したり、コードをフォーマットしたりするために使用されます（[サポートされているフック](https://pre-commit.com/hooks.html)を参照）。
 
-With Terraform configurations `pre-commit` can be used to format and validate code, as well as to update documentation.
+Terraformの構成では、`pre-commit`を使用してコードをフォーマットし、検証し、ドキュメントを更新することができます。
 
-Check out the [pre-commit-terraform repository](https://github.com/antonbabenko/pre-commit-terraform/blob/master/README.md) to familiarize yourself with it, and existing repositories (eg, [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc)) where this is used already.
+[pre-commit-terraformリポジトリ](https://github.com/antonbabenko/pre-commit-terraform/blob/master/README.md)をチェックして、使い方を把握し、すでに使用されている既存のリポジトリ（例：[terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc)）を確認してください。
 
 ### terraform-docs
 
-[terraform-docs](https://github.com/segmentio/terraform-docs) is a tool that does the generation of documentation from Terraform modules in various output formats. You can run it manually (without pre-commit hooks), or use [pre-commit-terraform hooks](https://github.com/antonbabenko/pre-commit-terraform) to get the documentation updated automatically.
+[terraform-docs](https://github.com/segmentio/terraform-docs)は、さまざまな出力形式でTerraformモジュールからドキュメントを生成するツールです。手動で実行することもできます（プリコミットフックなしで）、または [pre-commit-terraform hooks](https://github.com/antonbabenko/pre-commit-terraform) を使用してドキュメントを自動的に更新することもできます。
 
-@todo: Document module versions, release, GH actions
+@todo: モジュールのバージョン、リリース、GHアクションを文書化する
 
-## Resources
+## 参照
 
 1. [pre-commit framework homepage](https://pre-commit.com/)
 2. [Collection of git hooks for Terraform to be used with pre-commit framework](https://github.com/antonbabenko/pre-commit-terraform)

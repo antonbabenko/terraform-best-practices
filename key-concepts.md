@@ -1,60 +1,61 @@
-# Key concepts
+# 概念
 
-The official Terraform documentation describes [all aspects of configuration in details](https://www.terraform.io/docs/configuration/index.html). Read it carefully to understand the rest of this section.
+公式のTerraformドキュメントには、[設定のすべての側面](https://www.terraform.io/docs/configuration/index.html)が詳細に説明されています。次のセクションを理解するために、注意深くお読みください。\
+\
+このセクションでは、本書で使用される重要な概念について説明します。
 
-This section describes key concepts which are used inside the book.
+## リソース
 
-## Resource
+リソースとは、`aws_vpc`や`aws_db_instance`などを指します。リソースはプロバイダーに属し、引数を受け取り、属性を出力し、ライフサイクルを持っています。リソースは作成、取得、更新、削除が可能です。
 
-Resource is `aws_vpc`, `aws_db_instance`, etc. A resource belongs to a provider, accepts arguments, outputs attributes, and has a lifecycle. A resource can be created, retrieved, updated, and deleted.
+## リソースモジュール
 
-## Resource module
+リソースモジュールは、相互に接続されたリソースの集まりで、共通のアクションを実行します（例：[AWS VPC Terraformモジュール](https://github.com/terraform-aws-modules/terraform-aws-vpc/)は、VPC、サブネット、NATゲートウェイなどを作成します）。プロバイダー設定に依存し、それはモジュール内またはより上位の構造（例：インフラモジュール）で定義できます。
 
-Resource module is a collection of connected resources which together perform the common action (for e.g., [AWS VPC Terraform module](https://github.com/terraform-aws-modules/terraform-aws-vpc/) creates VPC, subnets, NAT gateway, etc). It depends on provider configuration, which can be defined in it, or in higher-level structures (e.g., in infrastructure module).
+## インフラモジュール
 
-## Infrastructure module
+インフラモジュールは、リソースモジュールの集まりで、論理的には接続されていない場合もありますが、現在の状況やプロジェクト、設定において同じ目的を果たします。プロバイダーの設定を定義し、それが下位のリソースモジュールやリソースに渡されます。通常、論理的な区切りごと（例：AWSリージョン、Googleプロジェクト）に1つのエンティティで機能するよう制限されています。\
 
-An infrastructure module is a collection of resource modules, which can be logically not connected, but in the current situation/project/setup serves the same purpose. It defines the configuration for providers, which is passed to the downstream resource modules and to resources. It is normally limited to work in one entity per logical separator (e.g., AWS Region, Google Project).
 
-For example, [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis/) module uses resource modules like [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc/) and [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group/) to manage the infrastructure required for running [Atlantis](https://www.runatlantis.io) on [AWS Fargate](https://aws.amazon.com/fargate/).
+例えば、 [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis/) モジュールは、 [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc/) や [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group/) のようなリソースモジュールを使用して、 [AWS Fargate](https://aws.amazon.com/fargate/)上で [Atlantis](https://www.runatlantis.io) を実行するために必要なインフラを管理します。
 
-Another example is [terraform-aws-cloudquery](https://github.com/cloudquery/terraform-aws-cloudquery) module where multiple modules by [terraform-aws-modules](https://github.com/terraform-aws-modules/) are being used together to manage the infrastructure as well as using Docker resources to build, push, and deploy Docker images. All in one set.
+もう一つの例は、 [terraform-aws-cloudquery](https://github.com/cloudquery/terraform-aws-cloudquery) モジュールです。ここでは、複数の [terraform-aws-modules](https://github.com/terraform-aws-modules/) によるモジュールが一緒に使用され、インフラを管理するとともに、Dockerリソースを使用してDockerイメージをビルド、プッシュ、デプロイします。すべてが一つのセットで実行されます。
 
-## Composition
+## コンポジション
 
-Composition is a collection of infrastructure modules, which can span across several logically separated areas (e.g.., AWS Regions, several AWS accounts). Composition is used to describe the complete infrastructure required for the whole organization or project.
+コンポジションとは、複数のインフラモジュールの集まりで、複数の論理的に分離された領域（例：AWSリージョン、複数のAWSアカウント）にまたがることができます。コンポジションは、組織全体やプロジェクト全体に必要なインフラを記述するために使用されます。
 
-A composition consists of infrastructure modules, which consist of resources modules, which implement individual resources.
+コンポジションはインフラモジュールで構成され、そのモジュールはリソースモジュールで構成され、リソースモジュールは個々のリソースを実装しています。
 
 ![Simple infrastructure composition](.gitbook/assets/composition-1.png)
 
-## Data source
+## データソース
 
-Data source performs a read-only operation and is dependant on provider configuration, it is used in a resource module and an infrastructure module.
+データソースは読み取り専用の操作を実行し、プロバイダー設定に依存しています。リソースモジュールやインフラストラクチャモジュールで使用されます。
 
-Data source `terraform_remote_state` acts as a glue for higher-level modules and compositions.
+データソース`terraform_remote_state`は、上位レベルのモジュールやコンポジションを結びつける役割を果たします。
 
-The [external](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) data source allows an external program to act as a data source, exposing arbitrary data for use elsewhere in the Terraform configuration. Here is an example from the [terraform-aws-lambda module](https://github.com/terraform-aws-modules/terraform-aws-lambda/blob/258e82b50adc451f51544a2b57fd1f6f8f4a61e4/package.tf#L5-L7) where the filename is computed by calling an external Python script.
+[外部データソース](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external)を使用すると、外部プログラムがデータソースとして機能し、Terraformの設定内で他の場所で使用する任意のデータを提供できます。以下は、[terraform-aws-lambda](https://github.com/terraform-aws-modules/terraform-aws-lambda/blob/258e82b50adc451f51544a2b57fd1f6f8f4a61e4/package.tf#L5-L7)モジュールの例で、外部のPythonスクリプトを呼び出してファイル名を計算しています。
 
-The [http](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) data source makes an HTTP GET request to the given URL and exports information about the response which is often useful to get information from endpoints where a native Terraform provider does not exist.
+[http](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http)データソースは、指定されたURLに対してHTTP GETリクエストを行い、レスポンスに関する情報をエクスポートします。これは、ネイティブなTerraformプロバイダーが存在しないエンドポイントから情報を取得する際に便利です。
 
-## Remote state
+## リモートステート
 
-Infrastructure modules and compositions should persist their [Terraform state](https://www.terraform.io/docs/language/state/index.html) in a remote location where it can be retrieved by others in a controllable way (e.g., specify ACL, versioning, logging).
+インフラモジュールやコンポジションは、[Terraformの状態(Terraform state)](https://www.terraform.io/docs/language/state/index.html)をリモートの場所に保存し、他のユーザーが制御可能な方法で取得できるようにするべきです（例：ACLの指定、バージョニング、ロギングの設定）。
 
-## Provider, provisioner, etc
+## プロバイダー、プロビジョナーなど
 
-Providers, provisioners, and a few other terms are described very well in the official documentation and there is no point to repeat it here. To my opinion, they have little to do with writing good Terraform modules.
+プロバイダーやプロビジョナー、その他いくつかの用語については公式ドキュメントで非常に詳しく説明されており、ここで繰り返す必要はありません。私の意見では、これらは良いTerraformモジュールを書くことにあまり関係がないと考えています。
 
-## Why so _difficult_?
+## なぜ難しいのか？
 
-While individual resources are like atoms in the infrastructure, resource modules are molecules (consisting of atoms). A module is the smallest versioned and shareable unit. It has an exact list of arguments, implement basic logic for such a unit to do the required function. e.g., [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group) module creates `aws_security_group` and `aws_security_group_rule` resources based on input. This resource module by itself can be used together with other modules to create the infrastructure module.
+個々のリソースがインフラの「原子」のようなものである一方、リソースモジュールは「分子」（原子から構成される）に相当します。モジュールは、バージョン管理され共有可能な最小の単位です。特定の引数リストがあり、この単位に必要な機能を実行するための基本的なロジックが実装されています。例えば、[terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group)モジュールは、入力に基づいて`aws_security_group`や`aws_security_group_rule`リソースを作成します。このリソースモジュール自体は、他のモジュールと組み合わせてインフラストラクチャモジュールを作成するために使用できます。
 
-Access to data across molecules (resource modules and infrastructure modules) is performed using the modules' outputs and data sources.
+「分子」（リソースモジュールやインフラモジュール）間でのデータアクセスは、モジュールのアウトプットやデータソースを使って行います。
 
-Access between compositions is often performed using remote state data sources. There are [multiple ways to share data between configurations](https://www.terraform.io/docs/language/state/remote-state-data.html#alternative-ways-to-share-data-between-configurations).
+コンポジション間のアクセスは、リモートステートデータソースを使用することが多いです。[設定間でデータを共有する方法は複数](https://www.terraform.io/docs/language/state/remote-state-data.html#alternative-ways-to-share-data-between-configurations)あります。
 
-When putting concepts described above in pseudo-relations it may look like this:
+上記の概念を擬似的な関係に当てはめると、次のようになります。
 
 ```
 composition-1 {

@@ -1,23 +1,23 @@
-# Medium-size infrastructure with Terraform
+# Terraformを使用した中規模インフラ
 
-Source: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/medium-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/medium-terraform)
+ソース: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/medium-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/medium-terraform)
 
-This example contains code as an example of structuring Terraform configurations for a medium-size infrastructure which uses:
+この例は、中規模インフラストラクチャのためのTerraform構成を整理するコード例で、次の内容を使用しています。
 
-* 2 AWS accounts
-* 2 separate environments (`prod` and `stage` which share nothing). Each environment lives in a separate AWS account
-* Each environment uses a different version of the off-the-shelf infrastructure module (`alb`) sourced from [Terraform Registry](https://registry.terraform.io/)
-* Each environment uses the same version of an internal module `modules/network` since it is sourced from a local directory.
+* 2つのAWSアカウント
+* 2つの独立した環境（プロダクションとステージング、共有は一切なし）。各環境は異なるAWSアカウント内に存在する
+* 各環境は、[Terraform Registry](https://registry.terraform.io/)から取得した既製のインフラモジュール（ALB）の異なるバージョンを使用
+* 各環境は、ローカルディレクトリから取得される内部モジュール`modules/network`の同じバージョンを使用
 
 {% hint style="success" %}
-* Perfect for projects where infrastructure is logically separated (separate AWS accounts)
-* Good when there is no need to modify resources shared between AWS accounts (one environment = one AWS account = one state file)
-* Good when there is no need in the orchestration of changes between the environments
-* Good when infrastructure resources are different per environment on purpose and can't be generalized (eg, some resources are absent in one environment or in some regions)
+* インフラが論理的に分離されているプロジェクトに最適（AWSアカウントが分かれている場合）
+* AWSアカウント間で共有されるリソースを変更する必要がない場合に適している（一つの環境＝一つのAWSアカウント＝一つの状態ファイル）
+* 環境間での変更のオーケストレーションが不要な場合に適している
+* 環境ごとにインフラリソースが異なり、一般化できない場合に適している（例：ある環境またはリージョンに存在しないリソースがある場合）
 {% endhint %}
 
 {% hint style="warning" %}
-As the project grows, it will be harder to keep these environments up-to-date with each other. Consider using infrastructure modules (off-the-shelf or internal) for repeatable tasks.
+プロジェクトが成長するにつれ、これらの環境を互いに最新の状態に保つことが難しくなります。繰り返し行われるタスクには、既製または内部のインフラモジュールの使用を検討してください。
 {% endhint %}
 
 ##
