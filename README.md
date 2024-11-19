@@ -35,8 +35,8 @@ Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-
 [Bosanski (Bosnian)](https://app.gitbook.com/s/PJbgKPAX0ohEMLpETpg7/)
 {% endcontent-ref %}
 
-{% content-ref url="https://app.gitbook.com/s/B48qUSNPO2XmkIySLzfr/" %}
-[Português (Brazilian Portuguese)](https://app.gitbook.com/s/B48qUSNPO2XmkIySLzfr/)
+{% content-ref url="https://app.gitbook.com/s/e1Mp2scOX6OnQbifCen3/" %}
+[English](https://app.gitbook.com/s/e1Mp2scOX6OnQbifCen3/)
 {% endcontent-ref %}
 
 {% content-ref url="https://app.gitbook.com/s/6shyPtr2KrqW4ANbFXYg/" %}
