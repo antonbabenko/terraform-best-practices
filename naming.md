@@ -35,7 +35,7 @@
 ```
 {% endhint %}
 
-2. より説明的で一般的な名前が利用できない場合、またはリソースモジュールがこのタイプのリソースを1つだけ作成する場合（例えば、[AWS VPCモジュール](https://github.com/terraform-aws-modules/terraform-aws-vpc)では `aws_nat_gateway` タイプのリソースは1つだけで、`aws_route_table` タイプのリソースは複数ある場合、`aws_nat_gateway` はこのままの名前にし、`aws_route_table` には `private`、`public`、`database` のようなより説明的な名前をつけるべき）、リソース名はこのままにすべきです。
+2. より説明的で一般的な名前が利用できない場合、またはリソースモジュールがこのタイプのリソースを1つだけ作成する場合（例えば、[AWS VPCモジュール](https://github.com/terraform-aws-modules/terraform-aws-vpc)では `aws_nat_gateway` タイプのリソースは1つだけで、`aws_route_table` タイプのリソースは複数あるため、`aws_nat_gateway` は `this` という名前にし、`aws_route_table` には `private`、`public`、`database` のようなより説明的な名前をつけるべき）、リソース名は `this` にすべきです。
 3. 名前には常に単数名詞を使用してください。
 4. 引数の値の中や、人が目にする場所（例：RDSインスタンスのDNS名）では、`-`（ハイフン）を使用してください。
 5. リソースまたはデータソースのブロック内で、`count`/`for_each`引数を最初の引数として一番上に記述し、その後に改行を入れて区切ってください。
