@@ -21,7 +21,6 @@ Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-
 
 | [![](.gitbook/assets/ctf-logo.png)](https://compliance.tf/?utm_source=tf_best_practices&utm_medium=sponsorship) | [Compliance.tf](https://compliance.tf/?utm_source=tf_best_practices&utm_medium=sponsorship) — Terraform Compliance Simplified. Make your Terraform modules compliance-ready. |
 | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![](.gitbook/assets/)]()                                                                                       | []() —                                                                                                                                                                       |
 
 ## Translations
 
