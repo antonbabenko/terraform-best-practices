@@ -43,28 +43,30 @@ website = {
 
 ## Managing Secrets in Terraform
 
-Secrets are sensitive data that can be anything from passwords and encryption keys to API tokens and service certificates. They are typically used to set up authentication and authorization for cloud resources. Safeguarding these sensitive resources is crucial because exposure could lead to security breaches. It’s highly recommended to avoid storing secrets in Terraform config and state, as anyone with access to version control can access them. Instead, consider using external data sources to fetch secrets from external sources at runtime. For instance, if you’re using AWS Secrets Manager, you can use the `aws_secretsmanager_secret_version` data source to access the secret value.
+Secrets are sensitive data that can be anything from passwords and encryption keys to API tokens and service certificates. They are typically used to set up authentication and authorization for cloud resources. Safeguarding these sensitive resources is crucial because exposure could lead to security breaches. It’s highly recommended to avoid storing secrets in Terraform config and state, as anyone with access to version control can access them. Instead, consider using external data sources to fetch secrets from external sources at runtime. For instance, if you’re using AWS Secrets Manager, you can use the `aws_secretsmanager_secret_version` data source to access the secret value. The following example uses write-only arguments, which are supported in Terraform 1.11+, and keep the value out of Terraform state.
+
 
 {% code title="main.tf" %}
 ```hcl
-# Fetch the secret metadata
+# Fetch the secret’s metadata
 data "aws_secretsmanager_secret" "db_password" {
   name = "my-database-password"
 }
 
-# Fetch the latest secret value
+# Get the latest secret value
 data "aws_secretsmanager_secret_version" "db_password" {
   secret_id = data.aws_secretsmanager_secret.db_password.id
 }
 
-# Use the secret in a resource
+# Use the secret without persisting it to state
 resource "aws_db_instance" "example" {
   engine         = "mysql"
   instance_class = "db.t3.micro"
   name           = "exampledb"
   username       = "admin"
-  password       = data.aws_secretsmanager_secret_version.db_password.secret_string
-}
+
+  # write-only: Terraform sends it to AWS then forgets it
+  password_wo = data.aws_secretsmanager_secret_version.db_password.secret_string
 ```
 {% endcode %}
 
