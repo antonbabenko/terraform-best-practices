@@ -7,6 +7,23 @@
 * Use [Terraform pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform) to make sure that the code is valid, properly formatted, and automatically documented before it is pushed to git and reviewed by humans.
 {% endhint %}
 
+## Formatting
+
+Terraform’s `terraform fmt` command enforces the canonical style for configuration files. The tool is intentionally opinionated and non-configurable, guaranteeing a uniform format across codebases so reviewers can focus on substance rather than style. Integrate it with [Terraform pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform) to validate and format code automatically before it reaches version control.
+
+For example:
+
+```yaml
+# .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.97.0
+    hooks:
+      - id: terraform_fmt
+```
+
+In CI pipelines, use `terraform fmt -check` to verify compliance. It exits with status 0 when all files are correctly formatted; otherwise, it returns a non-zero code and lists the offending files. Centralizing formatting in this way removes merge friction and enforces a consistent standard across teams.
+
 ## Editor Configuration
 
 - **Use `.editorconfig`**: [EditorConfig](https://editorconfig.org/) helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. Include an `.editorconfig` file in your repositories to maintain consistent whitespace and indentation.
