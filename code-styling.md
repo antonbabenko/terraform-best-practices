@@ -17,7 +17,7 @@ For example:
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.97.0
+    rev: v1.99.4
     hooks:
       - id: terraform_fmt
 ```
