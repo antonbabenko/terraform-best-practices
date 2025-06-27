@@ -40,7 +40,7 @@ The [http](https://registry.terraform.io/providers/hashicorp/http/latest/docs/da
 
 ## Remote state
 
-Infrastructure modules and compositions should persist their [Terraform state](https://www.terraform.io/docs/language/state/index.html) in a remote location where it can be retrieved by others in a controllable way (e.g., specify ACL, versioning, logging).
+Store [Terraform state](https://www.terraform.io/docs/language/state/index.html) for each infrastructure module and composition in a remote backend, configured with ACLs, versioning, and logging. This single, authoritative source of truth keeps environments consistent and typically includes disaster-recovery features such as automated backups. Managing state locally can lead to collaboration issues and race conditions when multiple developers run Terraform at the same time, resulting in unpredictable outcomes.
 
 ## Provider, provisioner, etc
 
