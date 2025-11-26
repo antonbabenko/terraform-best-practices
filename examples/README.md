@@ -4,25 +4,25 @@ metaLinks:
     - https://app.gitbook.com/s/e1Mp2scOX6OnQbifCen3/examples
 ---
 
-# Code structure examples
+# Код құрылымы мысалдар
 
-## Terraform code structures
+#### Terraform код құрылымдары
 
 {% hint style="info" %}
-These examples are showing AWS provider but the majority of principles shown in the examples can be applied to other public cloud providers as well as other kinds of providers (DNS, DB, Monitoring, etc)
+Бұл мысалдарда AWS провайдері көрсетілген, бірақ келтірілген қағидалардың басым бөлігі басқа бұлттық провайдерлерге де, сондай DNS, дерекқор, мониторинг сияқты өзге провайдер түрлеріне де қолдануға келеді.
 {% endhint %}
 
-| Type                                                           | Description                                                                                                                                     | Readiness |
-| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| [small](terraform/small-size-infrastructure.md)                | Few resources, no external dependencies. Single AWS account. Single region. Single environment.                                                 | Yes       |
-| [medium](terraform/medium-size-infrastructure.md)              | Several AWS accounts and environments, off-the-shelf infrastructure modules using Terraform.                                                    | Yes       |
-| [large](terraform/large-size-infrastructure-with-terraform.md) | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terraform. | WIP       |
-| very-large                                                     | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terraform.                                                                  | No        |
+| Түрі                                                           | Сипаттамасы                                                                                                                                                                                             | Supported by Atlantis |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| [small](terraform/small-size-infrastructure.md)                | Ресурстар аз, сыртқы тәуелділіктер жоқ. Бір AWS тіркелгісі. Бір аймақ. Бір орта.                                                                                                                        | Иә                    |
+| [medium](terraform/medium-size-infrastructure.md)              | Бірнеше AWS тіркелгісі мен орталар, дайын (off-the-shelf) инфрақұрылым модульдері, Terraform қолданылатын композиция үлгісі.                                                                            | Иә                    |
+| [large](terraform/large-size-infrastructure-with-terraform.md) | Көптеген AWS тіркелгілері, көптеген аймақтар, көшіріп-қоюды азайтудың шұғыл қажеттілігі, тапсырыспен (custom) жасалған инфрақұрылым модульдері, композицияларды ауқымды қолдану. Terraform қолданылады. | WIP                   |
+| very-large                                                     | Бірнеше провайдерлер (AWS, GCP, Azure). Мульти-бұлттық орналастырулар. Terraform қолданылады.                                                                                                           | Жоқ                   |
 
 ## Terragrunt code structures
 
-| Type       | Description                                                                                                                                      | Readiness |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| medium     | Several AWS accounts and environments, off-the-shelf infrastructure modules, composition pattern using Terragrunt.                               | No        |
-| large      | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terragrunt. | No        |
-| very-large | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terragrunt.                                                                  | No        |
+| Түрі       | Сипаттамасы                                                                                                                                                                                              | Supported by Atlantis |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| medium     | Бірнеше AWS тіркелгісі мен орталар, дайын инфрақұрылым модульдері, Terragrunt қолданылатын композиция үлгісі.                                                                                            | Жоқ                   |
+| large      | Көптеген AWS тіркелгілері, көптеген аймақтар, көшіріп-қоюды азайтудың шұғыл қажеттілігі, тапсырыспен (custom) жасалған инфрақұрылым модульдері, композицияларды ауқымды қолдану. Terragrunt қолданылады. | Жоқ                   |
+| very-large | Бірнеше провайдерлер (AWS, GCP, Azure). Мульти-бұлттық орналастырулар. Terragrunt қолданылады.                                                                                                           | Жоқ                   |

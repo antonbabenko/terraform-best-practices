@@ -5,18 +5,18 @@ metaLinks:
       https://app.gitbook.com/s/e1Mp2scOX6OnQbifCen3/writing-terraform-configurations
 ---
 
-# Writing Terraform configurations
+# Terraform конфигурацияларын жазу
 
-## Use `locals` to specify explicit dependencies between resources
+## Ресурстар арасындағы нақты тәуелділіктерді көрсету үшін `locals` қолданыңыз
 
-Helpful way to give a hint to Terraform that some resources should be deleted before even when there is no direct dependency in Terraform configurations.
+Бұл  Terraform конфигурацияларында тікелей тәуелділік болмаған кезде де, кейбір ресурстардың бұрынырақ жойылуы керектігі туралы Terraform-ға ишара берудің пайдалы жолы.
 
 [https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf](https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf)
 
-## Terraform 0.12 - Required vs Optional arguments
+### Terraform 0.12 - Міндетті және Қосымша аргументтер
 
-1. Required argument `index_document` must be set, if `var.website` is not an empty map.
-2. Optional argument `error_document` can be omitted.
+1. Егер `index_document` websiteбос карта (map) болмаса,  `var.website` міндетті аргументі орнатылуы тиіс.
+2. &#x20;`error_document` қосымша аргументін қалдырып кетуге болады.
 
 {% code title="main.tf" %}
 ```hcl
@@ -48,9 +48,9 @@ website = {
 ```
 {% endcode %}
 
-### Optional Object Attributes (Terraform 1.3+)
+#### Объектілердегі қосымша атрибуттар (Terraform 1.3+)
 
-Use optional attributes in objects to provide default values for non-required fields:
+Міндетті емес өрістер үшін әдепкі мәндерді қамтамасыз ету мақсатында объектілердегі қосымша атрибуттарды қолданыңыз:
 
 {% code title="variables.tf" %}
 ```hcl
@@ -68,9 +68,9 @@ variable "database_settings" {
 ```
 {% endcode %}
 
-## Managing Secrets in Terraform
+### Terraform-да құпия деректерді басқару
 
-Secrets are sensitive data that can be anything from passwords and encryption keys to API tokens and service certificates. They are typically used to set up authentication and authorization for cloud resources. Safeguarding these sensitive resources is crucial because exposure could lead to security breaches. It’s highly recommended to avoid storing secrets in Terraform config and state, as anyone with access to version control can access them. Instead, consider using external data sources to fetch secrets from external sources at runtime. For instance, if you’re using AWS Secrets Manager, you can use the `aws_secretsmanager_secret_version` data source to access the secret value. The following example uses write-only arguments, which are supported in Terraform 1.11+, and keep the value out of Terraform state.
+Құпия деректер -құпия сөздер мен шифрлау кілттерінен бастап API токендері мен қызмет сертификаттарына дейінгі кез келген сезімтал деректер болуы мүмкін. Олар әдетте бұлттық ресурстар үшін аутентификация мен авторизацияны орнату үшін қолданылады. Бұл сезімтал ресурстарды қорғау өте маңызды, себебі олардың жария болуы қауіпсіздіктің бұзылуына әкелуі мүмкін. Құпия деректерді Terraform конфигурациясында және күйінде сақтамауға қатаң кеңес беріледі, себебі нұсқаларды басқару жүйесіне рұқсаты бар кез келген адам оларға қол жеткізе алады. Оның орнына, орындау уақытында сыртқы көздерден құпияларды алу үшін сыртқы дереккөздерді пайдалануды қарастырыңыз. Мысалы, AWS Secrets Manager қолдансаңыз, құпия мәнге қол жеткізу үшін  `aws_secretsmanager_secret_version`  дереккөзін пайдалана аласыз. Келесі мысалда Terraform 1.11+ нұсқасында қолдау көрсетілетін және мәнді Terraform күйінен тыс сақтайтын тек жазуға арналған аргументтер қолданылады.
 
 {% code title="main.tf" %}
 ```hcl
@@ -96,15 +96,15 @@ resource "aws_db_instance" "example" {
 ```
 {% endcode %}
 
-## Variable Validation and Input Handling
+### Айнымалыларды тексеру және кіріс деректерді өңдеу
 
 {% hint style="info" %}
-Variable validation helps catch errors early, provides clear feedback, and ensures inputs meet your requirements.
+Айнымалыларды тексеру (валидация) қателерді ерте анықтауға көмектеседі, нақты кері байланыс береді және кіріс деректердің талаптарыңызға сәйкес келуін қамтамасыз етеді.
 {% endhint %}
 
-### Basic Variable Validation
+#### Айнымалыларды негізгі тексеру
 
-Use validation blocks to ensure variables meet specific criteria:
+Айнымалылардың нақты критерийлерге сәйкес келетініне көз жеткізу үшін валидация блоктарын қолданыңыз:
 
 {% code title="variables.tf" %}
 ```hcl
@@ -121,9 +121,9 @@ variable "environment" {
 ```
 {% endcode %}
 
-### Object and List Validation
+#### Объект және тізім валидациясы
 
-Validate complex data structures to ensure they contain expected values:
+Күрделі деректер құрылымдарының күтілетін мәндерді қамтитынына көз жеткізу үшін оларды тексеріңіз:
 
 {% code title="variables.tf" %}
 ```hcl

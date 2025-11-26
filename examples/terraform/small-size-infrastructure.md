@@ -5,19 +5,19 @@ metaLinks:
       https://app.gitbook.com/s/e1Mp2scOX6OnQbifCen3/examples/terraform/small-size-infrastructure
 ---
 
-# Small-size infrastructure with Terraform
+# Terraform көмегімен шағын өлшемді инфрақұрылым
 
-Source: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform)
+Дереккөз: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/small-terraform)
 
-This example contains code as an example of structuring Terraform configurations for a small-size infrastructure, where no external dependencies are used.
+Бұл мысал сыртқы тәуелділіктер қолданылмаған, шағын өлшемді инфрақұрылымға арналған Terraform конфигурацияларын құрылымдау мысалы ретінде кодты қамтиды.
 
 {% hint style="success" %}
-* Perfect to get started and refactor as you go
-* Perfect for small resource modules
-* Good for small and linear infrastructure modules (eg, [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis))
-* Good for a small number of resources (fewer than 20-30)
+* Жұмысты бастауға және жүре келе рефакторинг жасауға өте ыңғайлы
+* Шағын ресурс модульдері үшін өте қолайлы
+* Шағын және сызықтық инфрақұрылым модульдері үшін жақсы (мысалы, [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis))
+* Ресурстар саны аз болғанда (20-30-дан аз) жақсы
 {% endhint %}
 
 {% hint style="warning" %}
-Single state file for all resources can make the process of working with Terraform slow if the number of resources is growing (consider using an argument `-target` to limit the number of resources)
+Егер ресурстар саны өссе, барлық ресурстар үшін бір күй (state) файлының болуы Terraform-мен жұмыс істеу процесін баяулатуы мүмкін (ресурстар санын шектеу үшін `-target` аргументін қолдануды қарастырыңыз)
 {% endhint %}

@@ -1,29 +1,29 @@
 ---
 description: >-
-  This document is an attempt to systematically describe best practices using
-  Terraform and provide recommendations for the most frequent problems Terraform
-  users experience.
+  Бұл құжат Terraform-ды қолданудың үздік тәжірибелерін жүйелі түрде сипаттауға
+  және Terraform пайдаланушылары жиі кездесетін мәселелер бойынша ұсыныстар
+  беруге жасалған талпыныс.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/e1Mp2scOX6OnQbifCen3/
 ---
 
-# Welcome
+# Қош келдіңіздер...
 
-[Terraform](https://www.terraform.io) is powerful (if not the most powerful out there now) and one of the most used tools which allow management of infrastructure as code. It allows developers to do a lot of things and does not restrict them from doing things in ways that will be hard to support or integrate with.
+[Terraform](https://www.terraform.io) инфрақұрылымды код ретінде басқаруға мүмкіндік беретін қуатты (егер қазіргі кездегі ең қуаттысы болмаса) және ең көп қолданылатын құралдардың бірі. Ол әзірлеушілерге көптеген нәрселерді жасауға мүмкіндік береді және оларды қолдау немесе басқа жүйелермен біріктіру қиын болатындай әрекет етуден шектемейді.
 
-Some information described in this book may not seem like the best practices. I know this, and to help readers to separate what are established best practices and what is just another opinionated way of doing things, I sometimes use hints to provide some context and icons to specify the level of maturity on each subsection related to best practices.
+Бұл кітапта сипатталған кейбір ақпарат үздік тәжірибе сияқты көрінбеуі мүмкін. Мен мұны білемін, сондықтан оқырмандарға қалыптасқан үздік тәжірибелер мен жай ғана «меніңше дұрыс» делінген субъективті әдістерді ажыратуға көмектесу үшін, кейде контекст беретін кеңестерді және әр бөлімшедегі тәжірибенің жетілу деңгейін көрсететін белгішелерді қолданамын.
 
-The book was started in sunny Madrid in 2018, available for free here at [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com).
+Кітап 2018 жылы шуақты Мадридте басталды және оны [https://www.terraform-best-practices.com/](https://www.terraform-best-practices.com) сайтынан тегін оқуға болады.
 
-A few years later it has been updated with more actual best practices available with Terraform 1.0. Eventually, this book should contain most of the indisputable best practices and recommendations for Terraform users.
+Бірнеше жылдан кейін ол Terraform 1.0 нұсқасымен қолжетімді болған өзекті үздік тәжірибелермен жаңартылды. Түптеп келгенде, бұл кітап Terraform пайдаланушыларына арналған даусыз үздік тәжірибелер мен ұсыныстардың көпшілігін қамтуы тиіс.
 
-## Sponsors
+## Демеушілер
 
-Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-links) if you want to become a sponsor.
+Демеуші болғыңыз келсе, маған [хабарласыңыз](https://github.com/antonbabenko/terraform-aws-devops#social-links)
 
-| [![](.gitbook/assets/ctf-logo.png)](https://compliance.tf/?utm_source=tf_best_practices\&utm_medium=sponsorship) | [Compliance.tf](https://compliance.tf/?utm_source=tf_best_practices\&utm_medium=sponsorship) — Terraform Compliance Simplified. Make your Terraform modules compliance-ready. |
-| ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![](.gitbook/assets/ctf-logo.png)](https://compliance.tf/?utm_source=tf_best_practices\&utm_medium=sponsorship) | [Compliance.tf](https://compliance.tf/?utm_source=tf_best_practices\&utm_medium=sponsorship) - Terraform сәйкестігі оңайлатылды. Terraform модульдеріңізді сәйкестікке (compliance) дайын етіңіз. |
+| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ## Translations
 
@@ -111,22 +111,24 @@ Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-
 [اردو (Urdu)](https://app.gitbook.com/o/-LMqIrDlzEiI-N4uHrWg/s/dcjhau04KQIKHUJA90iN/)
 {% endcontent-ref %}
 
-Contact me if you want to help translate this book into other languages.
+Бұл кітапты басқа тілдерге аударуға көмектескіңіз келсе, маған хабарласыңыз.
 
-## Contributions
+## Үлес қосу
 
-I always want to get feedback and update this book as the community matures and new ideas are implemented and verified over time.
+Қауымдастық дамып, уақыт өте келе жаңа идеялар жүзеге асырылып, тексерілген сайын, мен әрқашан кері байланыс алып, бұл кітапты жаңартып отырғым келеді.
 
-If you are interested in specific topics, please [open an issue](https://github.com/antonbabenko/terraform-best-practices/issues), or thumb up an issue you want to be covered. If you feel that **you have content** and you want to contribute, write a draft and submit a pull request (don't worry about writing good text at this point!).
+Егер сізді нақты тақырыптар қызықтырса, [open an issue](https://github.com/antonbabenko/terraform-best-practices/issues), немесе қамтылғанын қалайтын мәселеге дауыс беріңіз. Егер сізде **дайын мазмұн бар** деп санасаңыз және үлес қосқыңыз келсе, жобасын (draft) жазып, pull request жіберіңіз (бұл кезеңде мәтіннің керемет жазылуына алаңдамаңыз!).
 
-## Authors
+## Авторлар
 
-This book is maintained by [Anton Babenko](https://github.com/antonbabenko) with the help of different contributors and translators.
+Бұл кітапты түрлі үлес қосушылар мен аудармашылардың көмегімен [Anton Babenko](https://github.com/antonbabenko) жүргізеді (сүйемелдейді).
 
-## License
+## Лицензия
 
-This work is licensed under Apache 2 License. See LICENSE for full details.
+Бұл жұмыс Apache 2 лицензиясы бойынша таратылады. Толық мәліметтерді LICENSE файлынан қараңыз.
 
-The authors and contributors to this content cannot guarantee the validity of the information found here. Please make sure that you understand that the information provided here is being provided freely, and that no kind of agreement or contract is created between you and any persons associated with this content or project. The authors and contributors do not assume and hereby disclaim any liability to any party for any loss, damage, or disruption caused by errors or omissions in the information contained in, associated with, or linked from this content, whether such errors or omissions result from negligence, accident, or any other cause.
+&#x20;
+
+Осы мазмұнның авторлары мен үлес қосушылары мұнда табылған ақпараттың жарамдылығына кепілдік бере алмайды. Мұнда ұсынылған ақпараттың тегін берілетінін және сіз бен осы мазмұнға немесе жобаға қатысты кез келген тұлғалардың арасында ешқандай келісім немесе келісімшарт жасалмайтынын түсінетініңізге көз жеткізіңіз. Авторлар мен үлес қосушылар осы мазмұнда қамтылған, онымен байланысты немесе одан сілтеме жасалған ақпараттағы қателер немесе олқылықтар салдарынан кез келген тарапқа келген жоғалту, зақым немесе бұзылу үшін жауапкершілікті өз мойнына алмайды және одан бас тартады; мейли мұндай қателер немесе олқылықтар ұқыпсыздықтан, жазатайым оқиғадан немесе басқа себептерден туындаған болса да.
 
 Copyright © 2018-2023 Anton Babenko.

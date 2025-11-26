@@ -5,31 +5,31 @@ metaLinks:
       https://app.gitbook.com/s/e1Mp2scOX6OnQbifCen3/examples/terraform/large-size-infrastructure-with-terraform
 ---
 
-# Large-size infrastructure with Terraform
+# Terraform көмегімен үлкен өлшемді инфрақұрылым
 
-Source: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/large-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/large-terraform)
+Дереккөз: [https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/large-terraform](https://github.com/antonbabenko/terraform-best-practices/tree/master/examples/large-terraform)
 
-This example contains code as an example of structuring Terraform configurations for a large-size infrastructure which uses:
+Бұл мысал келесілерді пайдаланатын үлкен өлшемді инфрақұрылымға арналған Terraform конфигурацияларын құрылымдау мысалы ретінде кодты қамтиды:
 
-* 2 AWS accounts
-* 2 regions
-* 2 separate environments (`prod` and `stage` which share nothing). Each environment lives in a separate AWS account and span resources between 2 regions
-* Each environment uses a different version of the off-the-shelf infrastructure module (`alb`) sourced from [Terraform Registry](https://registry.terraform.io/)
-* Each environment uses the same version of an internal module `modules/network` since it is sourced from a local directory.
+* 2 AWS тіркелгісі
+* 2 аймақ
+* 2 бөлек орта (бір-бірімен ешнәрсе бөліспейтін `prod` және `stage` ). Әр орта бөлек AWS тіркелгісінде орналасқан және ресурстары 2 аймаққа таралған.
+* Әр орта [Terraform Registry](https://registry.terraform.io/)-ден алынған дайын off-the-shelf инфрақұрылым модулінің  (`alb`) әртүрлі нұсқасын қолданады.
+* Әр орта `modules/network`  ішкі модулінің бірдей нұсқасын қолданады, себебі ол жергілікті каталогтан алынған.
 
 {% hint style="info" %}
-In a large project like described here the benefits of using Terragrunt become very visible. See [Code Structures examples with Terragrunt](../terragrunt.md).
+Мұнда сипатталғандай үлкен жобада Terragrunt-ты пайдаланудың артықшылықтары өте айқын көрінеді.  [Terragrunt бар код құрылымдарының](../terragrunt.md) мысалдарын қараңыз.
 {% endhint %}
 
 {% hint style="success" %}
-* Perfect for projects where infrastructure is logically separated (separate AWS accounts)
-* Good when there is no need to modify resources shared between AWS accounts (one environment = one AWS account = one state file)
-* Good when there is no need for the orchestration of changes between the environments
-* Good when infrastructure resources are different per environment on purpose and can't be generalized (eg, some resources are absent in one environment or in some regions)
+* Инфрақұрылым логикалық түрде бөлінген (бөлек AWS тіркелгілері) жобалар үшін өте қолайлы
+* AWS тіркелгілері арасында ортақ ресурстарды өзгерту қажеттілігі болмаған кезде жақсы (бір орта = бір AWS тіркелгісі = бір күй файлы)
+* Орталар арасындағы өзгерістерді оркестрациялау қажет болмаған кезде жақсы
+* Инфрақұрылым ресурстары әр ортада әдейі әртүрлі болғанда және оларды жалпылау мүмкін болмағанда жақсы (мысалы, кейбір ресурстар бір ортада немесе кейбір аймақтарда жоқ)
 {% endhint %}
 
 {% hint style="warning" %}
-As the project grows, it will be harder to keep these environments up-to-date with each other. Consider using infrastructure modules (off-the-shelf or internal) for repeatable tasks.
+Жоба өскен сайын, бұл орталарды бір-бірімен жаңартылған күйде ұстау қиынырақ болады. Қайталанатын тапсырмалар үшін инфрақұрылым модульдерін (дайын немесе ішкі) пайдалануды қарастырыңыз.
 {% endhint %}
 
 ##

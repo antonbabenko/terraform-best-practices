@@ -4,24 +4,26 @@ metaLinks:
     - https://app.gitbook.com/s/e1Mp2scOX6OnQbifCen3/naming
 ---
 
-# Naming conventions
+# Атау келісімдері
 
-## General conventions
+## Жалпы келісімдер
 
 {% hint style="info" %}
-There should be no reason to not follow at least these conventions :)
+Ең болмағанда осы келісімдерді сақтамауға ешқандай себеп жоқ :)
 {% endhint %}
 
 {% hint style="info" %}
-Beware that actual cloud resources often have restrictions in allowed names. Some resources, for example, can't contain dashes, some must be camel-cased. The conventions in this book refer to Terraform names themselves.
+Нақты бұлттық ресурстардың рұқсат етілген атауларында жиі шектеулер болатынын ескеріңіз. Мысалы, кейбір ресурстарда дефистер болмауы керек, кейбіреулері camel-case (ТүйеӨркеш) стилінде болуы керек. Бұл кітаптағы келісімдер Terraform атауларының өздеріне қатысты.
 {% endhint %}
 
-1. Use `_` (underscore) instead of `-` (dash) everywhere (in resource names, data source names, variable names, outputs, etc).
-2. Prefer to use lowercase letters and numbers (even though UTF-8 is supported).
+1. Барлық жерде (ресурс атауларында, дереккөз атауларында, айнымалылар атауларында, шығыстарда және т.б.) `-` (дефис) орнына  `_` (астын сызу белгісін) қолданыңыз.
+2. Кіші әріптер мен сандарды қолдануды жөн көріңіз (UTF-8 қолдау көрсетілсе де).
 
-## Resource and data source arguments
+## Ресурс және дереккөз аргументтері&#x20;
 
-1. Do not repeat resource type in resource name (not partially, nor completely):
+1. Ресурс атауында ресурс түрін қайталамаңыз (жартылай да, толықтай да):
+
+
 
 {% hint style="success" %}
 ```
@@ -41,16 +43,16 @@ Beware that actual cloud resources often have restrictions in allowed names. Som
 ```
 {% endhint %}
 
-2. Resource name should be named `this` if there is no more descriptive and general name available, or if the resource module creates a single resource of this type (eg, in [AWS VPC module](https://github.com/terraform-aws-modules/terraform-aws-vpc) there is a single resource of type `aws_nat_gateway` and multiple resources of type`aws_route_table`, so `aws_nat_gateway` should be named `this` and `aws_route_table` should have more descriptive names - like `private`, `public`, `database`).
-3. Always use singular nouns for names.
-4. Use `-` inside arguments values and in places where value will be exposed to a human (eg, inside DNS name of RDS instance).
-5. Include argument `count` / `for_each` inside resource or data source block as the first argument at the top and separate by newline after it.
-6. Include argument `tags,` if supported by resource, as the last real argument, following by `depends_on` and `lifecycle`, if necessary. All of these should be separated by a single empty line.
-7. When using conditions in an argument`count` / `for_each` prefer boolean values instead of using `length` or other expressions.
+2. Егер анағұрлым сипаттамалық және жалпы атау болмаса немесе ресурс модулі осы түрдегі жалғыз ресурсты жасаса, ресурс атауы `this` деп аталуы керек (мысалы, [AWS VPC модулінде](https://github.com/terraform-aws-modules/terraform-aws-vpc) `aws_nat_gateway` түріндегі бір ресурс және `aws_route_table` түріндегі бірнеше ресурстар бар, сондықтан `aws_nat_gateway` `this` деп аталуы керек, ал `aws_route_table` анағұрлым сипаттамалық атауларға ие болуы керек — мысалы, `private`, `public`, `database`).
+3. Атаулар үшін әрқашан зат есімнің жекеше түрін қолданыңыз.
+4. Аргумент мәндерінде және мән адамға көрсетілетін жерлерде (мысалы, RDS данасының DNS атауында) `-` қолданыңыз.
+5. `count` / `for_each` аргументін ресурс немесе дереккөз блогының ішіне ең бірінші аргумент ретінде жоғарғы жағына қосыңыз және одан кейін жаңа жолмен бөліңіз.
+6. Егер ресурс қолдаса, `tags` аргументін соңғы нақты аргумент ретінде, қажет болса `depends_on` және `lifecycle` аргументтерінің алдына қосыңыз. Бұлардың барлығы бір бос жолмен бөлінуі керек.
+7. `count` / `for_each` аргументінде шарттарды қолданған кезде `length` немесе басқа өрнектердің орнына логикалық (boolean) мәндерді жөн көріңіз.
 
-## Code examples of `resource`
+## &#x20;`resource`кодының мысалдары
 
-### Usage of `count` / `for_each`
+### &#x20;`count` / `for_each`      қолданылуы
 
 {% hint style="success" %}
 {% code title="main.tf" %}
@@ -59,14 +61,14 @@ resource "aws_route_table" "public" {
   count = 2
 
   vpc_id = "vpc-12345678"
-  # ... remaining arguments omitted
+  # ... қалған аргументтер өткізіп жіберілді
 }
 
 resource "aws_route_table" "private" {
   for_each = toset(["one", "two"])
 
   vpc_id = "vpc-12345678"
-  # ... remaining arguments omitted
+  # ... қалған аргументтер өткізіп жіберілді
 }
 ```
 {% endcode %}
@@ -79,13 +81,13 @@ resource "aws_route_table" "public" {
   vpc_id = "vpc-12345678"
   count  = 2
 
-  # ... remaining arguments omitted
+  # ... қалған аргументтер өткізіп жіберілді
 }
 ```
 {% endcode %}
 {% endhint %}
 
-### Placement of `tags`
+### Орналасуы `tags`
 
 {% hint style="success" %}
 {% code title="main.tf" %}
@@ -131,7 +133,7 @@ resource "aws_nat_gateway" "this" {
 {% endcode %}
 {% endhint %}
 
-### Conditions in `count`
+### &#x20;`count` ішіндегі шарттар
 
 {% hint style="success" %}
 {% code title="outputs.tf" %}
@@ -147,43 +149,46 @@ resource "aws_nat_gateway" "this" {    # Good
 {% endcode %}
 {% endhint %}
 
-## Variables
+## Айнымалылар
 
-1. Don't reinvent the wheel in resource modules: use `name`, `description`, and `default` value for variables as defined in the "Argument Reference" section for the resource you are working with.
-2. Support for validation in variables is rather limited (e.g. can't access other variables or do lookups if using a version before Terraform `1.9`). Plan accordingly because in many cases this feature is useless.
-3. Use the plural form in a variable name when type is `list(...)` or `map(...)`.
-4. Order keys in a variable block like this: `description` , `type`, `default`, `validation`.
-5. Always include `description` on all variables even if you think it is obvious (you will need it in the future). Use the same wording as the upstream documentation when applicable.
-6. Prefer using simple types (`number`, `string`, `list(...)`, `map(...)`, `any`) over specific type like `object()` unless you need to have strict constraints on each key.
-7. Use specific types like `map(map(string))` if all elements of the map have the same type (e.g. `string`) or can be converted to it (e.g. `number` type can be converted to `string`).
-8. Use type `any` to disable type validation starting from a certain depth or when multiple types should be supported.
-9. Value `{}` is sometimes a map but sometimes an object. Use `tomap(...)` to make a map because there is no way to make an object.
-10. Avoid double negatives: use positive variable names to prevent confusion. For example, use `encryption_enabled` instead of `encryption_disabled`.
+1.  Ресурс модульдерінде велосипед ойлап таппаңыз: сіз жұмыс істеп жатқан ресурс үшін «Аргумент анықтамалығы» (Argument Reference) бөлімінде анықталғандай айнымалылар үшін
+
+    &#x20;`name`, `description`, және `default` мәндерін қолданыңыз.
+2. Айнымалыларда валидацияны қолдау айтарлықтай шектеулі (мысалы, басқа айнымалыларға қол жеткізе алмайды немесе Terraform`1.9`-ға дейінгі нұсқаны қолдансаңыз, іздеулер жасай алмайды). Жоспарды сәйкесінше құрыңыз, өйткені көп жағдайда бұл мүмкіндік пайдасыз болып қалады.
+3. Түрі `list(...)` немесе `map(...)`болған кезде айнымалы атауында көпше түрді қолданыңыз.&#x20;
+4. Айнымалы блогындағы кілттерді мына ретпен орналастырыңыз: `description` , `type`, `default`, `validation`.
+5. Айнымалылардың барлығына, тіпті айтпаса да түсінікті деп ойласаңыз да, әрқашан  `description` қосыңыз (бұл сізге болашақта қажет болады). Мүмкін болса, ресми құжаттамадағыдай тұжырымдаманы қолданыңыз.
+6. Әр кілтте қатаң шектеулер болуы қажет болмаса, `object()`сияқты нақты түрден гөрі қарапайым түрлерді (`number`, `string`, `list(...)`, `map(...)`, `any`), қолданған дұрыс.
+7. Егер картаның  `map` барлық элементтері бірдей түрде болса (мысалы, `string`) немесе оған түрлендіруге болатын болса (мысалы, `number` түрін `string` түріне түрлендіруге болады),  `map(map(string))`сияқты нақты түрлерді қолданыңыз.&#x20;
+8. Белгілі бір тереңдіктен бастап түрді тексеруді өшіру үшін немесе бірнеше түрлерге қолдау көрсету керек болғанда `any` түрін қолданыңыз.
+9. &#x20;`{}`мәні кейде карта, кейде объект болып табылады. Карта жасау үшін `tomap(...)` қолданыңыз, себебі объект жасаудың жолы жоқ.
+10. Қос терістеуден аулақ болыңыз: шатасуды болдырмау үшін оң айнымалы атауларын қолданыңыз. Мысалы, `encryption_enabled` орнына `encryption_disabled`.
 11. For variables that should never be `null`, set `nullable = false`. This ensures that passing `null` uses the default value instead of `null`. If `null` is an acceptable value, you can omit nullable or set it to `true`.
+12. Ешқашан `null`болмауы керек айнымалылар үшін `nullable = false`деп орнатыңыз. Бұл `null`мәні берілгенде null-дың орнына әдепкі мәннің қолданылуын қамтамасыз етеді. Егер `null`қабылданатын мән болса, nullable параметрін қалдырып кетуге немесе `true`деп орнатуға болады. &#x20;
 
-## Outputs
+## Шығыстар
 
-Make outputs consistent and understandable outside of its scope (when a user is using a module it should be obvious what type and attribute of the value it returns).
+Шығыстарды бірізді және оның ауқымынан тыс түсінікті етіңіз (пайдаланушы модульді қолданғанда, оның қандай түрді және қандай атрибутты қайтаратыны анық болуы керек).
 
-1. The name of output should describe the property it contains and be less free-form than you would normally want.
-2. Good structure for the name of output looks like `{name}_{type}_{attribute}` , where:
-   1. `{name}` is a resource or data source name
-      * `{name}` for `data "aws_subnet" "private"` is `private`
-      * `{name}` for `resource "aws_vpc_endpoint_policy" "test"` is `test`
-   2. `{type}` is a resource or data source type without a provider prefix
-      * `{type}` for `data "aws_subnet" "private"` is `subnet`
-      * `{type}` for `resource "aws_vpc_endpoint_policy" "test"` is `vpc_endpoint_policy`
-   3. `{attribute}` is an attribute returned by the output
-   4. [See examples](naming.md#code-examples-of-output).
-3. If the output is returning a value with interpolation functions and multiple resources, `{name}` and `{type}` there should be as generic as possible (`this` as prefix should be omitted). [See example](naming.md#code-examples-of-output).
-4. If the returned value is a list it should have a plural name. [See example](naming.md#use-plural-name-if-the-returning-value-is-a-list).
-5. Always include `description` for all outputs even if you think it is obvious.
-6. Avoid setting `sensitive` argument unless you fully control usage of this output in all places in all modules.
-7. Prefer `try()` (available since Terraform 0.13) over `element(concat(...))` (legacy approach for the version before 0.13)
+1. Шығыс атауы ондағы қасиетті сипаттауы керек және әдетте қалағаныңыздан гөрі еркін пішінде болмауы керек.
+2. Шығыс атауының жақсы құрылымы `{name}_{type}_{attribute}` сияқты болады, мұнда:
+   1. `{name}` ресурс немесе дереккөз атауы.
+      * `{name}` үшін  `data "aws_subnet" "private"` бұл `private`
+      * `{name}` үшін `resource "aws_vpc_endpoint_policy" "test"` бұл `test`
+   2. `{type}`провайдер префиксінсіз ресурс немесе дереккөз түрі.
+      * `{type}` үшін `data "aws_subnet" "private"` бұл `subnet`
+      * `{type}` үшін `resource "aws_vpc_endpoint_policy" "test"` бұл `vpc_endpoint_policy`
+   3. `{attribute}` шығыс қайтаратын атрибут.
+   4. [ Мысалдарды қараңыз](naming.md#code-examples-of-output).&#x20;
+3. Егер шығыс интерполяция функцияларымен және бірнеше ресурстармен мән қайтарса, ондағы `{name}` және `{type}` мүмкіндігінше жалпылама болуы керек (префикс ретіндегі `this` aалынып тасталуы керек).[Мысалды қараңыз](naming.md#code-examples-of-output)&#x20;
+4. Егер қайтарылатын мән тізім болса, оның атауы көпше түрде болуы керек.[ Мысалды қараңыз ](naming.md#eger-aitarylatyn-m-n-tizim-bolsa-k-pshe-ataudy-oldany-yz).
+5. Барлық шығыстарға, тіпті айтпаса да түсінікті деп ойласаңыз да, әрқашан `description` қосыңыз.
+6. Бұл шығыстың барлық модульдердегі барлық жерде қолданылуын толық бақыламасаңыз, `sensitive` аргументін орнатудан аулақ болыңыз.
+7. &#x20;`try()` (Terraform 0.13 нұсқасынан бастап қолжетімді) функциясын `element(concat(...))` (0.13 нұсқасына дейінгі ескірген әдіс) орнына қолданған дұрыс.
 
-### Code examples of `output`
+### &#x20;`output`  кодының мысалдары &#x20;
 
-Return at most one ID of security group:
+Қауіпсіздік тобының ең көбі бір идентификаторын қайтару:
 
 {% hint style="success" %}
 {% code title="outputs.tf" %}
@@ -196,7 +201,7 @@ output "security_group_id" {
 {% endcode %}
 {% endhint %}
 
-When having multiple resources of the same type, `this` should be omitted in the name of output:
+Бір түрдегі бірнеше ресурс болған кезде, шығыс атауында `this` алынып тасталуы керек:
 
 {% hint style="danger" %}
 {% code title="outputs.tf" %}
@@ -209,7 +214,7 @@ output "this_security_group_id" {
 {% endcode %}
 {% endhint %}
 
-### Use plural name if the returning value is a list
+### Егер қайтарылатын мән тізім болса, көпше атауды қолданыңыз
 
 {% hint style="success" %}
 {% code title="outputs.tf" %}

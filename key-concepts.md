@@ -4,63 +4,62 @@ metaLinks:
     - https://app.gitbook.com/s/e1Mp2scOX6OnQbifCen3/key-concepts
 ---
 
-# Key concepts
+# Негізгі тұжырымдамалар
 
-The official Terraform documentation describes [all aspects of configuration in details](https://www.terraform.io/docs/configuration/index.html). Read it carefully to understand the rest of this section.
+Ресми Terraform құжаттамасы [конфигурацияның барлық аспектілерін егжей-тегжейлі](https://www.terraform.io/docs/configuration/index.html) сипаттайды. Осы бөлімнің қалған бөлігін түсіну үшін оны мұқият оқып шығыңыз.Бұл бөлім кітап ішінде қолданылатын негізгі ұғымдарды сипаттайды.
 
-This section describes key concepts which are used inside the book.
+### Ресурс
 
-## Resource
+Ресурс - бұл `aws_vpc`, `aws_db_instance`,және т.б. Ресурс провайдерге тиесілі, аргументтерді қабылдайды, атрибуттарды шығарады және өмірлік циклге ие.&#x20;Ресурсты жасауға, алуға, жаңартуға және жоюға болады.
 
-Resource is `aws_vpc`, `aws_db_instance`, etc. A resource belongs to a provider, accepts arguments, outputs attributes, and has a lifecycle. A resource can be created, retrieved, updated, and deleted.
+### Ресурс модулі
 
-## Resource module
+Ресурс модулі — бұл бірге жалпы әрекетті орындайтын байланысқан ресурстар жиынтығы (мысалы, [_AWS VPC Terraform модулі_](https://github.com/terraform-aws-modules/terraform-aws-vpc/) VPC, ішкі желілер, NAT шлюзі және т.б., жасайды).\
+&#x20;Ол провайдер конфигурациясына тәуелді, бұл конфигурация оның ішінде немесе жоғары деңгейлі құрылымдарда (мысалы, инфрақұрылым модулінде) анықталуы мүмкін.
 
-Resource module is a collection of connected resources which together perform the common action (for e.g., [AWS VPC Terraform module](https://github.com/terraform-aws-modules/terraform-aws-vpc/) creates VPC, subnets, NAT gateway, etc). It depends on provider configuration, which can be defined in it, or in higher-level structures (e.g., in infrastructure module).
+### Инфрақұрылым модулі
 
-## Infrastructure module
+Инфрақұрылым модулі - бұл логикалық тұрғыдан байланыспаған болуы мүмкін, бірақ ағымдағы жағдайда/жобада/орнатуда бір мақсатқа қызмет ететін ресурс модульдерінің жиынтығы. Ол төменгі деңгейдегі ресурс модульдеріне және ресурстарға берілетін провайдерлерге арналған конфигурацияны анықтайды. Ол әдетте бір логикалық бөлгішке (мысалы, AWS аймағы, Google жобасы) бір нысанмен жұмыс істеуге шектеледі.
 
-An infrastructure module is a collection of resource modules, which can be logically not connected, but in the current situation/project/setup serves the same purpose. It defines the configuration for providers, which is passed to the downstream resource modules and to resources. It is normally limited to work in one entity per logical separator (e.g., AWS Region, Google Project).
+Мысалы, [\`terraform-aws-atlantis\`](https://github.com/terraform-aws-modules/terraform-aws-atlantis/) модулі [AWS Fargate](https://aws.amazon.com/fargate/) қызметінде [Atlantis](https://www.runatlantis.io)-ті іске қосу үшін қажетті инфрақұрылымды басқару үшін [\`terraform-aws-vpc\`](https://github.com/terraform-aws-modules/terraform-aws-vpc/) және [\`terraform-aws-security-group\`](https://github.com/terraform-aws-modules/terraform-aws-security-group/) сияқты ресурс модульдерін пайдаланады.
 
-For example, [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis/) module uses resource modules like [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc/) and [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group/) to manage the infrastructure required for running [Atlantis](https://www.runatlantis.io) on [AWS Fargate](https://aws.amazon.com/fargate/).
+Тағы бір мысал - [\`terraform-aws-cloudquery\`](https://github.com/cloudquery/terraform-aws-cloudquery) модулі, мұнда [\`terraform-aws-modules\`](https://github.com/terraform-aws-modules/) ұсынған бірнеше модульдер инфрақұрылымды басқару үшін бірге пайдаланылады, сонымен қатар Docker кескіндерін құру (build), итеру (push) және орналастыру (deploy) үшін Docker ресурстары қолданылады. Барлығы бір жиынтықта.
 
-Another example is [terraform-aws-cloudquery](https://github.com/cloudquery/terraform-aws-cloudquery) module where multiple modules by [terraform-aws-modules](https://github.com/terraform-aws-modules/) are being used together to manage the infrastructure as well as using Docker resources to build, push, and deploy Docker images. All in one set.
+### Композиция
 
-## Composition
+Композиция - бұл бірнеше логикалық бөлінген аймақтарды (мысалы, AWS аймақтары, бірнеше AWS тіркелгілері) қамти алатын инфрақұрылым модульдерінің жиынтығы. Композиция бүкіл ұйым немесе жоба үшін қажетті толық инфрақұрылымды сипаттау үшін қолданылады.
 
-Composition is a collection of infrastructure modules, which can span across several logically separated areas (e.g.., AWS Regions, several AWS accounts). Composition is used to describe the complete infrastructure required for the whole organization or project.
-
-A composition consists of infrastructure modules, which consist of resources modules, which implement individual resources.
+Композиция инфрақұрылым модульдерінен тұрады, ал олар жеке ресурстарды жүзеге асыратын ресурс модульдерінен тұрады.
 
 ![Simple infrastructure composition](.gitbook/assets/composition-1.png)
 
-## Data source
+### Дереккөз
 
-Data source performs a read-only operation and is dependant on provider configuration, it is used in a resource module and an infrastructure module.
+Дереккөз тек оқуға арналған операцияны орындайды және провайдер конфигурациясына тәуелді, ол ресурс модулінде және инфрақұрылым модулінде қолданылады.
 
-Data source `terraform_remote_state` acts as a glue for higher-level modules and compositions.
+&#x20;`terraform_remote_state` дереккөзі жоғары деңгейлі модульдер мен композициялар үшін «желім» қызметін атқарады.
 
-The [external](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) data source allows an external program to act as a data source, exposing arbitrary data for use elsewhere in the Terraform configuration. Here is an example from the [terraform-aws-lambda module](https://github.com/terraform-aws-modules/terraform-aws-lambda/blob/258e82b50adc451f51544a2b57fd1f6f8f4a61e4/package.tf#L5-L7) where the filename is computed by calling an external Python script.
+[Сыртқы](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) дереккөз сыртқы бағдарламаға дереккөз ретінде әрекет етуге мүмкіндік береді, бұл Terraform конфигурациясының басқа жерінде пайдалану үшін еркін деректерді шығарады. Мұнда файл атауы сыртқы Python скриптін шақыру арқылы есептелетін [terraform-aws-lambda module](https://github.com/terraform-aws-modules/terraform-aws-lambda/blob/258e82b50adc451f51544a2b57fd1f6f8f4a61e4/package.tf#L5-L7) модулінен мысал келтірілген.
 
-The [http](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) data source makes an HTTP GET request to the given URL and exports information about the response which is often useful to get information from endpoints where a native Terraform provider does not exist.
+&#x20;[http](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) дереккөзі берілген URL мекенжайына HTTP GET сұрауын жасайды және жауап туралы ақпаратты экспорттайды, бұл көбінесе тума (native) Terraform провайдері жоқ соңғы нүктелерден ақпарат алу үшін пайдалы
 
-## Remote state
+### Қашықтағы күй
 
-Store [Terraform state](https://www.terraform.io/docs/language/state/index.html) for each infrastructure module and composition in a remote backend, configured with ACLs, versioning, and logging. This single, authoritative source of truth keeps environments consistent and typically includes disaster-recovery features such as automated backups. Managing state locally can lead to collaboration issues and race conditions when multiple developers run Terraform at the same time, resulting in unpredictable outcomes.
+Әрбір инфрақұрылым модулі мен композиция үшін [Terraform күйін](https://www.terraform.io/docs/language/state/index.html) ACL (қол жеткізуді басқару тізімдері), нұсқалау және логтаумен конфигурацияланған қашықтағы бэкендте сақтаңыз. Бұл жалғыз, беделді ақиқат көзі орталарды бірізді ұстайды және әдетте автоматтандырылған резервтік көшірмелер сияқты апаттан кейін қалпына келтіру мүмкіндіктерін қамтиды. Күйді жергілікті басқару бірнеше әзірлеуші Terraform-ды бір уақытта қосқанда бірлескен жұмыс мәселелеріне және жарыс жағдайларына әкеліп соғуы мүмкін, нәтижесінде күтпеген жағдайлар орын алады.
 
-## Provider, provisioner, etc
+### Провайдер, провизионер және т.б.
 
-Providers, provisioners, and a few other terms are described very well in the official documentation and there is no point to repeat it here. To my opinion, they have little to do with writing good Terraform modules.
+Провайдерлер, провизионерлер және басқа да бірнеше терминдер ресми құжаттамада өте жақсы сипатталған және оларды бұл жерде қайталаудың қажеті жоқ. Менің ойымша, олардың жақсы Terraform модульдерін жазуға қатысы шамалы.
 
-## Why so _difficult_?
+### Неге сонша қиын?
 
-While individual resources are like atoms in the infrastructure, resource modules are molecules (consisting of atoms). A module is the smallest versioned and shareable unit. It has an exact list of arguments, implement basic logic for such a unit to do the required function. e.g., [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group) module creates `aws_security_group` and `aws_security_group_rule` resources based on input. This resource module by itself can be used together with other modules to create the infrastructure module.
+Жеке ресурстар инфрақұрылымдағы атомдар сияқты болса, ресурс модульдері — молекулалар (атомдардан тұратын). Модуль — ең кіші нұсқаланған және бөлісуге болатын бірлік. Оның нақты аргументтер тізімі бар, қажетті функцияны орындау үшін осындай бірліктің негізгі логикасын жүзеге асырады. Мысалы, [\`terraform-aws-security-group\`](https://github.com/terraform-aws-modules/terraform-aws-security-group) модулі кіріс деректер негізінде  `aws_security_group` және `aws_security_group_rule` ресурстарын жасайды. Бұл ресурс модулінің өзін инфрақұрылым модулін құру үшін басқа модульдермен бірге пайдалануға болады.
 
-Access to data across molecules (resource modules and infrastructure modules) is performed using the modules' outputs and data sources.
+Молекулалар (ресурс модульдері және инфрақұрылым модульдері) арасында деректерге қол жеткізу модульдердің шығыстары және дереккөздері арқылы жүзеге асырылады.
 
-Access between compositions is often performed using remote state data sources. There are [multiple ways to share data between configurations](https://www.terraform.io/docs/language/state/remote-state-data.html#alternative-ways-to-share-data-between-configurations).
+Композициялар арасындағы қолжетімділік көбінесе қашықтағы күй дереккөздері арқылы жүзеге асырылады. Конфигурациялар [арасында деректерді бөлісудің бірнеше жолы бар](https://www.terraform.io/docs/language/state/remote-state-data.html#alternative-ways-to-share-data-between-configurations).
 
-When putting concepts described above in pseudo-relations it may look like this:
+Жоғарыда сипатталған ұғымдарды псевдо-қатынастарға салғанда, ол келесідей көрінуі мүмкін:
 
 ```
 composition-1 {

@@ -4,8 +4,8 @@ metaLinks:
     - https://app.gitbook.com/s/e1Mp2scOX6OnQbifCen3/workshop
 ---
 
-# Workshop
+# Воркшоп
 
-There is also a workshop for people who want to practice some of the things described in this guide.
+Осы нұсқаулықта сипатталған кейбір әдістерді тәжірибе жүзінде қолданып көргісі келетін адамдарға арналған воркшоп та бар.
 
-The content is here - [https://github.com/antonbabenko/terraform-best-practices-workshop](https://github.com/antonbabenko/terraform-best-practices-workshop)
+Мазмұны мұнда - [https://github.com/antonbabenko/terraform-best-practices-workshop](https://github.com/antonbabenko/terraform-best-practices-workshop)

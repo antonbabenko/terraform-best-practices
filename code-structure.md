@@ -4,81 +4,83 @@ metaLinks:
     - https://app.gitbook.com/s/e1Mp2scOX6OnQbifCen3/code-structure
 ---
 
-# Code structure
+# Код құрылымы
 
-Questions related to Terraform code structure are by far the most frequent in the community. Everyone thought about the best code structure for the project at some point also.
+Terraform кодының құрылымына қатысты сұрақтар - қауымдастықта ең жиі қойылатын сұрақтардың бірі. Әркім де бір кездері жоба үшін ең жақсы код құрылымы қандай болатыны туралы ойланған.
 
-## How should I structure my Terraform configurations?
+## Terraform конфигурацияларын қалай құрылымдауым керек?
 
-This is one of the questions where lots of solutions exist and it is very hard to give universal advice, so let's start with understanding what are we dealing with.
+Бұл - көптеген шешімдері бар және әмбебап кеңес беру өте қиын сұрақтардың бірі, сондықтан біз немен жұмыс істеп жатқанымызды түсінуден бастайық.
 
-* What is the complexity of your project?
-  * Number of related resources
-  * Number of Terraform providers (see note below about "logical providers")
-* How often does your infrastructure change?
-  * **From** once a month/week/day
-  * **To** continuously (every time when there is a new commit)
-* Code change initiators? _Do you let the CI server update the repository when a new artifact is built?_
-  * Only developers can push to the infrastructure repository
-  * Everyone can propose a change to anything by opening a PR (including automated tasks running on the CI server)
-* Which deployment platform or deployment service do you use?
-  * AWS CodeDeploy, Kubernetes, or OpenShift require a slightly different approach
-* How environments are grouped?
-  * By environment, region, project
-
-{% hint style="info" %}
-_Logical providers_ work entirely within Terraform's logic and very often don't interact with any other services, so we can think about their complexity as O(1). The most common logical providers include [random](https://registry.terraform.io/providers/hashicorp/random/latest/docs), [local](https://registry.terraform.io/providers/hashicorp/local/latest/docs), [terraform](https://www.terraform.io/docs/providers/terraform/index.html), [null](https://registry.terraform.io/providers/hashicorp/null/latest/docs), [time](https://registry.terraform.io/providers/hashicorp/time/latest).
-{% endhint %}
-
-## Getting started with the structuring of Terraform configurations
-
-Putting all code in `main.tf` is a good idea when you are getting started or writing an example code. In all other cases you will be better having several files split logically like this:
-
-* `main.tf` - call modules, locals, and data sources to create all resources
-* `variables.tf` - contains declarations of variables used in `main.tf`
-* `outputs.tf` - contains outputs from the resources created in `main.tf`
-* `versions.tf` - contains version requirements for Terraform and providers
-
-`terraform.tfvars` should not be used anywhere except [composition](key-concepts.md#composition).
-
-## How to think about Terraform configuration structure?
+* Жобаңыздың күрделілігі қандай?
+  * Байланысты ресурстар саны
+  * Terraform провайдерлерінің саны (төмендегі «логикалық провайдерлер» туралы ескертуді қараңыз)
+* Инфрақұрылымыңыз қаншалықты жиі өзгереді?
+  * Айына/аптасына/күніне бір реттен **бастап**
+  * Үздіксізге **дейін** (жаңа коммит болған сайын)
+* Код өзгерістерінің бастамашылары кімдер? _Жаңа артефакт жиналған кезде CI серверіне репозиторийді жаңартуға рұқсат бересіз бе?_
+  * Инфрақұрылым репозиторийіне тек әзірлеушілер ғана push жасай алады (өзгеріс жібере алады)
+  * Әркім PR ашу арқылы кез келген нәрсеге өзгеріс ұсына алады (соның ішінде CI серверінде жұмыс істейтін автоматтандырылған тапсырмалар да)
+* Қандай орналастыру (deployment) платформасын немесе қызметін пайдаланасыз?
+  * AWS CodeDeploy, Kubernetes немесе OpenShift сәл басқаша тәсілді қажет етеді
+* Орталар қалай топтастырылған?
+  * Орта, аймақ, жоба бойынша
 
 {% hint style="info" %}
-Please make sure that you understand key concepts - [resource module](key-concepts.md#resource-module), [infrastructure module](key-concepts.md#infrastructure-module), and [composition](key-concepts.md#composition), as they are used in the following examples.
+Логикалық провайдерлер\_ толығымен Terraform логикасының ішінде жұмыс істейді және көбінесе басқа қызметтермен мүлдем әрекеттеспейді, сондықтан біз олардың күрделілігін O(1) деп қарастыра аламыз. Ең жиі кездесетін логикалық провайдерлерге [random](https://registry.terraform.io/providers/hashicorp/random/latest/docs), [local](https://registry.terraform.io/providers/hashicorp/local/latest/docs), [terraform](https://www.terraform.io/docs/providers/terraform/index.html), [null](https://registry.terraform.io/providers/hashicorp/null/latest/docs), [time](https://registry.terraform.io/providers/hashicorp/time/latest) жатады.
 {% endhint %}
 
-### Common recommendations for structuring code
+## Terraform конфигурацияларын құрылымдауға кіріспе
 
-* It is easier and faster to work with a smaller number of resources
-  * `terraform plan` and `terraform apply` both make cloud API calls to verify the status of resources
-  * If you have your entire infrastructure in a single composition this can take some time
-* A blast radius (in case of security breach) is smaller with fewer resources
-  * Insulating unrelated resources from each other by placing them in separate compositions reduces the risk if something goes wrong
-* Start your project using remote state because:
-  * Your laptop is no place for your infrastructure source of truth
-  * Managing a `tfstate` file in git is a nightmare
-  * Later when infrastructure layers start to grow in multiple directions (number of dependencies or resources) it will be easier to keep things under control
-* Practice a consistent structure and [naming](naming.md) convention:
-  * Like procedural code, Terraform code should be written for people to read first, consistency will help when changes happen six months from now
-  * It is possible to move resources in Terraform state file but it may be harder to do if you have inconsistent structure and naming
-* Keep resource modules as plain as possible
-* Don't hardcode values that can be passed as variables or discovered using data sources
-* Use data sources and `terraform_remote_state` specifically as a glue between infrastructure modules within the composition
+Жұмысты бастағанда немесе мысал жазғанда, барлық кодты `main.tf` файлына орналастыру - жақсы идея. Басқа жағдайлардың барлығында файлдарды келесідей логикалық түрде бөлген дұрыс:
 
-In this book, example projects are grouped by _complexity_ - from small to very-large infrastructures. This separation is not strict, so check other structures also.
+* `main.tf` - барлық ресурстарды құру үшін модульдерді, locals және дереккөздерді шақыру
+* `variables.tf` -  `main.tf` ішінде қолданылатын айнымалылардың сипаттамасын қамтиды
+* `outputs.tf` -  `main.tf` ішінде құрылған ресурстардың шығыстарын (outputs) қамтиды
+* `versions.tf` - Terraform және провайдерлерге арналған нұсқа талаптарын қамтиды
 
-### Orchestration of infrastructure modules and compositions
+`terraform.tfvars` файлын [композициядан](key-concepts.md#kompoziciya) басқа еш жерде қолданбау керек.
 
-Having a small infrastructure means that there is a small number of dependencies and few resources. As the project grows the need to chain the execution of Terraform configurations, connecting different infrastructure modules, and passing values within a composition becomes obvious.
+## Terraform конфигурациясының құрылымы туралы қалай ойлау керек?
 
-There are at least 5 distinct groups of orchestration solutions that developers use:
+{% hint style="info" %}
+Келесі мысалдарда қолданылатындықтан, негізгі ұғымдарды -[ресурс модулі](key-concepts.md#resurs-moduli), [инфрақұрылым модулі](key-concepts.md#infra-rylym-moduli) және [композицияны](key-concepts.md#kompoziciya) түсінгеніңізге көз жеткізіңіз.&#x20;
+{% endhint %}
 
-1. Terraform only. Very straightforward, developers have to know only Terraform to get the job done.
-2. Terragrunt. Pure orchestration tool which can be used to orchestrate the entire infrastructure as well as handle dependencies. Terragrunt operates with infrastructure modules and compositions natively, so it reduces duplication of code.
-3. In-house scripts. Often this happens as a starting point towards orchestration and before discovering Terragrunt.
-4. Ansible or similar general purpose automation tool. Usually used when Terraform is adopted after Ansible, or when Ansible UI is actively used.
-5. [Crossplane](https://crossplane.io) and other Kubernetes-inspired solutions. Sometimes it makes sense to utilize the Kubernetes ecosystem and employ a reconciliation loop feature to achieve the desired state of your Terraform configurations. View video [Crossplane vs Terraform](https://www.youtube.com/watch?v=ELhVbSdcqSY) for more information.
+### Кодты құрылымдау бойынша жалпы ұсыныстар
 
-With that in mind, this book reviews the first two of these project structures, Terraform only and Terragrunt.
+* Аз санды ресурстармен жұмыс істеу оңайырақ әрі жылдамырақ
+  * `terraform plan` және `terraform apply` пәрмендері ресурстардың күйін тексеру үшін бұлттық API шақыруларын жасайды
+  * Егер бүкіл инфрақұрылымыңыз бір композицияда болса, бұл біраз уақыт алуы мүмкін
+* Ресурстар аз болғанда зақымдану аймағы (қауіпсіздік бұзылған жағдайда) кішірек болады
+  * Тәуелсіз ресурстарды бөлек композицияларға орналастыру арқылы бір-бірінен оқшаулау, бірдеңе дұрыс болмай қалған жағдайда тәуекелді азайтады
+* Жобаңызды қашықтағы күйді пайдалана отырып бастаңыз, себебі:
+  * Сіздің ноутбугіңіз инфрақұрылымның ақиқат көзі болатын орын емес
+  * &#x20;`tfstate` файлын git-те басқару — нағыз қорқынышты түс
+  * Кейінірек инфрақұрылым қабаттары бірнеше бағытта (тәуелділіктер немесе ресурстар саны) өсе бастағанда, бәрін бақылауда ұстау оңайырақ болады
+* Бірізді құрылым мен [атау келісімін](naming.md) ұстаныңыз:
+  * Процедуралық код сияқты, Terraform коды да бірінші кезекте адамдар оқуы үшін жазылуы керек, ал бірізділік алты айдан кейін өзгерістер енгізілгенде көмектеседі
+  * Terraform күй файлында (state file) ресурстарды жылжытуға болады, бірақ құрылым мен атаулар жүйесіз болса, мұны істеу қиынырақ болуы мүмкін
+* Ресурс модульдерін мүмкіндігінше қарапайым етіп сақтаңыз
+* Айнымалы ретінде беруге немесе дереккөздер арқылы табуға болатын мәндерді кодқа қатқыл жазбаңыз
+* Дереккөздер мен `terraform_remote_state` -ті композиция ішіндегі инфрақұрылым модульдерінің арасындағы «желім» ретінде арнайы қолданыңыз
 
-See examples of code structures for [Terraform](examples/terraform/) or [Terragrunt](examples/terragrunt.md) in the next chapter.
+Бұл кітапта үлгі жобалар _күрделілігіне_ қарай топтастырылған — кішіден бастап өте үлкен инфрақұрылымдарға дейін. Бұл бөлу қатаң емес, сондықтан басқа құрылымдарды да тексеріп көріңіз.
+
+### Инфрақұрылым модульдері мен композицияларды оркестрациялау
+
+Шағын инфрақұрылымның болуы тәуелділіктердің және ресурстардың аз екенін білдіреді. Жоба өскен сайын Terraform конфигурацияларының орындалуын тізбектеу, әртүрлі инфрақұрылым модульдерін байланыстыру және композиция ішінде мәндерді тасымалдау қажеттілігі айқын болады.
+
+&#x20;
+
+Әзірлеушілер қолданатын оркестрация шешімдерінің кем дегенде 5 бөлек тобы бар:
+
+1. Тек Terraform. Өте қарапайым, жұмысты орындау үшін әзірлеушілерге тек Terraform-ды білу жеткілікті.
+2. Terragrunt. Бүкіл инфрақұрылымды оркестрациялауға, сондай-ақ тәуелділіктерді басқаруға болатын таза оркестрация құралы. Terragrunt инфрақұрылым модульдерімен және композициялармен тума түрде жұмыс істейді, сондықтан ол кодтың қайталануын азайтады.
+3. Ішкі скрипттер. Бұл көбінесе оркестрацияға бастапқы қадам ретінде және Terragrunt-ты ашқанға дейін орын алады.
+4. Ansible немесе соған ұқсас жалпы мақсаттағы автоматтандыру құралы. Әдетте Terraform Ansible-ден кейін қабылданғанда немесе Ansible UI белсенді қолданылғанда пайдаланылады.
+5. [Crossplane](https://crossplane.io) және басқа Kubernetes-пен шабыттандырылған шешімдер. Кейде Kubernetes экожүйесін пайдалану және Terraform конфигурацияларының қалаған күйіне жету үшін үйлестіру циклі мүмкіндігін қолдану мағыналы болады. Қосымша ақпарат алу үшін [Crossplane vs Terraform](https://www.youtube.com/watch?v=ELhVbSdcqSY) бейнесін қараңыз.
+
+Осыны ескере отырып, бұл кітап осы жоба құрылымдарының алғашқы екеуін — «Тек Terraform» және «Terragrunt»-ты қарастырады.
+
+Келесі тарауда [Terraform](examples/terraform/) немесе [Terragrunt](examples/terragrunt.md) үшін код құрылымдарының мысалдарын қараңыз.

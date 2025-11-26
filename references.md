@@ -4,18 +4,18 @@ metaLinks:
     - https://app.gitbook.com/s/e1Mp2scOX6OnQbifCen3/references
 ---
 
-# References
+# Сілтемелер
 
 {% hint style="info" %}
-There are a lot of people who create great content and manage open-source projects relevant to the Terraform community but I can't think of the best structure to get these links listed here without copying lists like [awesome-terraform](https://github.com/shuaibiyy/awesome-terraform).
+There are a lot of people who create great content and manage open-source projects relevant to the Terraform қауымдастығына қатысты керемет контент жасайтын және ашық бастапқы кодты жобаларды жүргізетін адамдар өте көп, бірақ [awesome-terraform](https://github.com/shuaibiyy/awesome-terraform). сияқты тізімдерді көшірместен, бұл сілтемелерді осында тізімдеудің ең жақсы құрылымын ойластыра алмадым.
 {% endhint %}
 
-[https://x.com/i/lists/1042729226057732096](https://x.com/i/lists/1042729226057732096) - List of people who work with Terraform very actively and can tell you a lot (if you ask them).
+[https://x.com/i/lists/1042729226057732096](https://x.com/i/lists/1042729226057732096) - Terraform-мен өте белсенді жұмыс істейтін және сізге көп нәрсе айтып бере алатын адамдар тізімі (егер олардан сұрасаңыз).
 
-[https://www.hashicorp.com/ambassador/directory?products=Terraform](https://www.hashicorp.com/ambassador/directory?products=Terraform) - A community of individuals who actively share their Terraform knowledge through content, events, and open collaboration.
+[https://www.hashicorp.com/ambassador/directory?products=Terraform](https://www.hashicorp.com/ambassador/directory?products=Terraform) - Контент, іс-шаралар және ашық ынтымақтастық арқылы Terraform бойынша білімдерін белсенді бөлісетін жеке тұлғалар
 
-[https://github.com/shuaibiyy/awesome-terraform](https://github.com/shuaibiyy/awesome-terraform) - Curated list of resources on HashiCorp's Terraform.
+[https://github.com/shuaibiyy/awesome-terraform](https://github.com/shuaibiyy/awesome-terraform) - HashiCorp Terraform бойынша ресурстардың іріктелген тізімі.
 
-[http://bit.ly/terraform-youtube](http://bit.ly/terraform-youtube) - "Your Weekly Dose of Terraform" YouTube channel by Anton Babenko. Live streams with reviews, interviews, Q\&A, live coding, and some hacking with Terraform.
+[http://bit.ly/terraform-youtube](http://bit.ly/terraform-youtube) - Антон Бабенконың "Your Weekly Dose of Terraform" YouTube арнасы. Шолулар, сұхбаттар, сұрақ-жауап (Q\&A), live coding және Terraform-мен түрлі эксперименттер жүргізілетін тікелей трансляциялар.
 
-[https://weekly.tf](https://weekly.tf) - Terraform Weekly newsletter. Various news in the Terraform world (projects, announcements, discussions) by Anton Babenko.
+[https://weekly.tf](https://weekly.tf) - Terraform Weekly ақпараттық бюллетені. Антон Бабенко ұсынатын Terraform әлеміндегі түрлі жаңалықтар (жобалар, хабарландырулар, талқылаулар).

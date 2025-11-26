@@ -1,25 +1,25 @@
 ---
-description: FTP (Frequent Terraform Problems)
+description: FTP (Frequent Terraform Problems - Terraform-да жиі кездесетін мәселелер)
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/e1Mp2scOX6OnQbifCen3/faq
 ---
 
-# FAQ
+# ЖҚС (FAQ)
 
-## What are the tools I should be aware of and consider using?
+### Қандай құралдарды білуім керек және қолдануды қарастыруым керек?
 
-* [**Terragrunt**](https://terragrunt.gruntwork.io/) - Orchestration tool
-* [**tflint**](https://github.com/terraform-linters/tflint) - Code linter
-* [**tfenv**](https://github.com/tfutils/tfenv) - Version manager
-* [**Atmos**](https://atmos.tools/) - A modern composable framework for Terraform backed by YAML
-* [**asdf-hashicorp**](https://github.com/asdf-community/asdf-hashicorp) - HashiCorp plugin for the [asdf](https://github.com/asdf-vm/asdf) version manager
-* [**Atlantis**](https://www.runatlantis.io/) - Pull Request automation
-* [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - Collection of git hooks for Terraform to be used with [pre-commit framework](https://pre-commit.com/)
-* [**Infracost**](https://www.infracost.io) - Cloud cost estimates for Terraform in pull requests. Works with Terragrunt, Atlantis and pre-commit-terraform too.
+* [**Terragrunt**](https://terragrunt.gruntwork.io/) - Оркестрация құралы
+* [**tflint**](https://github.com/terraform-linters/tflint) - Код линтері
+* [**tfenv**](https://github.com/tfutils/tfenv) - Нұсқа менеджері
+* [**Atmos**](https://atmos.tools/) - YAML-ге негізделген Terraform-ға арналған заманауи композициялық фреймворк
+* [**asdf-hashicorp**](https://github.com/asdf-community/asdf-hashicorp) - [asdf](https://github.com/asdf-vm/asdf) нұсқа менеджеріне арналған HashiCorp плагині
+* [**Atlantis**](https://www.runatlantis.io/) - Pull Request-ті автоматтандыру
+* [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) -  [pre-commit framework](https://pre-commit.com/) бірге қолданылатын Terraform-ға арналған git хуктарының жинағы
+* [**Infracost**](https://www.infracost.io) - Pull request-тердегі Terraform үшін бұлттық шығындар сметасы. Terragrunt, Atlantis және pre-commit-terraform-мен де жұмыс істейді.
 
-## What are the solutions to [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell) with modules?
+### Модульдердегі «[тәуелділік тозағының](https://en.wikipedia.org/wiki/Dependency_hell)» шешімдері қандай?
 
-Versions of resource and infrastructure modules should be specified. Providers should be configured outside of modules, but only in composition. Version of providers and Terraform can be locked also.
+Ресурс және инфрақұрылым модульдерінің нұсқалары көрсетілуі тиіс. Провайдерлер модульдерден тыс, бірақ тек композицияда бапталуы керек. Провайдерлер мен Terraform нұсқаларын да бекітіп қоюға (lock) болады.
 
-There is no master dependency management tool, but there are some tips to make dependency specifications less problematic. For example, [Dependabot](https://dependabot.com/) can be used to automate dependency updates. Dependabot creates pull requests to keep your dependencies secure and up-to-date. Dependabot supports Terraform configurations.
+Тәуелділікті басқаратын әмбебап (master) құрал жоқ, бірақ тәуелділік сипаттамаларын проблемасыз етуге арналған бірнеше кеңестер бар. Мысалы, тәуелділік жаңартуларын автоматтандыру үшін [Dependabot](https://dependabot.com/) қолдануға болады. Dependabot тәуелділіктеріңізді қауіпсіз және жаңартылған күйде ұстау үшін pull request-тер жасайды. Dependabot Terraform конфигурацияларына қолдау көрсетеді.
