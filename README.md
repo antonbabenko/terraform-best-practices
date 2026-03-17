@@ -20,14 +20,18 @@ description: >-
 
 Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-links) if you want to become a sponsor.
 
-| [![](.gitbook/assets/ctf-logo.png)](https://compliance.tf/?utm_source=tf_best_practices&utm_medium=sponsorship) | [Compliance.tf](https://compliance.tf/?utm_source=tf_best_practices&utm_medium=sponsorship) — Terraform Compliance Simplified. Make your Terraform modules compliance-ready. |
-| --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![](.gitbook/assets/)]()                                                                                       | []() —                                                                                                                                                                       |
+| [![](.gitbook/assets/ctf-logo2.png)](https://compliance.tf/?utm_source=tf_best_practices&utm_medium=sponsorship) | [Compliance.tf](https://compliance.tf/?utm_source=tf_best_practices&utm_medium=sponsorship) — Compliance-Ready Terraform AWS Modules for Regulated Cloud Infrastructure. |
+| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [![](.gitbook/assets/)]()                                                                                        | []() —                                                                                                                                                                   |
 
 ## ترجمہ
 
 {% content-ref url="https://app.gitbook.com/s/u3iITRIHQx97ro2PkfdC/" %}
 [العربية (Arabic)](https://app.gitbook.com/s/u3iITRIHQx97ro2PkfdC/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/s/HIIbuo2qwpwWibJGbONo/" %}
+[Беларуская (Belarusian)](https://app.gitbook.com/s/HIIbuo2qwpwWibJGbONo/)
 {% endcontent-ref %}
 
 {% content-ref url="https://app.gitbook.com/s/PJbgKPAX0ohEMLpETpg7/" %}
@@ -80,6 +84,10 @@ Please [contact me](https://github.com/antonbabenko/terraform-aws-devops#social-
 
 {% content-ref url="https://app.gitbook.com/s/BoZVs6O2OJFQLNV1utmm/" %}
 [ಕನ್ನಡ (Kannada)](https://app.gitbook.com/s/BoZVs6O2OJFQLNV1utmm/)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/s/V6xNaEjmcRiNvvf4Exo7/" %}
+[Қазақша (Kazakh)](https://app.gitbook.com/s/V6xNaEjmcRiNvvf4Exo7/)
 {% endcontent-ref %}
 
 {% content-ref url="https://app.gitbook.com/s/bJnDvAqIyVgo7LDHgxYJ/" %}
