@@ -1,5 +1,6 @@
 # Workshop
 
-There is also a workshop for people who want to practice some of the things described in this guide.
+Таксама ёсць workshop для тых, хто хоча практыкаваць некаторыя з рэчаў, апісаных у гэтым кіраўніцтве.
 
-The content is here - [https://github.com/antonbabenko/terraform-best-practices-workshop](https://github.com/antonbabenko/terraform-best-practices-workshop)
+Змест тут - [https://github.com/antonbabenko/terraform-best-practices-workshop](https://github.com/antonbabenko/terraform-best-practices-workshop)
+

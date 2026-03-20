@@ -1,60 +1,60 @@
-# Key concepts
+# Ключавыя паняцці
 
-The official Terraform documentation describes [all aspects of configuration in details](https://www.terraform.io/docs/configuration/index.html). Read it carefully to understand the rest of this section.
+Афіцыйная дакументацыя Terraform падрабязна апісвае [ўсе аспекты канфігурацыі ў дэталях](https://www.terraform.io/docs/configuration/index.html). Уважліва прачытайце яе, каб зразумець астатнюю частку гэтага раздзела.
 
-This section describes key concepts which are used inside the book.
+У гэтым раздзеле апісваюцца ключавыя паняцці, якія выкарыстоўваюцца ў кнізе.
 
-## Resource
+## Рэсурс
 
-Resource is `aws_vpc`, `aws_db_instance`, etc. A resource belongs to a provider, accepts arguments, outputs attributes, and has a lifecycle. A resource can be created, retrieved, updated, and deleted.
+Рэсурсам ёсць `aws_vpc`, `aws_db_instance`, і г.д. Рэсурс належыць правайдэру, прымае аргументы, вяртае атрыбуты і мае жыццёвы цыкл. Рэсурс можна быць створаны, атрыманы, абноўлены і выдалены.
 
-## Resource module
+## Рэсурсны модуль
 
-Resource module is a collection of connected resources which together perform the common action (for e.g., [AWS VPC Terraform module](https://github.com/terraform-aws-modules/terraform-aws-vpc/) creates VPC, subnets, NAT gateway, etc). It depends on provider configuration, which can be defined in it, or in higher-level structures (e.g., in infrastructure module).
+Рэсурсны модуль ёсць зборам звязаных рэсурсаў, якія сумесна выконваюць агульную задачу (напрыклад, [AWS VPC Terraform module](https://github.com/terraform-aws-modules/terraform-aws-vpc/) стварае VPC, падсеткі, NAT шлюз і г.д.). Ён залежыць ад канфігурацыі правайдэра, якую можна вызначыць у ім самім або ў структурах вышэйшага ўзроўню (напрыклад, у модулі інфраструктуры).
 
-## Infrastructure module
+## Інфраструктурны модуль
 
-An infrastructure module is a collection of resource modules, which can be logically not connected, but in the current situation/project/setup serves the same purpose. It defines the configuration for providers, which is passed to the downstream resource modules and to resources. It is normally limited to work in one entity per logical separator (e.g., AWS Region, Google Project).
+Інфраструктурны модуль ёсць зборам модуляў рэсурсаў, якія могуць быць лагічна не звязаны, але ў бягучай сітуацыі/праэкце/канфігурацыі служаць адной мэце. Ён вызначае канфігурацыю правайдэраў, якая перадаецца далейшым модулям рэсурсаў і самім рэсурсам. Звычайна ён абмежаваны працай у адной сутнасці на кожны лагічны разьдзяляльнік (напрыклад, рэгіён AWS, праект Google).
 
-For example, [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis/) module uses resource modules like [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc/) and [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group/) to manage the infrastructure required for running [Atlantis](https://www.runatlantis.io) on [AWS Fargate](https://aws.amazon.com/fargate/).
+Напрыклад, [terraform-aws-atlantis](https://github.com/terraform-aws-modules/terraform-aws-atlantis/) модуль выкарыстоўвае модулі рэсурсаў, такія як [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc/) і [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group/) для кіравання інфраструктурай, неабходнай для запуску [Atlantis](https://www.runatlantis.io) на [AWS Fargate](https://aws.amazon.com/fargate/).
 
-Another example is [terraform-aws-cloudquery](https://github.com/cloudquery/terraform-aws-cloudquery) module where multiple modules by [terraform-aws-modules](https://github.com/terraform-aws-modules/) are being used together to manage the infrastructure as well as using Docker resources to build, push, and deploy Docker images. All in one set.
+Іншы прыклад — модуль [terraform-aws-cloudquery](https://github.com/cloudquery/terraform-aws-cloudquery) , дзе некалькі модуляў ад [terraform-aws-modules](https://github.com/terraform-aws-modules/) выкарыстоўваюцца разам для кіравання інфраструктурай, а таксама для выкарыстання рэсурсаў Docker для стварэння, адпраўкі і разгортвання вобразаў Docker. Усё ў адным наборы.
 
-## Composition
+## Кампазіцыя
 
-Composition is a collection of infrastructure modules, which can span across several logically separated areas (e.g.., AWS Regions, several AWS accounts). Composition is used to describe the complete infrastructure required for the whole organization or project.
+Кампазіцыя ёсць зборам інфраструктурных модуляў, якія могуць ахопліваць некалькі лагічна асобных абласцей (напрыклад, рэгіёны AWS, некалькі ўліковых запісаў AWS). Кампазіцыя выкарыстоўваецца для апісання поўнай інфраструктуры, неабходнай для ўсёй арганізацыі або праекта.
 
-A composition consists of infrastructure modules, which consist of resources modules, which implement individual resources.
+Кампазіцыя складаецца з інфраструктурных модуляў, якія, у сваю чаргу, складаюцца з модуляў рэсурсаў, што рэалізуюць асобныя рэсурсы.
 
-![Simple infrastructure composition](.gitbook/assets/composition-1.png)
+![Простая кампазіцыя інфраструктуры](.gitbook/assets/composition-1.png)
 
-## Data source
+## Крыніца дадзеных
 
-Data source performs a read-only operation and is dependant on provider configuration, it is used in a resource module and an infrastructure module.
+Крыніца дадзеных выконвае read-only аперацыю і залежыць ад канфігурацыі правайдэра, яна выкарыстоўваецца ў модулі рэсурсаў і модулі інфраструктуры.
 
-Data source `terraform_remote_state` acts as a glue for higher-level modules and compositions.
+Крыніца дадзеных `terraform_remote_state` выступае ў якасці клею для модуляў вышэйшага ўзроўню і кампазіцый.
 
-The [external](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) data source allows an external program to act as a data source, exposing arbitrary data for use elsewhere in the Terraform configuration. Here is an example from the [terraform-aws-lambda module](https://github.com/terraform-aws-modules/terraform-aws-lambda/blob/258e82b50adc451f51544a2b57fd1f6f8f4a61e4/package.tf#L5-L7) where the filename is computed by calling an external Python script.
+[Вонкавая](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) крыніца дадзеных дазваляе вонкавай праграме выступаць у якасці крыніцы дадзеных, прадастаўляючы адвольныя дадзеныя для выкарыстання ў іншых частках канфігурацыі Terraform. Вось прыклад з модуля [terraform-aws-lambda](https://github.com/terraform-aws-modules/terraform-aws-lambda/blob/258e82b50adc451f51544a2b57fd1f6f8f4a61e4/package.tf#L5-L7) дзе імя файла разлічваецца шляхам выкліку знешняга скрыпта на Python.
 
-The [http](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) data source makes an HTTP GET request to the given URL and exports information about the response which is often useful to get information from endpoints where a native Terraform provider does not exist.
+Крыніца дадзеных [http](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) накіроўвае HTTP-запыт GET на дадзены URL і экспартуе інфармацыю аб адказе, што часта карысна для атрымання інфармацыі з кропак доступу, для якіх не існуе ўласнага Terraform правайдэра.
 
-## Remote state
+## Дыстанцыйны стан
 
-Store [Terraform state](https://www.terraform.io/docs/language/state/index.html) for each infrastructure module and composition in a remote backend, configured with ACLs, versioning, and logging. This single, authoritative source of truth keeps environments consistent and typically includes disaster-recovery features such as automated backups. Managing state locally can lead to collaboration issues and race conditions when multiple developers run Terraform at the same time, resulting in unpredictable outcomes.
+Захоўвайце [Terraform state](https://www.terraform.io/docs/language/state/index.html) для кожнага інфраструктурнага модуля і кампазіцыі ў дыстанцыйным бэкэндзе, наладжаным з дапамогай ACL, версіявання і часопісавання. Гэты адзіная аўтарытэтная крыніца праўды падтрымлівае асяроддзі ўзгодненымі і звычайна ўключае функцыі аднаўлення пасля аварый, такія як аўтаматызаваныя рэзервовыя копіі. Кіраванне станам лакальна можа прывесці да праблем з узаемадзеяннем і станам гонкі, калі некалькі распрацоўшчыкаў запускаюць Terraform адначасова, што прыводзіць да непрадказальных вынікаў.
 
-## Provider, provisioner, etc
+## Правайдэр, правіжанер і г.д.
 
-Providers, provisioners, and a few other terms are described very well in the official documentation and there is no point to repeat it here. To my opinion, they have little to do with writing good Terraform modules.
+Правайдэры, правіжанеры і некалькі іншых тэрмінаў вельмі добра апісаны ў афіцыйнай дакументацыі, і няма сэнсу паўтараць гэта тут. На маю думку, яны маюць мала агульнага з напісаннем добрых модуляў Terraform.
 
-## Why so _difficult_?
+## Чаму так _складана_?
 
-While individual resources are like atoms in the infrastructure, resource modules are molecules (consisting of atoms). A module is the smallest versioned and shareable unit. It has an exact list of arguments, implement basic logic for such a unit to do the required function. e.g., [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group) module creates `aws_security_group` and `aws_security_group_rule` resources based on input. This resource module by itself can be used together with other modules to create the infrastructure module.
+У той час як асобныя рэсурсы — гэта атамы ў інфраструктуры, модулі рэсурсаў — гэта малекулы (якія складаюцца з атамаў). Модуль — гэта найменшая версіяваная адзінка якой магчыма падзяліцца. Ён мае дакладны спіс аргументаў, рэалізуе асноўную логіку, неабходную для таго, каб такая адзінка выконвала патрэбную функцыю. Напрыклад, модуль [terraform-aws-security-group](https://github.com/terraform-aws-modules/terraform-aws-security-group) стварае рэсурсы `aws_security_group` і `aws_security_group_rule` на аснове ўваходных дадзеных. Гэты рэсурсны модуль сам па сабе можа выкарыстоўвацца разам з іншымі модулямі для стварэння інфраструктурнага модуля.
 
-Access to data across molecules (resource modules and infrastructure modules) is performed using the modules' outputs and data sources.
+Доступ да дадзеных паміж малекуламі (рэсурснымі модулямі і інфраструктурнымі модулямі) ажыццяўляецца з дапамогай вывада модуляў і крыніц даных.
 
-Access between compositions is often performed using remote state data sources. There are [multiple ways to share data between configurations](https://www.terraform.io/docs/language/state/remote-state-data.html#alternative-ways-to-share-data-between-configurations).
+Доступ паміж кампазіцыямі часта ажыццяўляецца з дапамогай дыстанцыйных крыніц стану. Існуе [спосабаў абмену данымі паміж канфігурацыямі](https://www.terraform.io/docs/language/state/remote-state-data.html#alternative-ways-to-share-data-between-configurations).
 
-When putting concepts described above in pseudo-relations it may look like this:
+Калі змясціць апісаныя вышэй канцэпцыі ў псеўда-адносіны, гэта можа выглядаць так:
 
 ```
 composition-1 {

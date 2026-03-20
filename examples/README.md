@@ -1,22 +1,22 @@
-# Code structure examples
+# Прыклады структуры кода
 
-## Terraform code structures
+## Структуры кода Terraform
 
 {% hint style="info" %}
-These examples are showing AWS provider but the majority of principles shown in the examples can be applied to other public cloud providers as well as other kinds of providers (DNS, DB, Monitoring, etc)
+Гэтыя прыклады прадстаўлены правайдарам AWS, але большасць паказаных у іх прынцыпаў можна прымяніць і да іншых правайдараў публічнага воблака, а таксама да іншых відаў правайдараў (DNS, БД, маніторынг і г.д.)
 {% endhint %}
 
-| Type                                                           | Description                                                                                                                                     | Readiness |
-| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| [small](terraform/small-size-infrastructure.md)                | Few resources, no external dependencies. Single AWS account. Single region. Single environment.                                                 | Yes       |
-| [medium](terraform/medium-size-infrastructure.md)              | Several AWS accounts and environments, off-the-shelf infrastructure modules using Terraform.                                                    | Yes       |
-| [large](terraform/large-size-infrastructure-with-terraform.md) | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terraform. | WIP       |
-| very-large                                                     | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terraform.                                                                  | No        |
+| Тып                                                             | Апісанне                                                                                                                                                                              | Гатоўнасць    |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| [маленькі](terraform/small-size-infrastructure.md)              | Мала рэсурсаў, без знешніх залежнасцей. Адна ўліковы запіс AWS. Адзін рэгіён. Адно асяроддзе.                                                                                         | Так           |
+| [сярэдні](terraform/medium-size-infrastructure.md)              | Некалькі ўліковых запісаў і асяроддзяў AWS, гатовыя інфраструктурныя модулі з выкарыстаннем Terraform.                                                                                | Так           |
+| [вялікі](terraform/large-size-infrastructure-with-terraform.md) | Шмат уліковых запісаў AWS, шмат рэгіёнаў, пільная патрэба скараціць капіраванне-ўстаўку, уласныя інфраструктурныя модулі, актыўнае выкарыстанне кампазіцый. Выкарыстоўваем Terraform. | У распрацоўцы |
+| вельмі вялікі                                                   | Некалькі пастаўшчыкоў (AWS, GCP, Azure). Разгортванне ў некалькіх воблаках. Выкарыстанне Terraform.                                                                                   | Не            |
 
-## Terragrunt code structures
+## Структуры кода Terragrunt
 
-| Type       | Description                                                                                                                                      | Readiness |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| medium     | Several AWS accounts and environments, off-the-shelf infrastructure modules, composition pattern using Terragrunt.                               | No        |
-| large      | Many AWS accounts, many regions, urgent need to reduce copy-paste, custom infrastructure modules, heavy usage of compositions. Using Terragrunt. | No        |
-| very-large | Several providers (AWS, GCP, Azure). Multi-cloud deployments. Using Terragrunt.                                                                  | No        |
+| Тып           | Апісанне                                                                                                                                                                               | Гатоўнасць |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| сярэдні       | Некалькі ўліковых запісаў і асяроддзяў AWS, гатовыя інфраструктурныя модулі, узор кампазіцыі з выкарыстаннем Terragrunt.                                                               | Не         |
+| вялікі        | Шмат уліковых запісаў AWS, шмат рэгіёнаў, пільная патрэба скараціць капіраванне-ўстаўку, уласныя інфраструктурныя модулі, актыўнае выкарыстанне кампазіцый. Выкарыстоўваем Terragrunt. | Не         |
+| вельмі вялікі | Некалькі пастаўшчыкоў (AWS, GCP, Azure). Разгортванне ў некалькіх воблаках. Выкарыстанне Terragrunt.                                                                                   | Не         |

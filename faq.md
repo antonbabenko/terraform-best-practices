@@ -2,21 +2,22 @@
 description: FTP (Frequent Terraform Problems)
 ---
 
-# FAQ
+# Частыя пытанні
 
-## What are the tools I should be aware of and consider using?
+## Якімі інструментамі мне варта ведаць і разгледзець магчымасць выкарыстання?
 
-* [**Terragrunt**](https://terragrunt.gruntwork.io/) - Orchestration tool
-* [**tflint**](https://github.com/terraform-linters/tflint) - Code linter
-* [**tfenv**](https://github.com/tfutils/tfenv) - Version manager
-* [**Atmos**](https://atmos.tools/) - A modern composable framework for Terraform backed by YAML
-* [**asdf-hashicorp**](https://github.com/asdf-community/asdf-hashicorp) - HashiCorp plugin for the [asdf](https://github.com/asdf-vm/asdf) version manager
-* [**Atlantis**](https://www.runatlantis.io/) - Pull Request automation
-* [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - Collection of git hooks for Terraform to be used with [pre-commit framework](https://pre-commit.com/)
-* [**Infracost**](https://www.infracost.io) - Cloud cost estimates for Terraform in pull requests. Works with Terragrunt, Atlantis and pre-commit-terraform too.
+* [**Terragrunt**](https://terragrunt.gruntwork.io/) - Інструмент аркестрацыі
+* [**tflint**](https://github.com/terraform-linters/tflint) - Кодавы лінтэр
+* [**tfenv**](https://github.com/tfutils/tfenv) - Мэнэджэр версій
+* [**Atmos**](https://atmos.tools/) - Сучасны кампазіцыйны фрэймворк для Terraform з падтрымкай YAML
+* [**asdf-hashicorp**](https://github.com/asdf-community/asdf-hashicorp) - Плагін HashiCorp для менеджара версій [asdf](https://github.com/asdf-vm/asdf)
+* [**Atlantis**](https://www.runatlantis.io/) - Аўтаматызацыя Pull Request
+* [**pre-commit-terraform**](https://github.com/antonbabenko/pre-commit-terraform) - Зборнік git hooks для Terraform для выкарыстання з [pre-commit framework](https://pre-commit.com/)
+* [**Infracost**](https://www.infracost.io) - Ацэнка cloud cost estimates для Terraform у pull requests. Таксама працуе з Terragrunt, Atlantis і pre-commit-terraform.
 
-## What are the solutions to [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell) with modules?
+## Якія ёсць рашэнні для праблемы з [адам залежнасцяў](https://en.wikipedia.org/wiki/Dependency_hell) з модулямі?
 
-Versions of resource and infrastructure modules should be specified. Providers should be configured outside of modules, but only in composition. Version of providers and Terraform can be locked also.
+Версіі модуляў рэсурсаў і інфраструктуры павінны быць зададзены. Провайдары павінны канфігуравацца па-за модулямі, але толькі ў кампазіцыі. Версію правайдараў і Terraform таксама можна заблакіраваць.
 
-There is no master dependency management tool, but there are some tips to make dependency specifications less problematic. For example, [Dependabot](https://dependabot.com/) can be used to automate dependency updates. Dependabot creates pull requests to keep your dependencies secure and up-to-date. Dependabot supports Terraform configurations.
+Не існуе адзінага інструмента для кіравання залежнасцямі, але ёсць некалькі парад, як зрабіць спецыфікацыі залежнасцей менш праблемнымі. Напрыклад, [Dependabot](https://dependabot.com/) можна выкарыстоўваць для аўтаматызацыі абнаўленняў залежнасцей. Dependabot стварае pull requests , каб падтрымліваць вашыя залежнасці бяспечнымі і актуальнымі. Dependabot падтрымлівае канфігурацыі Terraform.
+

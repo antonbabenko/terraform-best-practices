@@ -1,17 +1,17 @@
-# Code styling
+# Стылізацыя кода
 
 {% hint style="info" %}
-* Examples and Terraform modules should contain documentation explaining features and how to use them.
-* All links in README.md files should be absolute to make Terraform Registry website show them correctly.
-* Documentation may include diagrams created with [mermaid](https://github.com/mermaid-js/mermaid) and blueprints created with [cloudcraft.co](https://cloudcraft.co).
-* Use [Terraform pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform) to make sure that the code is valid, properly formatted, and automatically documented before it is pushed to git and reviewed by humans.
+* Прыклады і модулі Terraform павінны ўтрымліваць дакументацыю, якая тлумачыць іх функцыі і спосабы выкарыстання.
+* Усе спасылкі ў файлах README.md павінны быць абсалютнымі, каб вэб-сайт рэестра Terraform адлюстроўваў іх правільна.
+* Дакументацыя можа ўключаць дыяграмы, створаныя з дапамогай [mermaid](https://github.com/mermaid-js/mermaid) і blueprints створаныя з дапамогай [cloudcraft.co](https://cloudcraft.co).
+* Выкарыстоўвайце [Terraform pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform) перад адпраўкай змен, каб пераканацца, што код з'яўляецца сапраўдным, правільна адфарматаваным і аўтаматычна дакументаваным, перш чым ён будзе адпраўлены ў git і правераны людзьмі.
 {% endhint %}
 
-## Formatting
+## Фарматаванне
 
-Terraform’s `terraform fmt` command enforces the canonical style for configuration files. The tool is intentionally opinionated and non-configurable, guaranteeing a uniform format across codebases so reviewers can focus on substance rather than style. Integrate it with [Terraform pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform) to validate and format code automatically before it reaches version control.
+Каманда Terraform `terraform fmt` забяспечвае кананічны стыль для файлаў канфігурацыі. Інструмент наўмысна мае пэўныя абмежаванні і не можа быць настроены, што гарантуе адзіны фармат для ўсіх кодавых баз, каб аглядальнікі маглі засяродзіцца на сутнасці, а не на стылі. Інтэгруйце яго з [Terraform pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform) каб аўтаматычна правяраць і фарматаваць код, перш чым ён трапіць у сістэму кантролю версій.
 
-For example:
+Напрыклад:
 
 ```yaml
 # .pre-commit-config.yaml
@@ -22,13 +22,13 @@ repos:
       - id: terraform_fmt
 ```
 
-In CI pipelines, use `terraform fmt -check` to verify compliance. It exits with status 0 when all files are correctly formatted; otherwise, it returns a non-zero code and lists the offending files. Centralizing formatting in this way removes merge friction and enforces a consistent standard across teams.
+У CI pipelines выкарыстоўвайце `terraform fmt -check` для праверкі адпаведнасці. Праграма выходзіць з кодам статусу 0, калі ўсе файлы правільна адфарматаваны; у адваротным выпадку яна вяртае ненулявы код і пералічвае файлы з парушэннямі. Такая цэнтралізацыя фарматавання змяншае цяжкасці пры зліцці змен і ўводзіць адзіны стандарт для ўсіх каманд.
 
 ## Editor Configuration
 
-* **Use `.editorconfig`**: [EditorConfig](https://editorconfig.org/) helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. Include an `.editorconfig` file in your repositories to maintain consistent whitespace and indentation.
+* **Выкарыстоўвайце `.editorconfig`**: [EditorConfig](https://editorconfig.org/) дапамагае падтрымліваць адзіны стыль кадавання для некалькіх распрацоўшчыкаў, якія працуюць над адным праектам у розных рэдактарах і IDE. Дадавайце файл `.editorconfig` у вашы рэпазіторыі, каб падтрымліваць адзіныя прабелы і водступы.
 
-**Example `.editorconfig`:**
+**Прыклад `.editorconfig`:**
 
 ```editorconfig
 [*]
@@ -44,25 +44,25 @@ indent_size = 2
 indent_style = tab
 ```
 
-## Documentation
+## Дакументацыя
 
-### Automatically generated documentation
+### Аўтаматычна згенераваная дакументацыя
 
-[pre-commit](https://pre-commit.com/) is a framework for managing and maintaining multi-language pre-commit hooks. It is written in Python and is a powerful tool to do something automatically on a developer's machine before code is committed to a git repository. Normally, it is used to run linters and format code (see [supported hooks](https://pre-commit.com/hooks.html)).
+[pre-commit](https://pre-commit.com/) ёсць фрэймворкам для кіравання і падтрымкі шматмоўных pre-commit hooks. Ён напісаны на Python і з'яўляецца магутным інструментам для аўтаматычнага выканання задач на камп'ютары распрацоўшчыка перад тым, як код будзе адпраўлены ў git-рэпазіторый. Звычайна ён выкарыстоўваецца для запуску лінтэраў і фарматавання кода (гл. [supported hooks](https://pre-commit.com/hooks.html)).
 
-With Terraform configurations `pre-commit` can be used to format and validate code, as well as to update documentation.
+З канфігурацыямі Terraform можна выкарыстоўваць `pre-commit` для фарматавання і праверкі кода, а таксама для абнаўлення дакументацыі.
 
-Check out the [pre-commit-terraform repository](https://github.com/antonbabenko/pre-commit-terraform/blob/master/README.md) to familiarize yourself with it, and existing repositories (eg, [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc)) where this is used already.
+Азнаёмцеся з [pre-commit-terraform рэпазіторыем](https://github.com/antonbabenko/pre-commit-terraform/blob/master/README.md) і існуючымі рэпазіторыямі (напрыклад, [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc)) дзе гэта ўжо выкарыстоўваецца.
 
 ### terraform-docs
 
-[terraform-docs](https://github.com/segmentio/terraform-docs) is a tool that does the generation of documentation from Terraform modules in various output formats. You can run it manually (without pre-commit hooks), or use [pre-commit-terraform hooks](https://github.com/antonbabenko/pre-commit-terraform) to get the documentation updated automatically.
+[terraform-docs](https://github.com/segmentio/terraform-docs) ёсць інструментам, які генеруе дакументацыю з модуляў Terraform у розных выхадных фарматах. Яго можна запускаць уручную (без pre-commit hooks), або выкарыстоўваць [pre-commit-terraform hooks](https://github.com/antonbabenko/pre-commit-terraform) , каб дакументацыя абнаўлялася аўтаматычна.
 
-### Comment style
+### Стыль каментароў
 
-Use `#` for comments. Avoid `//` or block comments.
+Выкарыстоўвайце `#` для каментароў. Пазбягайце `//` або блочных каментароў.
 
-**Example:**
+**Прыклад:**
 
 ```hcl
 # This is a comment explaining the resource
@@ -71,9 +71,9 @@ resource "aws_instance" "this" {
 }
 ```
 
-**Section Headers**: Delimit section headers in code with `# -----` or `######` for clarity.
+**Загалоўкі раздзелаў**: для яснасці раздзяляйце загалоўкі раздзелаў у кодзе сімваламі `# -----` або `######`.
 
-**Example:**
+**Прыклад:**
 
 ```hcl
 # --------------------------------------------------
@@ -87,8 +87,8 @@ resource "aws_instance" "this" {
 
 @todo: Document module versions, release, GH actions
 
-## Resources
+## Рэсурсы
 
 1. [pre-commit framework homepage](https://pre-commit.com/)
 2. [Collection of git hooks for Terraform to be used with pre-commit framework](https://github.com/antonbabenko/pre-commit-terraform)
-3. Blog post by [Dean Wilson](https://github.com/deanwilson): [pre-commit hooks and terraform - a safety net for your repositories](https://www.unixdaemon.net/tools/terraform-precommit-hooks/)
+3. Пост у блогу [Dean Wilson](https://github.com/deanwilson): [pre-commit hooks and terraform - a safety net for your repositories](https://www.unixdaemon.net/tools/terraform-precommit-hooks/)

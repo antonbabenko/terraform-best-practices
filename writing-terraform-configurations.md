@@ -1,15 +1,15 @@
-# Writing Terraform configurations
+# Напісанне канфігурацый Terraform
 
-## Use `locals` to specify explicit dependencies between resources
+## Выкарыстоўвайце `locals` каб задаць дакладныя залежнасці паміж рэсурсамі
 
-Helpful way to give a hint to Terraform that some resources should be deleted before even when there is no direct dependency in Terraform configurations.
+Карысны спосаб даць Terraform падказку, што некаторыя рэсурсы павінны быць выдаленыя, нават калі ў канфігурацыях Terraform няма прамой залежнасці.
 
 [https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf](https://raw.githubusercontent.com/antonbabenko/terraform-best-practices/master/snippets/locals.tf)
 
-## Terraform 0.12 - Required vs Optional arguments
+## Terraform 0.12 - абавязковыя і неабавязковыя аргументы
 
-1. Required argument `index_document` must be set, if `var.website` is not an empty map.
-2. Optional argument `error_document` can be omitted.
+1. Абавязковы аргумент `index_document` павінен быць заданы, калі `var.website` ня ёсць пустой мапай.
+2. Дадатковы аргумент `error_document` можна прапусціць.
 
 {% code title="main.tf" %}
 ```hcl
@@ -41,9 +41,9 @@ website = {
 ```
 {% endcode %}
 
-## Managing Secrets in Terraform
+## Кіраванне сакрэтамі ў Terraform
 
-Secrets are sensitive data that can be anything from passwords and encryption keys to API tokens and service certificates. They are typically used to set up authentication and authorization for cloud resources. Safeguarding these sensitive resources is crucial because exposure could lead to security breaches. It’s highly recommended to avoid storing secrets in Terraform config and state, as anyone with access to version control can access them. Instead, consider using external data sources to fetch secrets from external sources at runtime. For instance, if you’re using AWS Secrets Manager, you can use the `aws_secretsmanager_secret_version` data source to access the secret value. The following example uses write-only arguments, which are supported in Terraform 1.11+, and keep the value out of Terraform state.
+Сакрэты ёсць канфідэнцыйнай інфармацыя, якая можа ўключаць усё што заўгодна: ад пароляў і ключоў шыфравання да токенаў API і service certificates. Звычайна яны выкарыстоўваюцца для наладкі аўтэнтыфікацыі і аўтарызацыі cloud рэсурсаў. Абарона гэтых канфідэнцыйных рэсурсаў мае вырашальнае значэнне, бо іх раскрыццё можа прывесці да парушэнняў бяспекі. Настойліва рэкамендуецца пазбягаць захоўвання сакрэтных даных у канфігурацыі і стане Terraform, паколькі любы чалавек з доступам да сістэмы кантролю версій можа атрымаць да іх доступ. Замест гэтага разгледзьце магчымасць выкарыстання знешніх крыніц даных для атрымання сакрэтных даных з вонкавых крыніц падчас выканання. Напрыклад, калі вы выкарыстоўваеце AWS Secrets Manager, вы можаце выкарыстоўваць крыніцу дадзеных `aws_secretsmanager_secret_version`  для доступу да значэння сакрэта. У наступным прыкладзе выкарыстоўваюцца аргументы толькі для запісу, якія падтрымліваюцца ў Terraform 1.11+ і захоўваюць значэнне па-за станам Terraform.
 
 {% code title="main.tf" %}
 ```hcl

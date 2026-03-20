@@ -1,15 +1,15 @@
-# References
+# Спасылкі
 
 {% hint style="info" %}
-There are a lot of people who create great content and manage open-source projects relevant to the Terraform community but I can't think of the best structure to get these links listed here without copying lists like [awesome-terraform](https://github.com/shuaibiyy/awesome-terraform).
+Ёсць шмат людзей, якія ствараюць выдатны кантэнт і кіруюць праектамі з адкрытым зыходным кодам, актуальнымі для супольнасці Terraform, але я не магу прыдумаць найлепшай структуры, каб размясціць тут гэтыя спасылкі без капіявання такіх спісаў, як [awesome-terraform](https://github.com/shuaibiyy/awesome-terraform).
 {% endhint %}
 
-[https://x.com/i/lists/1042729226057732096](https://x.com/i/lists/1042729226057732096) - List of people who work with Terraform very actively and can tell you a lot (if you ask them).
+[https://x.com/i/lists/1042729226057732096](https://x.com/i/lists/1042729226057732096) - Спіс людзей, якія вельмі актыўна працуюць з Terraform і могуць шмат расказаць (калі вы іх спытаеце).
 
-[https://www.hashicorp.com/ambassador/directory?products=Terraform](https://www.hashicorp.com/ambassador/directory?products=Terraform) - A community of individuals who actively share their Terraform knowledge through content, events, and open collaboration.
+[https://www.hashicorp.com/ambassador/directory?products=Terraform](https://www.hashicorp.com/ambassador/directory?products=Terraform) - Супольнасць людзей, якія актыўна дзеляцца сваімі ведамі па Terraform праз кантэнт, мерапрыемствы і адкрытае супрацоўніцтва.
 
-[https://github.com/shuaibiyy/awesome-terraform](https://github.com/shuaibiyy/awesome-terraform) - Curated list of resources on HashiCorp's Terraform.
+[https://github.com/shuaibiyy/awesome-terraform](https://github.com/shuaibiyy/awesome-terraform) - Адборны спіс рэсурсаў па Terraform ад HashiCorp.
 
-[http://bit.ly/terraform-youtube](http://bit.ly/terraform-youtube) - "Your Weekly Dose of Terraform" YouTube channel by Anton Babenko. Live streams with reviews, interviews, Q\&A, live coding, and some hacking with Terraform.
+[http://bit.ly/terraform-youtube](http://bit.ly/terraform-youtube) - YouTube-канал «Your Weekly Dose of Terraform» ад Антона Бабенка. Прамыя эфіры з аглядамі, інтэрв'ю, сесіямі пытанняў і адказаў, прамым праграмаваннем і трохі хакерства з Terraform.
 
-[https://weekly.tf](https://weekly.tf) - Terraform Weekly newsletter. Various news in the Terraform world (projects, announcements, discussions) by Anton Babenko.
+[https://weekly.tf](https://weekly.tf) - Terraform Weekly newsletter. Разнастайныя навіны са свету Terraform (праекты, аб'явы, абмеркаванні) ад Anton Babenko.
