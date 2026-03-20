@@ -15,19 +15,26 @@ Beware that actual cloud resources often have restrictions in allowed names. Som
 
 ## Resource and data source arguments
 
-1.  Do not repeat resource type in resource name (not partially, nor completely):
+1. Do not repeat resource type in resource name (not partially, nor completely):
 
-    {% hint style="success" %}
-    `resource "aws_route_table" "public" {}`
-    {% endhint %}
+{% hint style="success" %}
+```
+`resource "aws_route_table" "public" {}`
+```
+{% endhint %}
 
-    {% hint style="danger" %}
-    `resource "aws_route_table" "public_route_table" {}`
-    {% endhint %}
+{% hint style="danger" %}
+```
+`resource "aws_route_table" "public_route_table" {}`
+```
+{% endhint %}
 
-    {% hint style="danger" %}
-    `resource "aws_route_table" "public_aws_route_table" {}`
-    {% endhint %}
+{% hint style="danger" %}
+```
+`resource "aws_route_table" "public_aws_route_table" {}`
+```
+{% endhint %}
+
 2. Resource name should be named `this` if there is no more descriptive and general name available, or if the resource module creates a single resource of this type (eg, in [AWS VPC module](https://github.com/terraform-aws-modules/terraform-aws-vpc) there is a single resource of type `aws_nat_gateway` and multiple resources of type`aws_route_table`, so `aws_nat_gateway` should be named `this` and `aws_route_table` should have more descriptive names - like `private`, `public`, `database`).
 3. Always use singular nouns for names.
 4. Use `-` inside arguments values and in places where value will be exposed to a human (eg, inside DNS name of RDS instance).
@@ -146,7 +153,7 @@ resource "aws_nat_gateway" "this" {    # Good
 8. Use type `any` to disable type validation starting from a certain depth or when multiple types should be supported.
 9. Value `{}` is sometimes a map but sometimes an object. Use `tomap(...)` to make a map because there is no way to make an object.
 10. Avoid double negatives: use positive variable names to prevent confusion. For example, use `encryption_enabled` instead of `encryption_disabled`.
-11. For variables that should never be `null`, set `nullable = false`. This ensures that passing `null` uses the default value instead of `null`.  If `null` is an acceptable value, you can omit nullable or set it to `true`.
+11. For variables that should never be `null`, set `nullable = false`. This ensures that passing `null` uses the default value instead of `null`. If `null` is an acceptable value, you can omit nullable or set it to `true`.
 
 ## Outputs
 
@@ -208,4 +215,3 @@ output "rds_cluster_instance_endpoints" {
 ```
 {% endcode %}
 {% endhint %}
-
